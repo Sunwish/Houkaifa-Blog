@@ -125,29 +125,30 @@
 
 
 
-  <meta name="description" content="&amp;emsp;&amp;emsp;最近代码码多了于是打算翻翻有什么游戏可玩，无意之中翻到了之前玩的元气骑士，想到还有许多人物都没有解锁，但是又不想攒金币因为太慢了，况且还有一些角色是要RMB才能买的，通过PKiP发现无加固壳，于是一怒之下打算破解其内购。  0x01 找寻突破口&amp;emsp;&amp;emsp;打开元气骑士进入购买人物的场景，点击购买，因为钻石不够所以点进去发现跳转到了购买钻石的页面。1块钱可以兑换8">
-<meta name="keywords" content="逆向破解">
+  <meta name="description" content="前言 考虑到使用E语言设计程序界面比较简单与方便，同时又有一些比较完善的 DirectUI 引擎的支持，故在一些实际的小项目中可以考虑用C/C++写核心，E写界面，两者取长补短，提高开发效率。本文分享如何在VS2017中用使用C++编写DLL文件并在E中进行调用。  （在E中借助自绘引擎做的界面）  一、编写DLL 1. 打开VS2017，文件-&amp;gt;新建-&amp;gt;项目-Visual C++-&amp;">
+<meta name="keywords" content="经验心得">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sun的逆向之路（一）——元气骑士的内购破解">
-<meta property="og:url" content="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-1/index.html">
+<meta property="og:title" content="C++DLL在E中的调用（C+E模式）">
+<meta property="og:url" content="http://Sunwish.coding.me/2018/07/30/C-DLL-E/index.html">
 <meta property="og:site_name" content="Sunwish&#39;s Blog">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;最近代码码多了于是打算翻翻有什么游戏可玩，无意之中翻到了之前玩的元气骑士，想到还有许多人物都没有解锁，但是又不想攒金币因为太慢了，况且还有一些角色是要RMB才能买的，通过PKiP发现无加固壳，于是一怒之下打算破解其内购。  0x01 找寻突破口&amp;emsp;&amp;emsp;打开元气骑士进入购买人物的场景，点击购买，因为钻石不够所以点进去发现跳转到了购买钻石的页面。1块钱可以兑换8">
+<meta property="og:description" content="前言 考虑到使用E语言设计程序界面比较简单与方便，同时又有一些比较完善的 DirectUI 引擎的支持，故在一些实际的小项目中可以考虑用C/C++写核心，E写界面，两者取长补短，提高开发效率。本文分享如何在VS2017中用使用C++编写DLL文件并在E中进行调用。  （在E中借助自绘引擎做的界面）  一、编写DLL 1. 打开VS2017，文件-&amp;gt;新建-&amp;gt;项目-Visual C++-&amp;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-1/1.png">
-<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-1/2.png">
-<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-1/3.png">
-<meta property="og:updated_time" content="2018-07-30T12:34:28.868Z">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/C-DLL-E/1.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/C-DLL-E/2.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/C-DLL-E/3.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/C-DLL-E/4.jpg">
+<meta property="og:updated_time" content="2018-07-30T12:54:03.761Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sun的逆向之路（一）——元气骑士的内购破解">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;最近代码码多了于是打算翻翻有什么游戏可玩，无意之中翻到了之前玩的元气骑士，想到还有许多人物都没有解锁，但是又不想攒金币因为太慢了，况且还有一些角色是要RMB才能买的，通过PKiP发现无加固壳，于是一怒之下打算破解其内购。  0x01 找寻突破口&amp;emsp;&amp;emsp;打开元气骑士进入购买人物的场景，点击购买，因为钻石不够所以点进去发现跳转到了购买钻石的页面。1块钱可以兑换8">
-<meta name="twitter:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-1/1.png">
+<meta name="twitter:title" content="C++DLL在E中的调用（C+E模式）">
+<meta name="twitter:description" content="前言 考虑到使用E语言设计程序界面比较简单与方便，同时又有一些比较完善的 DirectUI 引擎的支持，故在一些实际的小项目中可以考虑用C/C++写核心，E写界面，两者取长补短，提高开发效率。本文分享如何在VS2017中用使用C++编写DLL文件并在E中进行调用。  （在E中借助自绘引擎做的界面）  一、编写DLL 1. 打开VS2017，文件-&amp;gt;新建-&amp;gt;项目-Visual C++-&amp;">
+<meta name="twitter:image" content="http://sunwish.coding.me/2018/07/30/C-DLL-E/1.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-1/"/>
+  <link rel="canonical" href="http://Sunwish.coding.me/2018/07/30/C-DLL-E/"/>
 
 
 
@@ -157,7 +158,7 @@
   };
 </script>
 
-  <title>Sun的逆向之路（一）——元气骑士的内购破解 | Sunwish's Blog</title>
+  <title>C++DLL在E中的调用（C+E模式） | Sunwish's Blog</title>
   
 
 
@@ -318,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-1/">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/07/30/C-DLL-E/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sunwish">
@@ -335,7 +336,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Sun的逆向之路（一）——元气骑士的内购破解
+          <h1 class="post-title" itemprop="name headline">C++DLL在E中的调用（C+E模式）
               
             
           </h1>
@@ -361,7 +362,7 @@
                 
               
 
-              <time title="创建时间：2018-07-30 20:25:08 / 修改时间：20:34:28" itemprop="dateCreated datePublished" datetime="2018-07-30T20:25:08+08:00">2018-07-30</time>
+              <time title="创建时间：2018-07-30 20:51:55 / 修改时间：20:54:03" itemprop="dateCreated datePublished" datetime="2018-07-30T20:51:55+08:00">2018-07-30</time>
             
 
             
@@ -399,20 +400,28 @@
       
 
       
-        <p>&emsp;&emsp;最近代码码多了于是打算翻翻有什么游戏可玩，无意之中翻到了之前玩的元气骑士，想到还有许多人物都没有解锁，但是又不想攒金币因为太慢了，况且还有一些角色是要RMB才能买的，通过PKiP发现无加固壳，于是一怒之下打算破解其内购。</p>
-<hr>
-<h3 id="0x01-找寻突破口"><a href="#0x01-找寻突破口" class="headerlink" title="0x01 找寻突破口"></a><strong>0x01 找寻突破口</strong></h3><p>&emsp;&emsp;打开元气骑士进入购买人物的场景，点击购买，因为钻石不够所以点进去发现跳转到了购买钻石的页面。1块钱可以兑换800钻石，于是点购买跳转到了爱贝支付。返回取消购买回到了游戏入口界面，提示购买失败。</p>
-<h3 id="0x02-初步尝试破解"><a href="#0x02-初步尝试破解" class="headerlink" title="0x02 初步尝试破解"></a><strong>0x02 初步尝试破解</strong></h3><p>&emsp;&emsp;于是用MT2拿到apk的dex文件，搜索“失败”，发现iapppay下的IAppPayOrderChecker和MainActivit\$3\$1格外瞩目。进入IAppPayOrderChecker发现没有相关内容，于是转到MainActivity\$3\$1中。在OnPayResult函数中发现如下代码块：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.line 113</span><br><span class="line">iget-object v1, p0, Lcom/chillyroomsdk/iapppay/MainActivity$3$1;-&gt;this$1:Lcom/chillyroomsdk/iapppay/MainActivity$3;</span><br><span class="line">iget-object v2, p0, Lcom/chillyroomsdk/iapppay/MainActivity$3$1;-&gt;val$orderId:Ljava/lang/String;</span><br><span class="line">iget-object v3, p0, Lcom/chillyroomsdk/iapppay/MainActivity$3$1;-&gt;val$extra:Ljava/lang/String;</span><br><span class="line">invoke-virtual &#123;v1, v2, v3&#125;, Lcom/chillyroomsdk/iapppay/MainActivity$3;-&gt;onPayFail(Ljava/lang/String;Ljava/lang/String;)V</span><br><span class="line">.line 116</span><br><span class="line">:goto_18</span><br><span class="line">const-string v1, &quot;Unity&quot;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;其中的OnPayFail值得注意，既然有OnPayFail那么就应该有OnPaySuccess，我们继续往下翻的确找到了OnPaySuccess，同时在OnPaySuccess上方看到 :pswitch_45，将其记录下来。翻到底部找到了一个pswitch结构：<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> .line 96</span><br><span class="line">:pswitch_data_86</span><br><span class="line">.packed-switch 0x0</span><br><span class="line">    :pswitch_45</span><br><span class="line">    :pswitch_4</span><br><span class="line">    :pswitch_7c</span><br><span class="line">.end packed-switch</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;注意到:pswitch_45下方还有:pswitch_4和:pswitch_7c，我们找到pswitch_4所在的位置发现正好跳转到了OnPayFail所在的位置。这时我们大概清楚了代码逻辑，即不同的情况分别跳转到不同的:pswitch_代码块。我们将另外两个pswitch的跳转编号全部修改为45。到这里，购买成功的破解就完成了。</p>
-<h3 id="0x03-深入订单校验"><a href="#0x03-深入订单校验" class="headerlink" title="0x03 深入订单校验"></a><strong>0x03 深入订单校验</strong></h3><p>&emsp;&emsp;但是进入游戏发现仍然购买失败。提示的是：支付成功但验签失败。<br><img src="/2018/07/30/sun-s-reverse-1/1.png" alt=""><br>&emsp;&emsp;看来元气骑士的内购验证还是比较严密的。回到dex文件，发现该字符串仍旧位于MainActivity\$3$1，由:cond_6e跳转而来，发现原来在OnPaySuccess的上一步还做了一个支付判断（if-eqz v0, :cond_6e），如果订单状态校验不吻合就跳转到:cond_6e。将这条代码注释掉，重新进入游戏购买，发现还是失败了，提示订单支付失败。若发生丢单请勿重复支付，并联系客服。<br><img src="/2018/07/30/sun-s-reverse-1/2.png" alt=""><br>&emsp;&emsp;这时冷静下来，猜想除了 MainActivity 内的 OnPayResult 判断外，应该还有其他的订单检验方法，重新审视了一下com类，不出所料，在最开始被忽视的 <strong>IAppPayOrderChecker</strong> 中发现了对应字符串，代码块对应 :cond_f5，往上一翻发现多处if-eqz跳转到了此处！二话不说对所有转到 :cond_f5 的判断语句进行注释，中途还发现一个 :cond_133 跳转到验证失败于是也一并注释了。<br>至此不出意外应该已经成功完成了内购破解。</p>
-<h3 id="0x04-破除apk签名验证"><a href="#0x04-破除apk签名验证" class="headerlink" title="0x04 破除apk签名验证"></a><strong>0x04 破除apk签名验证</strong></h3><p>有意思的是，虽然内购破解应该已经顺利完成了，但是重编译并自己手动打上签名安装后发现直接无法进入游戏了，提示我们请下载正版游戏并跳转到了元气骑士的官方网站。猜想是联网验证于是断掉无线局域网重进游戏，发现依旧无法进入游戏并直接闪退了，看来游戏做了联网+本地的双重验证。<br>回到dex++，最终在 UnityExtendAcitivity 中的起始位置发现了名为 GetKeyHash 函数，代码片段如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.method public static GetKeyHash()Ljava/lang/String;</span><br><span class="line">   .registers 7</span><br><span class="line">   .prologue</span><br><span class="line">   const/4 v3, 0x0</span><br><span class="line">   .line 26</span><br><span class="line">   :try_start_1</span><br><span class="line">   sget-object v4, Lcom/unity3d/player/UnityPlayer;-&gt;currentActivity:Landroid/app/Activity;</span><br><span class="line">   invoke-virtual &#123;v4&#125;, Landroid/app/Activity;-&gt;getPackageManager()Landroid/content/pm/PackageManager;</span><br><span class="line">   move-result-object v4</span><br></pre></td></tr></table></figure>
-<p>在.prologue与const/4 v3, 0x0之间直接插入return-void拦截此函数的执行，最后保存修改过的dex文件，更新apk包并打上应用签名，重新安装apk文件，没有出现异常，可以进入游戏了，随便购买一个人物，进入订单页面，返回取消订单，可以看到支付成功，除了人物之外，钻石也可以随意购买了。<br><img src="/2018/07/30/sun-s-reverse-1/3.png" alt="支付成功"></p>
-<h3 id="0x05-附件与声明"><a href="#0x05-附件与声明" class="headerlink" title="0x05 附件与声明"></a><strong>0x05 附件与声明</strong></h3><blockquote>
-<p>破解后的游戏下载地址：<a href="https://pan.baidu.com/s/1pL1JzsR" target="_blank" rel="noopener">https://pan.baidu.com/s/1pL1JzsR</a> 密码: 7dvq<br>本文及附件内容仅限于技术学习，同时希望相应公司尽快修复相关漏洞。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h3><blockquote>
+<p>考虑到使用E语言设计程序界面比较简单与方便，同时又有一些比较完善的 DirectUI 引擎的支持，故在一些实际的小项目中可以考虑用C/C++写核心，E写界面，两者取长补短，提高开发效率。本文分享如何在VS2017中用使用C++编写DLL文件并在E中进行调用。</p>
 </blockquote>
+<center><img src="/2018/07/30/C-DLL-E/1.jpg" alt="使用E做的界面"><br>（在E中借助自绘引擎做的界面）</center>
+
+<h3 id="一、编写DLL"><a href="#一、编写DLL" class="headerlink" title="一、编写DLL"></a><strong>一、编写DLL</strong></h3><p> <strong>1.</strong> 打开VS2017，文件-&gt;新建-&gt;项目-Visual C++-&gt;空项目，这里命名为demo。</p>
+<p> <strong>2.</strong> 在 资源管理器-&gt;源文件 中新建一个名为 demo.cpp 的 C++ 源文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;demo.h&quot;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">//返回整形的函数</span><br><span class="line">int testInt() </span><br><span class="line">&#123;</span><br><span class="line">	return 10;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//返回字符串的函数</span><br><span class="line">char *testString() </span><br><span class="line">&#123;</span><br><span class="line">	static char sample[100] = &#123; 0 &#125;;</span><br><span class="line">	strcpy_s(sample, &quot;demo&quot;);</span><br><span class="line">	return sample;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//有参数的函数</span><br><span class="line">int add(int a, int b) </span><br><span class="line">&#123;</span><br><span class="line">	return a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><strong>3.</strong> 在 资源管理器-&gt;源文件 中新建一个 demo.def 文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LIBRARY demo</span><br><span class="line">EXPORTS</span><br><span class="line">testInt</span><br><span class="line">add</span><br><span class="line">testString</span><br></pre></td></tr></table></figure>
+<p><strong>4.</strong> 在 资源管理器-&gt;头文件 中新建一个 demo.h 头文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#pragma once</span><br><span class="line">extern &quot;C&quot; __declspec(dllexport) int testInt();</span><br><span class="line">extern &quot;C&quot; __declspec(dllexport) int add(int a, int b);</span><br><span class="line">extern &quot;C&quot; __declspec(dllexport) char * testString();</span><br></pre></td></tr></table></figure>
+<p><strong>5.</strong> 为了得到尽可能小的体积，在 Release 模式下调试项目，报错显示不是有效的 Win32 应用程序，不用管，找到工程目录下 Release 文件夹中生成的 demo.exe，修改其后缀为 .dll 得到 DLL 文件。</p>
+<h3 id="二、调用DLL"><a href="#二、调用DLL" class="headerlink" title="二、调用DLL"></a><strong>二、调用DLL</strong></h3><p><strong>1.</strong> 新建E程序，添加外部DLL引用：</p>
+<p><img src="/2018/07/30/C-DLL-E/2.jpg" alt="E中添加外部DLL引用"></p>
+<p><strong>2.</strong> 这里注意，因为C++与E默认的约定模式不同，如果命令有参数的话，“在库中对应命令名”一栏前面要加上一个@符号，否则会出现堆栈错误。</p>
+<p><img src="/2018/07/30/C-DLL-E/3.jpg" alt="调用有参数的命令没有加@导致的堆栈错误"></p>
+<p><strong>3.</strong> 调用相关代码，此处添加在窗口创建完毕的事件子程序中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.版本 2</span><br><span class="line"></span><br><span class="line">信息框 (到文本 (testInt ()) ＋ #换行符 ＋ testString () ＋ #换行符 ＋ 到文本 (add (100, 200)), 0, , )</span><br><span class="line">结束 ()</span><br></pre></td></tr></table></figure>
+<p><strong>4.</strong> 将 demo.dll 放在e程序的同级目录下，或者使用 置DLL装载目录 () 命令将下一次默认调用目录转到dll文件所在目录，随后 F5 调试程序。运行结果如下图：</p>
+<p><img src="/2018/07/30/C-DLL-E/4.jpg" alt="运行结果"></p>
 <center>— END —</center>
       
     </div>
@@ -457,7 +466,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/逆向破解/" rel="tag"># 逆向破解</a>
+            <a href="/tags/经验心得/" rel="tag"># 经验心得</a>
           
         </div>
       
@@ -470,8 +479,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/20/My-First-Post/" rel="next" title="Sunwish's Blog 开通啦">
-                <i class="fa fa-chevron-left"></i> Sunwish's Blog 开通啦
+              <a href="/2018/07/30/sun-s-reverse-3/" rel="next" title="Sun的逆向之路（三）——暴破15年阿里移动安全挑战赛第一题">
+                <i class="fa fa-chevron-left"></i> Sun的逆向之路（三）——暴破15年阿里移动安全挑战赛第一题
               </a>
             
           </div>
@@ -480,8 +489,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/30/sun-s-reverse-2/" rel="prev" title="Sun的逆向之路（二）——FiF口语训练的刷分剖析">
-                Sun的逆向之路（二）——FiF口语训练的刷分剖析 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/30/BezierCurve/" rel="prev" title="贝塞尔曲线运动n阶追踪方程的数学原理及其匀速化方法和应用">
+                贝塞尔曲线运动n阶追踪方程的数学原理及其匀速化方法和应用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -636,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-找寻突破口"><span class="nav-number">1.</span> <span class="nav-text">0x01 找寻突破口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-初步尝试破解"><span class="nav-number">2.</span> <span class="nav-text">0x02 初步尝试破解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-深入订单校验"><span class="nav-number">3.</span> <span class="nav-text">0x03 深入订单校验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x04-破除apk签名验证"><span class="nav-number">4.</span> <span class="nav-text">0x04 破除apk签名验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x05-附件与声明"><span class="nav-number">5.</span> <span class="nav-text">0x05 附件与声明</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、编写DLL"><span class="nav-number">2.</span> <span class="nav-text">一、编写DLL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、调用DLL"><span class="nav-number">3.</span> <span class="nav-text">二、调用DLL</span></a></li></ol></div>
             
 
           </div>
