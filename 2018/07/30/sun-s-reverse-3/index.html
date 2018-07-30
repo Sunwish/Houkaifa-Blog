@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-loading-bar.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="&amp;emsp;0x01 观察题目&amp;emsp;&amp;emsp;用模拟器运行程序，看到题目营造了一个情景让我们破解应用的登录系统，先随便输入一串数字，提示我们密码不对，请继续破解。">
+<meta name="keywords" content="逆向破解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sun的逆向之路（三）——暴破15年阿里移动安全挑战赛第一题">
+<meta property="og:url" content="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-3/index.html">
+<meta property="og:site_name" content="Sunwish&#39;s Blog">
+<meta property="og:description" content="&amp;emsp;0x01 观察题目&amp;emsp;&amp;emsp;用模拟器运行程序，看到题目营造了一个情景让我们破解应用的登录系统，先随便输入一串数字，提示我们密码不对，请继续破解。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-3/1.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-3/2.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-3/3.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-3/4.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-3/5.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-3/6.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-3/7.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-3/8.jpg">
+<meta property="og:updated_time" content="2018-07-30T12:47:27.548Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sun的逆向之路（三）——暴破15年阿里移动安全挑战赛第一题">
+<meta name="twitter:description" content="&amp;emsp;0x01 观察题目&amp;emsp;&amp;emsp;用模拟器运行程序，看到题目营造了一个情景让我们破解应用的登录系统，先随便输入一串数字，提示我们密码不对，请继续破解。">
+<meta name="twitter:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-3/1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-3/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Sun的逆向之路（三）——暴破15年阿里移动安全挑战赛第一题 | Sunwish's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Sunwish's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="Sun everywhere, wish everywhere">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sunwish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Sun的逆向之路（三）——暴破15年阿里移动安全挑战赛第一题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-30 20:42:28 / 修改时间：20:47:27" itemprop="dateCreated datePublished" datetime="2018-07-30T20:42:28+08:00">2018-07-30</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/2018/07/30/sun-s-reverse-3/1.jpg" alt="这里写图片描述"></p>
+<h3 id="emsp-0x01-观察题目"><a href="#emsp-0x01-观察题目" class="headerlink" title="&emsp;0x01 观察题目"></a>&emsp;<strong>0x01 观察题目</strong></h3><p>&emsp;&emsp;用模拟器运行程序，看到题目营造了一个情景让我们破解应用的登录系统，先随便输入一串数字，提示我们密码不对，请继续破解。<br><a id="more"></a><br><img src="/2018/07/30/sun-s-reverse-3/2.jpg" alt="这里写图片描述"></p>
+<h3 id="emsp-0x02-静态暴破"><a href="#emsp-0x02-静态暴破" class="headerlink" title="&emsp;0x02 静态暴破"></a>&emsp;<strong>0x02 静态暴破</strong></h3><p>&emsp;&emsp;首先将AliCrackme_1.apk用apktool进行反编译。<br><img src="/2018/07/30/sun-s-reverse-3/3.jpg" alt="这里写图片描述"></p>
+<p>&emsp;&emsp;反编译成功后得到输出文件夹：<br><img src="/2018/07/30/sun-s-reverse-3/4.jpg" alt="这里写图片描述"></p>
+<p>&emsp;&emsp;在eclipse中新建Java Project，将反编译文件夹设为工程目录，我们来看一看工程结构。<br><img src="/2018/07/30/sun-s-reverse-3/5.jpg" alt="这里写图片描述"></p>
+<p>&emsp;&emsp;接下来查找一下“密码”，发现没有做编码，定位到了string.xml文件中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;resources&gt;</span><br><span class="line">    &lt;string name=&quot;abc_action_mode_done&quot;&gt;Done&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_action_bar_home_description&quot;&gt;Navigate home&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_action_bar_up_description&quot;&gt;Navigate up&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_action_menu_overflow_description&quot;&gt;More options&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_searchview_description_search&quot;&gt;Search&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_searchview_description_query&quot;&gt;Search query&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_searchview_description_clear&quot;&gt;Clear query&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_searchview_description_submit&quot;&gt;Submit query&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_searchview_description_voice&quot;&gt;Voice search&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_activitychooserview_choose_application&quot;&gt;Choose an app&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_activity_chooser_view_see_all&quot;&gt;See all&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_shareactionprovider_share_with_application&quot;&gt;Share with %s&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_shareactionprovider_share_with&quot;&gt;Share with&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;app_name&quot;&gt;UFO&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;hello_world&quot;&gt;Hello world!&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;action_settings&quot;&gt;Settings&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;dialog_title&quot;&gt;提示&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;dialog_error_tips&quot;&gt;密码不对，请继续破解&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;dialog_good_tips&quot;&gt;恭喜！！！破解成功！！！&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;dialog_ok&quot;&gt;确定&lt;/string&gt;</span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;对应string name是”dialog_error_tips”，顺便记录一下破解成功的string name，根据已有的线索追踪引用dialog_error_tips的位置，不难定位到public.xml文件。</p>
+<p><img src="/2018/07/30/sun-s-reverse-3/6.jpg" alt="这里写图片描述"></p>
+<p>&emsp;&emsp;可以看到其id为0x7f0a0011，而顺带记录下0x7f0a0012。顺藤摸瓜，看看哪里引用了0x7f0a0011，发现在MainActivity\$1与R\$String这两个文件中该字符串有出没，但显然后者没有有效信息，于是进入第一个smali文件，找到id所在位置，对应代码块如下：<br><img src="/2018/07/30/sun-s-reverse-3/7.jpg" alt="这里写图片描述"></p>
+<p>&emsp;&emsp;发现下面一大片位于:cond_0中，而整个:cond_0位于onClick函数内，这应该就是按钮的点击事件的处理函数，先看看在这里:cond_0中都做了哪些操作。<br>&emsp;&emsp;首先new-instance新创建了一个实例，随后const v6作为中间变量，不断调用AlertDialog$Builder中的setMessage函数构造Dialog的各部分字符串，在.line 67处显示了对话框，也就是我们看到的密码不正确的提示框。再往下翻，紧接着goto :goto_0，发现goto_0处就直接return-void了。<br>&emsp;&emsp;分析完了:cond_0内的逻辑，来看看哪些地方跳到了这儿。大致浏览一番，定位到了如下代码块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">if-eqz v4, :cond_0</span><br><span class="line">const-string v6, &quot;&quot;</span><br><span class="line">invoke-virtual &#123;v4, v6&#125;, Ljava/lang/String;-&gt;equals(Ljava/lang/Object;)Z</span><br><span class="line">move-result v6</span><br><span class="line">if-nez v6, :cond_0</span><br><span class="line">invoke-virtual &#123;v4, v2&#125;, Ljava/lang/String;-&gt;equals(Ljava/lang/Object;)Z</span><br><span class="line">move-result v6</span><br><span class="line">if-eqz v6, :cond_0</span><br><span class="line">.line 55</span><br><span class="line">iget-object v6, p0, Lcom/example/simpleencryption/MainActivity$1;-&gt;this$0:Lcom/example/simpleencryption/MainActivity;</span><br><span class="line">invoke-static &#123;v6&#125;, Lcom/example/simpleencryption/MainActivity;-&gt;access$1(Lcom/example/simpleencryption/MainActivity;)V</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;首先判断v4是否等于零，是的话跳转到:cond_0，后面连续几个判断都跳到了:cond_0，说明v4，v6的值代表了输入的密码是否正确，这里我们直接黑掉这几个判断，代码顺利执行到.line 55，这里access\$1函数引起了我们的关注，于是进入MainActivity中找到access$1，函数代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.method static synthetic access$1(Lcom/example/simpleencryption/MainActivity;)V</span><br><span class="line">    .locals 0</span><br><span class="line">    .prologue</span><br><span class="line">    .line 73</span><br><span class="line">    invoke-direct &#123;p0&#125;, Lcom/example/simpleencryption/MainActivity;-&gt;showDialog()V</span><br><span class="line">    return-void</span><br><span class="line">.end method</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;函数内部又调用了showDiglog，找到showDiglog函数，发现与onClick函数的:cond_0逻辑神似，也是构造对话框，意外发现了一串熟悉的id: 0x7f0a0012</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.method private showDialog()V</span><br><span class="line">    .locals 3</span><br><span class="line">    .prologue</span><br><span class="line">    .line 74</span><br><span class="line">    new-instance v0, Landroid/app/AlertDialog$Builder;</span><br><span class="line">    invoke-direct &#123;v0, p0&#125;, Landroid/app/AlertDialog$Builder;-&gt;&lt;init&gt;(Landroid/content/Context;)V</span><br><span class="line">    .line 75</span><br><span class="line">    .local v0, &quot;builder&quot;:Landroid/app/AlertDialog$Builder;</span><br><span class="line">    const v1, 0x7f0a0012</span><br><span class="line">    invoke-virtual &#123;v0, v1&#125;, Landroid/app/AlertDialog$Builder;-&gt;setMessage(I)Landroid/app/AlertDialog$Builder;</span><br><span class="line">    .line 76</span><br><span class="line">    const v1, 0x7f0a0010</span><br><span class="line">    invoke-virtual &#123;v0, v1&#125;, Landroid/app/AlertDialog$Builder;-&gt;setTitle(I)Landroid/app/AlertDialog$Builder;</span><br><span class="line">    .line 77</span><br><span class="line">    const v1, 0x7f0a0013</span><br><span class="line">    .line 78</span><br><span class="line">    new-instance v2, Lcom/example/simpleencryption/MainActivity$2;</span><br><span class="line">    invoke-direct &#123;v2, p0&#125;, Lcom/example/simpleencryption/MainActivity$2;-&gt;&lt;init&gt;(Lcom/example/simpleencryption/MainActivity;)V</span><br><span class="line">    .line 77</span><br><span class="line">    invoke-virtual &#123;v0, v1, v2&#125;, Landroid/app/AlertDialog$Builder;-&gt;setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;</span><br><span class="line">    .line 84</span><br><span class="line">    invoke-virtual &#123;v0&#125;, Landroid/app/AlertDialog$Builder;-&gt;show()Landroid/app/AlertDialog;</span><br><span class="line">    .line 85</span><br><span class="line">    return-void</span><br><span class="line">.end method</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;很明显我们找到了提示成功信息的地方。最后回编译apk文件，打上签名在模拟器上安装应用，随便输入密码，点击确认，可以看到已经破解成功了。<br><img src="/2018/07/30/sun-s-reverse-3/8.jpg" alt="这里写图片描述"></p>
+<h3 id="emsp-0x03-总结"><a href="#emsp-0x03-总结" class="headerlink" title="&emsp;0x03 总结"></a>&emsp;<strong>0x03 总结</strong></h3><p>&emsp;&emsp;<strong>考虑到暴破相对来说有点低级了，下一篇将尝试从动态调试的角度重新审视此题，并真正意义上的破解出该题的正确密码。</strong></p>
+<center>— END —</center>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>大兄弟，赏点银子吧！<br/></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Sunwish 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/逆向破解/" rel="tag"># 逆向破解</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/30/sun-s-reverse-2/" rel="next" title="Sun的逆向之路（二）——FiF口语训练的刷分剖析">
+                <i class="fa fa-chevron-left"></i> Sun的逆向之路（二）——FiF口语训练的刷分剖析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODI0MS8xNDc2OQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sunwish</p>
+              <p class="site-description motion-element" itemprop="description">Sun everywhere, wish everywhere</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://alterful.com/" title="Alterful" target="_blank">Alterful</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-0x01-观察题目"><span class="nav-number">1.</span> <span class="nav-text"> 0x01 观察题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-0x02-静态暴破"><span class="nav-number">2.</span> <span class="nav-text"> 0x02 静态暴破</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-0x03-总结"><span class="nav-number">3.</span> <span class="nav-text"> 0x03 总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sunwish</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65941008";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
