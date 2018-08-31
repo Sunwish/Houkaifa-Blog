@@ -125,13 +125,13 @@
 
 
 
-  <meta name="description" content="&amp;emsp;前言&amp;emsp;&amp;emsp;首先声明一下本文讨论的终极目标——通过贝塞尔曲线实现可调控的数值缓动，也就是贝塞尔插值。之所以以数值为目的是因为它相较于实现某一个具体的案例而言，意义更为广泛，例如可以实现可控性很强的缓动动效，在本文的末尾会附上具体的贝塞尔运动案例分析与一些应用层面的介绍。文章的前一部分即推导部分会以较多的数学形式来加以表述，而中间关于贝塞尔运动的匀速化会则尽量用通俗易懂的">
+  <meta name="description" content="&amp;emsp;前言 首先声明一下本文讨论的终极目标——通过贝塞尔曲线实现可调控的数值缓动，也就是贝塞尔插值。之所以以数值为目的是因为它相较于实现某一个具体的案例而言，意义更为广泛，例如可以实现可控性很强的缓动动效，在本文的末尾会附上具体的贝塞尔运动案例分析与一些应用层面的介绍。文章的前一部分即推导部分会以较多的数学形式来加以表述，而中间关于贝塞尔运动的匀速化会则尽量用通俗易懂的语言来说明，最后附上一">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="贝塞尔曲线运动n阶追踪方程的数学原理及其匀速化方法和应用">
 <meta property="og:url" content="http://Sunwish.coding.me/2018/07/30/BezierCurve/index.html">
 <meta property="og:site_name" content="Sunwish&#39;s Blog">
-<meta property="og:description" content="&amp;emsp;前言&amp;emsp;&amp;emsp;首先声明一下本文讨论的终极目标——通过贝塞尔曲线实现可调控的数值缓动，也就是贝塞尔插值。之所以以数值为目的是因为它相较于实现某一个具体的案例而言，意义更为广泛，例如可以实现可控性很强的缓动动效，在本文的末尾会附上具体的贝塞尔运动案例分析与一些应用层面的介绍。文章的前一部分即推导部分会以较多的数学形式来加以表述，而中间关于贝塞尔运动的匀速化会则尽量用通俗易懂的">
+<meta property="og:description" content="&amp;emsp;前言 首先声明一下本文讨论的终极目标——通过贝塞尔曲线实现可调控的数值缓动，也就是贝塞尔插值。之所以以数值为目的是因为它相较于实现某一个具体的案例而言，意义更为广泛，例如可以实现可控性很强的缓动动效，在本文的末尾会附上具体的贝塞尔运动案例分析与一些应用层面的介绍。文章的前一部分即推导部分会以较多的数学形式来加以表述，而中间关于贝塞尔运动的匀速化会则尽量用通俗易懂的语言来说明，最后附上一">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/1.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/2.jpg">
@@ -144,10 +144,10 @@
 <meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/9.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/10.gif">
 <meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/11.gif">
-<meta property="og:updated_time" content="2018-07-30T13:20:09.097Z">
+<meta property="og:updated_time" content="2018-08-31T01:41:44.953Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="贝塞尔曲线运动n阶追踪方程的数学原理及其匀速化方法和应用">
-<meta name="twitter:description" content="&amp;emsp;前言&amp;emsp;&amp;emsp;首先声明一下本文讨论的终极目标——通过贝塞尔曲线实现可调控的数值缓动，也就是贝塞尔插值。之所以以数值为目的是因为它相较于实现某一个具体的案例而言，意义更为广泛，例如可以实现可控性很强的缓动动效，在本文的末尾会附上具体的贝塞尔运动案例分析与一些应用层面的介绍。文章的前一部分即推导部分会以较多的数学形式来加以表述，而中间关于贝塞尔运动的匀速化会则尽量用通俗易懂的">
+<meta name="twitter:description" content="&amp;emsp;前言 首先声明一下本文讨论的终极目标——通过贝塞尔曲线实现可调控的数值缓动，也就是贝塞尔插值。之所以以数值为目的是因为它相较于实现某一个具体的案例而言，意义更为广泛，例如可以实现可控性很强的缓动动效，在本文的末尾会附上具体的贝塞尔运动案例分析与一些应用层面的介绍。文章的前一部分即推导部分会以较多的数学形式来加以表述，而中间关于贝塞尔运动的匀速化会则尽量用通俗易懂的语言来说明，最后附上一">
 <meta name="twitter:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/1.jpg">
 
 
@@ -369,12 +369,24 @@
                 
               
 
-              <time title="创建时间：2018-07-30 20:54:51 / 修改时间：21:20:09" itemprop="dateCreated datePublished" datetime="2018-07-30T20:54:51+08:00">2018-07-30</time>
+              <time title="创建时间：2018-07-30 20:54:51" itemprop="dateCreated datePublished" datetime="2018-07-30T20:54:51+08:00">2018-07-30</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-31 09:41:44" itemprop="dateModified" datetime="2018-08-31T09:41:44+08:00">2018-08-31</time>
               
             
           </span>
@@ -407,7 +419,10 @@
       
 
       
-        <h3 id="emsp-前言"><a href="#emsp-前言" class="headerlink" title="&emsp;前言"></a>&emsp;<strong>前言</strong></h3><p>&emsp;&emsp;首先声明一下本文讨论的终极目标——通过贝塞尔曲线实现可调控的数值缓动，也就是贝塞尔插值。之所以以数值为目的是因为它相较于实现某一个具体的案例而言，意义更为广泛，例如可以实现可控性很强的缓动动效，在本文的末尾会附上具体的贝塞尔运动案例分析与一些应用层面的介绍。文章的前一部分即推导部分会以较多的数学形式来加以表述，而中间关于贝塞尔运动的匀速化会则尽量用通俗易懂的语言来说明，最后附上一些相关代码以及应用和总结。<br>&emsp;&emsp;其实这方面已经有几个月没有再接触了，之所以写这篇文章，是为了回顾与加深之前在这方面学习研究的印象，文章内容仅是个人的理解与一些思考和感悟，并不一定是绝对正确的，因此要是文章内容有什么错误或歧义，还得请各位点醒指出，必当虚心学习，不胜感激。</p>
+        <h3 id="emsp-前言"><a href="#emsp-前言" class="headerlink" title="&emsp;前言"></a>&emsp;<strong>前言</strong></h3><blockquote>
+<p>首先声明一下本文讨论的终极目标——通过贝塞尔曲线实现可调控的数值缓动，也就是贝塞尔插值。之所以以数值为目的是因为它相较于实现某一个具体的案例而言，意义更为广泛，例如可以实现可控性很强的缓动动效，在本文的末尾会附上具体的贝塞尔运动案例分析与一些应用层面的介绍。文章的前一部分即推导部分会以较多的数学形式来加以表述，而中间关于贝塞尔运动的匀速化会则尽量用通俗易懂的语言来说明，最后附上一些相关代码以及应用和总结。</p>
+</blockquote>
+<p>&emsp;&emsp;其实这方面已经有几个月没有再接触了，之所以写这篇文章，是为了回顾与加深之前在这方面学习研究的印象，文章内容仅是个人的理解与一些思考和感悟，并不一定是绝对正确的，因此要是文章内容有什么错误或歧义，还得请各位点醒指出，必当虚心学习，不胜感激。</p>
 <p><div picture="" align="center"><img src="/2018/07/30/BezierCurve/1.jpg" alt="Bezier"><br>法国数学家Pierre Bézier</div></p>
 <h3 id="emsp-一、关于贝塞尔曲线-amp-贝塞尔运动"><a href="#emsp-一、关于贝塞尔曲线-amp-贝塞尔运动" class="headerlink" title="&emsp;一、关于贝塞尔曲线 &amp; 贝塞尔运动"></a>&emsp;<strong>一、关于贝塞尔曲线 &amp; 贝塞尔运动</strong></h3><h4 id="emsp-emsp-1-简介"><a href="#emsp-emsp-1-简介" class="headerlink" title="&emsp;&emsp;1.简介"></a>&emsp;&emsp;<strong>1.简介</strong></h4><p>&emsp;&emsp;贝塞尔曲线的介绍在网上到处都能找到，这里就不长篇大论地引入了。简而言之，贝塞尔曲线就是这样的一条曲线，<strong>它是依据四个位置任意的点坐标绘制出的一条光滑曲线。</strong>而贝塞尔追踪方程则是以点运动的形式描述了贝塞尔曲线的形成过程，将曲线描述为了一条随连续时间而形成的<strong>点迹</strong>。<br><a id="more"></a></p>
 <h4 id="emsp-emsp-2-作用"><a href="#emsp-emsp-2-作用" class="headerlink" title="&emsp;&emsp;2.作用"></a>&emsp;&emsp;<strong>2.作用</strong></h4><p>由于用计算机画图大部分时间是操作鼠标来掌握线条的路径，与手绘的感觉和效果有很大的差别。即使是一位精明的画师能轻松绘出各种图形，拿到鼠标想随心所欲的画图也不是一件容易的事。这一点是计算机万万不能代替手工的工作，所以到目前为止人们只能颇感无奈。使用贝塞尔工具画图很大程度上弥补了这一缺憾。贝塞尔曲线是计算机图形图像造型的基本工具，是图形造型运用得最多的基本线条之一。</p>
@@ -631,6 +646,10 @@
                 友情链接
               </div>
               <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zoshny.com/" title="Zoshny" target="_blank">Zoshny</a>
+                  </li>
                 
                   <li class="links-of-blogroll-item">
                     <a href="http://alterful.com/" title="Alterful" target="_blank">Alterful</a>
