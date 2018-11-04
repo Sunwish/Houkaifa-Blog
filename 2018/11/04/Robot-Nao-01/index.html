@@ -125,29 +125,29 @@
 
 
 
-  <meta name="description" content="&amp;emsp;&amp;emsp;最近代码码多了于是打算翻翻有什么游戏可玩，无意之中翻到了之前玩的元气骑士，想到还有许多人物都没有解锁，但是又不想攒金币因为太慢了，况且还有一些角色是要RMB才能买的，通过PKiP发现无加固壳，于是一怒之下打算破解其内购。  0x01 找寻突破口&amp;emsp;&amp;emsp;打开元气骑士进入购买人物的场景，点击购买，因为钻石不够所以点进去发现跳转到了购买钻石的页面。1块钱可以兑换8">
-<meta name="keywords" content="逆向破解">
+  <meta name="description" content="&amp;emsp;概述 本文介绍 Choregraphe 与 Python 的下载与安装，并给出了几个常见问题的解决方案。    一、安装Chrographe&amp;emsp;&amp;emsp;1.注册 SoftBank 帐号并登录 &amp;emsp;&amp;emsp;2.访问 SoftBank Community，点击网页右上角的 Resource 进入资源下载页面 &amp;emsp;&amp;emsp;3.下载 Choregraphe">
+<meta name="keywords" content="Nao,机器人">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sun的逆向之路（一）——元气骑士的内购破解">
-<meta property="og:url" content="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-1/index.html">
+<meta property="og:title" content="【Nao_01】 Windows+Naoqi+Python+Choregraphe 开发环境的搭建">
+<meta property="og:url" content="http://Sunwish.coding.me/2018/11/04/Robot-Nao-01/index.html">
 <meta property="og:site_name" content="Sunwish&#39;s Blog">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;最近代码码多了于是打算翻翻有什么游戏可玩，无意之中翻到了之前玩的元气骑士，想到还有许多人物都没有解锁，但是又不想攒金币因为太慢了，况且还有一些角色是要RMB才能买的，通过PKiP发现无加固壳，于是一怒之下打算破解其内购。  0x01 找寻突破口&amp;emsp;&amp;emsp;打开元气骑士进入购买人物的场景，点击购买，因为钻石不够所以点进去发现跳转到了购买钻石的页面。1块钱可以兑换8">
+<meta property="og:description" content="&amp;emsp;概述 本文介绍 Choregraphe 与 Python 的下载与安装，并给出了几个常见问题的解决方案。    一、安装Chrographe&amp;emsp;&amp;emsp;1.注册 SoftBank 帐号并登录 &amp;emsp;&amp;emsp;2.访问 SoftBank Community，点击网页右上角的 Resource 进入资源下载页面 &amp;emsp;&amp;emsp;3.下载 Choregraphe">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-1/1.png">
-<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-1/2.png">
-<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-1/3.png">
-<meta property="og:updated_time" content="2018-07-30T12:34:28.868Z">
+<meta property="og:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-01/1.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-01/2.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-01/3.jpg">
+<meta property="og:updated_time" content="2018-11-04T10:46:43.238Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sun的逆向之路（一）——元气骑士的内购破解">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;最近代码码多了于是打算翻翻有什么游戏可玩，无意之中翻到了之前玩的元气骑士，想到还有许多人物都没有解锁，但是又不想攒金币因为太慢了，况且还有一些角色是要RMB才能买的，通过PKiP发现无加固壳，于是一怒之下打算破解其内购。  0x01 找寻突破口&amp;emsp;&amp;emsp;打开元气骑士进入购买人物的场景，点击购买，因为钻石不够所以点进去发现跳转到了购买钻石的页面。1块钱可以兑换8">
-<meta name="twitter:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-1/1.png">
+<meta name="twitter:title" content="【Nao_01】 Windows+Naoqi+Python+Choregraphe 开发环境的搭建">
+<meta name="twitter:description" content="&amp;emsp;概述 本文介绍 Choregraphe 与 Python 的下载与安装，并给出了几个常见问题的解决方案。    一、安装Chrographe&amp;emsp;&amp;emsp;1.注册 SoftBank 帐号并登录 &amp;emsp;&amp;emsp;2.访问 SoftBank Community，点击网页右上角的 Resource 进入资源下载页面 &amp;emsp;&amp;emsp;3.下载 Choregraphe">
+<meta name="twitter:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-01/1.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-1/"/>
+  <link rel="canonical" href="http://Sunwish.coding.me/2018/11/04/Robot-Nao-01/"/>
 
 
 
@@ -157,7 +157,7 @@
   };
 </script>
 
-  <title>Sun的逆向之路（一）——元气骑士的内购破解 | Sunwish's Blog</title>
+  <title>【Nao_01】 Windows+Naoqi+Python+Choregraphe 开发环境的搭建 | Sunwish's Blog</title>
   
 
 
@@ -318,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-1/">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/11/04/Robot-Nao-01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sunwish">
@@ -335,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Sun的逆向之路（一）——元气骑士的内购破解
+          <h1 class="post-title" itemprop="name headline">【Nao_01】 Windows+Naoqi+Python+Choregraphe 开发环境的搭建
               
             
           </h1>
@@ -361,7 +361,7 @@
                 
               
 
-              <time title="创建时间：2018-07-30 20:25:08 / 修改时间：20:34:28" itemprop="dateCreated datePublished" datetime="2018-07-30T20:25:08+08:00">2018-07-30</time>
+              <time title="创建时间：2018-11-04 12:39:14 / 修改时间：18:46:43" itemprop="dateCreated datePublished" datetime="2018-11-04T12:39:14+08:00">2018-11-04</time>
             
 
             
@@ -399,21 +399,32 @@
       
 
       
-        <p>&emsp;&emsp;最近代码码多了于是打算翻翻有什么游戏可玩，无意之中翻到了之前玩的元气骑士，想到还有许多人物都没有解锁，但是又不想攒金币因为太慢了，况且还有一些角色是要RMB才能买的，通过PKiP发现无加固壳，于是一怒之下打算破解其内购。</p>
-<hr>
-<h3 id="0x01-找寻突破口"><a href="#0x01-找寻突破口" class="headerlink" title="0x01 找寻突破口"></a><strong>0x01 找寻突破口</strong></h3><p>&emsp;&emsp;打开元气骑士进入购买人物的场景，点击购买，因为钻石不够所以点进去发现跳转到了购买钻石的页面。1块钱可以兑换800钻石，于是点购买跳转到了爱贝支付。返回取消购买回到了游戏入口界面，提示购买失败。</p>
-<h3 id="0x02-初步尝试破解"><a href="#0x02-初步尝试破解" class="headerlink" title="0x02 初步尝试破解"></a><strong>0x02 初步尝试破解</strong></h3><p>&emsp;&emsp;于是用MT2拿到apk的dex文件，搜索“失败”，发现iapppay下的IAppPayOrderChecker和MainActivit\$3\$1格外瞩目。进入IAppPayOrderChecker发现没有相关内容，于是转到MainActivity\$3\$1中。在OnPayResult函数中发现如下代码块：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.line 113</span><br><span class="line">iget-object v1, p0, Lcom/chillyroomsdk/iapppay/MainActivity$3$1;-&gt;this$1:Lcom/chillyroomsdk/iapppay/MainActivity$3;</span><br><span class="line">iget-object v2, p0, Lcom/chillyroomsdk/iapppay/MainActivity$3$1;-&gt;val$orderId:Ljava/lang/String;</span><br><span class="line">iget-object v3, p0, Lcom/chillyroomsdk/iapppay/MainActivity$3$1;-&gt;val$extra:Ljava/lang/String;</span><br><span class="line">invoke-virtual &#123;v1, v2, v3&#125;, Lcom/chillyroomsdk/iapppay/MainActivity$3;-&gt;onPayFail(Ljava/lang/String;Ljava/lang/String;)V</span><br><span class="line">.line 116</span><br><span class="line">:goto_18</span><br><span class="line">const-string v1, &quot;Unity&quot;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;其中的OnPayFail值得注意，既然有OnPayFail那么就应该有OnPaySuccess，我们继续往下翻的确找到了OnPaySuccess，同时在OnPaySuccess上方看到 :pswitch_45，将其记录下来。翻到底部找到了一个pswitch结构：<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> .line 96</span><br><span class="line">:pswitch_data_86</span><br><span class="line">.packed-switch 0x0</span><br><span class="line">    :pswitch_45</span><br><span class="line">    :pswitch_4</span><br><span class="line">    :pswitch_7c</span><br><span class="line">.end packed-switch</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;注意到:pswitch_45下方还有:pswitch_4和:pswitch_7c，我们找到pswitch_4所在的位置发现正好跳转到了OnPayFail所在的位置。这时我们大概清楚了代码逻辑，即不同的情况分别跳转到不同的:pswitch_代码块。我们将另外两个pswitch的跳转编号全部修改为45。到这里，购买成功的破解就完成了。</p>
-<h3 id="0x03-深入订单校验"><a href="#0x03-深入订单校验" class="headerlink" title="0x03 深入订单校验"></a><strong>0x03 深入订单校验</strong></h3><p>&emsp;&emsp;但是进入游戏发现仍然购买失败。提示的是：支付成功但验签失败。<br><img src="/2018/07/30/sun-s-reverse-1/1.png" alt=""><br>&emsp;&emsp;看来元气骑士的内购验证还是比较严密的。回到dex文件，发现该字符串仍旧位于MainActivity\$3$1，由:cond_6e跳转而来，发现原来在OnPaySuccess的上一步还做了一个支付判断（if-eqz v0, :cond_6e），如果订单状态校验不吻合就跳转到:cond_6e。将这条代码注释掉，重新进入游戏购买，发现还是失败了，提示订单支付失败。若发生丢单请勿重复支付，并联系客服。<br><img src="/2018/07/30/sun-s-reverse-1/2.png" alt=""><br>&emsp;&emsp;这时冷静下来，猜想除了 MainActivity 内的 OnPayResult 判断外，应该还有其他的订单检验方法，重新审视了一下com类，不出所料，在最开始被忽视的 <strong>IAppPayOrderChecker</strong> 中发现了对应字符串，代码块对应 :cond_f5，往上一翻发现多处if-eqz跳转到了此处！二话不说对所有转到 :cond_f5 的判断语句进行注释，中途还发现一个 :cond_133 跳转到验证失败于是也一并注释了。<br>至此不出意外应该已经成功完成了内购破解。</p>
-<h3 id="0x04-破除apk签名验证"><a href="#0x04-破除apk签名验证" class="headerlink" title="0x04 破除apk签名验证"></a><strong>0x04 破除apk签名验证</strong></h3><p>有意思的是，虽然内购破解应该已经顺利完成了，但是重编译并自己手动打上签名安装后发现直接无法进入游戏了，提示我们请下载正版游戏并跳转到了元气骑士的官方网站。猜想是联网验证于是断掉无线局域网重进游戏，发现依旧无法进入游戏并直接闪退了，看来游戏做了联网+本地的双重验证。<br>回到dex++，最终在 UnityExtendAcitivity 中的起始位置发现了名为 GetKeyHash 函数，代码片段如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.method public static GetKeyHash()Ljava/lang/String;</span><br><span class="line">   .registers 7</span><br><span class="line">   .prologue</span><br><span class="line">   const/4 v3, 0x0</span><br><span class="line">   .line 26</span><br><span class="line">   :try_start_1</span><br><span class="line">   sget-object v4, Lcom/unity3d/player/UnityPlayer;-&gt;currentActivity:Landroid/app/Activity;</span><br><span class="line">   invoke-virtual &#123;v4&#125;, Landroid/app/Activity;-&gt;getPackageManager()Landroid/content/pm/PackageManager;</span><br><span class="line">   move-result-object v4</span><br></pre></td></tr></table></figure>
-<p>在.prologue与const/4 v3, 0x0之间直接插入return-void拦截此函数的执行，最后保存修改过的dex文件，更新apk包并打上应用签名，重新安装apk文件，没有出现异常，可以进入游戏了，随便购买一个人物，进入订单页面，返回取消订单，可以看到支付成功，除了人物之外，钻石也可以随意购买了。<br><img src="/2018/07/30/sun-s-reverse-1/3.png" alt="支付成功"></p>
-<h3 id="0x05-附件与声明"><a href="#0x05-附件与声明" class="headerlink" title="0x05 附件与声明"></a><strong>0x05 附件与声明</strong></h3><blockquote>
-<p>破解后的游戏下载地址：<a href="https://pan.baidu.com/s/1pL1JzsR" target="_blank" rel="noopener">https://pan.baidu.com/s/1pL1JzsR</a> 密码: 7dvq<br>本文及附件内容仅限于技术学习，同时希望相应公司尽快修复相关漏洞。</p>
+        <h3 id="emsp-概述"><a href="#emsp-概述" class="headerlink" title="&emsp;概述"></a>&emsp;<strong>概述</strong></h3><blockquote>
+<p>本文介绍 Choregraphe 与 Python 的下载与安装，并给出了几个常见问题的解决方案。</p>
 </blockquote>
-<center>— END —</center>
+<center><img src="/2018/11/04/Robot-Nao-01/1.jpg" alt="Choregraphe suit"></center>
+
+<h4 id="一、安装Chrographe"><a href="#一、安装Chrographe" class="headerlink" title="一、安装Chrographe"></a><strong>一、安装Chrographe</strong></h4><p>&emsp;&emsp;<strong>1.注册 SoftBank 帐号并登录</strong></p>
+<p>&emsp;&emsp;<strong>2.访问 <a href="https://community.ald.softbankrobotics.com/" target="_blank" rel="noopener">SoftBank Community</a>，点击网页右上角的 Resource 进入资源下载页面</strong></p>
+<p>&emsp;&emsp;<strong>3.下载 Choregraphe 并安装</strong></p>
+<center><img src="/2018/11/04/Robot-Nao-01/2.jpg" alt="Choregraphe suit"></center>
+
+<a id="more"></a>
+<h4 id="二、安装Python"><a href="#二、安装Python" class="headerlink" title="二、安装Python"></a><strong>二、安装Python</strong></h4><p>&emsp;&emsp;<strong>1.访问 Python 官网下载 Python2.7，<a href="https://www.python.org/getit/" target="_blank" rel="noopener">下载地址戳我</a></strong></p>
+<p>&emsp;&emsp;<strong>2.安装 Python2.7，并通过控制台py指令检查是否安装成功</strong></p>
+<p>&emsp;&emsp;<strong>3.若未安装成功，检查系统环境变量是否配置正确</strong></p>
+<center><img src="/2018/11/04/Robot-Nao-01/3.jpg" alt="Choregraphe suit"></center>
+
+<blockquote>
+<p>注意:截至最新版本的 Choregraphe 2.8.3.54，目前仅支持 Python2.7，不支持 Python3.0.</p>
+</blockquote>
+<h4 id="三、常见问题"><a href="#三、常见问题" class="headerlink" title="三、常见问题"></a><strong>三、常见问题</strong></h4><p><strong>1.Choregraphe 无法连接至 127.0.0.1</strong></p>
+<p>&emsp;&emsp;解决方案①：检查安装路径是否包含中文，是的话去除中文，否的话见解决方案②。</p>
+<p>&emsp;&emsp;解决方案②：检查管理员用户名是否包含中文，是的话修改用户名，去除中文。</p>
+<p><strong>2.Choregraphe 无法连接至 Naoqi</strong></p>
+<p>&emsp;&emsp;解决方案①：等待几分钟，尝试重新连接。</p>
+<p>&emsp;&emsp;解决方案②：打开任务管理器，结束 naoqi-bin 进程，打开 Choregraphe 安装目录，找到 naoqi-bin.exe，右键以管理员身份运行，等待 naoqi-bin.exe 完成加载，跳转至 Choregraphe 再次尝试连接。</p>
+
       
     </div>
 
@@ -457,7 +468,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/逆向破解/" rel="tag"># 逆向破解</a>
+            <a href="/tags/Nao/" rel="tag"># Nao</a>
+          
+            <a href="/tags/机器人/" rel="tag"># 机器人</a>
           
         </div>
       
@@ -470,8 +483,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/20/My-First-Post/" rel="next" title="Sunwish's Blog 开通啦">
-                <i class="fa fa-chevron-left"></i> Sunwish's Blog 开通啦
+              <a href="/2018/09/20/MCM-Methods-Induce/" rel="next" title="关于数学建模的算法与方法与资源的总结与收集">
+                <i class="fa fa-chevron-left"></i> 关于数学建模的算法与方法与资源的总结与收集
               </a>
             
           </div>
@@ -479,10 +492,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/30/sun-s-reverse-2/" rel="prev" title="Sun的逆向之路（二）——FiF口语训练的刷分剖析">
-                Sun的逆向之路（二）——FiF口语训练的刷分剖析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -650,7 +659,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-找寻突破口"><span class="nav-number">1.</span> <span class="nav-text">0x01 找寻突破口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-初步尝试破解"><span class="nav-number">2.</span> <span class="nav-text">0x02 初步尝试破解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-深入订单校验"><span class="nav-number">3.</span> <span class="nav-text">0x03 深入订单校验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x04-破除apk签名验证"><span class="nav-number">4.</span> <span class="nav-text">0x04 破除apk签名验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x05-附件与声明"><span class="nav-number">5.</span> <span class="nav-text">0x05 附件与声明</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-概述"><span class="nav-number">1.</span> <span class="nav-text"> 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、安装Chrographe"><span class="nav-number">1.1.</span> <span class="nav-text">一、安装Chrographe</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、安装Python"><span class="nav-number">1.2.</span> <span class="nav-text">二、安装Python</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、常见问题"><span class="nav-number">1.3.</span> <span class="nav-text">三、常见问题</span></a></li></ol></li></ol></div>
             
 
           </div>
