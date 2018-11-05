@@ -30,7 +30,21 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
-
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
 
 
 
@@ -144,7 +158,7 @@
 <meta property="og:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-02/elem6.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-02/gif2.gif">
 <meta property="og:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-02/gif3.gif">
-<meta property="og:updated_time" content="2018-11-04T14:41:10.809Z">
+<meta property="og:updated_time" content="2018-11-05T09:07:33.802Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Nao-02】 Choregraphe 环境介绍 &amp; 让 Virtual Robot 运行一个盒子">
 <meta name="twitter:description" content="概述 本篇初步介绍 Choregraphe 开发环境，并演示了如何让 Vitual Robot 安装并运行一个已有的盒子预设。     一、Choregraphe 环境概览&amp;emsp;&amp;emsp;在 Windows 系统下正确安装 Choregraphe 后，其启动界面如图 2-1 所示。（Choregraphe 下载、安装过程） &amp;emsp;&amp;emsp;在此将界面按除工具栏外，从顶部开始逆时针旋">
@@ -369,12 +383,24 @@
                 
               
 
-              <time title="创建时间：2018-11-04 19:47:19 / 修改时间：22:41:10" itemprop="dateCreated datePublished" datetime="2018-11-04T19:47:19+08:00">2018-11-04</time>
+              <time title="创建时间：2018-11-04 19:47:19" itemprop="dateCreated datePublished" datetime="2018-11-04T19:47:19+08:00">2018-11-04</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-05 17:07:33" itemprop="dateModified" datetime="2018-11-05T17:07:33+08:00">2018-11-05</time>
               
             
           </span>
@@ -516,11 +542,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Nao/" rel="tag"># Nao</a>
+            <a href="/tags/Nao/" rel="tag"><i class="fa fa-tag"></i> Nao</a>
           
-            <a href="/tags/机器人/" rel="tag"># 机器人</a>
+            <a href="/tags/机器人/" rel="tag"><i class="fa fa-tag"></i> 机器人</a>
           
-            <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
+            <a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
           
         </div>
       
@@ -711,7 +737,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、Choregraphe-环境概览"><span class="nav-number">2.</span> <span class="nav-text">一、Choregraphe 环境概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、使用-Box-Libraries-中的盒子来控制-Vitual-Robot"><span class="nav-number">3.</span> <span class="nav-text">二、使用 Box Libraries 中的盒子来控制 Vitual Robot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、补充"><span class="nav-number">4.</span> <span class="nav-text">三、补充</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、Choregraphe-环境概览"><span class="nav-text">一、Choregraphe 环境概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、使用-Box-Libraries-中的盒子来控制-Vitual-Robot"><span class="nav-text">二、使用 Box Libraries 中的盒子来控制 Vitual Robot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、补充"><span class="nav-text">三、补充</span></a></li></ol></div>
             
 
           </div>
@@ -731,7 +757,8 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -752,6 +779,10 @@
 
 
 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 12.7k 字</span>
+</div>
         
 
 

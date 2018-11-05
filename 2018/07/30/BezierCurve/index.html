@@ -30,7 +30,21 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
-
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
 
 
 
@@ -494,7 +508,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag"># 算法</a>
+            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
           
         </div>
       
@@ -689,7 +703,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-前言"><span class="nav-number">1.</span> <span class="nav-text"> 前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-一、关于贝塞尔曲线-amp-贝塞尔运动"><span class="nav-number">2.</span> <span class="nav-text"> 一、关于贝塞尔曲线 &amp; 贝塞尔运动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-1-简介"><span class="nav-number">2.1.</span> <span class="nav-text">  1.简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-2-作用"><span class="nav-number">2.2.</span> <span class="nav-text">  2.作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-2-贝塞尔运动"><span class="nav-number">2.3.</span> <span class="nav-text">  2.贝塞尔运动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-二、贝塞尔追踪方程的数学推导"><span class="nav-number">3.</span> <span class="nav-text"> 二、贝塞尔追踪方程的数学推导</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-1-一阶推导"><span class="nav-number">3.1.</span> <span class="nav-text">  1.一阶推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-2-二阶推导"><span class="nav-number">3.2.</span> <span class="nav-text">  2.二阶推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-3-三阶推导"><span class="nav-number">3.3.</span> <span class="nav-text">  3.三阶推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-4-n阶"><span class="nav-number">3.4.</span> <span class="nav-text">  4.n阶</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-三、匀速化处理"><span class="nav-number">4.</span> <span class="nav-text"> 三、匀速化处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-1-什么是匀速化-amp-为什么要匀速化"><span class="nav-number">4.1.</span> <span class="nav-text">  1.什么是匀速化 &amp; 为什么要匀速化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-2-两种匀速化的办法"><span class="nav-number">4.2.</span> <span class="nav-text">  2.两种匀速化的办法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-3-方法一：利用辛普森积分法匀速化"><span class="nav-number">4.3.</span> <span class="nav-text">  3.方法一：利用辛普森积分法匀速化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-4-方法二：编程逼值实现匀速化"><span class="nav-number">4.4.</span> <span class="nav-text">  4.方法二：编程逼值实现匀速化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-四、匀速化后的应用"><span class="nav-number">5.</span> <span class="nav-text"> 四、匀速化后的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-五、总结"><span class="nav-number">6.</span> <span class="nav-text"> 五、总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-前言"><span class="nav-text"> 前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-一、关于贝塞尔曲线-amp-贝塞尔运动"><span class="nav-text"> 一、关于贝塞尔曲线 &amp; 贝塞尔运动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-1-简介"><span class="nav-text">  1.简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-2-作用"><span class="nav-text">  2.作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-2-贝塞尔运动"><span class="nav-text">  2.贝塞尔运动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-二、贝塞尔追踪方程的数学推导"><span class="nav-text"> 二、贝塞尔追踪方程的数学推导</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-1-一阶推导"><span class="nav-text">  1.一阶推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-2-二阶推导"><span class="nav-text">  2.二阶推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-3-三阶推导"><span class="nav-text">  3.三阶推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-4-n阶"><span class="nav-text">  4.n阶</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-三、匀速化处理"><span class="nav-text"> 三、匀速化处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-1-什么是匀速化-amp-为什么要匀速化"><span class="nav-text">  1.什么是匀速化 &amp; 为什么要匀速化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-2-两种匀速化的办法"><span class="nav-text">  2.两种匀速化的办法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-3-方法一：利用辛普森积分法匀速化"><span class="nav-text">  3.方法一：利用辛普森积分法匀速化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-4-方法二：编程逼值实现匀速化"><span class="nav-text">  4.方法二：编程逼值实现匀速化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-四、匀速化后的应用"><span class="nav-text"> 四、匀速化后的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-五、总结"><span class="nav-text"> 五、总结</span></a></li></ol></div>
             
 
           </div>
@@ -709,7 +723,8 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -730,6 +745,10 @@
 
 
 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 12.7k 字</span>
+</div>
         
 
 
