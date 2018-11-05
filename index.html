@@ -374,7 +374,7 @@
                 
               
 
-              <time title="创建时间：2018-11-05 17:20:20 / 修改时间：17:58:09" itemprop="dateCreated datePublished" datetime="2018-11-05T17:20:20+08:00">2018-11-05</time>
+              <time title="创建时间：2018-11-05 17:20:20 / 修改时间：21:46:21" itemprop="dateCreated datePublished" datetime="2018-11-05T17:20:20+08:00">2018-11-05</time>
             
 
             
@@ -414,23 +414,29 @@
       
         
           <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
-<p>正在更新</p>
+<p>本篇正在更新</p>
 </blockquote>
 <center><img src="/2018/11/05/Robot-Nao-03/1.jpg" alt="Title"></center>
 
-<h3 id="一、Naoqi-APIs-官方文档戳我"><a href="#一、Naoqi-APIs-官方文档戳我" class="headerlink" title="一、Naoqi APIs (官方文档戳我)"></a><strong>一、Naoqi APIs</strong> (<a href="http://doc.aldebaran.com/2-8/naoqi/index.html" target="_blank" rel="noopener">官方文档戳我</a>)</h3><p>&emsp;&emsp;<strong>1.想标题真难，哎</strong></p>
+<h3 id="一、Naoqi-APIs"><a href="#一、Naoqi-APIs" class="headerlink" title="一、Naoqi APIs"></a><strong>一、Naoqi APIs</strong></h3><p><strong>1. API 概览（<a href="http://doc.aldebaran.com/2-8/naoqi/index.html" target="_blank" rel="noopener">官方文档戳我</a>）</strong></p>
+<p>&emsp;&emsp;Naoqi 的 API 按功能分类可以大致分为八个部分，分别是：</p>
 <ul>
-<li><strong><a href="http://doc.aldebaran.com/2-8/naoqi/core/index.html" target="_blank" rel="noopener">NAOqi Core</a></strong></li>
-<li><strong><a href="http://doc.aldebaran.com/2-8/naoqi/emotion/index.html" target="_blank" rel="noopener">NAOqi Emotion</a></strong></li>
-<li><strong><a href="http://doc.aldebaran.com/2-8/naoqi/interaction/index_interaction.html" target="_blank" rel="noopener">NAOqi Interaction engines</a></strong></li>
-<li><strong><a href="http://doc.aldebaran.com/2-8/naoqi/motion/index.html" target="_blank" rel="noopener">NAOqi Motion</a></strong></li>
-<li><strong><a href="http://doc.aldebaran.com/2-8/naoqi/audio/index.html" target="_blank" rel="noopener">NAOqi Audio</a></strong></li>
-<li><strong><a href="http://doc.aldebaran.com/2-8/naoqi/vision/index.html" target="_blank" rel="noopener">NAOqi Vision</a></strong></li>
-<li><strong><a href="http://doc.aldebaran.com/2-8/naoqi/lola/lola.html" target="_blank" rel="noopener">NAOqi People Perception</a></strong></li>
-<li><strong><a href="http://doc.aldebaran.com/2-8/naoqi/sensors/index.html" target="_blank" rel="noopener">NAOqi Sensors &amp; LEDs</a></strong> </li>
+<li>核心类API：<strong><a href="http://doc.aldebaran.com/2-8/naoqi/core/index.html" target="_blank" rel="noopener">NAOqi Core</a></strong></li>
+<li>情感类API：<strong><a href="http://doc.aldebaran.com/2-8/naoqi/emotion/index.html" target="_blank" rel="noopener">NAOqi Emotion</a></strong></li>
+<li>交互类API：<strong><a href="http://doc.aldebaran.com/2-8/naoqi/interaction/index_interaction.html" target="_blank" rel="noopener">NAOqi Interaction engines</a></strong></li>
+<li>运动类API：<strong><a href="http://doc.aldebaran.com/2-8/naoqi/motion/index.html" target="_blank" rel="noopener">NAOqi Motion</a></strong></li>
+<li>音频类API：<strong><a href="http://doc.aldebaran.com/2-8/naoqi/audio/index.html" target="_blank" rel="noopener">NAOqi Audio</a></strong></li>
+<li>视觉类API：<strong><a href="http://doc.aldebaran.com/2-8/naoqi/vision/index.html" target="_blank" rel="noopener">NAOqi Vision</a></strong></li>
+<li>人像感知API：:<strong><a href="http://doc.aldebaran.com/2-8/naoqi/lola/lola.html" target="_blank" rel="noopener">NAOqi People Perception</a></strong></li>
+<li>传感器与LED灯：<strong><a href="http://doc.aldebaran.com/2-8/naoqi/sensors/index.html" target="_blank" rel="noopener">NAOqi Sensors &amp; LEDs</a></strong></li>
 </ul>
-<h3 id="一、Naoqi-APIs"><a href="#一、Naoqi-APIs" class="headerlink" title="一、Naoqi APIs"></a><strong>一、Naoqi APIs</strong></h3><p>&emsp;&emsp;<strong>1.</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DEMO</span><br></pre></td></tr></table></figure>
+<p><strong>2. 重要API: ALProxy</strong></p>
+<p>&emsp;&emsp;在 Naoqi 的 Python SDK 中提供了一条重要的 API: ALProxy，在调用 Naoqi 的各个功能模块时通常都要先调用此API，从而获取指定功能模块的代理服务，其返回的应该是指定服务类的一个实例。ALProxy 有两个不同的构造函数，详见下面的函数原型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ALProxy (name, ip, port)</span><br><span class="line">/# name is the name of the module,</span><br><span class="line">/# ip is the IP of the broker in which the module is running,</span><br><span class="line">/# port is the port of the broker.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALProxy (name)</span><br><span class="line">/# name is the name of the module.</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>ALProxy (name) 作为 ALProxy (name, ip, port) 的重载函数，通常在没有可用的代理实例时才被使用。</p>
+</blockquote>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/11/05/Robot-Nao-03/#more" rel="contents">
@@ -2064,7 +2070,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 12.7k 字</span>
+  <span class="post-count">博客全站共 13.2k 字</span>
 </div>
         
 
