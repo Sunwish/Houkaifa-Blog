@@ -139,20 +139,21 @@
 
 
 
-  <meta name="description" content="概述 本篇正在更新    一、Naoqi APIs1. API 概览（官方文档戳我） &amp;emsp;&amp;emsp;Naoqi 的 API 按功能分类可以大致分为八个部分，分别是：  核心类API：NAOqi Core 情感类API：NAOqi Emotion 交互类API：NAOqi Interaction engines 运动类API：NAOqi Motion 音频类API：NAOqi Audio">
+  <meta name="description" content="概述 本篇列出了几类常用的 API 功能模块，介绍了一个重要的 API 函数 ALProxy，并自己创建了一个 Python 指令盒，简单实现了让 Nao 说出 Hello World 的程序代码。    一、Naoqi APIs1. API 概览（官方文档戳我） &amp;emsp;&amp;emsp;Naoqi 的 API 按功能分类可以大致分为八个部分，分别是：  核心类API：NAOqi Core 情感类">
 <meta name="keywords" content="Nao,机器人,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Nao-03】 Naoqi APIs 架构概览 &amp; Hello World！">
 <meta property="og:url" content="http://Sunwish.coding.me/2018/11/05/Robot-Nao-03/index.html">
 <meta property="og:site_name" content="Sunwish&#39;s Blog">
-<meta property="og:description" content="概述 本篇正在更新    一、Naoqi APIs1. API 概览（官方文档戳我） &amp;emsp;&amp;emsp;Naoqi 的 API 按功能分类可以大致分为八个部分，分别是：  核心类API：NAOqi Core 情感类API：NAOqi Emotion 交互类API：NAOqi Interaction engines 运动类API：NAOqi Motion 音频类API：NAOqi Audio">
+<meta property="og:description" content="概述 本篇列出了几类常用的 API 功能模块，介绍了一个重要的 API 函数 ALProxy，并自己创建了一个 Python 指令盒，简单实现了让 Nao 说出 Hello World 的程序代码。    一、Naoqi APIs1. API 概览（官方文档戳我） &amp;emsp;&amp;emsp;Naoqi 的 API 按功能分类可以大致分为八个部分，分别是：  核心类API：NAOqi Core 情感类">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://sunwish.coding.me/2018/11/05/Robot-Nao-03/1.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2018/11/05/Robot-Nao-03/gif1.gif">
-<meta property="og:updated_time" content="2018-11-05T13:46:21.645Z">
+<meta property="og:image" content="http://sunwish.coding.me/2018/11/05/Robot-Nao-03/gif2.gif">
+<meta property="og:updated_time" content="2018-11-05T14:59:02.880Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Nao-03】 Naoqi APIs 架构概览 &amp; Hello World！">
-<meta name="twitter:description" content="概述 本篇正在更新    一、Naoqi APIs1. API 概览（官方文档戳我） &amp;emsp;&amp;emsp;Naoqi 的 API 按功能分类可以大致分为八个部分，分别是：  核心类API：NAOqi Core 情感类API：NAOqi Emotion 交互类API：NAOqi Interaction engines 运动类API：NAOqi Motion 音频类API：NAOqi Audio">
+<meta name="twitter:description" content="概述 本篇列出了几类常用的 API 功能模块，介绍了一个重要的 API 函数 ALProxy，并自己创建了一个 Python 指令盒，简单实现了让 Nao 说出 Hello World 的程序代码。    一、Naoqi APIs1. API 概览（官方文档戳我） &amp;emsp;&amp;emsp;Naoqi 的 API 按功能分类可以大致分为八个部分，分别是：  核心类API：NAOqi Core 情感类">
 <meta name="twitter:image" content="http://sunwish.coding.me/2018/11/05/Robot-Nao-03/1.jpg">
 
 
@@ -374,7 +375,7 @@
                 
               
 
-              <time title="创建时间：2018-11-05 17:20:20 / 修改时间：21:46:21" itemprop="dateCreated datePublished" datetime="2018-11-05T17:20:20+08:00">2018-11-05</time>
+              <time title="创建时间：2018-11-05 17:20:20 / 修改时间：22:59:02" itemprop="dateCreated datePublished" datetime="2018-11-05T17:20:20+08:00">2018-11-05</time>
             
 
             
@@ -413,7 +414,7 @@
 
       
         <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
-<p>本篇正在更新</p>
+<p>本篇列出了几类常用的 API 功能模块，介绍了一个重要的 API 函数 ALProxy，并自己创建了一个 Python 指令盒，简单实现了让 Nao 说出 Hello World 的程序代码。</p>
 </blockquote>
 <center><img src="/2018/11/05/Robot-Nao-03/1.jpg" alt="Title"></center>
 
@@ -431,19 +432,33 @@
 </ul>
 <p><strong>2. 重要API: ALProxy</strong></p>
 <p>&emsp;&emsp;在 Naoqi 的 Python SDK 中提供了一条重要的 API: ALProxy，在调用 Naoqi 的各个功能模块时通常都要先调用此API，从而获取指定功能模块的代理服务，其返回的应该是指定服务类的一个实例。ALProxy 有两个不同的构造函数，详见下面的函数原型：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ALProxy (name, ip, port)</span><br><span class="line">/# name is the name of the module,</span><br><span class="line">/# ip is the IP of the broker in which the module is running,</span><br><span class="line">/# port is the port of the broker.</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALProxy (name)</span><br><span class="line">/# name is the name of the module.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ALProxy (name, ip, port)</span><br><span class="line"># name is the name of the module,</span><br><span class="line"># ip is the IP of the broker in which the module is running,</span><br><span class="line"># port is the port of the broker.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALProxy (name)</span><br><span class="line"># name is the name of the module.</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>ALProxy (name) 作为 ALProxy (name, ip, port) 的重载函数，通常在没有可用的代理实例时才被使用。</p>
 </blockquote>
 <a id="more"></a>
-<h3 id="二、在-Choregraphe-中创建自己的第一个-Python-Box"><a href="#二、在-Choregraphe-中创建自己的第一个-Python-Box" class="headerlink" title="二、在 Choregraphe 中创建自己的第一个 Python Box"></a><strong>二、在 Choregraphe 中创建自己的第一个 Python Box</strong></h3><p>&emsp;&emsp;接下来，我们就要开始着手 Python 程序的编写了，这一系列的学习笔记都将在 Choregraphe 环境中完成代码的编写。首先，我们需要在 Choregraphe 中新建一个盒子，只需在操作区右键 -&gt; Create a new box 中选择 Python 即可，填写相应的参数并点击确定。</p>
+<h3 id="二、在-Choregraphe-中创建自己的第一个-Python-Box"><a href="#二、在-Choregraphe-中创建自己的第一个-Python-Box" class="headerlink" title="二、在 Choregraphe 中创建自己的第一个 Python Box"></a><strong>二、在 Choregraphe 中创建自己的第一个 Python Box</strong></h3><p>&emsp;&emsp;接下来，我们就要开始着手 Python 程序的编写了，这一系列的学习笔记都将在 Choregraphe 环境中完成代码的编写。首先，我们需要在 Choregraphe 中新建一个盒子，只需在流程图面板右键 -&gt; Create a new box 中选择 Python 即可，填写 Box name 和 Description 并点击确定，其他参数我们暂时不管。</p>
 <center><img src="/2018/11/05/Robot-Nao-03/gif1.gif" alt="Title"></center>
 
-<p>&emsp;&emsp;这样，我们就造了一个盒子（Box），双击我们刚才新建的 Box 即可打开文本编辑器，可以看到其中已经有一些初始代码了：</p>
+<p>&emsp;&emsp;这样，我们就造了一个盒子（Box），双击我们刚才造的 Box 即可打开文本编辑器，可以看到其中已经有一些初始代码了：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class MyClass(GeneratedClass):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        GeneratedClass.__init__(self)</span><br><span class="line"></span><br><span class="line">    def onLoad(self):</span><br><span class="line">        #put initialization code here</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def onUnload(self):</span><br><span class="line">        #put clean-up code here</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def onInput_onStart(self):</span><br><span class="line">        #self.onStopped() #activate the output of the box</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def onInput_onStop(self):</span><br><span class="line">        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped</span><br><span class="line">        self.onStopped() #activate the output of the box</span><br></pre></td></tr></table></figure>
-<h3 id="三、Hello-World！"><a href="#三、Hello-World！" class="headerlink" title="三、Hello World！"></a><strong>三、Hello World！</strong></h3><p><strong>1. 音频API: ALTextToSpeech</strong></p>
+<p>&emsp;&emsp;其中 onLoad 函数和 onUnload 函数分别在初始化和清除的时候调用，而 onInput_onStart 函数与 onInput_onStop 函数则是在盒子启动和停止的时候被调用。</p>
+<h3 id="三、Hello-World！"><a href="#三、Hello-World！" class="headerlink" title="三、Hello World！"></a><strong>三、Hello World！</strong></h3><p>&emsp;&emsp;好了，下面就让我们通过代码实现，让 Nao 说出那句经典的 Hello World 吧！</p>
+<p>&emsp;&emsp;为了让 Nao 开口说话，我们还需要一个分类于 NAOqi Audio 的 API: <a href="http://doc.aldebaran.com/2-8/naoqi/audio/altexttospeech-api.html" target="_blank" rel="noopener">ALTextToSpeech</a>。</p>
+<p>&emsp;&emsp;ALTextToSpeech 是一个类，或者说是 Naoqi 的一个功能模块，其中包含 setParameter、setVoice、getVoice 等成员函数，而具有能让 Nao 开口说话这种神奇作用的，就是其中的 say 函数。</p>
+<p>&emsp;&emsp;函数原型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void ALTextToSpeechProxy::say(const std::string&amp; stringToSay)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;say 函数本身非常的简单，只有一个参数即要说的内容，由于 say 函数是 ALTextToSpeech 类中的成员函数，为了调用它我们首先要借助 ALProxy 来获得 ALTextToSpeech 模块的实例(代理)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tts = ALProxy (&quot;ALTextToSpeech&quot;, &quot;localhost&quot;, 7096)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;之后就可以大大方方的调用 say 函数来让 Nao 机器人说出我们想它说出的内容了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tts.say (&quot;Hello World!&quot;)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;为了让程序在 Box 被运行时执行，并在运行完所有内容后自动结束，我们将代码写在 OnStart 函数中、self.onStopped() 代码行上方，并取消 self.onStopped() 前的 # 号注释，完整代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class MyClass(GeneratedClass):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        GeneratedClass.__init__(self)</span><br><span class="line"></span><br><span class="line">    def onLoad(self):</span><br><span class="line">        #put initialization code here</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def onUnload(self):</span><br><span class="line">        #put clean-up code here</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def onInput_onStart(self):</span><br><span class="line">        tts = ALProxy(&quot;ALTextToSpeech&quot;, &quot;localhost&quot;, 7096)</span><br><span class="line">        tts.say(&quot;Hello World!&quot;)</span><br><span class="line">        self.onStopped() #activate the output of the box</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def onInput_onStop(self):</span><br><span class="line">        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped</span><br><span class="line">        self.onStopped() #activate the output of the box</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;运行效果：</p>
+<center><img src="/2018/11/05/Robot-Nao-03/gif2.gif" alt="Title"></center>
 
+<center>— END —</center>
       
     </div>
 
@@ -726,7 +741,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 13.2k 字</span>
+  <span class="post-count">博客全站共 13.7k 字</span>
 </div>
         
 
