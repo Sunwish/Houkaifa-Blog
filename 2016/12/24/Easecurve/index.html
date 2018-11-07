@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-loading-bar.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="概述 Easecurve 缓动引擎是一款采用多区段拟合技术，基于.ecr缓动结构文件来完成数据回调并执行高度自定义化缓动效果的多元化程序缓动动效开发引擎。Easecurve 相较于其他的缓动支持，具有高效多态、拓展性强、可维护性强、精度可调、可跨语言等特点。   Easecurve 2.0 启动界面   一、概述1. 关于 Easecurve 缓动引擎&amp;emsp;&amp;emsp;Easecurve 缓">
+<meta name="keywords" content="个人项目,Easecurve">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【个人项目】 Easecurve 2.0 · 缓动引擎">
+<meta property="og:url" content="http://Sunwish.coding.me/2016/12/24/Easecurve/index.html">
+<meta property="og:site_name" content="Sunwish&#39;s Blog">
+<meta property="og:description" content="概述 Easecurve 缓动引擎是一款采用多区段拟合技术，基于.ecr缓动结构文件来完成数据回调并执行高度自定义化缓动效果的多元化程序缓动动效开发引擎。Easecurve 相较于其他的缓动支持，具有高效多态、拓展性强、可维护性强、精度可调、可跨语言等特点。   Easecurve 2.0 启动界面   一、概述1. 关于 Easecurve 缓动引擎&amp;emsp;&amp;emsp;Easecurve 缓">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunwish.coding.me/2016/12/24/Easecurve/UI-EasecurveBuilder_InitPage.png">
+<meta property="og:image" content="http://sunwish.coding.me/2016/12/24/Easecurve/StartPage.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2016/12/24/Easecurve/workspace.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2016/12/24/Easecurve/ecpFileStruct.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2016/12/24/Easecurve/2.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2016/12/24/Easecurve/7.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2016/12/24/Easecurve/1.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2016/12/24/Easecurve/3.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2016/12/24/Easecurve/4.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2016/12/24/Easecurve/8.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2016/12/24/Easecurve/5.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2016/12/24/Easecurve/6.gif">
+<meta property="og:updated_time" content="2018-11-07T14:27:03.507Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【个人项目】 Easecurve 2.0 · 缓动引擎">
+<meta name="twitter:description" content="概述 Easecurve 缓动引擎是一款采用多区段拟合技术，基于.ecr缓动结构文件来完成数据回调并执行高度自定义化缓动效果的多元化程序缓动动效开发引擎。Easecurve 相较于其他的缓动支持，具有高效多态、拓展性强、可维护性强、精度可调、可跨语言等特点。   Easecurve 2.0 启动界面   一、概述1. 关于 Easecurve 缓动引擎&amp;emsp;&amp;emsp;Easecurve 缓">
+<meta name="twitter:image" content="http://sunwish.coding.me/2016/12/24/Easecurve/UI-EasecurveBuilder_InitPage.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://Sunwish.coding.me/2016/12/24/Easecurve/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>【个人项目】 Easecurve 2.0 · 缓动引擎 | Sunwish's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Sunwish's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Sun everywhere, wish everywhere.</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2016/12/24/Easecurve/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Easecurve · 缓动引擎：<br>https://0x9.me/0CQVn<br>2. Alterful · 键盘增强：<br>http://www.alterful.com/<br>3.AQTS · 自动量化交易系统<br><br>个人经历：<br>某杯全国大学生数学建模竞赛三等奖<br>某不知名社区UI设计大赛一等奖<br>某不知名院校职规大赛一等奖<br>某不知名团队创始人<br>数模国赛现役选手">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sunwish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【个人项目】 Easecurve 2.0 · 缓动引擎
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+              <i class="fa fa-thumb-tack"></i>
+              <font color=808080>置顶</font>
+              <span class="post-meta-divider">|</span>
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-24 22:14:08" itemprop="dateCreated datePublished" datetime="2016-12-24T22:14:08+08:00">2016-12-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-07 22:27:03" itemprop="dateModified" datetime="2018-11-07T22:27:03+08:00">2018-11-07</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
+<p>Easecurve 缓动引擎是一款采用多区段拟合技术，基于.ecr缓动结构文件来完成数据回调并执行高度自定义化缓动效果的多元化程序缓动动效开发引擎。Easecurve 相较于其他的缓动支持，具有高效多态、拓展性强、可维护性强、精度可调、可跨语言等特点。</p>
+</blockquote>
+<center><img src="/2016/12/24/Easecurve/UI-EasecurveBuilder_InitPage.png" alt="启动界面"> Easecurve 2.0 启动界面</center>
+
+<hr>
+<h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a><strong>一、概述</strong></h3><h4 id="1-关于-Easecurve-缓动引擎"><a href="#1-关于-Easecurve-缓动引擎" class="headerlink" title="1. 关于 Easecurve 缓动引擎"></a><strong>1. 关于 Easecurve 缓动引擎</strong></h4><p>&emsp;&emsp;Easecurve 缓动引擎是一款采用多区段拟合技术，基于.ecr缓动结构文件来完成数据回调并执行高度自定义化缓动效果的多元化程序缓动动效开发引擎。Easecurve 相较于其他的缓动支持，具有高效多态、拓展性强、可维护性强、精度可调、可跨语言等特点。</p>
+<p>&emsp;&emsp;本引擎(包)由 EasecurveBuilder 与 EasecurveInterface 两大部分组成，并提供一定量的.ecproject模板文件及相应的接入例程，旨在帮助广大开发者们更快更好地入门到缓动开发中。</p>
+<p>&emsp;&emsp;使用 EasecurveBuilder，您可以快速高效地对.ecr缓动文件进行可视化的开发与调整，实现缓动视觉与程序本体的逻辑分离，大大提高动效设计的效率，保护了接入源程序的独立性与迭代更新的轻便性。</p>
+<p>&emsp;&emsp;使用 EasecurveInterface，您可以简明快速地将.ecr缓动结构文件所提供的模板动效接入到您的目标程序当中，也可以单纯自由地取得任意相对地时刻下缓动结构文件中的回调数据，这有效地规避了 ECI 接口自身的局限性，以便您更加自由地利用模板数据设计独一无二的缓动动效。</p>
+<center><img src="/2016/12/24/Easecurve/StartPage.jpg" alt="StartPage">Easecurve 2.0 起始页</center>
+
+<h4 id="2-Easecurve-2-0-的优势"><a href="#2-Easecurve-2-0-的优势" class="headerlink" title="2. Easecurve 2.0 的优势"></a><strong>2. Easecurve 2.0 的优势</strong></h4><p>&emsp;&emsp;1. 提供可视化的缓动开发工具，告别复杂而繁琐的抽象化设计过程，使得缓动更加轻松自由。</p>
+<p>&emsp;&emsp;2. 接入代码与实际缓动效果相互分离，具备极强的后期可维护性，更换缓动效果无需更新源程序，甚至无需更新任何代码。</p>
+<p>&emsp;&emsp;3. 具有庞大的缓动模板库，支持对所有缓动模板进行二次开发，提供多段曲线拼接支持。</p>
+<p>&emsp;&emsp;4. 支持多轴多级缓动，兼备对定位移动与循环运动两种形式的动效支持，不局限于短时性缓动，适用于交互动效开发。</p>
+<p>&emsp;&emsp;5. 统一采用窗口句柄作为缓动标识，使得任意组件和窗口的缓动得到支持，为开发者的二次封装和跨语言移植工作提供便利。</p>
+<p>&emsp;&emsp;6. 支持空白缓动，即缓动数据的实时回调，规避了接口自身的局限性，使得基于拟合数据的动效形态变得丰富多彩。</p>
+<p>&emsp;&emsp;7. 得力于全新的 ECP 缓动模式，使得基于一个文件的多组件缓动成为可能，也为全局变动的自封装支持提供了便利。</p>
+<p>&emsp;&emsp;8. 引入 EXML，进一步增大了前端设计师与后端工程师的合作强度。</p>
+<a id="more"></a>
+<h4 id="3-版权声明"><a href="#3-版权声明" class="headerlink" title="3. 版权声明"></a><strong>3. 版权声明</strong></h4><p>&emsp;&emsp;未经版权所有者明确授权，禁止发行本文档及其被实质上修改的版本。</p>
+<p>&emsp;&emsp;未经版权所有者事先授权，禁止将此作品及其衍生作品以标准（纸质）书籍形式发布。</p>
+<p>&emsp;&emsp;如果有兴趣再发行或再版文档的全部或部分内容，不论修改过与否，或有任何问题，请联系版权所有者（<a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=1bymoLuivKa9laSk_7a6uA" target="_blank" rel="noopener">iSuwish@qq.com</a>）。</p>
+<h3 id="二、入门"><a href="#二、入门" class="headerlink" title="二、入门"></a><strong>二、入门</strong></h3><h4 id="1-引擎获取"><a href="#1-引擎获取" class="headerlink" title="1. 引擎获取"></a><strong>1. 引擎获取</strong></h4><p>&emsp;&emsp;Easecurve 2.0 是一款公开使用的，基于多种语言开发的优秀缓动动效引擎。</p>
+<p>&emsp;&emsp;您可以通过以下渠道获取纯净原版的 Easecurve 2.0 缓动引擎：</p>
+<ul>
+<li>通过访问 Easecurve 官方网站：<a href="http://houkaifa.com/" target="_blank" rel="noopener">Easecurve.com</a> 获取下载。</li>
+<li>通过加入 Easecurve 官方交流群： 540459921 获取下载。</li>
+<li>通过与作者Sunwish（<a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=1bymoLuivKa9laSk_7a6uA" target="_blank" rel="noopener">iSuwish@qq.com</a>）进行亲密的PY交♂易，获取纯净特别版。</li>
+</ul>
+<blockquote>
+<p>如果您是普通用户，开发的软件不用于商业用途，则无需向作者进行授权申请。</p>
+<p><strong>如果您是商业用户或开发的软件用于商业用途，则需要另外向作者申请授权才可以在该软件中合法使用。</strong></p>
+<p>作者保留对在商业用途中使用本产品而未经授权的开发者及其软件追究责任的权利。</p>
+</blockquote>
+<center><img src="/2016/12/24/Easecurve/workspace.jpg" alt="workspace">在 Easecurve 2.0 中编辑缓动曲线</center>
+
+<h4 id="2-环境要求"><a href="#2-环境要求" class="headerlink" title="2. 环境要求"></a><strong>2. 环境要求</strong></h4><p>&emsp;&emsp;系统要求：Windows、Linux</p>
+<h4 id="3-整体架构"><a href="#3-整体架构" class="headerlink" title="3. 整体架构"></a><strong>3. 整体架构</strong></h4><p>Easecurve 缓动引擎由 ECB (EasecurveBuilder) 、 ECI (EasecurveInterface) 两部分组成，与其密切相关的有 ECR (EasecurveResource) 、 ECP (EasecurvePackage) 、 EXML (EasecurveXML) 三大结构文件。本小节仅对其做基本的介绍，如有详细了解结构文件的需求，请跳转至 <a href="https://www.kancloud.cn/sunwish/easecurve/282432" target="_blank" rel="noopener">标准封装</a> 章节</p>
+<p><strong>ECB (EasecurveBuilder)</strong></p>
+<p>EasecurveBuilder（ECB）是 Easecurve 提供的能够对.ecr缓动结构文件进行曲线化设计的新型开发工具。使用 EasecurveBuilder，您可以快速高效地对.ecr缓动文件进行可视化的开发与调整，实现缓动视觉与程序本体的逻辑分离，大大提高动效设计的效率，保护了接入源程序的独立性与迭代更新的轻便性。</p>
+<p><strong>ECI (EasecurveInterface)</strong></p>
+<p>EasecurveInterface（ECI）是 Easecurve 提供的能够快速地将经由 EasecurveBuilder 设计的缓动曲线文件接入应用到实际需求场景下的强大接口。使用 EasecurveInterface，您可以简明快速地将.ecr缓动结构文件所提供的模板动效接入到您的目标程序当中，也可以单纯自由地取得任意相对时刻下缓动结构文件中的回调数据，这有效地规避了 ECI 接口自身的局限性，以便您更加自由地利用模板数据设计独一无二的缓动动效。</p>
+<p><strong>ECR (EasecurveResource)</strong></p>
+<p>EasecurveResource（ECR）是经由 EasecurveBuilder 渲染生成的标准的缓动结构文件，其内包含了利用 ECI 完成一个标准缓动所必须的全部数据，有且不限于曲线段数、段占比、时间映射。因为 ECR 文件当中存储了大量的数据，因此较高的精度通常需要以文件体积的增大作为代价。</p>
+<p><strong>ECP (EasecurvePackage)</strong></p>
+<p>EasecurvePackage（ECP）是经由 EasecurveBuilder 渲染生成的标准的缓动结构包文件，其内包含了利用 ECI 完成一个标准包缓动所必须的全部数据，有且不限于曲线段数、段占比、时间映射。因为 ECP 文件当中存储了大量的数据，因此较高的精度通常需要以文件体积的增大作为代价。</p>
+<p><strong>EXML (EasecurveXML)</strong></p>
+<p>EasecurveXML（EXML）是 Easecurve 提供的一种强大的缓动模式文件，通过EXML与ECI的有机结合能够帮助开发者快速高效地实现程序中的大规模缓动（全局变动）。在 EasecurveBuilder 中可借助布局文件可视化地对EXML文件进行开发与修整， EXML文件短小精悍，具有可调控、易维护、独立性强等优点。</p>
+<p><strong>ECProject（EasecurveProject）</strong></p>
+<p>EasecurveProject（ECProject） 是缓动曲线设计软件 EasecurveBuilder 的专用格式，可以保存 EasecurveBuilder 的曲线路径、缓动设置等数据。用 ECProject 格式保存缓动曲线文件时只保留必要的设置数据及关键点信息，属于有损保存，所以当缓动需求十分复杂、精度要求十分高时也能够保持极小的体积与磁盘占用。使用 EasecurveBuilder 完成曲线的设计后最好存储一个 ECProject 的文件备份，直到确认不需要在 EasecurveBuilder 中再次编辑该曲线。</p>
+<center><img src="/2016/12/24/Easecurve/ecpFileStruct.jpg" alt="ecpFileStruct">.ecp文件架构</center>
+
+<h3 id="三、完整文档"><a href="#三、完整文档" class="headerlink" title="三、完整文档"></a><strong>三、完整文档</strong></h3><p>&emsp;&emsp;<a href="https://www.kancloud.cn/sunwish/easecurve/282419" target="_blank" rel="noopener">戳我看完整文档</a></p>
+<h3 id="四、案例欣赏"><a href="#四、案例欣赏" class="headerlink" title="四、案例欣赏"></a><strong>四、案例欣赏</strong></h3><h4 id="1-采用-Easecurve-开发的实际项目登录界面（迅析统计-·-一步到位）"><a href="#1-采用-Easecurve-开发的实际项目登录界面（迅析统计-·-一步到位）" class="headerlink" title="1. 采用 Easecurve 开发的实际项目登录界面（迅析统计 · 一步到位）"></a><strong>1. 采用 Easecurve 开发的实际项目登录界面（<a href="http://sinser.applinzi.com/" target="_blank" rel="noopener">迅析统计 · 一步到位</a>）</strong></h4><center><img src="/2016/12/24/Easecurve/2.gif" alt="迅析登录界面"></center>
+
+<h4 id="2-采用-Easecurve-开发的实际项目更新提示框（dpRun，现已转型为Alterful）"><a href="#2-采用-Easecurve-开发的实际项目更新提示框（dpRun，现已转型为Alterful）" class="headerlink" title="2. 采用 Easecurve 开发的实际项目更新提示框（dpRun，现已转型为Alterful）"></a><strong>2. 采用 Easecurve 开发的实际项目更新提示框（dpRun，现已转型为<a href="http://alterful.com/" target="_blank" rel="noopener">Alterful</a>）</strong></h4><center><img src="/2016/12/24/Easecurve/7.gif" alt="dpRun更新提示"></center>
+
+<h4 id="3-基于-Easecurve-全局变动与差时技术开发的界面动效"><a href="#3-基于-Easecurve-全局变动与差时技术开发的界面动效" class="headerlink" title="3. 基于 Easecurve 全局变动与差时技术开发的界面动效"></a><strong>3. 基于 Easecurve 全局变动与差时技术开发的界面动效</strong></h4><center><img src="/2016/12/24/Easecurve/1.gif" alt="全局变动与差时动效"></center>
+
+<h4 id="4-基于-Easecurve-ECI-回调开发的图像转场动效"><a href="#4-基于-Easecurve-ECI-回调开发的图像转场动效" class="headerlink" title="4. 基于 Easecurve + ECI 回调开发的图像转场动效"></a><strong>4. 基于 Easecurve + ECI 回调开发的图像转场动效</strong></h4><center><img src="/2016/12/24/Easecurve/3.gif" alt="图像转场动效"></center>
+
+<h4 id="5-基于-Easecurve-缓动回调的渐显隐效果"><a href="#5-基于-Easecurve-缓动回调的渐显隐效果" class="headerlink" title="5. 基于 Easecurve 缓动回调的渐显隐效果"></a><strong>5. 基于 Easecurve 缓动回调的渐显隐效果</strong></h4><center><img src="/2016/12/24/Easecurve/4.gif" alt="渐显隐效果"></center>
+
+<h4 id="6-基于-Easecurve-与原创算法开发的仿QQ登录界面低多边形动效"><a href="#6-基于-Easecurve-与原创算法开发的仿QQ登录界面低多边形动效" class="headerlink" title="6. 基于 Easecurve 与原创算法开发的仿QQ登录界面低多边形动效"></a><strong>6. 基于 Easecurve 与原创算法开发的仿QQ登录界面低多边形动效</strong></h4><center><img src="/2016/12/24/Easecurve/8.gif" alt="低多边形动效"></center>
+
+<h4 id="7-基于-Easecurve-ECI-的矩阵变换动效"><a href="#7-基于-Easecurve-ECI-的矩阵变换动效" class="headerlink" title="7. 基于 Easecurve + ECI 的矩阵变换动效"></a><strong>7. 基于 Easecurve + ECI 的矩阵变换动效</strong></h4><center><img src="/2016/12/24/Easecurve/5.gif" alt="观察任意向量变换">观察任意向量变换</center>
+
+<center><img src="/2016/12/24/Easecurve/6.gif" alt="伸缩变换及张成空间的降维">伸缩变换及张成空间的降维</center>
+
+<h3 id="五、引擎现状"><a href="#五、引擎现状" class="headerlink" title="五、引擎现状"></a><strong>五、引擎现状</strong></h3><h4 id="emsp-emsp-由于-Easecurve-开发团队（猴开发）开发人员不足（只有本菜鸡一人）、开发经费不足（开发经费为零）、开发信仰缺失（单干历时近两年已经无聊死）、开发时间欠缺（目前忙的一批），本引擎已饿死在摇篮中（不过诈尸可以有），若有人看中（能看见就不错了，摊手）本项目，有勇气接盘，或有意愿加入-Easecurve-开发，或是有意向资助博主红票子继续开发、愿意充值信仰的，请速速联系博主！博主保证卷款就走，不胜感激！"><a href="#emsp-emsp-由于-Easecurve-开发团队（猴开发）开发人员不足（只有本菜鸡一人）、开发经费不足（开发经费为零）、开发信仰缺失（单干历时近两年已经无聊死）、开发时间欠缺（目前忙的一批），本引擎已饿死在摇篮中（不过诈尸可以有），若有人看中（能看见就不错了，摊手）本项目，有勇气接盘，或有意愿加入-Easecurve-开发，或是有意向资助博主红票子继续开发、愿意充值信仰的，请速速联系博主！博主保证卷款就走，不胜感激！" class="headerlink" title="&emsp;&emsp;由于 Easecurve 开发团队（猴开发）开发人员不足（只有本菜鸡一人）、开发经费不足（开发经费为零）、开发信仰缺失（单干历时近两年已经无聊死）、开发时间欠缺（目前忙的一批），本引擎已饿死在摇篮中（不过诈尸可以有），若有人看中（能看见就不错了，摊手）本项目，有勇气接盘，或有意愿加入 Easecurve 开发，或是有意向资助博主红票子继续开发、愿意充值信仰的，请速速联系博主！博主保证卷款就走，不胜感激！"></a>&emsp;&emsp;由于 Easecurve 开发团队（<a href="https://jq.qq.com/?_wv=1027&amp;k=5OeUSU5" target="_blank" rel="noopener">猴开发</a>）开发人员不足（只有本菜鸡一人）、开发经费不足（开发经费为零）、开发信仰缺失（单干历时近两年已经无聊死）、开发时间欠缺（目前忙的一批），<strong>本引擎已饿死在摇篮中</strong>（不过诈尸可以有），若有人看中（能看见就不错了，摊手）本项目，有勇气接盘，或有意愿加入 Easecurve 开发，或是有意向资助博主红票子继续开发、愿意充值信仰的，请速速<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=770168287&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener">联系博主</a>！博主保证卷款就走，不胜感激！</h4><center>— END —</center>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>大兄弟，赏点银子吧！<br/></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Sunwish 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/个人项目/" rel="tag"><i class="fa fa-tag"></i> 个人项目</a>
+          
+            <a href="/tags/Easecurve/" rel="tag"><i class="fa fa-tag"></i> Easecurve</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/20/My-First-Post/" rel="prev" title="Sunwish's Blog 开通啦">
+                Sunwish's Blog 开通啦 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODI0MS8xNDc2OQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sunwish</p>
+              <p class="site-description motion-element" itemprop="description">个人项目：<br>1. Easecurve · 缓动引擎：<br>https://0x9.me/0CQVn<br>2. Alterful · 键盘增强：<br>http://www.alterful.com/<br>3.AQTS · 自动量化交易系统<br><br>个人经历：<br>某杯全国大学生数学建模竞赛三等奖<br>某不知名社区UI设计大赛一等奖<br>某不知名院校职规大赛一等奖<br>某不知名团队创始人<br>数模国赛现役选手</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zoshny.com/" title="Zoshny" target="_blank">Zoshny</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.xn--yhqslx81a.xn--6qq986b3xl/" title="云雀菌" target="_blank">云雀菌</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://alterful.com/" title="Alterful" target="_blank">Alterful</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、概述"><span class="nav-text">一、概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-关于-Easecurve-缓动引擎"><span class="nav-text">1. 关于 Easecurve 缓动引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Easecurve-2-0-的优势"><span class="nav-text">2. Easecurve 2.0 的优势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-版权声明"><span class="nav-text">3. 版权声明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、入门"><span class="nav-text">二、入门</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-引擎获取"><span class="nav-text">1. 引擎获取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-环境要求"><span class="nav-text">2. 环境要求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-整体架构"><span class="nav-text">3. 整体架构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、完整文档"><span class="nav-text">三、完整文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、案例欣赏"><span class="nav-text">四、案例欣赏</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-采用-Easecurve-开发的实际项目登录界面（迅析统计-·-一步到位）"><span class="nav-text">1. 采用 Easecurve 开发的实际项目登录界面（迅析统计 · 一步到位）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-采用-Easecurve-开发的实际项目更新提示框（dpRun，现已转型为Alterful）"><span class="nav-text">2. 采用 Easecurve 开发的实际项目更新提示框（dpRun，现已转型为Alterful）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-基于-Easecurve-全局变动与差时技术开发的界面动效"><span class="nav-text">3. 基于 Easecurve 全局变动与差时技术开发的界面动效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-基于-Easecurve-ECI-回调开发的图像转场动效"><span class="nav-text">4. 基于 Easecurve + ECI 回调开发的图像转场动效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-基于-Easecurve-缓动回调的渐显隐效果"><span class="nav-text">5. 基于 Easecurve 缓动回调的渐显隐效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-基于-Easecurve-与原创算法开发的仿QQ登录界面低多边形动效"><span class="nav-text">6. 基于 Easecurve 与原创算法开发的仿QQ登录界面低多边形动效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-基于-Easecurve-ECI-的矩阵变换动效"><span class="nav-text">7. 基于 Easecurve + ECI 的矩阵变换动效</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、引擎现状"><span class="nav-text">五、引擎现状</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-由于-Easecurve-开发团队（猴开发）开发人员不足（只有本菜鸡一人）、开发经费不足（开发经费为零）、开发信仰缺失（单干历时近两年已经无聊死）、开发时间欠缺（目前忙的一批），本引擎已饿死在摇篮中（不过诈尸可以有），若有人看中（能看见就不错了，摊手）本项目，有勇气接盘，或有意愿加入-Easecurve-开发，或是有意向资助博主红票子继续开发、愿意充值信仰的，请速速联系博主！博主保证卷款就走，不胜感激！"><span class="nav-text">  由于 Easecurve 开发团队（猴开发）开发人员不足（只有本菜鸡一人）、开发经费不足（开发经费为零）、开发信仰缺失（单干历时近两年已经无聊死）、开发时间欠缺（目前忙的一批），本引擎已饿死在摇篮中（不过诈尸可以有），若有人看中（能看见就不错了，摊手）本项目，有勇气接盘，或有意愿加入 Easecurve 开发，或是有意向资助博主红票子继续开发、愿意充值信仰的，请速速联系博主！博主保证卷款就走，不胜感激！</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sunwish</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 16k 字</span>
+</div>
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65941008";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
