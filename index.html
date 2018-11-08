@@ -511,6 +511,157 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/11/08/Robot-Nao-04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Easecurve · 缓动引擎：<br>https://0x9.me/0CQVn<br>2. Alterful · 键盘增强：<br>https://www.alterful.com/<br>3. AQTS · 自动量化交易系统<br><br>个人经历：<br>某杯全国大学生数学建模竞赛三等奖<br>某不知名社区UI设计大赛一等奖<br>某不知名院校职规大赛一等奖<br>某不知名团队创始人<br>数模国赛现役选手">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sunwish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/08/Robot-Nao-04/" itemprop="url">
+                  【Nao-04】 Naoqi Framework & Broker & Proxy & Modules
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-08 19:19:22 / 修改时间：21:12:06" itemprop="dateCreated datePublished" datetime="2018-11-08T19:19:22+08:00">2018-11-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
+<p>见敬告</p>
+</blockquote>
+<center><img src="/2018/11/08/Robot-Nao-04/1.jpg" alt="Title"></center>
+
+<hr>
+<h1 id="敬告：本篇虽短小精悍，却写的乱七八糟，逻辑令人费解且抓狂，若您已经点进全文阅读，请现在立即停止阅读并关闭本页面，不然可能导致您在精神上感到无尽的痛苦与无助，犹如一百二十只油黑的乌鸦对着三十四只短脚的螃蟹呀呀乱叫，这简直是博主几年来所写过的最最最烂的一篇博文，没有底线，没有之一！但不得不面对这篇博文就是出自博主之手这一无比残酷的现实，从头读到尾，无论是章节与章节之间的联系、小节与小节之间的接洽，还是中英弱关系混排造成的概念蒙蔽、阅读障碍，无不令人撕心裂肺、痛哭流涕。这篇博文的诞生简直是对博主贫乏文笔与理性逻辑的毁灭性轰炸，彻底刷新了博主在学术性文章方面的丑陋下限，颠覆了博主对世纪烂文的一贯认知！在此郑重提醒，请各位读者珍爱生命，远离下文！"><a href="#敬告：本篇虽短小精悍，却写的乱七八糟，逻辑令人费解且抓狂，若您已经点进全文阅读，请现在立即停止阅读并关闭本页面，不然可能导致您在精神上感到无尽的痛苦与无助，犹如一百二十只油黑的乌鸦对着三十四只短脚的螃蟹呀呀乱叫，这简直是博主几年来所写过的最最最烂的一篇博文，没有底线，没有之一！但不得不面对这篇博文就是出自博主之手这一无比残酷的现实，从头读到尾，无论是章节与章节之间的联系、小节与小节之间的接洽，还是中英弱关系混排造成的概念蒙蔽、阅读障碍，无不令人撕心裂肺、痛哭流涕。这篇博文的诞生简直是对博主贫乏文笔与理性逻辑的毁灭性轰炸，彻底刷新了博主在学术性文章方面的丑陋下限，颠覆了博主对世纪烂文的一贯认知！在此郑重提醒，请各位读者珍爱生命，远离下文！" class="headerlink" title="敬告：本篇虽短小精悍，却写的乱七八糟，逻辑令人费解且抓狂，若您已经点进全文阅读，请现在立即停止阅读并关闭本页面，不然可能导致您在精神上感到无尽的痛苦与无助，犹如一百二十只油黑的乌鸦对着三十四只短脚的螃蟹呀呀乱叫，这简直是博主几年来所写过的最最最烂的一篇博文，没有底线，没有之一！但不得不面对这篇博文就是出自博主之手这一无比残酷的现实，从头读到尾，无论是章节与章节之间的联系、小节与小节之间的接洽，还是中英弱关系混排造成的概念蒙蔽、阅读障碍，无不令人撕心裂肺、痛哭流涕。这篇博文的诞生简直是对博主贫乏文笔与理性逻辑的毁灭性轰炸，彻底刷新了博主在学术性文章方面的丑陋下限，颠覆了博主对世纪烂文的一贯认知！在此郑重提醒，请各位读者珍爱生命，远离下文！"></a>敬告：本篇虽短小精悍，却写的乱七八糟，逻辑令人费解且抓狂，若您已经点进全文阅读，请现在立即停止阅读并关闭本页面，不然可能导致您在精神上感到无尽的痛苦与无助，犹如一百二十只油黑的乌鸦对着三十四只短脚的螃蟹呀呀乱叫，这简直是博主几年来所写过的最最最烂的一篇博文，没有底线，没有之一！但不得不面对这篇博文就是出自博主之手这一无比残酷的现实，从头读到尾，无论是章节与章节之间的联系、小节与小节之间的接洽，还是中英弱关系混排造成的概念蒙蔽、阅读障碍，无不令人撕心裂肺、痛哭流涕。这篇博文的诞生简直是对博主贫乏文笔与理性逻辑的毁灭性轰炸，彻底刷新了博主在学术性文章方面的丑陋下限，颠覆了博主对世纪烂文的一贯认知！在此郑重提醒，请各位读者珍爱生命，远离下文！</h1>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/08/Robot-Nao-04/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/11/08/C-ConveyMode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -558,7 +709,7 @@
                 
               
 
-              <time title="创建时间：2018-11-08 16:09:18 / 修改时间：19:10:49" itemprop="dateCreated datePublished" datetime="2018-11-08T16:09:18+08:00">2018-11-08</time>
+              <time title="创建时间：2018-11-08 16:09:18 / 修改时间：19:18:36" itemprop="dateCreated datePublished" datetime="2018-11-08T16:09:18+08:00">2018-11-08</time>
             
 
             
@@ -597,66 +748,19 @@
 
       
         
-          
-            <h3 id="一、-函数参数传递机制的基本理论"><a href="#一、-函数参数传递机制的基本理论" class="headerlink" title="一、 函数参数传递机制的基本理论"></a><strong>一、 函数参数传递机制的基本理论</strong></h3><p>&emsp;&emsp;函数参数传递机制问题在本质上是调用函数（过程）和被调用函数（过程）在调用发生时进行通信的方法问题。基本的参数传递机制有两种：值传递和引用传递。以下讨论称调用其他函数的函数为主调函数，被调用的函数为被调函数。</p>
+          <h3 id="一、-函数参数传递机制的基本理论"><a href="#一、-函数参数传递机制的基本理论" class="headerlink" title="一、 函数参数传递机制的基本理论"></a><strong>一、 函数参数传递机制的基本理论</strong></h3><p>&emsp;&emsp;函数参数传递机制问题在本质上是调用函数（过程）和被调用函数（过程）在调用发生时进行通信的方法问题。基本的参数传递机制有两种：值传递和引用传递。以下讨论称调用其他函数的函数为主调函数，被调用的函数为被调函数。</p>
 <p>&emsp;&emsp;<strong>值传递（passl-by-value）</strong>过程中，被调函数的形式参数作为被调函数的局部变量处理，即在堆栈中开辟了内存空间以存放由主调函数放进来的实参的值，从而成为了实参的一个副本。值传递的特点是被调函数对形式参数的任何操作都是作为局部变量进行，不会影响主调函数的实参变量的值。</p>
 <p>&emsp;&emsp;<strong>引用传递(pass-by-reference)过程中</strong>，被调函数的形式参数虽然也作为局部变量在堆栈中开辟了内存空间，但是这时存放的是由主调函数放进来的实参变量的地址。被调函数对形参的任何操作都被处理成间接寻址，即通过堆栈中存放的地址访问主调函数中的实参变量。正因为如此，被调函数对形参做的任何操作都影响了主调函数中的实参变量。</p>
 <h3 id="二、-C-中的函数参数传递机制"><a href="#二、-C-中的函数参数传递机制" class="headerlink" title="二、 C 中的函数参数传递机制"></a><strong>二、 C 中的函数参数传递机制</strong></h3><p>&emsp;&emsp;在 C 语言中，值传递是唯一可用的参数传递机制。但是据笔者所知，由于受指针变量作为函数参数的影响，有许多朋友还认为这种情况是引用传递。这是错误的。请看下面的代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">int swap(int *x, int *y)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">int temp;</span><br><span class="line"></span><br><span class="line">temp = *x; *x = *y; *y = temp;</span><br><span class="line"></span><br><span class="line">return temp;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">int a = 1, b = 2;</span><br><span class="line"></span><br><span class="line">int *p1 = &amp;a;</span><br><span class="line"></span><br><span class="line">int *p2 = &amp;b;</span><br><span class="line"></span><br><span class="line">swap(p1, p2)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;函数swap以两个指针变量作为参数，当 main() 调用 swap 时，是以值传递的方式将指针变量 p1、p2 的值（也就是变量 a、b 的地址）放在了 swap 在堆栈中为形式参数 x、y 开辟的内存单元中。</p>
-<p>&emsp;&emsp;<strong>这里我们可以得到以下几点：</strong></p>
-<p>　　1． 进程的堆栈存储区是主调函数和被调函数进行通信的主要区域。</p>
-<p>　　2． C语言中参数是从右向左进栈的。</p>
-<p>　　3． 被调函数使用的堆栈区域结构为：</p>
-<p>　　　　局部变量（如temp）</p>
-<p>　　　　返回地址</p>
-<p>　　　　函数参数</p>
-<p>　　　　低地址</p>
-<p>　　　　高地址</p>
-<p>　　4． 由主调函数在调用后清理堆栈。</p>
-<p>　　5． 函数的返回值一般是放在寄存器中的。</p>
-<p>&emsp;&emsp;<strong>这里尚需补充说明几点：一是参数进栈的方式</strong>。对于内部类型，由于编译器知道各类型变量使用的内存大小故直接使用 push 指令；对于自定义的类型（如 structure），采用从源地址向目的（堆栈区）地址进行字节传送的方式入栈。<strong>二是函数返回值为什么一般放在寄存器中</strong>，这主要是为了支持中断；如果放在堆栈中有可能因为中断而被覆盖。<strong>三是函数的返回值如果很大</strong>，则从堆栈向存放返回值的地址单元（由主调函数在调用前将此地址压栈提供给被调函数）进行字节传送，以达到返回的目的。对于第二和第三点，《Thinking in C++》一书在 第10章 有比较好的阐述。四是一个显而易见的结论，如果在被调函数中返回局部变量的地址是毫无意义的；因为局部变量存于堆栈中，调用结束后堆栈将被清理，这些地址就变得无效了。</p>
-<h3 id="三、-C-中的函数参数传递机制"><a href="#三、-C-中的函数参数传递机制" class="headerlink" title="三、 C++中的函数参数传递机制"></a><strong>三、 C++中的函数参数传递机制</strong></h3><p>&emsp;&emsp;众所周知，在C++中调用函数时有三种参数传递方式：</p>
-<p> （1）传值调用；</p>
-<p> （2）传址调用（传指针）；</p>
-<p> （3）引用传递；</p>
-<p>&emsp;&emsp;实际上，还有一种参数传递方式，就是全局变量传递方式。这里的“全局”变量并不见得就是真正的全局的，所有代码都可以直接访问的，只要这个变量的作用域足够这两个函数访问就可以了，比如一个类中的两个成员函数可以使用一个成员变量实现参数传递，或者使用 static 关键字定义，或者使用 namespace 进行限制等，而这里的成员变量在这种意义上就可以称作是“全局”变量（暂时还没有其它比“全局”更好的词来描述）。当然，可以使用一个类外的真正的全局变量来实现参数传递，但有时并没有必要，从工程上讲，作用域越小越好。这种方式有什么优点呢？</p>
-<p>&emsp;&emsp;效率高！</p>
-<p>&emsp;&emsp;的确，这种效率是所有参数传递方式中效率最高的，比前面三种方式都要高，无论在什么情况下。但这种方式有一个致命的弱点，那就是对多线程的支持不好，如果两个进程同时调用同一个函数，而通过全局变量进行传递参数，该函数就不能够总是得到想要的结果。</p>
-<p><strong>下面再分别讨论上面三种函数传递方式。</strong></p>
-<h4 id="1-功能上"><a href="#1-功能上" class="headerlink" title="1. 功能上"></a>1. 功能上</h4><p>&emsp;&emsp;按值传递在传递的时候，实参被复制了一份，然后在函数体内使用，<strong>函数体内修改参数变量时修改的是实参的一份拷贝</strong>，而实参本身是没有改变的，所以如果想在调用的函数中修改实参的值，使用值传递是不能达到目的的，这时只能使用引用或指针传递。例如，要实现两个数值交换。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void swap(int a  int b) </span><br><span class="line"></span><br><span class="line"> void main()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">     int a=1  b=2 </span><br><span class="line"></span><br><span class="line">     swap(a b) </span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;这样，在 main() 函数中的 a, b 值实际上并没有交换，如果想要交换只能使用指针传递或引用传递，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void swap(int pa  int pb)</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;或</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void swap(int&amp;  ra  int&amp;  rb)</span><br></pre></td></tr></table></figure>
-<h4 id="2-传递效率上"><a href="#2-传递效率上" class="headerlink" title="2. 传递效率上"></a>2. 传递效率上</h4><p>&emsp;&emsp;<strong>这里所说传递效率，是说调用被调函数的代码将实参传递到被调函数体内的过程</strong>，正如上面代码中，这个过程就是函数 main() 中的 a, b 传递到函数 swap() 中的过程。这个效率不能一概而论。对于内建的 int, char, short, long, float等4字节或以下的数据类型而言，实际上传递时也只需要传递 1－4 个字节，而使用指针传递时在32位cpu中传递的是32位的指针，4 个字节，都是一条指令，这种情况下值传递和指针传递的效率是一样的，而传递double long, long等8字节的数据时，在 32 位 CPU 中，其传值效率比传递指针要慢，因为8个字节需要2次取完。而在 64 位的 CPU 上，传值和传址的效率是一样的。再说引用传递，这个要看编译器具体实现，引用传递最显然的实现方式是使用指针，这种情况下与指针的效率是一样的，而有些情况下编译器是可以优化的，采用直接寻址的方式，这种情况下，效率比传值调用和传址调用都要快，与上面说的采用全局变量方式传递的效率相当。</p>
-<p>&emsp;&emsp;再说自定义的数据类型，class  struct 定义的数据类型。这些数据类型在进行传值调用时生成临时对象会执行构造函数，而且当临时对象销毁时会执行析构函数，如果构造函数和析构函数执行的任务比较多，或者传递的对象尺寸比较大，那么传值调用的消耗就比较大。这种情况下，采用传址调用和采用传引用调用的效率大多数下相当，正如上面所说，某些情况下引用传递可能被优化，总体效率稍高于传址调用。</p>
-<h4 id="3-执行效率上"><a href="#3-执行效率上" class="headerlink" title="3. 执行效率上"></a>3. 执行效率上</h4><p>&emsp;&emsp;<strong>这里所说的执行效率，是指在被调用的函数体内执行时的效率</strong>。因为传值调用时，当值被传到函数体内，临时对象生成以后，所有的执行任务都是通过直接寻址的方式执行的，而指针和大多数情况下的引用则是以间接寻址的方式执行的，所以实际的执行效率会比传值调用要低。如果函数体内对参数传过来的变量进行操作比较频繁，执行总次数又多的情况下，传址调用和大多数情况下的引用参数传递会造成比较明显的执行效率损失。</p>
-<p>&emsp;&emsp;综合 2、3 两种情况，具体的执行效率要结合实际情况，通过比较传递过程的资源消耗和执行函数体消耗之和来选择哪种情况比较合适。<strong>而就引用传递和指针传递的效率上比，引用传递的效率始终不低于指针传递，所以从这种意义上讲，在 C++ 中进行参数传递时优先使用引用传递而不是指针</strong>。</p>
-<h4 id="4-类型安全上"><a href="#4-类型安全上" class="headerlink" title="4. 类型安全上"></a>4. 类型安全上</h4><p>&emsp;&emsp;值传递与引用传递在参数传递过程中都执行强类型检查，而指针传递的类型检查较弱，特别地，如果参数被声明为 void ，那么它基本上没有类型检查，只要是指针，编译器就认为是合法的，所以这给bug的产生制造了机会，使程序的健壮性稍差，如果没有必要，就使用值传递和引用传递，最好不用指针传递，更好地利用编译器的类型检查，使得我们有更少的出错机会，以增加代码的健壮性。</p>
-<p>&emsp;&emsp;<strong>这里有个特殊情况，就是对于多态的情况</strong>，如果形参是父类，而实参是子类，在进行值传递的时候，临时对象构造时只会构造父类的部分，是一个纯粹的父类对象，而不会构造子类的任何特有的部分，因为办有虚的析构函数，而没有虚的构造函数，这一点是要注意的。如果想在被调函数中通过调用虚函数获得一些子类特有的行为，这是不能实现的。</p>
-<h4 id="5-参数检查上"><a href="#5-参数检查上" class="headerlink" title="5. 参数检查上"></a>5. 参数检查上</h4><p>&emsp;&emsp;一个健壮的函数，总会对传递来的参数进行参数检查，保证输入数据的合法性，以防止对数据的破坏并且更好地控制程序按期望的方向运行，在这种情况下使用值传递比使用指针传递要安全得多，因为你不可能传一个不存在的值给值参数或引用参数，而使用指针就可能，很可能传来的是一个非法的地址（没有初始化，指向已经delete掉的对象的指针等）。所以使用值传递和引用传递会使你的代码更健壮，具体是使用引用还是使用，<strong>最简单的一个原则就是看传递的是不是内建的数据类型，对内建的数据类型优先使用值传递，而对于自定义的数据类型，特别是传递较大的对象，那么请使用引用传递。</strong></p>
-<h4 id="6-灵活性上"><a href="#6-灵活性上" class="headerlink" title="6. 灵活性上"></a>6. 灵活性上</h4><p>&emsp;&emsp;无疑，指针是最灵活的，因为指针除了可以像值传递和引用传递那样传递一个特定类型的对象外，还可以传递空指针，不传递任何对象。指针的这种优点使它大有用武之地，比如标准库里的 time() 函数，你可以传递一个指针给它，把时间值填到指定的地址，你也可以传递一个空指针而只要返回值。</p>
-<h3 id="四、共有技术"><a href="#四、共有技术" class="headerlink" title="四、共有技术"></a><strong>四、共有技术</strong></h3><p>&emsp;&emsp;以上讨论了四种参数传递方式的优缺点，下面再讨论一下在参数传递过程中一些共同的有用的技术。</p>
-<h4 id="1-const-关键字"><a href="#1-const-关键字" class="headerlink" title="1. const 关键字"></a>1. const 关键字</h4><p>&emsp;&emsp;当你的参数是作为输入参数时，你总不希望你的输入参数被修改，否则有可能产生逻辑错误，这时可以在声明函数时在参数前加上 const 关键字，防止在实现时意外修改函数输入，对于使用你的代码的程序员也可以告诉他们这个参数是输入，而不加 const 关键字的参数也可能是输出。例如 strlen，你可以这样声明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int strlen(char str)</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;功能上肯定没有什么问题，但是你想告诉使用该函数的人，参数 str 是一个输入参数，它指向的数据是不能被修改的，这也是他们期望的，总不会有人希望在请人给他数钱的时候，里面有张 100 的变成 10 块的了，或者真钞变成假钞了，他们希望有一个保证，说该函数不会破坏你的任何数据，声明按如下方式便可让他们放心：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int strlen(const char str)</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;可不可以给 str 本身也加一个限制呢，如果把地址改了数得的结果不就错了吗？总得给人点儿自由吧，只要它帮你数钱就行了，何必介意他怎么数呢？只要不破坏你的钱就 ok 了，如果给 str 一个限制，就会出现问题了，按照上面的声明，可以这样实现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">int strlen(const char str)</span><br><span class="line"></span><br><span class="line"> &#123;</span><br><span class="line">	int cnt </span><br><span class="line"></span><br><span class="line">	if( !str) return 0 </span><br><span class="line"></span><br><span class="line">      cnt = 0 </span><br><span class="line"></span><br><span class="line">      while( (str++) )&#123;</span><br><span class="line"></span><br><span class="line">         ++cnt </span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     return cnt </span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;可是，如果你硬要把声明改成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int strlen(const char const str)</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;上面的函数肯定就运行不了了，只能改用其它的实现方式，但这个不是太有必要。只要我们保护好我们的钱就行了，如果它数不对，下次我次不让它数，再换个人就是了。</p>
-<p>&emsp;&emsp;对于成员函数，如果我们要显示给客户代码说某个成员函数不会修改该对象的值，只会读取某些内容，也可以在该函数声明中加一个 const.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class    person</span><br><span class="line"></span><br><span class="line">&#123;......</span><br><span class="line"></span><br><span class="line">  public:</span><br><span class="line"></span><br><span class="line">    unsigned char age( void ) const   // 看到const就放心了，这个函数肯定不会修改m_age</span><br><span class="line"></span><br><span class="line">  private:</span><br><span class="line"></span><br><span class="line">    unsigned char m_age    // 我认为这个类型已经足够长了，如果觉得不改可以改为unsigned long</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-默认值"><a href="#2-默认值" class="headerlink" title="2. 默认值"></a>2. 默认值</h4><p>&emsp;&emsp;个人认为给参数添加一个默认值是一个很方便的特性，非常好用，这样你就可以定义一个具有好几个参数的函数，然后给那些不常用的参数一些默认值，客户代码如果认为那些默认值正是他们想要的，调用函数时只需要填一些必要的实参就行了，非常方便，这样就省去了重载好几个函数的麻烦。可是我不明白 C# 为什么把这个特性给去掉了，可能是为了安全，这样就要求每次调用函数时都要显示地给函数赋实参。所以要注意，这可是个双刃剑，如果想用使刀的招跟对手武斗，很可能伤到自己。</p>
-<h4 id="3-参数顺序"><a href="#3-参数顺序" class="headerlink" title="3. 参数顺序"></a>3. 参数顺序</h4><p>&emsp;&emsp;当同个函数名有不同参数时，如果有相同的参数尽量要把参数放在同一位置上，以方便客户端代码。</p>
-<p>&emsp;&emsp;C++ 中经常使用的是常量引用，如将 swap2 改为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Swap2(const int&amp; x; const int&amp; y)</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;这时将不能在函数中修改引用地址所指向的内容，具体来说，x 和 y 将不能出现在”＝”的左边。</p>
-<center>— END —</center>
-          
+<p>&emsp;&emsp;函数 swap 以两个指针变量作为参数，当 main() 调用 swap 时，是以值传递的方式将指针变量 p1、p2 的值（也就是变量 a、b 的地址）放在了 swap 在堆栈中为形式参数 x、y 开辟的内存单元中。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/08/C-ConveyMode/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1842,152 +1946,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sunwish">
-      <meta itemprop="description" content="个人项目：<br>1. Easecurve · 缓动引擎：<br>https://0x9.me/0CQVn<br>2. Alterful · 键盘增强：<br>https://www.alterful.com/<br>3. AQTS · 自动量化交易系统<br><br>个人经历：<br>某杯全国大学生数学建模竞赛三等奖<br>某不知名社区UI设计大赛一等奖<br>某不知名院校职规大赛一等奖<br>某不知名团队创始人<br>数模国赛现役选手">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sunwish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/30/sun-s-reverse-3/" itemprop="url">
-                  Sun的逆向之路（三）——暴破15年阿里移动安全挑战赛第一题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-30 20:42:28 / 修改时间：20:47:27" itemprop="dateCreated datePublished" datetime="2018-07-30T20:42:28+08:00">2018-07-30</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="/2018/07/30/sun-s-reverse-3/1.jpg" alt="这里写图片描述"></p>
-<h3 id="emsp-0x01-观察题目"><a href="#emsp-0x01-观察题目" class="headerlink" title="&emsp;0x01 观察题目"></a>&emsp;<strong>0x01 观察题目</strong></h3><p>&emsp;&emsp;用模拟器运行程序，看到题目营造了一个情景让我们破解应用的登录系统，先随便输入一串数字，提示我们密码不对，请继续破解。<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/30/sun-s-reverse-3/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2035,7 +1993,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2160,7 +2118,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 20.1k 字</span>
+  <span class="post-count">博客全站共 21.5k 字</span>
 </div>
         
 
