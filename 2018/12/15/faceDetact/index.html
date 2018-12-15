@@ -156,7 +156,7 @@
 <meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/7.png">
 <meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/8.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/9.png">
-<meta property="og:updated_time" content="2018-12-15T14:24:50.394Z">
+<meta property="og:updated_time" content="2018-12-15T14:26:57.007Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于HSV肤色提取与连通区域过滤的人脸定位算法（Matlab）">
 <meta name="twitter:description" content="概述 本篇详细介绍利用基于HSV颜色模型的肤色提取与连通区域过滤实现图片的人脸定位，附带知识的介绍略烦多，附带Matlab程序代码，附测试结果。   预备知识一、图像预处理 1.1 灰度化　在RGB模型中，如果R=G=B时，则彩色表示一种灰度颜色，其中R=G=B的值叫灰度值，因此，灰度图像每个像素只需一个字节存放灰度值（又称强度值、亮度值），灰度范围为0-255。一般有分量法 最大值法平均值法加权">
@@ -385,7 +385,7 @@
                 
               
 
-              <time title="创建时间：2018-12-15 22:13:15 / 修改时间：22:24:50" itemprop="dateCreated datePublished" datetime="2018-12-15T22:13:15+08:00">2018-12-15</time>
+              <time title="创建时间：2018-12-15 22:13:15 / 修改时间：22:26:57" itemprop="dateCreated datePublished" datetime="2018-12-15T22:13:15+08:00">2018-12-15</time>
             
 
             
@@ -461,20 +461,20 @@
 <p>　在视觉上看来，彼此连通的点形成了一个区域，而不连通的点形成了不同的区域。这样的一个所有的点彼此连通点构成的集合，我们称为一个连通区域。<br>　<br>　下面这符图中，如果考虑4邻接，则有3个连通区域；如果考虑8邻接，则有2个连通区域。（注：图像是被放大的效果，图像正方形实际只有4个像素）。<br>   <img src="/2018/12/15/faceDetact/9.png" alt="连通区域"><br>   Matlab提取连通区域：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">待补充</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="连通区初步过滤条件"><a href="#连通区初步过滤条件" class="headerlink" title="连通区初步过滤条件"></a>连通区初步过滤条件</h2><ul>
+<h1 id="连通区初步过滤条件"><a href="#连通区初步过滤条件" class="headerlink" title="连通区初步过滤条件"></a>连通区初步过滤条件</h1><ul>
 <li><strong>1.面积密度</strong></li>
 <li><strong>2.长宽比</strong></li>
 <li><strong>3.致密度</strong></li>
 <li><strong>4.面积滤波</strong></li>
 </ul>
 <hr>
-<h2 id="连通区深度过滤"><a href="#连通区深度过滤" class="headerlink" title="连通区深度过滤"></a>连通区深度过滤</h2><ul>
+<h1 id="连通区深度过滤"><a href="#连通区深度过滤" class="headerlink" title="连通区深度过滤"></a>连通区深度过滤</h1><ul>
 <li><strong>基于几何匹配算法的眼部搜索</strong></li>
 </ul>
 <hr>
-<h2 id="Matlab-程序代码"><a href="#Matlab-程序代码" class="headerlink" title="Matlab 程序代码"></a><strong>Matlab 程序代码</strong></h2><hr>
-<h2 id="测试效果"><a href="#测试效果" class="headerlink" title="测试效果"></a><strong>测试效果</strong></h2><hr>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a><strong>参考文章</strong></h2><p>[1] <a href="https://blog.csdn.net/Fishmemory/article/details/53113746?locationNum=6&amp;fps=1" target="_blank" rel="noopener">形态学-腐蚀、膨胀、开操作、闭操作</a><br>[2] <a href="https://blog.csdn.net/u012507022/article/details/51523385" target="_blank" rel="noopener">图像处理中常用的彩色模型</a><br>[3] <a href="https://blog.csdn.net/cooelf/article/details/26581539" target="_blank" rel="noopener">OpenCV：二值图像连通区域分析与标记算法实现</a></p>
+<h1 id="Matlab-程序代码"><a href="#Matlab-程序代码" class="headerlink" title="Matlab 程序代码"></a><strong>Matlab 程序代码</strong></h1><hr>
+<h1 id="测试效果"><a href="#测试效果" class="headerlink" title="测试效果"></a><strong>测试效果</strong></h1><hr>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a><strong>参考文章</strong></h1><p>[1] <a href="https://blog.csdn.net/Fishmemory/article/details/53113746?locationNum=6&amp;fps=1" target="_blank" rel="noopener">形态学-腐蚀、膨胀、开操作、闭操作</a><br>[2] <a href="https://blog.csdn.net/u012507022/article/details/51523385" target="_blank" rel="noopener">图像处理中常用的彩色模型</a><br>[3] <a href="https://blog.csdn.net/cooelf/article/details/26581539" target="_blank" rel="noopener">OpenCV：二值图像连通区域分析与标记算法实现</a></p>
 <center>— END —</center>
       
     </div>
@@ -726,7 +726,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#预备知识"><span class="nav-text">预备知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、图像预处理"><span class="nav-text">一、图像预处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、几种颜色模型"><span class="nav-text">二、几种颜色模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、连通区域"><span class="nav-text">三、连通区域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连通区初步过滤条件"><span class="nav-text">连通区初步过滤条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连通区深度过滤"><span class="nav-text">连通区深度过滤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matlab-程序代码"><span class="nav-text">Matlab 程序代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试效果"><span class="nav-text">测试效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-text">参考文章</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#预备知识"><span class="nav-text">预备知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、图像预处理"><span class="nav-text">一、图像预处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、几种颜色模型"><span class="nav-text">二、几种颜色模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、连通区域"><span class="nav-text">三、连通区域</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连通区初步过滤条件"><span class="nav-text">连通区初步过滤条件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连通区深度过滤"><span class="nav-text">连通区深度过滤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matlab-程序代码"><span class="nav-text">Matlab 程序代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试效果"><span class="nav-text">测试效果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文章"><span class="nav-text">参考文章</span></a></li></ol></div>
             
 
           </div>
