@@ -139,37 +139,35 @@
 
 
 
-  <meta name="description" content="概述 本篇初步介绍了 Choregraphe 开发环境，并演示如何让 Vitual Robot 安装并运行一个已有的指令盒。     一、Choregraphe 环境概览&amp;emsp;&amp;emsp;在 Windows 系统下正确安装 Choregraphe 后，其启动界面如图 2-1 所示。（Choregraphe 下载、安装过程） &amp;emsp;&amp;emsp;在此将界面按除工具栏外，从顶部开始逆时针旋转">
-<meta name="keywords" content="Nao,机器人,学习笔记">
+  <meta name="description" content="概述 本篇详细介绍利用基于HSV颜色模型的肤色提取与连通区域过滤实现图片的人脸定位，附带知识的介绍略烦多，附带Matlab程序代码，附测试结果。   预备知识一、图像预处理 1.1 灰度化　在RGB模型中，如果R=G=B时，则彩色表示一种灰度颜色，其中R=G=B的值叫灰度值，因此，灰度图像每个像素只需一个字节存放灰度值（又称强度值、亮度值），灰度范围为0-255。一般有分量法 最大值法平均值法加权">
+<meta name="keywords" content="算法,数学建模,沿途简记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【Nao-02】 Choregraphe 环境介绍 &amp; 让 Virtual Robot 运行一个盒子">
-<meta property="og:url" content="http://Sunwish.coding.me/2018/11/04/Robot-Nao-02/index.html">
+<meta property="og:title" content="基于HSV肤色提取与连通区域过滤的人脸定位算法（Matlab）">
+<meta property="og:url" content="http://Sunwish.coding.me/2018/12/15/faceDetact/index.html">
 <meta property="og:site_name" content="Sunwish&#39;s Blog">
-<meta property="og:description" content="概述 本篇初步介绍了 Choregraphe 开发环境，并演示如何让 Vitual Robot 安装并运行一个已有的指令盒。     一、Choregraphe 环境概览&amp;emsp;&amp;emsp;在 Windows 系统下正确安装 Choregraphe 后，其启动界面如图 2-1 所示。（Choregraphe 下载、安装过程） &amp;emsp;&amp;emsp;在此将界面按除工具栏外，从顶部开始逆时针旋转">
+<meta property="og:description" content="概述 本篇详细介绍利用基于HSV颜色模型的肤色提取与连通区域过滤实现图片的人脸定位，附带知识的介绍略烦多，附带Matlab程序代码，附测试结果。   预备知识一、图像预处理 1.1 灰度化　在RGB模型中，如果R=G=B时，则彩色表示一种灰度颜色，其中R=G=B的值叫灰度值，因此，灰度图像每个像素只需一个字节存放灰度值（又称强度值、亮度值），灰度范围为0-255。一般有分量法 最大值法平均值法加权">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-02/1.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-02/2.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-02/elem3.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-02/elem1.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-02/elem2.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-02/elem4.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-02/gif1.gif">
-<meta property="og:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-02/elem5.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-02/elem6.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-02/gif2.gif">
-<meta property="og:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-02/gif3.gif">
-<meta property="og:updated_time" content="2018-11-05T15:03:11.395Z">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/1.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/2.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/3.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/4.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/5.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/6.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/7.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/8.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/9.png">
+<meta property="og:updated_time" content="2018-12-15T14:18:40.875Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【Nao-02】 Choregraphe 环境介绍 &amp; 让 Virtual Robot 运行一个盒子">
-<meta name="twitter:description" content="概述 本篇初步介绍了 Choregraphe 开发环境，并演示如何让 Vitual Robot 安装并运行一个已有的指令盒。     一、Choregraphe 环境概览&amp;emsp;&amp;emsp;在 Windows 系统下正确安装 Choregraphe 后，其启动界面如图 2-1 所示。（Choregraphe 下载、安装过程） &amp;emsp;&amp;emsp;在此将界面按除工具栏外，从顶部开始逆时针旋转">
-<meta name="twitter:image" content="http://sunwish.coding.me/2018/11/04/Robot-Nao-02/1.jpg">
+<meta name="twitter:title" content="基于HSV肤色提取与连通区域过滤的人脸定位算法（Matlab）">
+<meta name="twitter:description" content="概述 本篇详细介绍利用基于HSV颜色模型的肤色提取与连通区域过滤实现图片的人脸定位，附带知识的介绍略烦多，附带Matlab程序代码，附测试结果。   预备知识一、图像预处理 1.1 灰度化　在RGB模型中，如果R=G=B时，则彩色表示一种灰度颜色，其中R=G=B的值叫灰度值，因此，灰度图像每个像素只需一个字节存放灰度值（又称强度值、亮度值），灰度范围为0-255。一般有分量法 最大值法平均值法加权">
+<meta name="twitter:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/1.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://Sunwish.coding.me/2018/11/04/Robot-Nao-02/"/>
+  <link rel="canonical" href="http://Sunwish.coding.me/2018/12/15/faceDetact/"/>
 
 
 
@@ -179,7 +177,7 @@
   };
 </script>
 
-  <title>【Nao-02】 Choregraphe 环境介绍 & 让 Virtual Robot 运行一个盒子 | Sunwish's Blog</title>
+  <title>基于HSV肤色提取与连通区域过滤的人脸定位算法（Matlab） | Sunwish's Blog</title>
   
 
 
@@ -344,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/11/04/Robot-Nao-02/">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/12/15/faceDetact/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sunwish">
@@ -361,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">【Nao-02】 Choregraphe 环境介绍 & 让 Virtual Robot 运行一个盒子
+          <h1 class="post-title" itemprop="name headline">基于HSV肤色提取与连通区域过滤的人脸定位算法（Matlab）
               
             
           </h1>
@@ -387,24 +385,12 @@
                 
               
 
-              <time title="创建时间：2018-11-04 19:47:19" itemprop="dateCreated datePublished" datetime="2018-11-04T19:47:19+08:00">2018-11-04</time>
+              <time title="创建时间：2018-12-15 22:13:15 / 修改时间：22:18:40" itemprop="dateCreated datePublished" datetime="2018-12-15T22:13:15+08:00">2018-12-15</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-11-05 23:03:11" itemprop="dateModified" datetime="2018-11-05T23:03:11+08:00">2018-11-05</time>
               
             
           </span>
@@ -437,71 +423,58 @@
       
 
       
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
-<p>本篇初步介绍了 Choregraphe 开发环境，并演示如何让 Vitual Robot 安装并运行一个已有的指令盒。</p>
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<p>本篇详细介绍利用基于HSV颜色模型的肤色提取与连通区域过滤实现图片的人脸定位，附带知识的介绍略烦多，附带Matlab程序代码，附测试结果。</p>
 </blockquote>
-<center><img src="/2018/11/04/Robot-Nao-02/1.jpg" alt="Title"></center>
-
 <hr>
-<h3 id="一、Choregraphe-环境概览"><a href="#一、Choregraphe-环境概览" class="headerlink" title="一、Choregraphe 环境概览"></a><strong>一、Choregraphe 环境概览</strong></h3><p>&emsp;&emsp;在 Windows 系统下正确安装 Choregraphe 后，其启动界面如图 2-1 所示。（<a href="https://houkaifa.com/2018/11/01/Robot-Nao-01/" target="_blank" rel="noopener">Choregraphe 下载、安装过程</a>）</p>
-<p>&emsp;&emsp;在此将界面按除工具栏外，从顶部开始逆时针旋转分割为八个部分，分别是：</p>
-<center><img src="/2018/11/04/Robot-Nao-02/2.jpg" alt="Title">图 2-1 Choregraphe 界面</center>
-
-<p>&emsp;&emsp;<strong>1. Quick Bar</strong></p>
-<blockquote>
-<p>快速工具栏，可以快捷执行新建项目、打开项目、保存项目、撤销与重做、连接与断开连接、上传安装并运行、中止运行与调试操作，并显示当前的 Robot 运行状态。</p>
-</blockquote>
-<p>&emsp;&emsp;<strong>2. Project Files</strong></p>
-<blockquote>
-<p>项目文件区，可以选择 behavior，并在 ⑥ 中的 Inspector 中查看相关属性，单击 Properties 按钮可以修改 behavior 的一些特性。</p>
-</blockquote>
-<p>&emsp;&emsp;<strong>3. Project Objects</strong></p>
-<blockquote>
-<p>项目目标，显示当前项目中所有的 behavior，即 ⑤ 区域中所显示的内容。 </p>
-</blockquote>
-<p>&emsp;&emsp;<strong>4. Box Libraries</strong></p>
-<blockquote>
-<p>盒子库，显示被包含的所有指令盒，默认加载 Choregraphe 自带的所有指令盒，可以通过 ④ 区的工具栏自己新建盒子库、打开盒子库、保存盒子库和显示指令盒过滤器。</p>
-</blockquote>
+<h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><h3 id="一、图像预处理"><a href="#一、图像预处理" class="headerlink" title="一、图像预处理"></a>一、图像预处理</h3><ul>
+<li><strong>1.1 灰度化</strong><br>　在RGB模型中，如果R=G=B时，则彩色表示一种灰度颜色，其中R=G=B的值叫灰度值，因此，灰度图像每个像素只需一个字节存放灰度值（又称强度值、亮度值），灰度范围为0-255。一般有分量法 最大值法平均值法加权平均法四种方法对彩色图像进行灰度化。<br>Matlab：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">I = imread(&apos;img.jpg&apos;);</span><br><span class="line">I2 = rgb2gray(I);</span><br><span class="line">subpolt(1,2,1),imshow(I),title(&apos;原图&apos;);</span><br><span class="line">subpolt(1,2,2),imshow(I2),title(&apos;灰度化&apos;);</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/12/15/faceDetact/1.jpg" alt="图像的灰度化"></p>
 <a id="more"></a>
-<p>&emsp;&emsp;<strong>5. Operating Space</strong></p>
-<blockquote>
-<p>流程图区，在此区域控制机器人的 behavior 逻辑。</p>
-</blockquote>
-<p>&emsp;&emsp;<strong>6. Inspector &amp; Robot applications</strong></p>
-<blockquote>
-<p>属性区，可以在选中 ③ 区中的 behavior 与 ④ 区的 Box 时查看、修改相关对象的属性。</p>
-</blockquote>
-<blockquote>
-<p>机器人应用区，可以查看当前机器人所附加的所有应用（behaviors）。</p>
-</blockquote>
-<p>&emsp;&emsp;<strong>7. Robot View &amp; Video monitor</strong></p>
-<blockquote>
-<p>机器人视图区，可以查看机器人的外观与实时动作状态，并可以通过选中关节、部位，来手动调节机器人的姿态。</p>
-</blockquote>
-<blockquote>
-<p>视频监视区，可以查看机器人当前所看到的视觉图像。</p>
-</blockquote>
-<p>&emsp;&emsp;<strong>8. Status Bar</strong></p>
-<blockquote>
-<p>状态条，显示当前机器人的状态参量，如音量、运动模式、是否开启自由生活等、电量等。</p>
-</blockquote>
-<h3 id="二、使用-Box-Libraries-中的盒子来控制-Vitual-Robot"><a href="#二、使用-Box-Libraries-中的盒子来控制-Vitual-Robot" class="headerlink" title="二、使用 Box Libraries 中的盒子来控制 Vitual Robot"></a><strong>二、使用 Box Libraries 中的盒子来控制 Vitual Robot</strong></h3><p><strong>1. 添加一个 Box 并完成一个完整的 Behavior</strong></p>
-<p>&emsp;&emsp;在 Choregraphe 的环境概览中，我们了解了 ④ Box Libraries，现在我们尝试使用一个已有的 Box 来控制我们的虚拟机器人。</p>
-<p>&emsp;&emsp;首先在 Box Libraries 中找到一个我们中意的 Box，然后用鼠标左键按住这个 Box，拖动到 ⑤ Operating Space 中，这样我们就将一个 Box 添加到了当前编辑的 behavior。</p>
-<p>&emsp;&emsp;为了使得这个 behavior 按照我们想要的的逻辑来运行 Box，我们需要按住 ⑤ 区左上角处的右三角按钮 <img src="/2018/11/04/Robot-Nao-02/elem3.jpg" alt="Title">（On Start），拖动到我们所添加的 Box 的对应右三角处 <img src="/2018/11/04/Robot-Nao-02/elem1.jpg" alt="Title">（On Start），这样连出的一条逻辑线表示在这个 Behavior 被运行时，首先执行我们放入的这个 Box。</p>
-<p>&emsp;&emsp;随后按住这个 Box 右上角的 <img src="/2018/11/04/Robot-Nao-02/elem2.jpg" alt="Title"> 按钮，拖拽至 ⑤ 区右上角的 <img src="/2018/11/04/Robot-Nao-02/elem4.jpg" alt="Title"> 处，这样连出的一条逻辑线表示在我们这个 Box 执行完成后，整个 Behavior 就执行结束了。完整的操作过程见图 2-2。</p>
-<center><img src="/2018/11/04/Robot-Nao-02/gif1.gif" alt="Title">图 2-2 添加一个 Box 并完成 Behavior 逻辑线连接</center>
-
-<p><strong>2. 安装 Behavior 到 Vitual Robot 并运行</strong></p>
-<p>&emsp;&emsp;接下来，为了让机器人运行我们所想的 Behavior，只需要点击 ① 区中的 <img src="/2018/11/04/Robot-Nao-02/elem5.jpg" alt="Title">（Upload to the robot and Play）或按下键盘上的 F5 即可。</p>
-<p>&emsp;&emsp;查看过程中要想停止运行，点击 ⑤ 区中的 <img src="/2018/11/04/Robot-Nao-02/elem6.jpg" alt="Title">（Stop）或使用组合按钮 Shift + F5 即可。运行效果见图 2-3。</p>
-<center><img src="/2018/11/04/Robot-Nao-02/gif2.gif" alt="Title">图 2-3 调试与停止调试</center>
-
-<h3 id="三、补充"><a href="#三、补充" class="headerlink" title="三、补充"></a><strong>三、补充</strong></h3><p>&emsp;&emsp;0x01 Choregraphe 的界面布局是可以动态调整的，方法是用鼠标左键按住需要调整位置的功能模块的标题栏并拖拽，拖拽到合适位置后再松开鼠标左键。各个功能模块是可以通过关闭按钮来隐藏的，被隐藏的模块可以在顶部工具栏的 View 选项中找回显示，也可以在 View 中保存当前的界面布局、加载已有的界面布局文件（.lyt）、恢复默认布局。</p>
-<center><img src="/2018/11/04/Robot-Nao-02/gif3.gif" alt="Title">图 2-4 调整界面布局</center>
-
-<p>&emsp;&emsp;0x02 在调试的过程当中有可能出现无法 Stop 的情况，需要断开连接后重连机器人。</p>
+<ul>
+<li><strong>1.2 锐化滤波</strong><br>　应用锐化可以快速聚焦模糊边缘，提高图像中某一部位的清晰度或者焦距程度，使图像特定区域的色彩更加<br>鲜明。<br>Matlab：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">I = imread(&apos;img.jpg&apos;);</span><br><span class="line">I2 = double(rgb2gray(I));</span><br><span class="line">H = [0 1 0,1 -41,0 1 0];</span><br><span class="line">J = conv2(I2,H,&apos;same&apos;);</span><br><span class="line">K = I2-J;</span><br><span class="line">subplot(1,2,1),imshow(rgb2gray(I)),title(&apos;原图灰度化&apos;);</span><br><span class="line">subplot(1,2,2),imshow(K,[]),title(&apos;锐化滤波&apos;);</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/12/15/faceDetact/2.jpg" alt="锐化滤波"></p>
+<ul>
+<li><strong>1.3 中值滤波</strong><br>　中值滤波法是一种非线性平滑技术，它将每一像素点的灰度值设置为该点某邻域窗口内的所有像素点灰度值的中值。<br>　中值滤波是基于排序统计理论的一种能有效抑制噪声的非线性信号处理技术，中值滤波的基本原理是把数字图像或数字序列中一点的值用该点的一个邻域中各点值的中值代替，让周围的像素值接近的真实值，从而消除孤立的噪声点。<br>Matlab：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">I = imread(&apos;img.jpg&apos;);</span><br><span class="line">I2 = medfilt2(rgb2gray(I),[9 9]); 	%9×9中值滤波</span><br><span class="line">subplot(1,2,1),imshow(rgb2gray(I)),title(&apos;原图灰度化&apos;);</span><br><span class="line">subplot(1,2,2),imshow(I2,[]),title(&apos;9×9中值滤波&apos;);</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/12/15/faceDetact/3.jpg" alt="中值滤波"></p>
+<ul>
+<li><strong>1.4 二值化</strong><br>　图像的二值化，就是将图像上的像素点的灰度值设置为0或255，也就是将整个图像呈现出明显的只有黑和白的视觉效果。<br>Matlab：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">I = imread(&apos;img.jpg&apos;);</span><br><span class="line">I2 = rgb2gray(I);	%灰度化</span><br><span class="line">thresh = graythresh(I2);     %从原图确定二值化阈值；</span><br><span class="line">I3 = im2bw(I2,thresh);	%二值化</span><br><span class="line">subplot(1,2,1),imshow(I2),title(&apos;原图灰度化&apos;);</span><br><span class="line">subplot(1,2,2),imshow(I3),title(&apos;二值化&apos;);</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/12/15/faceDetact/4.jpg" alt="二值化"></p>
+<ul>
+<li><strong>1.5 形态学操作（腐蚀、膨胀、开操作、闭操作）</strong><br><a href="https://blog.csdn.net/Fishmemory/article/details/53113746?locationNum=6&amp;fps=1" target="_blank" rel="noopener">点我学习详细原理</a><br>Matlab：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">待补充</span><br></pre></td></tr></table></figure>
+<h4 id="二、几种颜色模型"><a href="#二、几种颜色模型" class="headerlink" title="二、几种颜色模型"></a>二、几种颜色模型</h4><ul>
+<li><strong>2.1 RGB模型</strong><br>　最典型、最常用的面向硬件设备的彩色模型是三基色模型，即RGB模型。电视、摄像机和彩色扫描仪都是根据RGB模型工作的。RGB颜色模型建立在笛卡尔坐标系统里，其中三个坐标轴分别代表R、G、B，如图1所示，RGB模型是一个立方体，原点对应黑色，离原点最远的顶点对应白色。RGB是加色，是基于光的叠加的，红光加绿光加蓝光等于白光。应用于显示器这样的设备。<br><img src="/2018/12/15/faceDetact/5.png" alt="RGB模型"><br>　RGB颜色空间的主要缺点是不直观，从R、G、B的值中很难知道该值所代表颜色的认知属性，因此RGB颜色空间不符合人对颜色的感知心理。另外，RGB颜色空间是最不均匀的颜色空间之一，两种颜色之间的知觉差异不能采用该颜色空间中两个颜色点之间的距离来表示。</li>
+<li><strong>2.2 YCrCb模型</strong><br>YCbCr模型中，Y是指亮度分量，Cb指蓝色色度分量，而Cr指红色色度分量。人的肉眼对视频的Y分量更敏感，因此在通过对色度分量进行子采样来减少色度分量后，肉眼将察觉不到的图像质量的变化。YCbCr模型常用与肤色检测中。<br>RGB转换YCbCr公式：<br>　　   Y=0.299R+0.587G+0.114B<br>　　   Cb=0.564(B-Y)<br>　　   Cr=0.713(R-Y)<br> YCbCr转换RGB公式：<br>　   　R=Y+1.402Cr<br>　  　 G=Y-0.344Cb-0.714Cr<br>　  　 B=Y+1.772Cb</li>
+<li><strong>2.3 HSV模型</strong><br>　HSV模型比HSI模型更与人类对颜色的感知接近。H代表色调，S代表饱和度，V代表亮度值。HSV模型的坐标系统可以是圆柱坐标系统，但一般用六棱锥来表示，如图3所示，与HSI模型比较相似。可以通过比较HSI、HSV与RGB空间的转换公式，来比较HSI与HSV的区别。<br>　<img src="/2018/12/15/faceDetact/6.jpg" alt="HSV模型"><br>　RGB空间转换HSV空间：<br>　<img src="/2018/12/15/faceDetact/7.png" alt="RGB空间转换HSV空间"></li>
+</ul>
+<h4 id="三、连通区域"><a href="#三、连通区域" class="headerlink" title="三、连通区域"></a>三、连通区域</h4><p>　在图像中，最小的单位是像素，每个像素周围有8个邻接像素，常见的邻接关系有2种：4邻接与8邻接。4邻接一共4个点，即上下左右，如下左图所示。8邻接的点一共有8个，包括了对角线位置的点，如下右图所示。<br><img src="/2018/12/15/faceDetact/8.jpg" alt="连通区域"><br>　如果像素点A与B邻接，我们称A与B连通，于是我们不加证明的有如下的结论：<br>　<br>　如果A与B连通，B与C连通，则A与C连通。</p>
+<p>　在视觉上看来，彼此连通的点形成了一个区域，而不连通的点形成了不同的区域。这样的一个所有的点彼此连通点构成的集合，我们称为一个连通区域。<br>　<br>　下面这符图中，如果考虑4邻接，则有3个连通区域；如果考虑8邻接，则有2个连通区域。（注：图像是被放大的效果，图像正方形实际只有4个像素）。<br>   <img src="/2018/12/15/faceDetact/9.png" alt="连通区域"><br>   Matlab提取连通区域：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">待补充</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="连通区初步过滤条件"><a href="#连通区初步过滤条件" class="headerlink" title="连通区初步过滤条件"></a>连通区初步过滤条件</h4><ul>
+<li><strong>1.面积密度</strong></li>
+<li><strong>2.长宽比</strong></li>
+<li><strong>3.致密度</strong></li>
+<li><strong>4.面积滤波</strong></li>
+</ul>
+<hr>
+<h4 id="连通区深度过滤"><a href="#连通区深度过滤" class="headerlink" title="连通区深度过滤"></a>连通区深度过滤</h4><ul>
+<li><strong>基于几何匹配算法的眼部搜索</strong></li>
+</ul>
+<hr>
+<h3 id="Matlab-程序代码"><a href="#Matlab-程序代码" class="headerlink" title="Matlab 程序代码"></a><strong>Matlab 程序代码</strong></h3><hr>
+<h3 id="测试效果"><a href="#测试效果" class="headerlink" title="测试效果"></a><strong>测试效果</strong></h3><hr>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a><strong>参考文章</strong></h3><p>[1] <a href="https://blog.csdn.net/Fishmemory/article/details/53113746?locationNum=6&amp;fps=1" target="_blank" rel="noopener">形态学-腐蚀、膨胀、开操作、闭操作</a><br>[2] <a href="https://blog.csdn.net/u012507022/article/details/51523385" target="_blank" rel="noopener">图像处理中常用的彩色模型</a><br>[3] <a href="https://blog.csdn.net/cooelf/article/details/26581539" target="_blank" rel="noopener">OpenCV：二值图像连通区域分析与标记算法实现</a></p>
 <center>— END —</center>
       
     </div>
@@ -546,11 +519,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Nao/" rel="tag"><i class="fa fa-tag"></i> Nao</a>
+            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
           
-            <a href="/tags/机器人/" rel="tag"><i class="fa fa-tag"></i> 机器人</a>
+            <a href="/tags/数学建模/" rel="tag"><i class="fa fa-tag"></i> 数学建模</a>
           
-            <a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
+            <a href="/tags/沿途简记/" rel="tag"><i class="fa fa-tag"></i> 沿途简记</a>
           
         </div>
       
@@ -563,8 +536,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/01/Robot-Nao-01/" rel="next" title="【Nao-01】 Windows+Naoqi+Python+Choregraphe 开发环境的搭建">
-                <i class="fa fa-chevron-left"></i> 【Nao-01】 Windows+Naoqi+Python+Choregraphe 开发环境的搭建
+              <a href="/2018/12/08/ubuntuInstall/" rel="next" title="记一次艰难的 Ubuntu 双系统安装过程及问题的解决">
+                <i class="fa fa-chevron-left"></i> 记一次艰难的 Ubuntu 双系统安装过程及问题的解决
               </a>
             
           </div>
@@ -572,10 +545,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/05/Robot-Nao-03/" rel="prev" title="【Nao-03】 Naoqi APIs 架构概览 & Hello World！">
-                【Nao-03】 Naoqi APIs 架构概览 & Hello World！ <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -757,7 +726,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、Choregraphe-环境概览"><span class="nav-text">一、Choregraphe 环境概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、使用-Box-Libraries-中的盒子来控制-Vitual-Robot"><span class="nav-text">二、使用 Box Libraries 中的盒子来控制 Vitual Robot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、补充"><span class="nav-text">三、补充</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预备知识"><span class="nav-text">预备知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、图像预处理"><span class="nav-text">一、图像预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二、几种颜色模型"><span class="nav-text">二、几种颜色模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、连通区域"><span class="nav-text">三、连通区域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连通区初步过滤条件"><span class="nav-text">连通区初步过滤条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连通区深度过滤"><span class="nav-text">连通区深度过滤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Matlab-程序代码"><span class="nav-text">Matlab 程序代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试效果"><span class="nav-text">测试效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文章"><span class="nav-text">参考文章</span></a></li></ol></div>
             
 
           </div>
