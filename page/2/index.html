@@ -590,7 +590,9 @@
 </blockquote>
 <h3 id="一、什么是哈希表？"><a href="#一、什么是哈希表？" class="headerlink" title="一、什么是哈希表？"></a><strong>一、什么是哈希表？</strong></h3><p><strong>0x01 什么是哈希表？</strong><br>&emsp;&emsp;哈希表是一种数据结构，它可以提供快速的插入操作和查找操作。<br>&emsp;&emsp;第一次接触哈希表时，它的优点多得让人难以置信。不论哈希表中有多少数据，查找、插入和删除（有时包括侧除）<strong>只需要接近常量的时间——0。</strong>对于常规的搜索定位方式来说，在巨量的数据中找到目标数据可能需要几十毫秒、几百毫秒甚至是按秒算，但在哈希表中查找不过是一瞬间的事。<br>&emsp;&emsp;为了更好地理解哈希表算法的基本原理，此处假定一个场景：Sun开发了一款即时通讯软件W，而Sun需要在W发布之前想好如何应对发布后越来越多用户的帐号操作请求（以搜索好友为例，为方便说明，简单假设数据均在程序数组内，不考虑数据库等外部因素）。于是Sun设想现在W已拥有100万活跃用户，数组A内存放了这些用户的数据。而此时某用户想要查询W号为66666的用户信息，如果你是Sun，你将如何在100万W号中找到66666，并返回其信息？</p>
 <p><strong>0x02 一般方法下的寻找过程？</strong><br>&emsp;&emsp;在正式说到哈希之前，我们先来看一下没有相关经验的新人可能会使用的笨办法——直接遍历。<br>&emsp;&emsp;在遍历的过程中，程序首先查看A[1]内的W号，若不是66666则向下查看A[2]，直到找到A[x]内的W号为66666，返回A[x]。</p>
-<center><img src="/2018/07/30/HashTable/1.png" alt="图1"><br>（注：本文中默认数据均从下标为1开始存储）</center><br>&emsp;&emsp;若足够幸运以至于A[1]就是66666，那么一步就完成了检索。若不凑巧A[100000]才是用户66666呢？那要花费多少时间和资源？这种方法虽然简单却有明显的缺陷，而这一类请求在今后是将高频出现的，有时候许多用户同时向服务器发起请求，显然不会得到理想的效果。<br>
+<center>![图1](1.png)
+（注：本文中默认数据均从下标为1开始存储）</center>
+&emsp;&emsp;若足够幸运以至于A[1]就是66666，那么一步就完成了检索。若不凑巧A[100000]才是用户66666呢？那要花费多少时间和资源？这种方法虽然简单却有明显的缺陷，而这一类请求在今后是将高频出现的，有时候许多用户同时向服务器发起请求，显然不会得到理想的效果。
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/07/30/HashTable/#more" rel="contents">
@@ -713,7 +715,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-31 09:41:44" itemprop="dateModified" datetime="2018-08-31T09:41:44+08:00">2018-08-31</time>
+                <time title="修改时间：2018-12-25 12:06:35" itemprop="dateModified" datetime="2018-12-25T12:06:35+08:00">2018-12-25</time>
               
             
           </span>
@@ -751,7 +753,7 @@
 <p>首先声明一下本文讨论的终极目标——通过贝塞尔曲线实现可调控的数值缓动，也就是贝塞尔插值。之所以以数值为目的是因为它相较于实现某一个具体的案例而言，意义更为广泛，例如可以实现可控性很强的缓动动效，在本文的末尾会附上具体的贝塞尔运动案例分析与一些应用层面的介绍。文章的前一部分即推导部分会以较多的数学形式来加以表述，而中间关于贝塞尔运动的匀速化会则尽量用通俗易懂的语言来说明，最后附上一些相关代码以及应用和总结。</p>
 </blockquote>
 <p>&emsp;&emsp;其实这方面已经有几个月没有再接触了，之所以写这篇文章，是为了回顾与加深之前在这方面学习研究的印象，文章内容仅是个人的理解与一些思考和感悟，并不一定是绝对正确的，因此要是文章内容有什么错误或歧义，还得请各位点醒指出，必当虚心学习，不胜感激。</p>
-<p><div picture="" align="center"><img src="/2018/07/30/BezierCurve/1.jpg" alt="Bezier"><br>法国数学家Pierre Bézier</div></p>
+<p><div picture="" align="center"><img src="/2018/07/30/BezierCurve/1.jpg" alt="Bezier"><br>法国数学家Pierre Bézier&lt;/div picture&gt;</div></p>
 <h3 id="emsp-一、关于贝塞尔曲线-amp-贝塞尔运动"><a href="#emsp-一、关于贝塞尔曲线-amp-贝塞尔运动" class="headerlink" title="&emsp;一、关于贝塞尔曲线 &amp; 贝塞尔运动"></a>&emsp;<strong>一、关于贝塞尔曲线 &amp; 贝塞尔运动</strong></h3><h4 id="emsp-emsp-1-简介"><a href="#emsp-emsp-1-简介" class="headerlink" title="&emsp;&emsp;1.简介"></a>&emsp;&emsp;<strong>1.简介</strong></h4><p>&emsp;&emsp;贝塞尔曲线的介绍在网上到处都能找到，这里就不长篇大论地引入了。简而言之，贝塞尔曲线就是这样的一条曲线，<strong>它是依据四个位置任意的点坐标绘制出的一条光滑曲线。</strong>而贝塞尔追踪方程则是以点运动的形式描述了贝塞尔曲线的形成过程，将曲线描述为了一条随连续时间而形成的<strong>点迹</strong>。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -900,7 +902,8 @@
           <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h3><blockquote>
 <p>考虑到使用E语言设计程序界面比较简单与方便，同时又有一些比较完善的 DirectUI 引擎的支持，故在一些实际的小项目中可以考虑用C/C++写核心，E写界面，两者取长补短，提高开发效率。本文分享如何在VS2017中用使用C++编写DLL文件并在E中进行调用。</p>
 </blockquote>
-<center><img src="/2018/07/30/C-DLL-E/1.jpg" alt="使用E做的界面"><br>（在E中借助自绘引擎做的界面）</center>
+<center>![使用E做的界面](1.jpg)
+（在E中借助自绘引擎做的界面）</center>
 
 <h3 id="一、编写DLL"><a href="#一、编写DLL" class="headerlink" title="一、编写DLL"></a><strong>一、编写DLL</strong></h3><p> <strong>1.</strong> 打开VS2017，文件-&gt;新建-&gt;项目-Visual C++-&gt;空项目，这里命名为demo。</p>
 <p> <strong>2.</strong> 在 资源管理器-&gt;源文件 中新建一个名为 demo.cpp 的 C++ 源文件：</p>
@@ -1509,13 +1512,13 @@
 <p>至于原因很简单啊，因为有一个自己的博客的话就可以没事吹吹水啊，写些心得体会啊，记录一些有趣和有意义的事情啊记录一些乱七八糟的事情啊什么的…</p>
 <p>反正是自己的 Space，想怎么瞎折腾都行，不像在别人的网站上写点东西，处处受限制，发个文章还得等审核</p>
 <p>不过现在就不一样啦哈哈哈，我的地盘我做主，想想还是一件很美好的事情诶。</p>
-<center><img src="/2018/07/20/My-First-Post/1.JPG" alt=""></center>
+<center>![](1.JPG)</center>
 
 <p>不过虽说搭一个自己的博客是一直以来都想做的事情，可惜无奈之前一直一直实在是太太太太忙(lǎn)了，哪来的闲情折腾这个啊！</p>
 <p>然后就一拖再拖，一拖再拖，拖了又拖…到后来压根就忘了这壶 :)</p>
 <p>不过好在偶尔还是会想要写点东西的，先前都写在 CSDN 了，有些还写在了QQ日志…！%#@$</p>
 <p>说白了就是写哪儿都感到不自在，于是突然回想起来那啥我好像曾经还想搭个博客来着啥！</p>
-<center><img src="/2018/07/20/My-First-Post/2.GIF" alt=""></center>
+<center>![](2.GIF)</center>
 
 
 <p>于是这就重新燃起了我搭建博客的热血 —_—！</p>
@@ -1679,7 +1682,7 @@
           <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
 <p>Easecurve 缓动引擎是一款采用多区段拟合技术，基于.ecr缓动结构文件来完成数据回调并执行高度自定义化缓动效果的多元化程序缓动动效开发引擎。Easecurve 相较于其他的缓动支持，具有高效多态、拓展性强、可维护性强、精度可调、可跨语言等特点。</p>
 </blockquote>
-<center><img src="/2016/12/24/Easecurve/UI-EasecurveBuilder_InitPage.png" alt="启动界面"> Easecurve 2.0 启动界面</center>
+<center>![启动界面](UI-EasecurveBuilder_InitPage.png) Easecurve 2.0 启动界面</center>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/12/24/Easecurve/#more" rel="contents">
@@ -1901,7 +1904,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 26.2k 字</span>
+  <span class="post-count">博客全站共 28.8k 字</span>
 </div>
         
 
@@ -2054,6 +2057,59 @@
   
 
   
+  
+
+  
+  
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
 
   
   

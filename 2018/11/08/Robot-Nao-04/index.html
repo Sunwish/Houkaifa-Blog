@@ -139,24 +139,18 @@
 
 
 
-  <meta name="description" content="概述 尚在更新">
+  <meta name="description" content="概述 尚在更新  ![Title](1.jpg)">
 <meta name="keywords" content="Nao,机器人,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Nao-04】 Naoqi Framework &amp; Broker &amp; Proxy &amp; Modules">
 <meta property="og:url" content="http://Sunwish.coding.me/2018/11/08/Robot-Nao-04/index.html">
 <meta property="og:site_name" content="Sunwish&#39;s Blog">
-<meta property="og:description" content="概述 尚在更新">
+<meta property="og:description" content="概述 尚在更新  ![Title](1.jpg)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://sunwish.coding.me/2018/11/08/Robot-Nao-04/1.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/11/08/Robot-Nao-04/framework_crosslangage.png">
-<meta property="og:image" content="http://sunwish.coding.me/2018/11/08/Robot-Nao-04/framework_communication.png">
-<meta property="og:image" content="http://sunwish.coding.me/2018/11/08/Robot-Nao-04/broker-libraries-modules.png">
-<meta property="og:image" content="http://sunwish.coding.me/2018/11/08/Robot-Nao-04/broker-modules-methods.png">
 <meta property="og:updated_time" content="2018-11-23T13:34:21.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Nao-04】 Naoqi Framework &amp; Broker &amp; Proxy &amp; Modules">
-<meta name="twitter:description" content="概述 尚在更新">
-<meta name="twitter:image" content="http://sunwish.coding.me/2018/11/08/Robot-Nao-04/1.jpg">
+<meta name="twitter:description" content="概述 尚在更新  ![Title](1.jpg)">
 
 
 
@@ -434,7 +428,7 @@
         <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
 <p>尚在更新</p>
 </blockquote>
-<center><img src="/2018/11/08/Robot-Nao-04/1.jpg" alt="Title"></center>
+<center>![Title](1.jpg)</center>
 
 <hr>
 <!--
@@ -451,7 +445,7 @@
 <p>要使用 C++ 进行开发的话，请按照 <a href="http://doc.aldebaran.com/2-8/dev/cpp/install_guide.html#cpp-install-guide" target="_blank" rel="noopener">C++ SDK 安装指南</a> 以确保安装了所有所需的工具</p>
 </blockquote>
 <h4 id="3-跨语言："><a href="#3-跨语言：" class="headerlink" title="3. 跨语言："></a><strong>3. 跨语言：</strong></h4><p>&emsp;&emsp;在机器人上运行的软件既可以用 Python 来开发，也可以用 C++，并且在两种语言上开发方法是完全相同的。</p>
-<center><img src="/2018/11/08/Robot-Nao-04/framework_crosslangage.png" alt="framework_crosslangage"></center>
+<center>![framework_crosslangage](framework_crosslangage.png)</center>
 
 <blockquote>
 <p>推荐初学者从 Python 开始学习，因为 Python 更好入门，进而更好更快的完成需求。<br>熟练的 C++ 开发人员应当花更多的时间来开发：<br>&emsp;&emsp;1. Python 中的 behavior<br>&emsp;&emsp;2. C++ 中的 Modules。</p>
@@ -459,7 +453,7 @@
 <h4 id="4-分布式："><a href="#4-分布式：" class="headerlink" title="4. 分布式："></a><strong>4. 分布式：</strong></h4><p>&emsp;&emsp;Naoqi Framework 的分布式主要体现在以下两点：</p>
 <p>&emsp;&emsp;1. 一个实时的应用程序不仅可以是一个可执行文件，还可以是分布在几个机器人上的多个进程或模块。无论你选择哪一个，调用的方法都是一致的。</p>
 <p>&emsp;&emsp;2. 使用一个机器人通过 IP 和端口将可执行文件连接到另一个机器人上时，调用来自其它可执行文件的 API 方法与调用本地的方法是完全一致的。</p>
-<center><img src="/2018/11/08/Robot-Nao-04/framework_communication.png" alt="framework_communication"></center>
+<center>![framework_communication](framework_communication.png)</center>
 
 <blockquote>
 <p>在连接时 Naoqi 会自动选择使用快速直连（LPC）还是远程呼叫（RPC）。</p>
@@ -475,11 +469,11 @@
 </ul>
 <p>&emsp;&emsp;<strong>Naoqi 进程</strong></p>
 <p>&emsp;&emsp;在机器上运行的 Naoqi 可执行文件其实相当于一个代理人，当 Naoqi 启动时，它将会加载一个名为  autoload.ini 的首选项文件，并从中读取应当加载哪些库，每一个库都包含了一个或多个模块，这些模块都使用代理的方式来对外开放。</p>
-<center><img src="/2018/11/08/Robot-Nao-04/broker-libraries-modules.png" alt="broker-libraries-modules"></center>
+<center>![broker-libraries-modules](broker-libraries-modules.png)</center>
 
 <p>&emsp;&emsp;而且这个代理提供了查找功能，这样就方便我们在树或者说是 API 网络上找到对应的方法。</p>
 <p>&emsp;&emsp;每当加载一个模块的时候，都会建立一棵方法树来与这个模块进行关联，并且将模块与代理也进行关联。</p>
-<center><img src="/2018/11/08/Robot-Nao-04/broker-modules-methods.png" alt="broker-modules-methods"></center>
+<center>![broker-modules-methods](broker-modules-methods.png)</center>
 
 <h3 id="二、Broker"><a href="#二、Broker" class="headerlink" title="二、Broker"></a><strong>二、Broker</strong></h3><p>Broker 其实就是一个对象，这个对象提供了：</p>
 <ul>
@@ -487,7 +481,7 @@
 <li>网络访问：允许附加模块的方法从外部进程调用。</li>
 </ul>
 <p>在大多数时间里，我们并不需要去关注这个代理，因为它们只是在透明地执行他们的工作，来帮助你写出具有分布式特性的函数。</p>
-<h3 id="三、Proxy"><a href="#三、Proxy" class="headerlink" title="三、Proxy"></a><strong>三、Proxy</strong></h3><h1 id="博主已弃文而去（假的）"><a href="#博主已弃文而去（假的）" class="headerlink" title="博主已弃文而去（假的）"></a>博主已弃文而去（假的）</h1><h3 id="四、Modules"><a href="#四、Modules" class="headerlink" title="四、Modules"></a><strong>四、Modules</strong></h3><h1 id="博主已弃文而去（骗你的）"><a href="#博主已弃文而去（骗你的）" class="headerlink" title="博主已弃文而去（骗你的）"></a>博主已弃文而去（骗你的）</h1><center>— END —</center>
+<h3 id="三、Proxy"><a href="#三、Proxy" class="headerlink" title="三、Proxy"></a><strong>三、Proxy</strong></h3><h1 id="博主已弃文而去（假的）"><a href="#博主已弃文而去（假的）" class="headerlink" title="博主已弃文而去（假的）"></a>博主已弃文而去（假的）</h1><h3 id="四、Modules"><a href="#四、Modules" class="headerlink" title="四、Modules"></a><strong>四、Modules</strong></h3><h1 id="博主已弃文而去（骗你的）"><a href="#博主已弃文而去（骗你的）" class="headerlink" title="博主已弃文而去（骗你的）"></a>博主已弃文而去（骗你的）</h1><center>--- END ---</center>
       
     </div>
 
@@ -786,7 +780,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 26.2k 字</span>
+  <span class="post-count">博客全站共 28.8k 字</span>
 </div>
         
 
@@ -954,6 +948,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   

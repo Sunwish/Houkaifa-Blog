@@ -439,7 +439,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.method private showDialog()V</span><br><span class="line">    .locals 3</span><br><span class="line">    .prologue</span><br><span class="line">    .line 74</span><br><span class="line">    new-instance v0, Landroid/app/AlertDialog$Builder;</span><br><span class="line">    invoke-direct &#123;v0, p0&#125;, Landroid/app/AlertDialog$Builder;-&gt;&lt;init&gt;(Landroid/content/Context;)V</span><br><span class="line">    .line 75</span><br><span class="line">    .local v0, &quot;builder&quot;:Landroid/app/AlertDialog$Builder;</span><br><span class="line">    const v1, 0x7f0a0012</span><br><span class="line">    invoke-virtual &#123;v0, v1&#125;, Landroid/app/AlertDialog$Builder;-&gt;setMessage(I)Landroid/app/AlertDialog$Builder;</span><br><span class="line">    .line 76</span><br><span class="line">    const v1, 0x7f0a0010</span><br><span class="line">    invoke-virtual &#123;v0, v1&#125;, Landroid/app/AlertDialog$Builder;-&gt;setTitle(I)Landroid/app/AlertDialog$Builder;</span><br><span class="line">    .line 77</span><br><span class="line">    const v1, 0x7f0a0013</span><br><span class="line">    .line 78</span><br><span class="line">    new-instance v2, Lcom/example/simpleencryption/MainActivity$2;</span><br><span class="line">    invoke-direct &#123;v2, p0&#125;, Lcom/example/simpleencryption/MainActivity$2;-&gt;&lt;init&gt;(Lcom/example/simpleencryption/MainActivity;)V</span><br><span class="line">    .line 77</span><br><span class="line">    invoke-virtual &#123;v0, v1, v2&#125;, Landroid/app/AlertDialog$Builder;-&gt;setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;</span><br><span class="line">    .line 84</span><br><span class="line">    invoke-virtual &#123;v0&#125;, Landroid/app/AlertDialog$Builder;-&gt;show()Landroid/app/AlertDialog;</span><br><span class="line">    .line 85</span><br><span class="line">    return-void</span><br><span class="line">.end method</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;很明显我们找到了提示成功信息的地方。最后回编译apk文件，打上签名在模拟器上安装应用，随便输入密码，点击确认，可以看到已经破解成功了。<br><img src="/2018/07/30/sun-s-reverse-3/8.jpg" alt="这里写图片描述"></p>
 <h3 id="emsp-0x03-总结"><a href="#emsp-0x03-总结" class="headerlink" title="&emsp;0x03 总结"></a>&emsp;<strong>0x03 总结</strong></h3><p>&emsp;&emsp;<strong>考虑到暴破相对来说有点低级了，下一篇将尝试从动态调试的角度重新审视此题，并真正意义上的破解出该题的正确密码。</strong></p>
-<center>— END —</center>
+<center>--- END ---</center>
       
     </div>
 
@@ -734,7 +734,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 26.2k 字</span>
+  <span class="post-count">博客全站共 28.8k 字</span>
 </div>
         
 
@@ -902,6 +902,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   

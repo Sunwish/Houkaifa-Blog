@@ -147,20 +147,10 @@
 <meta property="og:site_name" content="Sunwish&#39;s Blog">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;为了进一步学习的需要，这周一准备装上 win10+ubuntu 双系统，但中途出现了各种问题，经反复重装、网上找资料前前后后三天，终于成功安装。虽然之前已在虚拟机中装过了 Kali Linux 和 Ubuntu，但原生体验非常差，因此打算安装双系统。一方面沉浸感更强，体验更好，另一方面，凑一方面。&amp;emsp;&amp;emsp;本篇记录了安装流程，以及安装过程中遇到的问题和解决办">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/0.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/a.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/b.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/1.png">
-<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/2.png">
-<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/3.png">
-<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/4.png">
-<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/5.png">
-<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/6.png">
 <meta property="og:updated_time" content="2018-12-08T07:51:26.707Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次艰难的 Ubuntu 双系统安装过程及问题的解决">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;为了进一步学习的需要，这周一准备装上 win10+ubuntu 双系统，但中途出现了各种问题，经反复重装、网上找资料前前后后三天，终于成功安装。虽然之前已在虚拟机中装过了 Kali Linux 和 Ubuntu，但原生体验非常差，因此打算安装双系统。一方面沉浸感更强，体验更好，另一方面，凑一方面。&amp;emsp;&amp;emsp;本篇记录了安装流程，以及安装过程中遇到的问题和解决办">
-<meta name="twitter:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/0.jpg">
 
 
 
@@ -426,7 +416,7 @@
         <blockquote>
 <p>&emsp;&emsp;为了进一步学习的需要，这周一准备装上 win10+ubuntu 双系统，但中途出现了各种问题，经反复重装、网上找资料前前后后三天，终于成功安装。虽然之前已在虚拟机中装过了 Kali Linux 和 Ubuntu，但原生体验非常差，因此打算安装双系统。一方面沉浸感更强，体验更好，另一方面，凑一方面。<br>&emsp;&emsp;本篇记录了安装流程，以及安装过程中遇到的问题和解决办法。</p>
 </blockquote>
-<center><img src="/2018/12/08/ubuntuInstall/0.jpg" alt=""></center> 
+<center>![](0.jpg)</center> 
 
 <hr>
 <h2 id="环境-win10-GPT-UEFI"><a href="#环境-win10-GPT-UEFI" class="headerlink" title="环境: win10 (GPT + UEFI)"></a>环境: win10 (GPT + UEFI)</h2><hr>
@@ -435,7 +425,7 @@
 <blockquote>
 <p>注：下图是我已经制作好了 U 盘启动盘后的 Rufus 界面截图，因此分区类型和目标系统类型是灰色的，开始按钮也是禁止状态，由此也可以看出，我制作的 U 盘是 GPT 分区类型，系统类型为 UEFI。</p>
 </blockquote>
-<center><img src="/2018/12/08/ubuntuInstall/a.jpg" alt=""></center> 
+<center>![](a.jpg)</center> 
 
 <p><strong>切记提前备份 U 盘数据，制作启动盘 U 盘原数据将被全部抹除</strong></p>
 <p>开始后会接连弹出好几个警告，一路默认是就好。等待一小会进度条跑满后就制作完成，可以关闭 Refus 了。</p>
@@ -444,7 +434,7 @@
 <blockquote>
 <p>注：下图是我已经安装好了双系统之后回到 win 截的图，所以有很多盘并且没有分出来的空卷，你电脑上应该只有 C/D/E/F 这些盘，压缩出来的卷叫做“未分配”。</p>
 </blockquote>
-<center><img src="/2018/12/08/ubuntuInstall/b.jpg" alt=""></center> 
+<center>![](b.jpg)</center> 
 
 <h3 id="三、BIOS-设置"><a href="#三、BIOS-设置" class="headerlink" title="三、BIOS 设置"></a>三、BIOS 设置</h3><p>&emsp;&emsp;插上之前制作好的 U 盘，下面我们重启电脑，在出现电脑品牌 Logo时按 F2 进入 BIOS 界面（一般是 F2，如果不是的话就试试其他 F 键，还有些电脑是 Delete 键），主要做以下两点设置：</p>
 <ol>
@@ -472,7 +462,7 @@
 <blockquote>
 <p>完成分区后，下方的安装启动引导启的设备 <strong>务必选择 EFI 分区对应的设备！</strong>  </p>
 </blockquote>
-<center><img src="/2018/12/08/ubuntuInstall/1.png" alt=""></center>
+<center>![](1.png)</center>
 
 <p>&emsp;&emsp;多看两眼确认后，点击现在安装，之后地点默认 Shanghai 就行了，设置好用户名和密码，下面就是等待完成安装了。完成安装会让你重启，拔掉 U 盘后重启即可。这时注意，我们还要进一次 BIOS，主要做以下两件事：</p>
 <ol>
@@ -489,7 +479,7 @@
 </ol>
 <p>&emsp;&emsp;如果至此你能正常进入系统，且系统环境一切正常的话，那么恭喜你，顺利完成了 win + ubuntu 双系统安装，下面可以参考 Part IIII 中的推荐文章进行系统美化及进一步配置了；<br>若不然，下文列出了我在安装过程中所遇到的问题及解决办法，供参考。</p>
 <hr>
-<h2 id="Part-III-中途问题"><a href="#Part-III-中途问题" class="headerlink" title="Part III 中途问题"></a>Part III 中途问题</h2><h3 id="一、INFO-task-xxxxxx-634-blocked-for-more-than-120-seconds"><a href="#一、INFO-task-xxxxxx-634-blocked-for-more-than-120-seconds" class="headerlink" title="一、INFO: task xxxxxx: 634 blocked for more than 120 seconds."></a>一、INFO: task xxxxxx: 634 blocked for more than 120 seconds.</h3><center><img src="/2018/12/08/ubuntuInstall/2.png" alt=""></center>
+<h2 id="Part-III-中途问题"><a href="#Part-III-中途问题" class="headerlink" title="Part III 中途问题"></a>Part III 中途问题</h2><h3 id="一、INFO-task-xxxxxx-634-blocked-for-more-than-120-seconds"><a href="#一、INFO-task-xxxxxx-634-blocked-for-more-than-120-seconds" class="headerlink" title="一、INFO: task xxxxxx: 634 blocked for more than 120 seconds."></a>一、INFO: task xxxxxx: 634 blocked for more than 120 seconds.</h3><center>![](2.png)</center>
 
 <p>&emsp;&emsp;装完系统后，点击现在重启，直接卡住不动了，于是按电源键强制关机再开，卡在纯色暗紫屏，再重启及之后，都是如图所示的状态，错误信息大体是：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO: task xxxxxx: 634 blocked for more than 120 seconds.</span><br></pre></td></tr></table></figure>
@@ -506,20 +496,20 @@
 <li><p>将 linux 那行的 ro 修改为 rw，即可写</p>
 <blockquote>
 <p>若以 ro 进入系统，文件系统将只是可读状态，无法修改内容  </p>
+<center>![](3.png)</center>
 </blockquote>
-<center><img src="/2018/12/08/ubuntuInstall/3.png" alt=""></center>
 </li>
 <li><p>之后 Ctrl + X 或 F10 引导进入如下界面。</p>
-<center><img src="/2018/12/08/ubuntuInstall/4.png" alt=""></center>
+<center>![](4.png)</center>
 
 </li>
 </ol>
 <p>移至 <strong>root Drop to root shell prompt</strong> 那一行后按 Tab 键使光标移到 ok，然后回车即以 root 用户进入 ubuntu 系统，在窗口最下面即可输入命令。</p>
-<h4 id="STEP-2-临时修改-ratio，缩小文件系统缓存大小："><a href="#STEP-2-临时修改-ratio，缩小文件系统缓存大小：" class="headerlink" title="STEP 2. 临时修改 ratio，缩小文件系统缓存大小："></a>STEP 2. 临时修改 ratio，缩小文件系统缓存大小：</h4><ol start="0">
+<h4 id="STEP-2-临时修改-ratio，缩小文件系统缓存大小："><a href="#STEP-2-临时修改-ratio，缩小文件系统缓存大小：" class="headerlink" title="STEP 2. 临时修改 ratio，缩小文件系统缓存大小："></a>STEP 2. 临时修改 ratio，缩小文件系统缓存大小：</h4><ol>
 <li>在 shell 终端输入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -a | grep dirty</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<center><img src="/2018/12/08/ubuntuInstall/5.png" alt=""></center>
+<center>![](5.png)</center>
 
 <blockquote>
 <p>可以看到当前的设置为： vm.dirty_background_ratio = 10，vm.dirty_ratio = 20，并导致了我们遇到的错误。</p>
@@ -528,7 +518,7 @@
 <li>输入下面两条命令将值修改为 10 和 5。</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./sbin/sysctl -w vm.dirty_ratio=10  </span><br><span class="line">./sbin/sysctl -w vm.dirty_background_ratio=5  `</span><br></pre></td></tr></table></figure>
-<ol start="2">
+<ol>
 <li>改完后 ctrl+d 继续正常启动</li>
 </ol>
 <h4 id="STEP-3-永久修改"><a href="#STEP-3-永久修改" class="headerlink" title="STEP 3. 永久修改"></a>STEP 3. 永久修改</h4><p>&emsp;&emsp;终于进系统了，不过这是 recovery mode，并且刚才的修改只是临时操作，重启后还是会出现相同的问题。<br>为了一劳永逸，下面修改内核配置，以后就可以正常进系统了。</p>
@@ -542,7 +532,7 @@
 <li><p>保存后重启系统，不再出现此错误了。</p>
 </li>
 </ol>
-<h3 id="二、问题一成功跑过了，紧接着又是卡logo问题："><a href="#二、问题一成功跑过了，紧接着又是卡logo问题：" class="headerlink" title="二、问题一成功跑过了，紧接着又是卡logo问题："></a>二、问题一成功跑过了，紧接着又是卡logo问题：</h3><center><img src="/2018/12/08/ubuntuInstall/6.png" alt=""></center>
+<h3 id="二、问题一成功跑过了，紧接着又是卡logo问题："><a href="#二、问题一成功跑过了，紧接着又是卡logo问题：" class="headerlink" title="二、问题一成功跑过了，紧接着又是卡logo问题："></a>二、问题一成功跑过了，紧接着又是卡logo问题：</h3><center>![](6.png)</center>
 
 <p>原因：</p>
 <blockquote>
@@ -593,7 +583,7 @@
 <li><a href="http://www.cnblogs.com/lishanlei/p/9090404.html" target="_blank" rel="noopener">Ubuntu18.04美化主题(mac主题)</a></li>
 <li><a href="http://www.cnblogs.com/howdop/p/5398781.html" target="_blank" rel="noopener">Ubuntu常用软件合集</a></li>
 </ul>
-<center>— END —</center>
+<center>--- END ---</center>
       
     </div>
 
@@ -888,7 +878,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 26.2k 字</span>
+  <span class="post-count">博客全站共 28.8k 字</span>
 </div>
         
 
@@ -1056,6 +1046,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   
