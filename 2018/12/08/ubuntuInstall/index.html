@@ -147,10 +147,12 @@
 <meta property="og:site_name" content="Sunwish&#39;s Blog">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;为了进一步学习的需要，这周一准备装上 win10+ubuntu 双系统，但中途出现了各种问题，经反复重装、网上找资料前前后后三天，终于成功安装。虽然之前已在虚拟机中装过了 Kali Linux 和 Ubuntu，但原生体验非常差，因此打算安装双系统。一方面沉浸感更强，体验更好，另一方面，凑一方面。&amp;emsp;&amp;emsp;本篇记录了安装流程，以及安装过程中遇到的问题和解决办">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-25T07:09:30.247Z">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/0.jpg">
+<meta property="og:updated_time" content="2018-12-25T07:39:20.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次艰难的 Ubuntu 双系统安装过程及问题的解决">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;为了进一步学习的需要，这周一准备装上 win10+ubuntu 双系统，但中途出现了各种问题，经反复重装、网上找资料前前后后三天，终于成功安装。虽然之前已在虚拟机中装过了 Kali Linux 和 Ubuntu，但原生体验非常差，因此打算安装双系统。一方面沉浸感更强，体验更好，另一方面，凑一方面。&amp;emsp;&amp;emsp;本篇记录了安装流程，以及安装过程中遇到的问题和解决办">
+<meta name="twitter:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/0.jpg">
 
 
 
@@ -392,7 +394,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-25 15:09:30" itemprop="dateModified" datetime="2018-12-25T15:09:30+08:00">2018-12-25</time>
+                <time title="修改时间：2018-12-25 15:39:20" itemprop="dateModified" datetime="2018-12-25T15:39:20+08:00">2018-12-25</time>
               
             
           </span>
@@ -438,8 +440,7 @@
         <blockquote>
 <p>&emsp;&emsp;为了进一步学习的需要，这周一准备装上 win10+ubuntu 双系统，但中途出现了各种问题，经反复重装、网上找资料前前后后三天，终于成功安装。虽然之前已在虚拟机中装过了 Kali Linux 和 Ubuntu，但原生体验非常差，因此打算安装双系统。一方面沉浸感更强，体验更好，另一方面，凑一方面。<br>&emsp;&emsp;本篇记录了安装流程，以及安装过程中遇到的问题和解决办法。</p>
 </blockquote>
-<center>![](0.jpg)</center> 
-
+<p><img src="/2018/12/08/ubuntuInstall/0.jpg" alt=""></p>
 <hr>
 <h2 id="环境-win10-GPT-UEFI"><a href="#环境-win10-GPT-UEFI" class="headerlink" title="环境: win10 (GPT + UEFI)"></a>环境: win10 (GPT + UEFI)</h2><hr>
 <h2 id="Part-I-准备工作"><a href="#Part-I-准备工作" class="headerlink" title="Part I 准备工作"></a>Part I 准备工作</h2><h3 id="一、制作-U-盘启动盘"><a href="#一、制作-U-盘启动盘" class="headerlink" title="一、制作 U 盘启动盘"></a>一、制作 U 盘启动盘</h3><p>&emsp;&emsp;首先准备 U 盘一个，并下载好你要安装的 Ubuntu 系统镜像文件，在此用官方推荐的 <strong>Rufus</strong> 工具制作 U 盘启动盘。<br>&emsp;&emsp;电脑插上 U 盘之后，Rufus 就会自动检测并给出默认的配置信息，其中磁盘分区模式选择 GPT，目标系统类型为 UEFI（近两年的新电脑一般都是 GPT + UEFI，当然不排除你的电脑是 MBR + LEGACY，如果是的话就对应选择好，参考对应文章安装）</p>
