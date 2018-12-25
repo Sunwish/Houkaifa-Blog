@@ -139,18 +139,24 @@
 
 
 
-  <meta name="description" content="概述 尚在更新  ![Title](1.jpg)">
+  <meta name="description" content="概述 尚在更新">
 <meta name="keywords" content="Nao,机器人,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Nao-04】 Naoqi Framework &amp; Broker &amp; Proxy &amp; Modules">
 <meta property="og:url" content="http://Sunwish.coding.me/2018/11/08/Robot-Nao-04/index.html">
 <meta property="og:site_name" content="Sunwish&#39;s Blog">
-<meta property="og:description" content="概述 尚在更新  ![Title](1.jpg)">
+<meta property="og:description" content="概述 尚在更新">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-23T13:34:21.115Z">
+<meta property="og:image" content="http://sunwish.coding.me/2018/11/08/Robot-Nao-04/1.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/11/08/Robot-Nao-04/framework_crosslangage.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/11/08/Robot-Nao-04/framework_communication.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/11/08/Robot-Nao-04/broker-libraries-modules.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/11/08/Robot-Nao-04/broker-modules-methods.png">
+<meta property="og:updated_time" content="2018-12-25T08:09:49.545Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Nao-04】 Naoqi Framework &amp; Broker &amp; Proxy &amp; Modules">
-<meta name="twitter:description" content="概述 尚在更新  ![Title](1.jpg)">
+<meta name="twitter:description" content="概述 尚在更新">
+<meta name="twitter:image" content="http://sunwish.coding.me/2018/11/08/Robot-Nao-04/1.jpg">
 
 
 
@@ -392,7 +398,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-23 21:34:21" itemprop="dateModified" datetime="2018-11-23T21:34:21+08:00">2018-11-23</time>
+                <time title="修改时间：2018-12-25 16:09:49" itemprop="dateModified" datetime="2018-12-25T16:09:49+08:00">2018-12-25</time>
               
             
           </span>
@@ -438,8 +444,7 @@
         <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
 <p>尚在更新</p>
 </blockquote>
-<center>![Title](1.jpg)</center>
-
+<p><img src="/2018/11/08/Robot-Nao-04/1.jpg" alt="Title"></p>
 <hr>
 <!--
 # 敬告：本篇虽短小精悍，却写的乱七八糟，逻辑令人费解且抓狂，若您已经点进全文阅读，请现在立即停止阅读并关闭本页面，不然可能导致您在精神上感到无尽的痛苦与无助，犹如一百二十只油黑的乌鸦对着三十四只短脚的螃蟹呀呀乱叫，这简直是博主几年来所写过的最最最烂的一篇博文，没有底线，没有之一！但不得不面对这篇博文就是出自博主之手这一无比残酷的现实，从头读到尾，无论是章节与章节之间的联系、小节与小节之间的接洽，还是中英弱关系混排造成的概念蒙蔽、阅读障碍，无不令人撕心裂肺、痛哭流涕。这篇博文的诞生简直是对博主贫乏文笔与理性逻辑的毁灭性轰炸，彻底刷新了博主在学术性文章方面的丑陋下限，颠覆了博主对世纪烂文的一贯认知！在此郑重提醒，请各位读者珍爱生命，远离下文！-->
@@ -455,16 +460,14 @@
 <p>要使用 C++ 进行开发的话，请按照 <a href="http://doc.aldebaran.com/2-8/dev/cpp/install_guide.html#cpp-install-guide" target="_blank" rel="noopener">C++ SDK 安装指南</a> 以确保安装了所有所需的工具</p>
 </blockquote>
 <h4 id="3-跨语言："><a href="#3-跨语言：" class="headerlink" title="3. 跨语言："></a><strong>3. 跨语言：</strong></h4><p>&emsp;&emsp;在机器人上运行的软件既可以用 Python 来开发，也可以用 C++，并且在两种语言上开发方法是完全相同的。</p>
-<center>![framework_crosslangage](framework_crosslangage.png)</center>
-
+<p><img src="/2018/11/08/Robot-Nao-04/framework_crosslangage.png" alt="framework_crosslangage"></p>
 <blockquote>
 <p>推荐初学者从 Python 开始学习，因为 Python 更好入门，进而更好更快的完成需求。<br>熟练的 C++ 开发人员应当花更多的时间来开发：<br>&emsp;&emsp;1. Python 中的 behavior<br>&emsp;&emsp;2. C++ 中的 Modules。</p>
 </blockquote>
 <h4 id="4-分布式："><a href="#4-分布式：" class="headerlink" title="4. 分布式："></a><strong>4. 分布式：</strong></h4><p>&emsp;&emsp;Naoqi Framework 的分布式主要体现在以下两点：</p>
 <p>&emsp;&emsp;1. 一个实时的应用程序不仅可以是一个可执行文件，还可以是分布在几个机器人上的多个进程或模块。无论你选择哪一个，调用的方法都是一致的。</p>
 <p>&emsp;&emsp;2. 使用一个机器人通过 IP 和端口将可执行文件连接到另一个机器人上时，调用来自其它可执行文件的 API 方法与调用本地的方法是完全一致的。</p>
-<center>![framework_communication](framework_communication.png)</center>
-
+<p><img src="/2018/11/08/Robot-Nao-04/framework_communication.png" alt="framework_communication"></p>
 <blockquote>
 <p>在连接时 Naoqi 会自动选择使用快速直连（LPC）还是远程呼叫（RPC）。</p>
 </blockquote>
@@ -479,12 +482,10 @@
 </ul>
 <p>&emsp;&emsp;<strong>Naoqi 进程</strong></p>
 <p>&emsp;&emsp;在机器上运行的 Naoqi 可执行文件其实相当于一个代理人，当 Naoqi 启动时，它将会加载一个名为  autoload.ini 的首选项文件，并从中读取应当加载哪些库，每一个库都包含了一个或多个模块，这些模块都使用代理的方式来对外开放。</p>
-<center>![broker-libraries-modules](broker-libraries-modules.png)</center>
-
+<p><img src="/2018/11/08/Robot-Nao-04/broker-libraries-modules.png" alt="broker-libraries-modules"></p>
 <p>&emsp;&emsp;而且这个代理提供了查找功能，这样就方便我们在树或者说是 API 网络上找到对应的方法。</p>
 <p>&emsp;&emsp;每当加载一个模块的时候，都会建立一棵方法树来与这个模块进行关联，并且将模块与代理也进行关联。</p>
-<center>![broker-modules-methods](broker-modules-methods.png)</center>
-
+<p><img src="/2018/11/08/Robot-Nao-04/broker-modules-methods.png" alt="broker-modules-methods"></p>
 <h3 id="二、Broker"><a href="#二、Broker" class="headerlink" title="二、Broker"></a><strong>二、Broker</strong></h3><p>Broker 其实就是一个对象，这个对象提供了：</p>
 <ul>
 <li>目录服务：允许你查找所有的模块和方法。</li>
@@ -788,7 +789,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 28.7k 字</span>
+  <span class="post-count">博客全站共 28.6k 字</span>
 </div>
         
 
