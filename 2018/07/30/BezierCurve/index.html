@@ -158,7 +158,7 @@
 <meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/9.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/10.gif">
 <meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/11.gif">
-<meta property="og:updated_time" content="2018-12-25T08:14:13.990Z">
+<meta property="og:updated_time" content="2018-12-25T08:16:42.797Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="贝塞尔曲线运动n阶追踪方程的数学原理及其匀速化方法和应用">
 <meta name="twitter:description" content="&amp;emsp;前言 首先声明一下本文讨论的终极目标——通过贝塞尔曲线实现可调控的数值缓动，也就是贝塞尔插值。之所以以数值为目的是因为它相较于实现某一个具体的案例而言，意义更为广泛，例如可以实现可控性很强的缓动动效，在本文的末尾会附上具体的贝塞尔运动案例分析与一些应用层面的介绍。文章的前一部分即推导部分会以较多的数学形式来加以表述，而中间关于贝塞尔运动的匀速化会则尽量用通俗易懂的语言来说明，最后附上一">
@@ -404,7 +404,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-25 16:14:13" itemprop="dateModified" datetime="2018-12-25T16:14:13+08:00">2018-12-25</time>
+                <time title="修改时间：2018-12-25 16:16:42" itemprop="dateModified" datetime="2018-12-25T16:16:42+08:00">2018-12-25</time>
               
             
           </span>
@@ -450,8 +450,8 @@
         <h3 id="emsp-前言"><a href="#emsp-前言" class="headerlink" title="&emsp;前言"></a>&emsp;<strong>前言</strong></h3><blockquote>
 <p>首先声明一下本文讨论的终极目标——通过贝塞尔曲线实现可调控的数值缓动，也就是贝塞尔插值。之所以以数值为目的是因为它相较于实现某一个具体的案例而言，意义更为广泛，例如可以实现可控性很强的缓动动效，在本文的末尾会附上具体的贝塞尔运动案例分析与一些应用层面的介绍。文章的前一部分即推导部分会以较多的数学形式来加以表述，而中间关于贝塞尔运动的匀速化会则尽量用通俗易懂的语言来说明，最后附上一些相关代码以及应用和总结。</p>
 </blockquote>
-<p>&emsp;&emsp;其实这方面已经有几个月没有再接触了，之所以写这篇文章，是为了回顾与加深之前在这方面学习研究的印象，文章内容仅是个人的理解与一些思考和感悟，并不一定是绝对正确的，因此要是文章内容有什么错误或歧义，还得请各位点醒指出，必当虚心学习，不胜感激。<br><img src="/2018/07/30/BezierCurve/1.jpg" alt="Bezier"><br>法国数学家Pierre Bézier</p>
-<h3 id="emsp-一、关于贝塞尔曲线-amp-贝塞尔运动"><a href="#emsp-一、关于贝塞尔曲线-amp-贝塞尔运动" class="headerlink" title="&emsp;一、关于贝塞尔曲线 &amp; 贝塞尔运动"></a>&emsp;<strong>一、关于贝塞尔曲线 &amp; 贝塞尔运动</strong></h3><h4 id="emsp-emsp-1-简介"><a href="#emsp-emsp-1-简介" class="headerlink" title="&emsp;&emsp;1.简介"></a>&emsp;&emsp;<strong>1.简介</strong></h4><p>&emsp;&emsp;贝塞尔曲线的介绍在网上到处都能找到，这里就不长篇大论地引入了。简而言之，贝塞尔曲线就是这样的一条曲线，<strong>它是依据四个位置任意的点坐标绘制出的一条光滑曲线。</strong>而贝塞尔追踪方程则是以点运动的形式描述了贝塞尔曲线的形成过程，将曲线描述为了一条随连续时间而形成的<strong>点迹</strong>。<br><a id="more"></a></p>
+<p>&emsp;&emsp;其实这方面已经有几个月没有再接触了，之所以写这篇文章，是为了回顾与加深之前在这方面学习研究的印象，文章内容仅是个人的理解与一些思考和感悟，并不一定是绝对正确的，因此要是文章内容有什么错误或歧义，还得请各位点醒指出，必当虚心学习，不胜感激。<br><img src="/2018/07/30/BezierCurve/1.jpg" alt="Bezier"></p>
+<script type="math/tex; mode=display">法国数学家Pierre Bézier</script><h3 id="emsp-一、关于贝塞尔曲线-amp-贝塞尔运动"><a href="#emsp-一、关于贝塞尔曲线-amp-贝塞尔运动" class="headerlink" title="&emsp;一、关于贝塞尔曲线 &amp; 贝塞尔运动"></a>&emsp;<strong>一、关于贝塞尔曲线 &amp; 贝塞尔运动</strong></h3><h4 id="emsp-emsp-1-简介"><a href="#emsp-emsp-1-简介" class="headerlink" title="&emsp;&emsp;1.简介"></a>&emsp;&emsp;<strong>1.简介</strong></h4><p>&emsp;&emsp;贝塞尔曲线的介绍在网上到处都能找到，这里就不长篇大论地引入了。简而言之，贝塞尔曲线就是这样的一条曲线，<strong>它是依据四个位置任意的点坐标绘制出的一条光滑曲线。</strong>而贝塞尔追踪方程则是以点运动的形式描述了贝塞尔曲线的形成过程，将曲线描述为了一条随连续时间而形成的<strong>点迹</strong>。<br><a id="more"></a></p>
 <h4 id="emsp-emsp-2-作用"><a href="#emsp-emsp-2-作用" class="headerlink" title="&emsp;&emsp;2.作用"></a>&emsp;&emsp;<strong>2.作用</strong></h4><p>由于用计算机画图大部分时间是操作鼠标来掌握线条的路径，与手绘的感觉和效果有很大的差别。即使是一位精明的画师能轻松绘出各种图形，拿到鼠标想随心所欲的画图也不是一件容易的事。这一点是计算机万万不能代替手工的工作，所以到目前为止人们只能颇感无奈。使用贝塞尔工具画图很大程度上弥补了这一缺憾。贝塞尔曲线是计算机图形图像造型的基本工具，是图形造型运用得最多的基本线条之一。<br><img src="/2018/07/30/BezierCurve/2.jpg" alt=""><br>&emsp;&emsp;它通过控制曲线上的四个点（起始点、终止点以及两个相互分离的中间点）来创造、编辑图形。其中起重要作用的是位于曲线中央的控制线。这条线是虚拟的，中间与贝塞尔曲线交叉，两端是控制端点。移动两端的端点时贝塞尔曲线改变曲线的曲率（弯曲的程度）；移动中间点（也就是移动虚拟的控制线）时，贝塞尔曲线在起始点和终止点锁定的情况下做均匀移动。注意，贝塞尔曲线上的所有控制点、节点均可编辑。这种“智能化”的矢量线条为艺术家提供了一种理想的图形编辑与创造的工具。</p>
 <h4 id="emsp-emsp-2-贝塞尔运动"><a href="#emsp-emsp-2-贝塞尔运动" class="headerlink" title="&emsp;&emsp;2.贝塞尔运动"></a>&emsp;&emsp;<strong>2.贝塞尔运动</strong></h4><p>&emsp;&emsp;简单地说，贝塞尔运动就是按照贝塞尔曲线所描述的规律来完成一段运动。后文有详细案例，此处就先提上这么一句。</p>
 <h3 id="emsp-二、贝塞尔追踪方程的数学推导"><a href="#emsp-二、贝塞尔追踪方程的数学推导" class="headerlink" title="&emsp;二、贝塞尔追踪方程的数学推导"></a>&emsp;<strong>二、贝塞尔追踪方程的数学推导</strong></h3><h4 id="emsp-emsp-1-一阶推导"><a href="#emsp-emsp-1-一阶推导" class="headerlink" title="&emsp;&emsp;1.一阶推导"></a>&emsp;&emsp;<strong>1.一阶推导</strong></h4><p>&emsp;&emsp;虽然说是依据四个点而绘制出的曲线，但实际上最少2个点就可以构成一条贝塞尔曲线，这样的贝塞尔曲线又叫一阶的贝塞尔曲线，也是无控制点的贝塞尔曲线。<br>&emsp;&emsp;前面说到追踪方程描述了点迹，一般地我们将迹点运动的总时间记为1，并把这两个端点分别记作 P<sub>0</sub> 和 P<sub>1</sub> ，运动的迹点记作 M<sub>0</sub> ，就有 t 时刻对应 M<sub>0</sub> 的位置为 P<sub>0</sub> + (P<sub>1</sub> - P<sub>0</sub>)t，将其写成方程形式：</p>
@@ -473,7 +473,7 @@ B_{2}(t)&=M^\prime_0+(M^\prime_{1}-M^\prime_{0})t \\\
 &=(1-t)^3P_0+3t(1-t)^2P_1+3t^2(1-t)P_2+t^3P_3 \\\
 \end {aligned}</script><p><img src="/2018/07/30/BezierCurve/5.gif" alt="二阶贝塞尔曲线"></p>
 <h4 id="emsp-emsp-4-n阶"><a href="#emsp-emsp-4-n阶" class="headerlink" title="&emsp;&emsp;4.n阶"></a>&emsp;&emsp;<strong>4.n阶</strong></h4><p>&emsp;&emsp;综合上式列表，不难总结出一般性的规律。</p>
-<p>\begin{array}{r|r}<br>    阶数(n) &amp; B_n(t) \ \hline<br>    1 &amp;  B_1(t) = (1-t)P_0+tP_1 \\<br>    2 &amp;  B_2(t) = (1-t)^2P_0+2t(1-t)P_1+t^2P_2 \\<br>    3 &amp;  B_3(t) = (1-t)^3P_0+3t(1-t)^2P_1+3^2(1-t)P_2+t^3P_3<br>    …&amp;  …<br>\end{array}</p>
+<p>\begin{array}{r|r}<br>阶数(n) &amp; B_n(t) \ \hline<br>1 &amp;  B_1(t) = (1-t)P_0+tP_1 \\<br>2 &amp;  B_2(t) = (1-t)^2P_0+2t(1-t)P_1+t^2P_2 \\<br>3 &amp;  B_3(t) = (1-t)^3P_0+3t(1-t)^2P_1+3^2(1-t)P_2+t^3P_3<br>…&amp;  …<br>\end{array}</p>
 <script type="math/tex; mode=display">
 \begin {aligned}
 B_{n}(t)&=(1-t)^nP_0+ \sum\limits_{i=1}^{n-1}nt^i(1-t)^{n-i}P_i+t^nP_n(n\geq2,n\in Z) \\\
