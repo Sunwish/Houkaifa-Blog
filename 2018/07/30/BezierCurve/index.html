@@ -152,13 +152,14 @@
 <meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/3.gif">
 <meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/4.gif">
 <meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/5.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/12.png">
 <meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/6.gif">
 <meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/7.gif">
 <meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/8.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/9.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/10.gif">
 <meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/11.gif">
-<meta property="og:updated_time" content="2018-12-25T08:16:42.797Z">
+<meta property="og:updated_time" content="2018-12-25T08:19:39.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="贝塞尔曲线运动n阶追踪方程的数学原理及其匀速化方法和应用">
 <meta name="twitter:description" content="&amp;emsp;前言 首先声明一下本文讨论的终极目标——通过贝塞尔曲线实现可调控的数值缓动，也就是贝塞尔插值。之所以以数值为目的是因为它相较于实现某一个具体的案例而言，意义更为广泛，例如可以实现可控性很强的缓动动效，在本文的末尾会附上具体的贝塞尔运动案例分析与一些应用层面的介绍。文章的前一部分即推导部分会以较多的数学形式来加以表述，而中间关于贝塞尔运动的匀速化会则尽量用通俗易懂的语言来说明，最后附上一">
@@ -404,7 +405,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-25 16:16:42" itemprop="dateModified" datetime="2018-12-25T16:16:42+08:00">2018-12-25</time>
+                <time title="修改时间：2018-12-25 16:19:39" itemprop="dateModified" datetime="2018-12-25T16:19:39+08:00">2018-12-25</time>
               
             
           </span>
@@ -461,8 +462,13 @@ B_{1}(t)&=P_0+(P_1-P_0)t \\\
 &=(1-t)P_0+tP_1
 \end {aligned}</script><p><img src="/2018/07/30/BezierCurve/3.gif" alt="一阶贝塞尔曲线"></p>
 <h4 id="emsp-emsp-2-二阶推导"><a href="#emsp-emsp-2-二阶推导" class="headerlink" title="&emsp;&emsp;2.二阶推导"></a>&emsp;&emsp;<strong>2.二阶推导</strong></h4><p>&emsp;&emsp;二阶在一阶的基础上增加一个点 P<sub>2</sub> ，此时不能够直接得出迹点的位置。 P<sub>0</sub> 和 P<sub>1</sub> 做一次一阶得到 M<sub>0</sub> 的位置，P<sub>1</sub> 和 P<sub>2</sub> 做一次一阶得到了 M<sub>1</sub> 的位置，此时出现了两个临时迹点 M<sub>0</sub> 和 M<sub>1</sub> ，需要再对 M<sub>0</sub> 和 M<sub>1</sub> 求一次一阶来得到真实迹点 M<sup>/</sup><sub>0</sub> 。即：</p>
-<p>\begin {aligned}<br>B_{2}(t)&amp;=M_{0}+(M_{1}-M_{0})t \\\<br>&amp;=P_0+(P_1-P_0)+[P_1+(P_2-P_1)t-P_0-(P_1-P_0)t]t \\\<br>&amp;=P_0+2(P_1-P_0)t+(P_0-2P_1+P_2)t^2 \\\<br>&amp;=(1-t)^2P_0+2t(1-t)P_1+t^2P_2<br>\end {aligned}</p>
-<p><img src="/2018/07/30/BezierCurve/4.gif" alt="二阶贝塞尔曲线"></p>
+<script type="math/tex; mode=display">
+\begin {aligned}
+B_{2}(t)&=M_{0}+(M_{1}-M_{0})t \\\
+&=P_0+(P_1-P_0)+[P_1+(P_2-P_1)t-P_0-(P_1-P_0)t]t \\\
+&=P_0+2(P_1-P_0)t+(P_0-2P_1+P_2)t^2 \\\
+&=(1-t)^2P_0+2t(1-t)P_1+t^2P_2
+\end {aligned}</script><p><img src="/2018/07/30/BezierCurve/4.gif" alt="二阶贝塞尔曲线"></p>
 <h4 id="emsp-emsp-3-三阶推导"><a href="#emsp-emsp-3-三阶推导" class="headerlink" title="&emsp;&emsp;3.三阶推导"></a>&emsp;&emsp;<strong>3.三阶推导</strong></h4><p>&emsp;&emsp;仿照一阶到二阶的升阶过程，不难得到三阶推导过程：</p>
 <script type="math/tex; mode=display">
 \begin {aligned}
@@ -473,7 +479,14 @@ B_{2}(t)&=M^\prime_0+(M^\prime_{1}-M^\prime_{0})t \\\
 &=(1-t)^3P_0+3t(1-t)^2P_1+3t^2(1-t)P_2+t^3P_3 \\\
 \end {aligned}</script><p><img src="/2018/07/30/BezierCurve/5.gif" alt="二阶贝塞尔曲线"></p>
 <h4 id="emsp-emsp-4-n阶"><a href="#emsp-emsp-4-n阶" class="headerlink" title="&emsp;&emsp;4.n阶"></a>&emsp;&emsp;<strong>4.n阶</strong></h4><p>&emsp;&emsp;综合上式列表，不难总结出一般性的规律。</p>
-<p>\begin{array}{r|r}<br>阶数(n) &amp; B_n(t) \ \hline<br>1 &amp;  B_1(t) = (1-t)P_0+tP_1 \\<br>2 &amp;  B_2(t) = (1-t)^2P_0+2t(1-t)P_1+t^2P_2 \\<br>3 &amp;  B_3(t) = (1-t)^3P_0+3t(1-t)^2P_1+3^2(1-t)P_2+t^3P_3<br>…&amp;  …<br>\end{array}</p>
+<script type="math/tex; mode=display">
+\begin {array}{r|r}
+(n) & B_n(t) \\ \hline
+1 &  B_1(t) = (1-t)P_0+tP_1 \\
+2 &  B_2(t) = (1-t)^2P_0+2t(1-t)P_1+t^2P_2 \\
+3 &  B_3(t) = (1-t)^3P_0+3t(1-t)^2P_1+3^2(1-t)P_2+t^3P_3
+...&  ...
+\end {array}</script><p><img src="/2018/07/30/BezierCurve/12.png" alt="规律表"></p>
 <script type="math/tex; mode=display">
 \begin {aligned}
 B_{n}(t)&=(1-t)^nP_0+ \sum\limits_{i=1}^{n-1}nt^i(1-t)^{n-i}P_i+t^nP_n(n\geq2,n\in Z) \\\
