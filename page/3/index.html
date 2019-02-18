@@ -282,6 +282,14 @@
     <a href="/contribute/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-pencil"></i> <br />投稿</a>
   </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-札记">
+    <a href="/series/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
+  </li>
 
       
       
@@ -315,6 +323,177 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>2. Alterful · 键盘增强：<br>https://www.alterful.com/<br>3. AQTS · 自动量化交易系统<br><br>个人经历：<br>某杯全国大学生数学建模竞赛三等奖<br>某不知名社区UI设计大赛一等奖<br>某不知名院校职规大赛一等奖<br>某不知名团队创始人<br>数模国赛现役选手">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴开发 | 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/30/sun-s-reverse-1/" itemprop="url">
+                  Sun的逆向之路（一）——元气骑士的内购破解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+          
+          <span class="post-meta-author-icon">
+            <i class="fa fa-user-o"></i>
+          </span>
+	  
+	  
+          
+	  <span class="post-meta-author-text">作者 Sunwish</span>
+	  <span class="post-meta-divider">|</span>
+          
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-30 20:25:08 / 修改时间：20:34:28" itemprop="dateCreated datePublished" datetime="2018-07-30T20:25:08+08:00">2018-07-30</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/30/sun-s-reverse-1/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/07/30/sun-s-reverse-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>&emsp;&emsp;最近代码码多了于是打算翻翻有什么游戏可玩，无意之中翻到了之前玩的元气骑士，想到还有许多人物都没有解锁，但是又不想攒金币因为太慢了，况且还有一些角色是要RMB才能买的，通过PKiP发现无加固壳，于是一怒之下打算破解其内购。</p>
+<hr>
+<h3 id="0x01-找寻突破口"><a href="#0x01-找寻突破口" class="headerlink" title="0x01 找寻突破口"></a><strong>0x01 找寻突破口</strong></h3><p>&emsp;&emsp;打开元气骑士进入购买人物的场景，点击购买，因为钻石不够所以点进去发现跳转到了购买钻石的页面。1块钱可以兑换800钻石，于是点购买跳转到了爱贝支付。返回取消购买回到了游戏入口界面，提示购买失败。</p>
+<h3 id="0x02-初步尝试破解"><a href="#0x02-初步尝试破解" class="headerlink" title="0x02 初步尝试破解"></a><strong>0x02 初步尝试破解</strong></h3><p>&emsp;&emsp;于是用MT2拿到apk的dex文件，搜索“失败”，发现iapppay下的IAppPayOrderChecker和MainActivit\$3\$1格外瞩目。进入IAppPayOrderChecker发现没有相关内容，于是转到MainActivity\$3\$1中。在OnPayResult函数中发现如下代码块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.line 113</span><br><span class="line">iget-object v1, p0, Lcom/chillyroomsdk/iapppay/MainActivity$3$1;-&gt;this$1:Lcom/chillyroomsdk/iapppay/MainActivity$3;</span><br><span class="line">iget-object v2, p0, Lcom/chillyroomsdk/iapppay/MainActivity$3$1;-&gt;val$orderId:Ljava/lang/String;</span><br><span class="line">iget-object v3, p0, Lcom/chillyroomsdk/iapppay/MainActivity$3$1;-&gt;val$extra:Ljava/lang/String;</span><br><span class="line">invoke-virtual &#123;v1, v2, v3&#125;, Lcom/chillyroomsdk/iapppay/MainActivity$3;-&gt;onPayFail(Ljava/lang/String;Ljava/lang/String;)V</span><br><span class="line">.line 116</span><br><span class="line">:goto_18</span><br><span class="line">const-string v1, &quot;Unity&quot;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;其中的OnPayFail值得注意，既然有OnPayFail那么就应该有OnPaySuccess，我们继续往下翻的确找到了OnPaySuccess，同时在OnPaySuccess上方看到 :pswitch_45，将其记录下来。翻到底部找到了一个pswitch结构：<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/30/sun-s-reverse-1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -732,7 +911,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -773,7 +952,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -864,7 +1045,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 35.4k 字</span>
+  <span class="post-count">博客全站共 36.2k 字</span>
 </div>
 
 <!--
@@ -1067,6 +1248,8 @@
 
   
   
+    
+      
     
       
     
