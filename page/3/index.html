@@ -339,6 +339,175 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>2. Alterful · 键盘增强：<br>https://www.alterful.com/<br>3. AQTS · 自动量化交易系统<br><br>个人经历：<br>某杯全国大学生数学建模竞赛三等奖<br>某不知名社区UI设计大赛一等奖<br>某不知名院校职规大赛一等奖<br>某不知名团队创始人<br>数模国赛现役选手">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴开发 | 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/30/sun-s-reverse-2/" itemprop="url">
+                  Sun的逆向之路（二）——FiF口语训练的刷分剖析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+          
+          <span class="post-meta-author-icon">
+            <i class="fa fa-user-o"></i>
+          </span>
+	  
+	  
+          
+	  <span class="post-meta-author-text">作者 Sunwish</span>
+	  <span class="post-meta-divider">|</span>
+          
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-30 20:35:55 / 修改时间：20:47:36" itemprop="dateCreated datePublished" datetime="2018-07-30T20:35:55+08:00">2018-07-30</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/30/sun-s-reverse-2/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/07/30/sun-s-reverse-2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>&emsp;&emsp;闲来无事看了看FiF口语中一些Task的排行榜，翻着翻着意外发现了一个101分的榜首，按理来说满分才只有100分，因此猜想这个分数一定是被动过手脚的，于是来了兴致，从POST请求与APK反编译两个角度分别尝试破解FiF。</p>
+<hr>
+<h3 id="方案一：APK反编译"><a href="#方案一：APK反编译" class="headerlink" title="方案一：APK反编译"></a><strong>方案一：APK反编译</strong></h3><p>&emsp;&emsp;将FiF的apk文件拖入AndroidKiller，发现加载失败，于是拖入jadx，发现原来上了奇虎的加固壳，考虑到只是把玩娱乐，脱壳会大大增加复杂性，于是暂时放弃反编译的想法。</p>
+<h3 id="方案二：POST请求拦截"><a href="#方案二：POST请求拦截" class="headerlink" title="方案二：POST请求拦截"></a><strong>方案二：POST请求拦截</strong></h3><h3 id="emsp-0x01-配置Fiddler"><a href="#emsp-0x01-配置Fiddler" class="headerlink" title="&emsp;0x01 配置Fiddler"></a>&emsp;<strong>0x01 配置Fiddler</strong></h3><p>&emsp;&emsp;因为自从用了新电脑就没有抓过包了，因此还是要做一些配置的。Java Jdk和环境变量的配置工作在此掠过了，但考虑到这次Fiddler的配置过程还有点不同寻常，所以这里做一下记录。<br>&emsp;&emsp;运行Fiddler提示8888端口被占用了，询问是否随机取端口。考虑到不使用8888可能后面会造成一些不必要的麻烦，于是打开cmd输入netstat -ano|findstr “8888”，发现原来端口被PID为20348的应用占用了，打开任务管理器的详细信息选卡，发现是Matlab，于是结束进程。<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/30/sun-s-reverse-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -911,7 +1080,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1045,7 +1214,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 36.2k 字</span>
+  <span class="post-count">博客全站共 37.2k 字</span>
 </div>
 
 <!--
@@ -1248,6 +1417,8 @@
 
   
   
+    
+      
     
       
     

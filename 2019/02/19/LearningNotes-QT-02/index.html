@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-loading-bar.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="概述 本篇记录如何通过 QT Creator 开发一个简单的多窗口程序。环境：Win10 + QT Creator4.4.1 + QT5.9.2。实现内容：在主窗口中输入指定的口令，点击按钮载入另一个窗口，并给出了子窗口只允许同时载入一次的三种方法。">
+<meta name="keywords" content="学习笔记,QT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QT（二）：简单多窗口程序">
+<meta property="og:url" content="http://Sunwish.coding.me/2019/02/19/LearningNotes-QT-02/index.html">
+<meta property="og:site_name" content="猴开发 | 博客">
+<meta property="og:description" content="概述 本篇记录如何通过 QT Creator 开发一个简单的多窗口程序。环境：Win10 + QT Creator4.4.1 + QT5.9.2。实现内容：在主窗口中输入指定的口令，点击按钮载入另一个窗口，并给出了子窗口只允许同时载入一次的三种方法。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/1.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/2.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/3.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/4.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/5.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/6.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/7.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/8.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/9.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/10.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/11.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/12.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/13.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/14.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/15.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/16.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/17.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/18.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/19.gif">
+<meta property="og:updated_time" content="2019-02-19T13:56:10.843Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="QT（二）：简单多窗口程序">
+<meta name="twitter:description" content="概述 本篇记录如何通过 QT Creator 开发一个简单的多窗口程序。环境：Win10 + QT Creator4.4.1 + QT5.9.2。实现内容：在主窗口中输入指定的口令，点击按钮载入另一个窗口，并给出了子窗口只允许同时载入一次的三种方法。">
+<meta name="twitter:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://Sunwish.coding.me/2019/02/19/LearningNotes-QT-02/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>QT（二）：简单多窗口程序 | 猴开发 | 博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">猴开发 | 博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">积极思考  活跃创造</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-投稿">
+    <a href="/contribute/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-pencil"></i> <br />投稿</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-札记">
+    <a href="/series/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/02/19/LearningNotes-QT-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>2. Alterful · 键盘增强：<br>https://www.alterful.com/<br>3. AQTS · 自动量化交易系统<br><br>个人经历：<br>某杯全国大学生数学建模竞赛三等奖<br>某不知名社区UI设计大赛一等奖<br>某不知名院校职规大赛一等奖<br>某不知名团队创始人<br>数模国赛现役选手">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴开发 | 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">QT（二）：简单多窗口程序
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+          
+          <span class="post-meta-author-icon">
+            <i class="fa fa-user-o"></i>
+          </span>
+	  
+	  
+	  
+	  <span class="post-meta-author-text">作者 Sunwish</span>
+	  <span class="post-meta-divider">|</span>
+          
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-19 19:54:43 / 修改时间：21:56:10" itemprop="dateCreated datePublished" datetime="2019-02-19T19:54:43+08:00">2019-02-19</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/19/LearningNotes-QT-02/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/19/LearningNotes-QT-02/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>本篇记录如何通过 QT Creator 开发一个简单的多窗口程序。<br>环境：Win10 + QT Creator4.4.1 + QT5.9.2。<br>实现内容：在主窗口中输入指定的口令，点击按钮载入另一个窗口，并给出了子窗口只允许同时载入一次的三种方法。</p>
+</blockquote>
+<p><img src="/2019/02/19/LearningNotes-QT-02/1.jpg" alt="Title"></p>
+<a id="more"></a>
+<hr>
+<h1 id="一、建立-QT-项目"><a href="#一、建立-QT-项目" class="headerlink" title="一、建立 QT 项目"></a>一、建立 QT 项目</h1><p><strong>打开 QT Creator，新建 Qt Widget Application 项目。</strong></p>
+<p><img src="/2019/02/19/LearningNotes-QT-02/2.jpg" alt="Title"></p>
+<p><strong>设置项目名称，一直下一步完成项目创建。</strong></p>
+<p><img src="/2019/02/19/LearningNotes-QT-02/3.jpg" alt="Title"></p>
+<p><strong>下图是初始的工程结构：</strong></p>
+<p><img src="/2019/02/19/LearningNotes-QT-02/4.jpg" alt="Title"></p>
+<h1 id="二、添加新的GUI文件"><a href="#二、添加新的GUI文件" class="headerlink" title="二、添加新的GUI文件"></a>二、添加新的GUI文件</h1><p><strong>在项目目录中选中 Forms 右键，添加新文件。</strong></p>
+<p><img src="/2019/02/19/LearningNotes-QT-02/5.jpg" alt="Title"></p>
+<p><strong>在新建文件窗口中选择 Qt 类，Qt 设计师界面类，确定。</strong></p>
+<p><img src="/2019/02/19/LearningNotes-QT-02/6.jpg" alt="Title"></p>
+<p><strong>按照实际需要选择界面模板，此处选择的依旧是 Main Window，下一步。</strong></p>
+<p><img src="/2019/02/19/LearningNotes-QT-02/7.jpg" alt="Title"></p>
+<p><strong>默认的类目还是 MainWindow，为了避免与主窗口冲突，重新选择类名，一路下一步，完成。</strong></p>
+<p><img src="/2019/02/19/LearningNotes-QT-02/8.jpg" alt="Title"></p>
+<p><strong>新的 Qt 设计器界面类创建完成后的工程结构：</strong></p>
+<p><img src="/2019/02/19/LearningNotes-QT-02/9.jpg" alt="Title"></p>
+<h1 id="三、窗口载入的实现"><a href="#三、窗口载入的实现" class="headerlink" title="三、窗口载入的实现"></a>三、窗口载入的实现</h1><p><strong>打开主窗口的.ui文件，添加一个 lineEdit 和一个 pushButton 做一个简陋的界面意思一下，其中 lineEdit 设置了显示方式为 Password，并设置了默认文本：</strong></p>
+<p><img src="/2019/02/19/LearningNotes-QT-02/10.jpg" alt="Title"></p>
+<p><strong>运行起来的效果是这样的：</strong></p>
+<p><img src="/2019/02/19/LearningNotes-QT-02/11.gif" alt="Title"></p>
+<p><strong>接下来我们要实现的是，当文本框中的内容为指定内容，如 Houkaifa 时，点击确认按钮载入窗口 ChildWindow。</strong></p>
+<p><strong>首先，我们在主窗口的.h文件中添加对子窗口的头文件包含：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;childwindow.h&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>并在主窗口类中定义一个子窗口类的私有成员：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">private:</span><br><span class="line">    ChildWindow *cw;</span><br></pre></td></tr></table></figure>
+<p><strong>完整的代码看上去是这样的：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#ifndef MAINWINDOW_H</span><br><span class="line">#define MAINWINDOW_H</span><br><span class="line"></span><br><span class="line">#include &lt;childwindow.h&gt;</span><br><span class="line">#include &lt;QMainWindow&gt;</span><br><span class="line"></span><br><span class="line">namespace Ui &#123;</span><br><span class="line">class MainWindow;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MainWindow : public QMainWindow</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">public:</span><br><span class="line">    explicit MainWindow(QWidget *parent = 0);</span><br><span class="line">    ~MainWindow();</span><br><span class="line">private:</span><br><span class="line">    Ui::MainWindow *ui;</span><br><span class="line">private:</span><br><span class="line">    ChildWindow *cw;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif // MAINWINDOW_H</span><br></pre></td></tr></table></figure>
+<p><strong>emmm，还是放图片看起来清楚些：</strong></p>
+<p><img src="/2019/02/19/LearningNotes-QT-02/12.jpg" alt="Title"></p>
+<center><font size="2" color="#bbbbbb">立个小flag，找时间一定给博客的代码做一下高亮支持（小声BB，你们看不到你们看不到）</font></center>
+
+<p><strong>下面，我们为主窗口的 pushButton 添加 clicked 信号的槽函数，用以判断口令是否正确。</strong></p>
+<p><img src="/2019/02/19/LearningNotes-QT-02/13.jpg" alt="Title"></p>
+<p><strong>在口令正确的情况下，如何载入子窗口 cw？</strong><br>在主窗口类中我们定义了 ChildWindow 类的一个私有成员，只需在合适的位置将其实例化，并调用show()函数进行显示即可，具体代码如图：</p>
+<p><img src="/2019/02/19/LearningNotes-QT-02/14.jpg" alt="Title"></p>
+<p><strong>当然，不将子窗口类定义为类成员，直接在需要的时候创建临时变量也是可行的，例如删除 cw 的成员声明，而在上图的注释(// Load ChildWindow)处直接添加如下代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ChildWindow *cw = new ChildWindow(this);</span><br><span class="line">cw-&gt;show();</span><br></pre></td></tr></table></figure>
+<p><strong>F5调试程序，测试效果：</strong></p>
+<ul>
+<li>输入错误口令，点击确认按钮，提示口令错误。</li>
+</ul>
+<p><img src="/2019/02/19/LearningNotes-QT-02/15.gif" alt="Title"></p>
+<ul>
+<li>输入正确口令，点击确认按钮，载入 ChildWindow。</li>
+</ul>
+<p><img src="/2019/02/19/LearningNotes-QT-02/16.jpg" alt="Title"></p>
+<center>--- END（假的） ---</center>
+
+<hr>
+<p><strong>此时你会发现，多次点击确认按钮，会载入多个 ChildWindow，如果不希望子窗口被多次同时载入，可以：</strong></p>
+<ul>
+<li><p>方法一：在子窗口载入完成后将主窗口隐藏：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">cw-&gt;show();	// 显示子窗口</span><br><span class="line">this-&gt;hide();	// 隐藏主窗口</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法二：将 ChildWindow 改装成单例类。</p>
+</li>
+<li><p>方法三：像本例一样将 ChildWindow 定义为主窗口的类成员，并在子窗口被关闭后将指针置空，在点击确认按钮时验证指针状态，即可知道窗口是否已创建，详细见下文：</p>
+</li>
+</ul>
+<p><strong>如何在子窗口关闭后将指针置空？</strong><br><strong>答：重写 closeEvent 事件函数。</strong></p>
+<blockquote>
+<p>closeEvent 是 QCloseEvent 类中的虚函数，其原型为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void closeEvent(QCloseEvent* event);</span><br></pre></td></tr></table></figure></p>
+<p>在窗口关闭时被触发，将该类包含在子窗口的头文件中，并对 closeEvent 函数进行重写，即可实现在子窗口关闭时进行自定义操作。</p>
+</blockquote>
+<p><img src="/2019/02/19/LearningNotes-QT-02/17.jpg" alt="Title"></p>
+<p><strong>接下来在子窗口的.cpp文件中对 closeEvent 函数进行实现，直接发送信号：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void ChildWindow::closeEvent(QCloseEvent* event)</span><br><span class="line">&#123;</span><br><span class="line">    emit windowClosed();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>最后补全主窗口的代码即可：</strong></p>
+<p><img src="/2019/02/19/LearningNotes-QT-02/18.jpg" alt="Title"></p>
+<p><strong>效果：</strong></p>
+<p><img src="/2019/02/19/LearningNotes-QT-02/19.gif" alt="Title"></p>
+<center>--- END ---</center>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>大兄弟，赏点银子吧！<br/></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Sunwish 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
+          
+            <a href="/tags/QT/" rel="tag"><i class="fa fa-tag"></i> QT</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/18/LearningNotes-QT-01/" rel="next" title="QT（一）：信号与槽">
+                <i class="fa fa-chevron-left"></i> QT（一）：信号与槽
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sunwish</p>
+              <p class="site-description motion-element" itemprop="description">个人项目：<br>1. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>2. Alterful · 键盘增强：<br>https://www.alterful.com/<br>3. AQTS · 自动量化交易系统<br><br>个人经历：<br>某杯全国大学生数学建模竞赛三等奖<br>某不知名社区UI设计大赛一等奖<br>某不知名院校职规大赛一等奖<br>某不知名团队创始人<br>数模国赛现役选手</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://clkip.com/" title="果园科协" target="_blank">果园科协</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alterful.com/" title="Alterful" target="_blank">Alterful</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://easecurve.com/" title="Easecurve" target="_blank">Easecurve</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zoshny.com/" title="Zoshny" target="_blank">Zoshny</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、建立-QT-项目"><span class="nav-text">一、建立 QT 项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、添加新的GUI文件"><span class="nav-text">二、添加新的GUI文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、窗口载入的实现"><span class="nav-text">三、窗口载入的实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sunwish</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 37.2k 字</span>
+</div>
+
+<!--
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+-->
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65941008";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sa3sYJwnqEBnYDpS7VFT70ya-gzGzoHsz',
+        appKey: 'TPHHBKrFtoGkcocnjqN78Fue',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 15694#<app_id>,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
