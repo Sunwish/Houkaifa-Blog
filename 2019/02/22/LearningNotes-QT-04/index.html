@@ -139,42 +139,35 @@
 
 
 
-  <meta name="description" content="概述 分别通过 QT Designer 与 connect 函数添加(绑定)信号与槽。环境：Win10 + VS2017 + QT5.9.2。实现内容：点击按钮退出程序、点击按钮弹出信息框。">
+  <meta name="description" content="概述 本篇介绍 QT 中的事件与事件过滤器，并制作一个简单经典的恶搞小程序。环境：Win10 + QT Creator4.4.1 + QT5.9.2。实现内容：一个看得到点不到的按钮。">
 <meta name="keywords" content="学习笔记,QT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="QT（一）：信号与槽">
-<meta property="og:url" content="http://Sunwish.coding.me/2019/02/18/LearningNotes-QT-01/index.html">
+<meta property="og:title" content="QT（四）：事件与事件过滤器">
+<meta property="og:url" content="http://Sunwish.coding.me/2019/02/22/LearningNotes-QT-04/index.html">
 <meta property="og:site_name" content="猴开发 | 博客">
-<meta property="og:description" content="概述 分别通过 QT Designer 与 connect 函数添加(绑定)信号与槽。环境：Win10 + VS2017 + QT5.9.2。实现内容：点击按钮退出程序、点击按钮弹出信息框。">
+<meta property="og:description" content="概述 本篇介绍 QT 中的事件与事件过滤器，并制作一个简单经典的恶搞小程序。环境：Win10 + QT Creator4.4.1 + QT5.9.2。实现内容：一个看得到点不到的按钮。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/1.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/2.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/3.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/4.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/5.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/6.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/7.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/8.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/9.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/10.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/11.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/13.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/14.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/12.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/15.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/16.jpg">
-<meta property="og:updated_time" content="2019-02-18T11:18:52.222Z">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/22/LearningNotes-QT-04/1.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/22/LearningNotes-QT-04/2.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/22/LearningNotes-QT-04/3.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/22/LearningNotes-QT-04/4.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/22/LearningNotes-QT-04/5.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/22/LearningNotes-QT-04/6.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/22/LearningNotes-QT-04/7.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/22/LearningNotes-QT-04/8.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/22/LearningNotes-QT-04/9.gif">
+<meta property="og:updated_time" content="2019-02-22T14:06:17.783Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="QT（一）：信号与槽">
-<meta name="twitter:description" content="概述 分别通过 QT Designer 与 connect 函数添加(绑定)信号与槽。环境：Win10 + VS2017 + QT5.9.2。实现内容：点击按钮退出程序、点击按钮弹出信息框。">
-<meta name="twitter:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/1.jpg">
+<meta name="twitter:title" content="QT（四）：事件与事件过滤器">
+<meta name="twitter:description" content="概述 本篇介绍 QT 中的事件与事件过滤器，并制作一个简单经典的恶搞小程序。环境：Win10 + QT Creator4.4.1 + QT5.9.2。实现内容：一个看得到点不到的按钮。">
+<meta name="twitter:image" content="http://sunwish.coding.me/2019/02/22/LearningNotes-QT-04/1.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://Sunwish.coding.me/2019/02/18/LearningNotes-QT-01/"/>
+  <link rel="canonical" href="http://Sunwish.coding.me/2019/02/22/LearningNotes-QT-04/"/>
 
 
 
@@ -184,7 +177,7 @@
   };
 </script>
 
-  <title>QT（一）：信号与槽 | 猴开发 | 博客</title>
+  <title>QT（四）：事件与事件过滤器 | 猴开发 | 博客</title>
   
 
 
@@ -357,7 +350,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/02/18/LearningNotes-QT-01/">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/02/22/LearningNotes-QT-04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sunwish">
@@ -374,7 +367,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">QT（一）：信号与槽
+          <h1 class="post-title" itemprop="name headline">QT（四）：事件与事件过滤器
               
             
           </h1>
@@ -411,7 +404,7 @@
                 
               
 
-              <time title="创建时间：2019-02-18 17:36:54 / 修改时间：19:18:52" itemprop="dateCreated datePublished" datetime="2019-02-18T17:36:54+08:00">2019-02-18</time>
+              <time title="创建时间：2019-02-22 17:02:33 / 修改时间：22:06:17" itemprop="dateCreated datePublished" datetime="2019-02-22T17:02:33+08:00">2019-02-22</time>
             
 
             
@@ -430,8 +423,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/02/18/LearningNotes-QT-01/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/18/LearningNotes-QT-01/" itemprop="commentCount"></span>
+                <a href="/2019/02/22/LearningNotes-QT-04/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/22/LearningNotes-QT-04/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -460,59 +453,61 @@
 
       
         <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
-<p>分别通过 QT Designer 与 connect 函数添加(绑定)信号与槽。<br>环境：Win10 + VS2017 + QT5.9.2。<br>实现内容：点击按钮退出程序、点击按钮弹出信息框。</p>
+<p>本篇介绍 QT 中的事件与事件过滤器，并制作一个简单经典的恶搞小程序。<br>环境：Win10 + QT Creator4.4.1 + QT5.9.2。<br>实现内容：一个看得到点不到的按钮。</p>
 </blockquote>
-<p><img src="/2019/02/18/LearningNotes-QT-01/1.jpg" alt="Title"></p>
+<p><img src="/2019/02/22/LearningNotes-QT-04/1.jpg" alt="Title"></p>
 <a id="more"></a>
 <hr>
-<h1 id="一、建立-QT-项目"><a href="#一、建立-QT-项目" class="headerlink" title="一、建立 QT 项目"></a>一、建立 QT 项目</h1><p><strong>打开 Visual Studio 2017，新建 QT GUI Application。</strong></p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/2.jpg" alt="Title"></p>
-<p><strong>一路 Next，Finish。</strong></p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/3.jpg" alt="Title"></p>
-<p><strong>下图是初始目录结构：</strong></p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/4.jpg" alt="Title"></p>
-<p><strong>F5调试程序，看到初始的GUI界面：</strong></p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/5.jpg" alt="Title"></p>
-<h1 id="二、使用-QT-Designer-添加信号与槽"><a href="#二、使用-QT-Designer-添加信号与槽" class="headerlink" title="二、使用 QT Designer 添加信号与槽"></a>二、使用 QT Designer 添加信号与槽</h1><p><strong>在解决方案中，找到默认生成的.ui文件，双击以在 QT Designer 中打开。</strong></p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/6.jpg" alt="Title"></p>
-<p><strong>在 Widget Box 中拖拽 Push Button 到主窗口上。</strong></p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/7.jpg" alt="Title"></p>
-<p><strong>在属性编辑器中修改 objectName、text 的值为 “closeButton”。</strong></p>
+<h1 id="一、QT-中的事件与事件过滤器"><a href="#一、QT-中的事件与事件过滤器" class="headerlink" title="一、QT 中的事件与事件过滤器"></a>一、QT 中的事件与事件过滤器</h1><p>事件是个好东西，有了事件，我们就可以在特定的时期做特定的事情，而不用关心它什么时候发生。</p>
+<p>在 <a href="/2019/02/18/LearningNotes-QT-01/">QT（一）：信号与槽</a> 当中曾经写过这样一段话：</p>
 <blockquote>
-<p>其中 objectName 是 Widget 组件的组件名，text 是显示在按钮上的标题。text 值还可以通过双击添加的按钮来快速修改。</p>
+<p>信号与槽是 QtGui 开发当中事件的表示形式，信号即是事件的触发条件，槽即是信号所触发的事件处理函数。</p>
 </blockquote>
-<p><img src="/2019/02/18/LearningNotes-QT-01/8.jpg" alt="Title"></p>
-<p><strong>随后在信号/槽编辑器中添加信号槽。</strong></p>
-<p>发送者为按钮 closeButton，信号为 clicked() 即鼠标左键单击信号(事件/event)，接收者为 QtGuiApplicationClass，槽为 close()，即 QtGuiApplicationClass 的销毁函数。</p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/9.jpg" alt="Title"></p>
-<p><strong>Ctrl+S 保存修改，回到 VS2017，F5调试程序，点击 closeButton 按钮，程序退出。</strong></p>
+<p>当时为了方便快速建立熟悉感而做的类比，放现在看来，其实是有大问题的。</p>
+<p>信号/槽并算不上是 Qt 中事件的表示形式，顶多可以说是事件的一种特殊实例，其特殊在于信号/槽系统属于程序主动可控可发起的事件。除其之外，还有诸如鼠标、键盘等诸多设备消息，都会相对被动的触发各种事件。</p>
+<p>例如鼠标左键按下、鼠标左键放开、键盘按键按下乃至鼠标的移动等等，都会产生相应的事件。那么这些事件是如何在 QT 当中传播？又该如何监听特定的事件？</p>
+<p><strong>事件走向</strong></p>
+<p>纷繁复杂的事件不断地的输入到我们的程序里，无一例外走的同一条道路：</p>
+<p><img src="/2019/02/22/LearningNotes-QT-04/2.jpg" alt="Title"></p>
+<p>事件首先被捕获到事件过滤器当中，再将放行的事件投递到事件分发器中，最后通过事件分发器将事件分发到对应的处理函数去执行相关事物。</p>
+<p><strong>事件监听</strong></p>
+<p>如果要监听某个对象的若干个事件，可以从事件过滤器入手，也可从事件分发器入手。</p>
+<p>区别在于如果从事件过滤器入手，所监听的事件将是所有对象所收到的全部事件，而从事件分发器入手，则不一定能得到所有的事件，因为有部分事件可能在事件过滤器中被截获并拒绝放行了。下面只谈事件过滤器。</p>
+<p>要对一个对象进行事件过滤，首先需要在其上安装事件过滤器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void QObject::installEventFilter(QObject *filterObj)</span><br></pre></td></tr></table></figure>
+<p>其在官方手册中的描述如下：</p>
 <blockquote>
-<p>信号与槽是 QtGui 开发当中事件的表示形式，信号即是事件的触发条件，槽即是信号所触发的事件处理函数。<br>在 Qt Designer 中可以通过信号/槽编辑器方便地添加一些原生的信号槽。后文描述了如何添加自定义的槽。</p>
+<p>Installs an event filter filterObj on this object. For example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">monitoredObj-&gt;installEventFilter(filterObj)</span><br></pre></td></tr></table></figure></p>
+<p>An event filter is an object that receives all events that are sent to this object. The filter can either stop the event or forward it to this object. The event filter filterObj receives events via its eventFilter() function. The eventFilter() function must return true if the event should be filtered, (i.e. stopped); otherwise it must return false.<br>If multiple event filters are installed on a single object, the filter that was installed last is activated first.</p>
 </blockquote>
-<h1 id="三、通过-connect-函数绑定自定义槽"><a href="#三、通过-connect-函数绑定自定义槽" class="headerlink" title="三、通过 connect 函数绑定自定义槽"></a>三、通过 connect 函数绑定自定义槽</h1><p><strong>在 QT Designer 中添加一个新的按钮，相关属性修改为 MessageButton，现在我们有了两个按钮。</strong></p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/10.jpg" alt="Title"></p>
-<p><strong>回到 VS2017，转到.h文件中，添加槽的定义。</strong></p>
-<p>其中函数名及返回值类型是固定的格式：<strong>void on_WidgetName_Event()。</strong><br>此处 WidgetName 是 MessageButton，对应的事件是 clicked，因此可以在下图中看到，完整函数声明是：</p>
+<p>从中可以看到，在事件过滤器中我们不仅能得到事件接收到的全部事件，还能通过在过滤函数中返回true将指定事件不放行，进而间接使得对应的处理函数失效。</p>
+<p>eventFilter() 与 event() 函数都是定义在 QObject 类中的虚函数，用于事件的过滤和分发。在安装事件过滤器后，我们只需要在对应的 QObject 类的衍生类当中将其重写就可以了， eventFilter() 函数的声明如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool QObject::eventFilter(QObject *watched, QEvent *event)</span><br></pre></td></tr></table></figure>
+<p>其在官方手册中的描述如下：</p>
 <blockquote>
-<p>void on_MessageButton_clicked();</p>
+<p>Filters events if this object has been installed as an event filter for the watched object.<br>In your reimplementation of this function, if you want to filter the event out, i.e. stop it being handled further, return true; otherwise return false.</p>
 </blockquote>
-<p><img src="/2019/02/18/LearningNotes-QT-01/11.jpg" alt="Title"></p>
+<p>由此可以看出，参数 watched 是<strong>被安装事件过滤器的对象</strong>，参数 event 是<strong>该对象接收到的事件</strong>。</p>
+<p>其中参数 event 类型 QEvent 是 Qt 当中所有事件类型的基类，其不仅包含了事件的类型，也携带了事件的相关参数，因此我们完全可以在过滤事件时就将需要的事件处理掉。</p>
+<p>当 Qt 的主事件循环（QCoreApplication::exec()）从事件队列中提取本机窗口系统事件后，就会将其转换为qEvents，并将转换后的事件发送到qObjects，进而被我们安装的过滤器捕获。</p>
+<p><img src="/2019/02/22/LearningNotes-QT-04/3.jpg" alt="Title"></p>
+<h1 id="二、小例子：简单恶搞小程序"><a href="#二、小例子：简单恶搞小程序" class="headerlink" title="二、小例子：简单恶搞小程序"></a>二、小例子：简单恶搞小程序</h1><blockquote>
+<p>目标效果：界面上显示标签：你爱学习吗？并显示两个按钮“爱”与“不爱”，其中”不爱”按钮不允许被鼠标指到。</p>
+</blockquote>
+<p><strong>建立 Qt Gui 项目，并完成界面的简单搭建：</strong></p>
+<p><img src="/2019/02/22/LearningNotes-QT-04/4.jpg" alt="Title"></p>
+<p><strong>在主界面类构造函数中为”不爱”按钮（pushButton_2）安装事件过滤器：</strong></p>
+<p><img src="/2019/02/22/LearningNotes-QT-04/5.jpg" alt="Title"></p>
+<p><strong>在主界面类头文件中声明事件过滤函数：</strong></p>
+<p><img src="/2019/02/22/LearningNotes-QT-04/6.jpg" alt="Title"></p>
+<p><strong>实现事件过滤函数</strong></p>
+<p><img src="/2019/02/22/LearningNotes-QT-04/7.jpg" alt="Title"></p>
 <blockquote>
-<p>如果.h文件中出现 ui_*.h文件的包含错误，如下图：<br><img src="/2019/02/18/LearningNotes-QT-01/13.jpg" alt="Title"><br>只需在 VS2017 的 QT VS Tools 菜单栏中选择 Convert Project to QMake Generated Project 即可解决。<br><img src="/2019/02/18/LearningNotes-QT-01/14.jpg" alt="Title"></p>
+<p>其中 QEvent::Enter 代表 Qt 当中的鼠标进入事件，例如对此处的按钮而言，当鼠标移入按钮的瞬间，该事件被触发。<br>QEvent::Enter 的数据类型为 Type，代表事件类型，是定义在 QEvent 类中的枚举，其中 QEvent::Enter 在该枚举中的定义：<br><img src="/2019/02/22/LearningNotes-QT-04/8.jpg" alt="Title"><br>其它的事件类型可以在官方手册的 QEvent 类中很容易地找到。</p>
 </blockquote>
-<p><strong>之后就可以跳转到对应的.cpp文件添加函数的实现了。</strong></p>
-<p>这里使用了 QMessageBox 类中的 warning 函数，用以显示警告信息框。在 QMessageBox 头文件中提供了丰富的信息框样式，<strong>对应的调用其中的信息框需要在.h文件中包含其头文件。</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QMessageBox.h&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/02/18/LearningNotes-QT-01/12.jpg" alt="Title"></p>
-<p><strong>截至目前，我们添加了一个按钮 MessageButton，定义并实现了其一个槽函数（on_MessageButton_clicked）。</strong></p>
-<p>但是现在我们运行程序，单击 messageButton 按钮是不会有任何反应的，因为我们只完成了槽函数的定义和实现，下面我们在 QtGui 类的构造函数处，将信号与槽通过 connect 函数进行连接。</p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/15.jpg" alt="Title"></p>
-<blockquote>
-<p>此处 connect 函数的原型如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">static QMetaObject::Connection connect(const QObject *sender, const QMetaMethod &amp;signal,</span><br><span class="line">                        const QObject *receiver, const QMetaMethod &amp;method,</span><br><span class="line">                        Qt::ConnectionType type = Qt::AutoConnection);</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p><strong>至此，F5调试程序，按下按钮可以看到弹出了信息框。</strong></p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/16.jpg" alt="Title"></p>
-<center>--- END ---</center>
+<p><strong>F5调试效果：</strong></p>
+<p><img src="/2019/02/22/LearningNotes-QT-04/9.gif" alt="Title"></p>
+
       
     </div>
 
@@ -583,8 +578,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/02/BlogUpdate2019/" rel="next" title="2019年猴开发博客更新计划">
-                <i class="fa fa-chevron-left"></i> 2019年猴开发博客更新计划
+              <a href="/2019/02/20/LearningNotes-QT-03/" rel="next" title="QT（三）：浅探 QTimer 类">
+                <i class="fa fa-chevron-left"></i> QT（三）：浅探 QTimer 类
               </a>
             
           </div>
@@ -592,10 +587,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/19/LearningNotes-QT-02/" rel="prev" title="QT（二）：简单多窗口程序">
-                QT（二）：简单多窗口程序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -777,7 +768,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、建立-QT-项目"><span class="nav-text">一、建立 QT 项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、使用-QT-Designer-添加信号与槽"><span class="nav-text">二、使用 QT Designer 添加信号与槽</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、通过-connect-函数绑定自定义槽"><span class="nav-text">三、通过 connect 函数绑定自定义槽</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、QT-中的事件与事件过滤器"><span class="nav-text">一、QT 中的事件与事件过滤器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、小例子：简单恶搞小程序"><span class="nav-text">二、小例子：简单恶搞小程序</span></a></li></ol></div>
             
 
           </div>
