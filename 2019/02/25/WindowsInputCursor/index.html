@@ -139,45 +139,29 @@
 
 
 
-  <meta name="description" content="概述 本篇记录如何通过 QT Creator 开发一个简单的多窗口程序。环境：Win10 + QT Creator4.4.1 + QT5.9.2。实现内容：在主窗口中输入指定的口令，点击按钮载入另一个窗口，并给出了子窗口只允许同时载入一次的三种方法。">
-<meta name="keywords" content="学习笔记,QT">
+  <meta name="description" content="概述 研究这个主要是为了进一步完善当前的自用软件 Alterful 的激活流程，实现“无热键”键盘增强。虽然最终没能得到接近完美的解决办法，不过也在这个尝试的过程中取得了一些进展，故简单地记录一下。">
+<meta name="keywords" content="沿途简记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="QT（二）：简单多窗口程序">
-<meta property="og:url" content="http://Sunwish.coding.me/2019/02/19/LearningNotes-QT-02/index.html">
+<meta property="og:title" content="记一次 Windows 系统焦点光标的监控尝试">
+<meta property="og:url" content="http://Sunwish.coding.me/2019/02/25/WindowsInputCursor/index.html">
 <meta property="og:site_name" content="猴开发 | 博客">
-<meta property="og:description" content="概述 本篇记录如何通过 QT Creator 开发一个简单的多窗口程序。环境：Win10 + QT Creator4.4.1 + QT5.9.2。实现内容：在主窗口中输入指定的口令，点击按钮载入另一个窗口，并给出了子窗口只允许同时载入一次的三种方法。">
+<meta property="og:description" content="概述 研究这个主要是为了进一步完善当前的自用软件 Alterful 的激活流程，实现“无热键”键盘增强。虽然最终没能得到接近完美的解决办法，不过也在这个尝试的过程中取得了一些进展，故简单地记录一下。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/1.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/2.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/3.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/4.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/5.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/6.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/7.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/8.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/9.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/10.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/11.gif">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/12.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/13.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/14.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/15.gif">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/16.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/17.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/18.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/19.gif">
-<meta property="og:updated_time" content="2019-02-19T13:56:10.843Z">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/25/WindowsInputCursor/1.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/25/WindowsInputCursor/2.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/02/25/WindowsInputCursor/3.gif">
+<meta property="og:updated_time" content="2019-02-25T14:42:05.530Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="QT（二）：简单多窗口程序">
-<meta name="twitter:description" content="概述 本篇记录如何通过 QT Creator 开发一个简单的多窗口程序。环境：Win10 + QT Creator4.4.1 + QT5.9.2。实现内容：在主窗口中输入指定的口令，点击按钮载入另一个窗口，并给出了子窗口只允许同时载入一次的三种方法。">
-<meta name="twitter:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/1.jpg">
+<meta name="twitter:title" content="记一次 Windows 系统焦点光标的监控尝试">
+<meta name="twitter:description" content="概述 研究这个主要是为了进一步完善当前的自用软件 Alterful 的激活流程，实现“无热键”键盘增强。虽然最终没能得到接近完美的解决办法，不过也在这个尝试的过程中取得了一些进展，故简单地记录一下。">
+<meta name="twitter:image" content="http://sunwish.coding.me/2019/02/25/WindowsInputCursor/1.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://Sunwish.coding.me/2019/02/19/LearningNotes-QT-02/"/>
+  <link rel="canonical" href="http://Sunwish.coding.me/2019/02/25/WindowsInputCursor/"/>
 
 
 
@@ -187,7 +171,7 @@
   };
 </script>
 
-  <title>QT（二）：简单多窗口程序 | 猴开发 | 博客</title>
+  <title>记一次 Windows 系统焦点光标的监控尝试 | 猴开发 | 博客</title>
   
 
 
@@ -360,7 +344,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/02/19/LearningNotes-QT-02/">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/02/25/WindowsInputCursor/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sunwish">
@@ -377,7 +361,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">QT（二）：简单多窗口程序
+          <h1 class="post-title" itemprop="name headline">记一次 Windows 系统焦点光标的监控尝试
               
             
           </h1>
@@ -414,7 +398,7 @@
                 
               
 
-              <time title="创建时间：2019-02-19 19:54:43 / 修改时间：21:56:10" itemprop="dateCreated datePublished" datetime="2019-02-19T19:54:43+08:00">2019-02-19</time>
+              <time title="创建时间：2019-02-25 18:35:24 / 修改时间：22:42:05" itemprop="dateCreated datePublished" datetime="2019-02-25T18:35:24+08:00">2019-02-25</time>
             
 
             
@@ -433,8 +417,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/02/19/LearningNotes-QT-02/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/19/LearningNotes-QT-02/" itemprop="commentCount"></span>
+                <a href="/2019/02/25/WindowsInputCursor/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/25/WindowsInputCursor/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -463,82 +447,39 @@
 
       
         <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
-<p>本篇记录如何通过 QT Creator 开发一个简单的多窗口程序。<br>环境：Win10 + QT Creator4.4.1 + QT5.9.2。<br>实现内容：在主窗口中输入指定的口令，点击按钮载入另一个窗口，并给出了子窗口只允许同时载入一次的三种方法。</p>
+<p>研究这个主要是为了进一步完善当前的自用软件 Alterful 的激活流程，实现“无热键”键盘增强。<br>虽然最终没能得到接近完美的解决办法，不过也在这个尝试的过程中取得了一些进展，故简单地记录一下。</p>
 </blockquote>
-<p><img src="/2019/02/19/LearningNotes-QT-02/1.jpg" alt="Title"></p>
+<p><img src="/2019/02/25/WindowsInputCursor/1.jpg" alt="Title"></p>
 <a id="more"></a>
 <hr>
-<h1 id="一、建立-QT-项目"><a href="#一、建立-QT-项目" class="headerlink" title="一、建立 QT 项目"></a>一、建立 QT 项目</h1><p><strong>打开 QT Creator，新建 Qt Widget Application 项目。</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/2.jpg" alt="Title"></p>
-<p><strong>设置项目名称，一直下一步完成项目创建。</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/3.jpg" alt="Title"></p>
-<p><strong>下图是初始的工程结构：</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/4.jpg" alt="Title"></p>
-<h1 id="二、添加新的GUI文件"><a href="#二、添加新的GUI文件" class="headerlink" title="二、添加新的GUI文件"></a>二、添加新的GUI文件</h1><p><strong>在项目目录中选中 Forms 右键，添加新文件。</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/5.jpg" alt="Title"></p>
-<p><strong>在新建文件窗口中选择 Qt 类，Qt 设计师界面类，确定。</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/6.jpg" alt="Title"></p>
-<p><strong>按照实际需要选择界面模板，此处选择的依旧是 Main Window，下一步。</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/7.jpg" alt="Title"></p>
-<p><strong>默认的类目还是 MainWindow，为了避免与主窗口冲突，重新选择类名，一路下一步，完成。</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/8.jpg" alt="Title"></p>
-<p><strong>新的 Qt 设计器界面类创建完成后的工程结构：</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/9.jpg" alt="Title"></p>
-<h1 id="三、窗口载入的实现"><a href="#三、窗口载入的实现" class="headerlink" title="三、窗口载入的实现"></a>三、窗口载入的实现</h1><p><strong>打开主窗口的.ui文件，添加一个 lineEdit 和一个 pushButton 做一个简陋的界面意思一下，其中 lineEdit 设置了显示方式为 Password，并设置了默认文本：</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/10.jpg" alt="Title"></p>
-<p><strong>运行起来的效果是这样的：</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/11.gif" alt="Title"></p>
-<p><strong>接下来我们要实现的是，当文本框中的内容为指定内容，如 Houkaifa 时，点击确认按钮载入窗口 ChildWindow。</strong></p>
-<p><strong>首先，我们在主窗口的.h文件中添加对子窗口的头文件包含：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;childwindow.h&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>并在主窗口类中定义一个子窗口类的私有成员：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">private:</span><br><span class="line">    ChildWindow *cw;</span><br></pre></td></tr></table></figure>
-<p><strong>完整的代码看上去是这样的：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#ifndef MAINWINDOW_H</span><br><span class="line">#define MAINWINDOW_H</span><br><span class="line"></span><br><span class="line">#include &lt;childwindow.h&gt;</span><br><span class="line">#include &lt;QMainWindow&gt;</span><br><span class="line"></span><br><span class="line">namespace Ui &#123;</span><br><span class="line">class MainWindow;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MainWindow : public QMainWindow</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">public:</span><br><span class="line">    explicit MainWindow(QWidget *parent = 0);</span><br><span class="line">    ~MainWindow();</span><br><span class="line">private:</span><br><span class="line">    Ui::MainWindow *ui;</span><br><span class="line">private:</span><br><span class="line">    ChildWindow *cw;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif // MAINWINDOW_H</span><br></pre></td></tr></table></figure>
-<p><strong>emmm，还是放图片看起来清楚些：</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/12.jpg" alt="Title"></p>
-<center><font size="2" color="#bbbbbb">立个小flag，找时间一定给博客的代码做一下高亮支持（小声BB，你们看不到你们看不到）</font></center>
-
-<p><strong>下面，我们为主窗口的 pushButton 添加 clicked 信号的槽函数，用以判断口令是否正确。</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/13.jpg" alt="Title"></p>
-<p><strong>在口令正确的情况下，如何载入子窗口 cw？</strong><br>在主窗口类中我们定义了 ChildWindow 类的一个私有成员，只需在合适的位置将其实例化，并调用show()函数进行显示即可，具体代码如图：</p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/14.jpg" alt="Title"></p>
-<p><strong>当然，不将子窗口类定义为类成员，直接在需要的时候创建临时变量也是可行的，例如删除 cw 的成员声明，而在上图的注释(// Load ChildWindow)处直接添加如下代码：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ChildWindow *cw = new ChildWindow(this);</span><br><span class="line">cw-&gt;show();</span><br></pre></td></tr></table></figure>
-<p><strong>F5调试程序，测试效果：</strong></p>
-<ul>
-<li>输入错误口令，点击确认按钮，提示口令错误。</li>
-</ul>
-<p><img src="/2019/02/19/LearningNotes-QT-02/15.gif" alt="Title"></p>
-<ul>
-<li>输入正确口令，点击确认按钮，载入 ChildWindow。</li>
-</ul>
-<p><img src="/2019/02/19/LearningNotes-QT-02/16.jpg" alt="Title"></p>
-<center>--- END（假的） ---</center>
-
-<hr>
-<p><strong>此时你会发现，多次点击确认按钮，会载入多个 ChildWindow，如果不希望子窗口被多次同时载入，可以：</strong></p>
-<ul>
-<li><p>方法一：在子窗口载入完成后将主窗口隐藏：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">cw-&gt;show();	// 显示子窗口</span><br><span class="line">this-&gt;hide();	// 隐藏主窗口</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>方法二：将 ChildWindow 改装成单例类。</p>
-</li>
-<li><p>方法三：像本例一样将 ChildWindow 定义为主窗口的类成员，并在子窗口被关闭后将指针置空，在点击确认按钮时验证指针状态，即可知道窗口是否已创建，详细见下文：</p>
-</li>
-</ul>
-<p><strong>如何在子窗口关闭后将指针置空？</strong><br><strong>答：重写 closeEvent 事件函数。</strong></p>
+<p>其实所研究这个问题的本质就是希望能够实时监测系统当中是否有输入焦点，也就是在文本框中输入内容时一闪一闪的光标，更准确地说应该是叫输入焦点，或者说“插入符”。</p>
+<p>归纳了一下，主要有两种办法可以基本实现这一点。</p>
+<h1 id="一、GetGUIThreadInfo"><a href="#一、GetGUIThreadInfo" class="headerlink" title="一、GetGUIThreadInfo"></a>一、GetGUIThreadInfo</h1><p>作为处于待输入状态的控件，其父窗口一般来讲是当前时刻的顶级窗口，因此考虑通过函数 <a href="https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getguithreadinfo" target="_blank" rel="noopener">GetGUIThreadInfo</a> 来获得顶层窗口的相关信息，进而判断顶层窗口是否含有输入焦点来确定系统全局是否含有输入焦点。</p>
+<p>下面是 C++ 中 GetGUIThreadInfo 的函数原型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">BOOL GetGUIThreadInfo(</span><br><span class="line">  DWORD          idThread,</span><br><span class="line">  PGUITHREADINFO pgui</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="参数一"><a href="#参数一" class="headerlink" title="参数一"></a>参数一</h2><p>其中参数 idThread 是欲取得信息的GUI线程id，如果是要获取一个指定窗口的Info的话，那么可以通过 GetWindowThreadProcessId 来得到其 idThread 值，其函数原型如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DWORD GetWindowThreadProcessId(</span><br><span class="line">HWND hWnd,</span><br><span class="line">LPDWORD lpdwProcessId</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>不过我们只是要取的顶级窗口的信息，幸运的是 idThread 接受 NULL，并且当传入 NULL 时将默认认为目标窗口就是顶级窗口，因此此处直接传NULL即可，还是很方便的。</p>
+<h2 id="参数二"><a href="#参数二" class="headerlink" title="参数二"></a>参数二</h2><p>第二个参数 pgui 是一个 <a href="https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagguithreadinfo" target="_blank" rel="noopener">PGUITHREADINFO</a> 类型的结构体指针，在微软官方文档当中给出的定义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">typedef struct tagGUITHREADINFO &#123;</span><br><span class="line">  DWORD cbSize;</span><br><span class="line">  DWORD flags;</span><br><span class="line">  HWND  hwndActive;</span><br><span class="line">  HWND  hwndFocus;</span><br><span class="line">  HWND  hwndCapture;</span><br><span class="line">  HWND  hwndMenuOwner;</span><br><span class="line">  HWND  hwndMoveSize;</span><br><span class="line">  HWND  hwndCaret;</span><br><span class="line">  RECT  rcCaret;</span><br><span class="line">&#125; GUITHREADINFO, *PGUITHREADINFO, *LPGUITHREADINFO;</span><br></pre></td></tr></table></figure>
+<p>其中对此处比较有用的就是 flags、hwndFocus 以及 hwndCaret 这三个数据成员，其中 hwndFocus 表示具有键盘焦点的窗口的句柄，hwndCaret 表示显示插入符的窗口的句柄，而 flags 表征的是线程的状态。flag 一共有 5 个可取值，具体见下图：</p>
+<p><img src="/2019/02/25/WindowsInputCursor/2.jpg" alt="Title"></p>
+<p>当 flags == 1 时，说明当前窗口中有闪烁的插入符，也就说明当前系统具有输入焦点，处于可输入状态。</p>
+<p>相应的，此时就可以通过 hwndCaret 来知道具体的焦点控件句柄。（不过针对此处需要，这些信息都不用管，不过对大多数其它情况和需求而言，这些数据都是有意义的，所以还是提一下）</p>
+<h1 id="二、GetCaretPos"><a href="#二、GetCaretPos" class="headerlink" title="二、GetCaretPos"></a>二、GetCaretPos</h1><p>GetCaretPos 函数其实是用来获取当前的光标位置的，不过从其函数原型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BOOL GetCaretPos(</span><br><span class="line">  LPPOINT lpPoint</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>可以看到返回值是布尔型，因此也可以用来判断是否存在输入光标。</p>
+<p>很明显 GetCaretPos 函数相比 GetGUIThreadInfo 而言要简洁得多，这也是由函数的使命所决定的。</p>
 <blockquote>
-<p>closeEvent 是 QCloseEvent 类中的虚函数，其原型为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void closeEvent(QCloseEvent* event);</span><br></pre></td></tr></table></figure></p>
-<p>在窗口关闭时被触发，将该类包含在子窗口的头文件中，并对 closeEvent 函数进行重写，即可实现在子窗口关闭时进行自定义操作。</p>
+<p>从 GetCaretPos 你只能得到 “是否有光标？” 以及 “光标坐标是什么？” 这两个问题的答案，而 GetGUIThreadInfo 可以得到的信息要丰富得多。</p>
 </blockquote>
-<p><img src="/2019/02/19/LearningNotes-QT-02/17.jpg" alt="Title"></p>
-<p><strong>接下来在子窗口的.cpp文件中对 closeEvent 函数进行实现，直接发送信号：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void ChildWindow::closeEvent(QCloseEvent* event)</span><br><span class="line">&#123;</span><br><span class="line">    emit windowClosed();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>最后补全主窗口的代码即可：</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/18.jpg" alt="Title"></p>
-<p><strong>效果：</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/19.gif" alt="Title"></p>
+<p>函数 GetCaretPos 不需要任何有意义的输入参数，只需要一个 LPPOINT 指针用于接受光标的客户坐标。</p>
+<p>如果当前屏幕有光标，那么函数返回 true，如果屏幕没有光标，那么函数返回 flase，并且可以通过 <a href="https://msdn.microsoft.com/zh-cn/d852e148-985c-416f-a5a7-27b6914b45d4" target="_blank" rel="noopener">GetLastError</a> 来取得错误信息。</p>
+<h1 id="三、测试"><a href="#三、测试" class="headerlink" title="三、测试"></a>三、测试</h1><p>测试效果在概述当中已经说了，不尽理想。在目前已经试过的所有原生窗口（如记事本、资源管理器等）当中可以正常得到光标信息，</p>
+<p>但是在大部分基于ATL或WTL开发的DirectUI窗口（如QQ、WPS、迅雷）和几乎所有的浏览器当中，GetCaretPos 始终返回 true，lpdwProcessId 的 flags 始终为 0，也就是说都无法得到光标信息。</p>
+<p>在网上找了一天也没能找到这个问题的原因，虽然有一些相关的提问，但是都没有结帖，并且都是10年前左右的问题，年代久远，也就是目前为止都没有找到有效的解决办法。这一问题只能暂时告一段落了，如果以后此有闲情继续研究，会尝试钻研一些开源输入法光标跟踪原理，若取得进展，再回到本篇继续更新。</p>
+<p>下面是对有效情况的测试图：</p>
+<p><img src="/2019/02/25/WindowsInputCursor/3.gif" alt="Title"></p>
 <center>--- END ---</center>
       
     </div>
@@ -583,9 +524,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
-          
-            <a href="/tags/QT/" rel="tag"><i class="fa fa-tag"></i> QT</a>
+            <a href="/tags/沿途简记/" rel="tag"><i class="fa fa-tag"></i> 沿途简记</a>
           
         </div>
       
@@ -610,8 +549,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/18/LearningNotes-QT-01/" rel="next" title="QT（一）：信号与槽">
-                <i class="fa fa-chevron-left"></i> QT（一）：信号与槽
+              <a href="/2019/02/22/LearningNotes-QT-04/" rel="next" title="QT（四）：事件与事件过滤器">
+                <i class="fa fa-chevron-left"></i> QT（四）：事件与事件过滤器
               </a>
             
           </div>
@@ -619,10 +558,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/20/LearningNotes-QT-03/" rel="prev" title="QT（三）：浅探 QTimer 类">
-                QT（三）：浅探 QTimer 类 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -804,7 +739,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、建立-QT-项目"><span class="nav-text">一、建立 QT 项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、添加新的GUI文件"><span class="nav-text">二、添加新的GUI文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、窗口载入的实现"><span class="nav-text">三、窗口载入的实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、GetGUIThreadInfo"><span class="nav-text">一、GetGUIThreadInfo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数一"><span class="nav-text">参数一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数二"><span class="nav-text">参数二</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、GetCaretPos"><span class="nav-text">二、GetCaretPos</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、测试"><span class="nav-text">三、测试</span></a></li></ol></div>
             
 
           </div>
