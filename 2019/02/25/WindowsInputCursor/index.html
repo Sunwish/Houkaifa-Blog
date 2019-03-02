@@ -150,7 +150,7 @@
 <meta property="og:image" content="http://sunwish.coding.me/2019/02/25/WindowsInputCursor/1.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2019/02/25/WindowsInputCursor/2.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2019/02/25/WindowsInputCursor/3.gif">
-<meta property="og:updated_time" content="2019-02-25T14:42:05.530Z">
+<meta property="og:updated_time" content="2019-02-25T15:25:53.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次 Windows 系统焦点光标的监控尝试">
 <meta name="twitter:description" content="概述 研究这个主要是为了进一步完善当前的自用软件 Alterful 的激活流程，实现“无热键”键盘增强。虽然最终没能得到接近完美的解决办法，不过也在这个尝试的过程中取得了一些进展，故简单地记录一下。">
@@ -398,7 +398,7 @@
                 
               
 
-              <time title="创建时间：2019-02-25 18:35:24 / 修改时间：22:42:05" itemprop="dateCreated datePublished" datetime="2019-02-25T18:35:24+08:00">2019-02-25</time>
+              <time title="创建时间：2019-02-25 18:35:24 / 修改时间：23:25:53" itemprop="dateCreated datePublished" datetime="2019-02-25T18:35:24+08:00">2019-02-25</time>
             
 
             
@@ -477,7 +477,7 @@
 <p>如果当前屏幕有光标，那么函数返回 true，如果屏幕没有光标，那么函数返回 flase，并且可以通过 <a href="https://msdn.microsoft.com/zh-cn/d852e148-985c-416f-a5a7-27b6914b45d4" target="_blank" rel="noopener">GetLastError</a> 来取得错误信息。</p>
 <h1 id="三、测试"><a href="#三、测试" class="headerlink" title="三、测试"></a>三、测试</h1><p>测试效果在概述当中已经说了，不尽理想。在目前已经试过的所有原生窗口（如记事本、资源管理器等）当中可以正常得到光标信息，</p>
 <p>但是在大部分基于ATL或WTL开发的DirectUI窗口（如QQ、WPS、迅雷）和几乎所有的浏览器当中，GetCaretPos 始终返回 true，lpdwProcessId 的 flags 始终为 0，也就是说都无法得到光标信息。</p>
-<p>在网上找了一天也没能找到这个问题的原因，虽然有一些相关的提问，但是都没有结帖，并且都是10年前左右的问题，年代久远，也就是目前为止都没有找到有效的解决办法。这一问题只能暂时告一段落了，如果以后此有闲情继续研究，会尝试钻研一些开源输入法光标跟踪原理，若取得进展，再回到本篇继续更新。</p>
+<p>在网上找了一天也没能找到这个问题的原因，虽然有一些相关的提问，但是都没有结帖，并且都是10年前左右的问题，年代久远，也就是目前为止都没有找到有效的解决办法。这一问题只能暂时告一段落了，如果以后有闲情继续研究，会尝试钻研一些开源输入法光标跟踪原理，若取得进展，再回到本篇继续更新。</p>
 <p>下面是对有效情况的测试图：</p>
 <p><img src="/2019/02/25/WindowsInputCursor/3.gif" alt="Title"></p>
 <center>--- END ---</center>
@@ -559,6 +559,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/03/02/DeepLearning-01/" rel="prev" title="深度学习（一）Logistic 回归与梯度下降">
+                深度学习（一）Logistic 回归与梯度下降 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -634,7 +638,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -677,7 +681,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -784,7 +790,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 40.3k 字</span>
+  <span class="post-count">博客全站共 45.3k 字</span>
 </div>
 
 <!--
