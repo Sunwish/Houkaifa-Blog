@@ -157,7 +157,7 @@
 <meta property="og:image" content="http://sunwish.coding.me/2019/03/02/DeepLearning-01/7.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2019/03/02/DeepLearning-01/9.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2019/03/02/DeepLearning-01/10.jpg">
-<meta property="og:updated_time" content="2019-03-02T16:06:42.907Z">
+<meta property="og:updated_time" content="2019-03-03T04:10:15.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习（一）Logistic 回归与梯度下降">
 <meta name="twitter:description" content="概述 本篇属于理论篇，介绍了针对二元分类问题的 Logistic 回归与梯度下降，以及 Logistic 回归当中的梯度下降是如何进行参数优化。">
@@ -422,7 +422,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-03 00:06:42" itemprop="dateModified" datetime="2019-03-03T00:06:42+08:00">2019-03-03</time>
+                <time title="修改时间：2019-03-03 12:10:15" itemprop="dateModified" datetime="2019-03-03T12:10:15+08:00">2019-03-03</time>
               
             
           </span>
@@ -480,11 +480,31 @@
 <script type="math/tex; mode=display">
 \begin{equation}
 z = w_1x_1 + w_2x_2 + w_3x_3 + b
-\end{equation}</script><p>但是为了简洁与方便计算，一般写作矩阵的形式，各项输入用矩阵 $x$ 来表示，各项输入的系数用矩阵 $w$ 来表示，这样就得到了 Logistic 回归的矩阵形式，也是最通用的形式：</p>
+\end{equation}</script><p>但是为了简洁与方便计算，一般单样本的输入与参数都写作列矩阵的形式，第 $i$ 个样本的各项输入用矩阵 $x^{(i)}$ 来表示，各项输入的系数用矩阵 $w$ 来表示。例如对于第 $i$ 个样本 $x$ 而言它有 $n_x$ 个输入，那么它就对应一个 $n_x \times 1$ 的列矩阵 $x^{(i)}$，这样就得到了 Logistic 回归的矩阵形式，也是你常见到的形式：</p>
 <script type="math/tex; mode=display">
 \begin{equation}
-z = w^Tx + b
-\end{equation}</script><p>而对于这个三个输入的问题而言，$x$ 与 $w$ 就分别是下面这样的 $3 \times 1$ 矩阵：</p>
+z^{(i)} = w^Tx^{(i)} + b
+\end{equation}</script><p>公式(2)表示的是单个样本的计算，在大多数情况下我们会将许多样本按行堆叠在一起，放在一个更大的矩阵当中，并用相应的大写字母来表示这个数据的样本集合，例如对于一个有 $n_x$ 个输入，$m$ 个样本的训练集合来说，一般使用大写字母 $X$ 来表示：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+X = 
+\begin{bmatrix}
+{\vdots}&{\vdots}&{\vdots}&{\vdots}\\
+x^{(1)}&x^{(2)}&{\cdots}&x^{(m)}\\
+{\vdots}&{\vdots}&{\vdots}&{\vdots}\\
+\end{bmatrix}
+_{n_x \times m}
+,
+w = 
+\begin{bmatrix}
+w_1\\
+w_2\\
+{\vdots}\\
+w_{n_x}\\
+\end{bmatrix}
+_{n_x \times 1}
+\end{equation}</script><p>如果你学过线性代数的话也许能够理解上公式的意义，这种表示形式更像是一种技术，使用这种表示形式在深度学习当中是非常重要的，它能够在很大程度上提高我们模型的训练效率。</p>
+<p>如果你不理解我所说的话也不用着急，在第二篇当中你将详细地认识这门技术，并且为其精妙而感叹。在本篇当中我们只考虑单个样本的情况，因此你可以选择暂时忽略公式(3)。例如对于这个三个输入问题的单个样本而言，$x$ 与 $w$ 就分别是下面这样的 $3 \times 1$ 矩阵：</p>
 <script type="math/tex; mode=display">
 \begin{equation}
 x = 
@@ -500,7 +520,7 @@ w_1\\
 w_2\\
 w_3\\
 \end{bmatrix}
-\end{equation}</script><p>用图像可以将这个过程更加直观地表示出来，其中 $\hat{y}$ 就是输出值 $z$。</p>
+\end{equation}</script><p>用图像可以将这个单样本的 Logistic 回归过程更加直观地表示出来，其中 $\hat{y}$ 就是输出值 $z$。</p>
 <p><img src="/2019/03/02/DeepLearning-01/3.jpg" alt="Logistic 回归过程"></p>
 <center>图1-2 Logistic 回归过程</center>
 
@@ -520,7 +540,7 @@ w_3\\
 <p><img src="/2019/03/02/DeepLearning-01/5.jpg" alt="二元分类问题的 Logistic 回归"></p>
 <center>图1-4 二元分类问题的 Logistic 回归</center>
 
-<p>你可能有注意到，图1-4 当中的 Output 并不是写的 $a$，而是 $\hat{y}$，这是为了将最终输出与隐藏当中的量区分开来。</p>
+<p>你可能有注意到，图1-4 当中的 Output 并不是写的 $a$，而是 $\hat{y}$，这是为了将最终输出与隐藏层当中的量区分开来。</p>
 <p>如果你不知道什么是隐层的话，图1-4 中间的圆圈（Logistic/Sigmoid），在神经网络当中就被称作<strong>隐层(Hidden layer)</strong>，也被叫做<strong>隐藏层</strong>。</p>
 <p>之所以要这么叫它，是因为通常我们只在意输入的数据通过隐层后得到了怎样的输出，而并不在意其中的数值以及在内部所做的计算，在神经网络运行的过程当中我们也无法看到其中的细节，因此将其称作隐层。</p>
 <p>你可能不会相信，这就是一个简单的神经网络了，只不过它只有一个隐藏层，看上去非常的简单简洁。这样只有一个隐层的神经网络又被称作<strong>单层神经网络(Single-layer neural network)</strong>（输入层与输出层是不计入神经网络的层数的），在今后我们会看到更加复杂的网络。</p>
@@ -534,16 +554,16 @@ D(\hat{y},y) = (\hat{y}-y)^2
 \begin{equation}
 L(\hat{y},y) = -[ ylog(\hat{y}) + (1-y)log(1-\hat{y}) ]
 \end{equation}</script><p>我们先来看一看这个看上去很复杂的 Loss Function 能否起到衡量输出准确的作用，为了使得输出尽可能准确，我们要做的就是使得损失函数尽可能小：</p>
-<p>1.当正确输出 $y=0$ 时，表达式变成了公式(7)，为了使得 $L(\hat{y},y)$ 尽可能小，$log(1-\hat{y})$ 就要尽可能大，也就是 $1-\hat{y}$ 要尽可能大，最终结果是 $\hat{y}$ 要尽可能小，而 $\hat{y} \in [0,1]$，因此 $\hat{y}$ 需要尽可能接近于0，也就是正确输出 $y$。</p>
+<p>1.当正确输出 $y=0$ 时，表达式变成了公式(8)，为了使得 $L(\hat{y},y)$ 尽可能小，$log(1-\hat{y})$ 就要尽可能大，也就是 $1-\hat{y}$ 要尽可能大，最终结果是 $\hat{y}$ 要尽可能小，而 $\hat{y} \in [0,1]$，因此 $\hat{y}$ 需要尽可能接近于0，也就是正确输出 $y$。</p>
 <script type="math/tex; mode=display">
 \begin{equation}
 L(\hat{y},y) = -log(1-\hat{y})
-\end{equation}</script><p>2.当正确输出 $y=1$ 时，表达式变成了公式(8)，为了使得 $L(\hat{y},y)$ 尽可能小，$log(\hat{y})$ 就要尽可能大，最终结果是 $\hat{y}$ 要尽可能大，而 $\hat{y} \in [0,1]$，因此 $\hat{y}$ 需要尽可能接近于1，也就是正确输出 $y$。</p>
+\end{equation}</script><p>2.当正确输出 $y=1$ 时，表达式变成了公式(9)，为了使得 $L(\hat{y},y)$ 尽可能小，$log(\hat{y})$ 就要尽可能大，最终结果是 $\hat{y}$ 要尽可能大，而 $\hat{y} \in [0,1]$，因此 $\hat{y}$ 需要尽可能接近于1，也就是正确输出 $y$。</p>
 <script type="math/tex; mode=display">
 \begin{equation}
 L(\hat{y},y) = -log(\hat{y})
 \end{equation}</script><p>看来，通过 Loss Function 我们确实可以使得 $\hat{y}$ 与 $y$ 向同一趋势靠近，可是为什么有简单的距离函数不用，却要用这个看上去更复杂的损失函数呢？</p>
-<p>这是因为如果使用距离函数 $D(\hat{y},y)$，那么对应的 Cost 函数 $J(w,b)$ 将是非凸的，这会造成许多的局部最优，导致在梯度下降的过程当中找到全局最优变得很困难，而损失函数是凸的，这就方便我们在后面进行梯度下降。如果你看不懂上面这段话也不用担心，因为在后面你将会明白其中的原因。</p>
+<p>这是因为如果使用距离函数 $D(\hat{y},y)$，那么对应的 Cost 函数 $J(w,b)$ 将是非凸的，这会产生许多的局部最小值，导致在梯度下降的过程当中难以找到全局最优解。而损失函数是凸的，这就有利于我们在后面进行梯度下降。如果你看不懂上面这段话也不用担心，因为在后面你将会明白其中的原因。</p>
 <p>至此，你已经完成了 Logsitic 回归单层神经网络的一半内容，对于 Logistic 回归来说，我们在1.1节的 图1-4 中已经看过他的计算流程了，这一从输入 $x$ 到完成 $L(\hat{y},y)$ 计算的过程被称作<strong>向前传播(Forward-propagation)</strong>，图1-7 给出的就是这个过程。</p>
 <p><img src="/2019/03/02/DeepLearning-01/8.jpg" alt="Logistic 回归的向前传播过程"></p>
 <center>图1-5 Logistic 回归的向前传播过程</center>
@@ -565,22 +585,22 @@ J(w,b) = \frac{1}{m}\sum_{i=1}^m L(\hat{y},y) = -\frac{1}{m}\sum_{i=1}^m [ ylog(
 <center>图1-7 当 $w$ 是实数时，$J(w)$ 函数的图像</center>
 
 <p>可以看到函数 $J(w)$ 是一个凸函数，如果你绘制出 $J(b)$ 图像你将发现它也是凸函数，这也就回答了在1.2节当中的问题，即我们选用 Loss Function 而不是形式更简单的距离函数的原因，距离函数就不是这样的凸函数，它有许多的局部最小值，这不便于我们寻找全局的最优解。</p>
-<p>现在假设我们的 $w$ 取在了最低点的右侧，那么你会发现它的斜率是大于零的，也就是公式(10)</p>
+<p>现在假设我们的 $w$ 取在了最低点的右侧，那么你会发现它的斜率是大于零的，也就是公式(11)</p>
 <script type="math/tex; mode=display">
 \begin{equation}
 \frac{dJ(w)}{dw}>0
-\end{equation}</script><p>那么为了减小 $w$，你应该用将 $w$ 减去一个常熟去乘以这个导数：</p>
+\end{equation}</script><p>那么为了减小 $w$，你应该用将 $w$ 减去一个常数去乘以这个导数：</p>
 <script type="math/tex; mode=display">
 \begin{equation}
 w_{new} = w_{old} - \alpha \frac{dJ(w)}{dw}
-\end{equation}</script><p>这个常数被称作<strong>学习率(Learning rate)</strong>，一般记作 $\alpha$。而如果我们的 $w$ 偏小了，即取在了最低点的左侧，你会发现它的斜率是小于零的，那么用公式(11)来更新 $w$ 就会使得 $w$ 变大，因此无论 $w$ 偏小还是偏大，我们都可以只使用公式(11)就能够不断地优化 $w$。这是使用 $- \alpha \frac{dJ(w)}{dw}$ 作为更新量的一个好处。</p>
+\end{equation}</script><p>这个常数被称作<strong>学习率(Learning rate)</strong>，一般记作 $\alpha$，用来控制每次更新的步幅。而如果我们的 $w$ 偏小了，即取在了最低点的左侧，你会发现它的斜率是小于零的，那么用公式(12)来更新 $w$ 就会使得 $w$ 变大，因此无论 $w$ 偏小还是偏大，我们都可以只使用公式(12)就能够不断地优化 $w$，使得 $J(w)$ 越来越小。这是使用 $- \alpha \frac{dJ(w)}{dw}$ 作为更新量的一个好处。</p>
 <p>另一个好处是，在学习率 $\alpha$ 大小合适的前提下，当初始的 $w$ 差的太远时，因为远处的斜率非常的大，在更新量的促使下 $w$ 会很快被更新到最优点的附近。但这个好处同样也是坏处，当 $w$ 距离最优点很近的时候，$\frac{dJ(w)}{dw}$会趋于零，$w$ 的更新会变得非常慢。</p>
-<p>对于参数 $w$，我们使用公式(10)进行更新，对于参数 $b$ 我不想在这里多写，因为两者是同理的，你不难理解参数 $b$ 的更新公式应该是公式(12)所写的样子，和公式(10)相比就是将所有的 $w$ 换成了 $b$，其它保持不变。</p>
+<p>对于参数 $w$，我们使用公式(12)进行更新，对于参数 $b$ 我不想在这里多写，因为两者是同理的，你不难理解参数 $b$ 的更新公式应该是公式(13)所写的样子，和公式(12)相比就是将所有的 $w$ 换成了 $b$，其它保持不变。</p>
 <script type="math/tex; mode=display">
 \begin{equation}
 b_{new} = b_{old} - \alpha \frac{dJ(b)}{db}
 \end{equation}</script><p>值得注意的是，对于梯度下降法而言，学习率 $\alpha$ 的选择是至关重要的，一个过小的 $\alpha$ 会使得 $w$、$b$ 更新的过慢，而太大的 $\alpha$ 将导致梯度下降难以收敛。在许多情况下，学习率通常初始设置在 $10^{-2}$~$10^{-4}$ 数量级之间，通过实际的训练情况再进行细微调整，在后面你将看到学习率 $\alpha$ 对整个模型精确度的影响之深。</p>
-<h1 id="1-4-Logistic-回归中的梯度下降法"><a href="#1-4-Logistic-回归中的梯度下降法" class="headerlink" title="1.4 Logistic 回归中的梯度下降法"></a>1.4 Logistic 回归中的梯度下降法</h1><p>在前面你已经了解了梯度下降法，知道了梯度下降法进行参数优化的原理。下面我们来看看在 Logistic 回归当中的梯度下降法到底是怎样工作的。</p>
+<h1 id="1-4-Logistic-回归中的梯度下降法"><a href="#1-4-Logistic-回归中的梯度下降法" class="headerlink" title="1.4 Logistic 回归中的梯度下降法"></a>1.4 Logistic 回归中的梯度下降法</h1><p>在前面你已经了解了梯度下降法，知道了梯度下降法进行参数优化的原理，即利用损失函数 $J(w,b)$ 是凸函数的特性，通过梯度(斜率)特征调节参数 $w$ 和 $b$，并结合学习率 $\alpha$ 控制更新步幅，以引导 $J(w,b)$ 走向全局最低点 。下面我们来看看在 Logistic 回归当中的梯度下降法到底是怎样工作的。</p>
 <p>梯度下降法更新参数的核心你一定还记得，我们把它摘抄过来并稍作修改：</p>
 <script type="math/tex; mode=display">
 \begin{equation}
@@ -588,8 +608,8 @@ w := w - \alpha \frac{\partial J(w, b)}{\partial w}
 \end{equation}</script><script type="math/tex; mode=display">
 \begin{equation}
 b := b - \alpha \frac{\partial J(w, b)}{\partial b}
-\end{equation}</script><p>如果你将上面两个公式与1.3节中给出的更新公式做对比的话，你会发现有两点修改。首先此处使用了 “:=” 符号，如果你之前没有见过这个符号的话也不用担心，它只是表示数据更新，这样就不需要像公式(11)与公式(12)那样总是带着 $_{new}$ 和 $_{old}$ 的角标了。</p>
-<p>第二点就是导数符号都修正成了偏导数，因为1.3节当中为了方便讨论所以只考虑了一个量而有意地忽略了另一个量，但实际情况是 $J(w, b)$ 是一个二元函数，对其一个参量求导应该写成偏导的形式。这是对公式(11)和公式(12)的两点修改，希望你能理解。</p>
+\end{equation}</script><p>如果你将上面两个公式与1.3节中给出的更新公式做对比的话，你会发现有两点修改。首先此处使用了 “:=” 符号，如果你之前没有见过这个符号的话也不用担心，它只是表示数据更新，这样就不需要像公式(12)与公式(13)那样总是带着 $_{new}$ 和 $_{old}$ 的角标了。</p>
+<p>第二点就是导数符号都修正成了偏导数，因为1.3节当中为了方便讨论所以只考虑了一个量而有意地忽略了另一个量，但实际情况是 $J(w, b)$ 是一个二元函数，对其一个参量求导应该写成偏导的形式。这是对公式(12)和公式(13)的两点修改，希望你能理解。</p>
 <p>为了更新参数，我们需要的只是 $\frac{\partial J(w, b)}{\partial w}$ 和 $\frac{\partial J(w, b)}{\partial b}$，学习率 $\alpha$ 是我们自己设置的，而 $J(w, b)$ 正是 $L(\hat{y},y)$ 的均值，如果你熟悉链式法则的话，你不难发现实际上我们只需要计算 $\frac{\partial L(\hat{y}, y)}{\partial w}$ 与 $\frac{\partial L(\hat{y}, y)}{\partial b}$ 即可，而本小节的核心正是求解这两个量。</p>
 <p>如果你精通微积分，相信你可以一步写出这两个量的答案，但是为了便于理解，我们还是在此采用链式法则将求解步骤进行拆分，这也便于引出本小节中的一个重要概念。如果你学过微积分，那么下面的推导过程你应该不难理解，要是你看不懂下面的一堆算式，一头雾水也不用太担心，记住最终的结论也是可以的，这些推导的过程对你在编程实践环节不会造成什么困扰。</p>
 <blockquote>
@@ -597,7 +617,7 @@ b := b - \alpha \frac{\partial J(w, b)}{\partial b}
 <script type="math/tex; mode=display">
 \begin{equation}
 \frac{dF_3(b)}{dx} = \frac{dF_3(b)}{db} \frac{dF_2(a)}{da} \frac{dF_1(a)}{dx}
-\end{equation}</script><p>如果你不太理解的话，尝试把公式(15)分母中 $b$、$a$ 的值用对应的函数带入：</p>
+\end{equation}</script><p>如果你不太理解的话，尝试把公式(16)分母中 $b$、$a$ 的值用对应的函数带入：</p>
 <script type="math/tex; mode=display">
 \begin{equation}
 \frac{dF_3(b)}{dx} = \frac{dF_3(b)}{dF_2(a)} \frac{dF_2(a)}{dF_1(x)} \frac{dF_1(a)}{dx}
@@ -634,20 +654,24 @@ b := b - \alpha \frac{\partial J(w, b)}{\partial b}
 \begin{equation}
 \frac{\partial L(\hat{y}, y)}{\partial b} = \frac{\partial L(a,y)}{da} \frac{d\sigma(z)}{dz} \frac{\partial z(w,b)}{\partial b}
 = (a-y)^T
-\end{equation}</script><p>这样就可以得到我们的目标 $\frac{\partial J(w, b)}{\partial w}$ 和 $\frac{\partial J(w, b)}{\partial b}$ 了，它们就是公式(21)和公式(22)在数据集上的均值，一般使用 $m$ 表示训练集的大小，就有下式：</p>
+\end{equation}</script><p>这样就可以得到我们的目标 $\frac{\partial J(w, b)}{\partial w}$ 和 $\frac{\partial J(w, b)}{\partial b}$ 了，它们就是公式(22)和公式(23)在数据集上的均值，一般使用 $m$ 表示训练集的大小，就有下式：</p>
 <script type="math/tex; mode=display">
 \begin{equation}
-\frac{\partial J(w, b)}{\partial w} = \frac{1}{m} x(a-y)^T
+dw = \frac{\partial J(w, b)}{\partial w}
+= \frac{1}{m} \sum_{i=1}^{m}\frac{\partial L(\hat{y}^{(i)}, y^{(i)})}{\partial w}
+= \frac{1}{m} \sum_{i=1}^{m}[x^{(i)}(a^{(i)}-y^{(i)})^T]
 \end{equation}</script><script type="math/tex; mode=display">
 \begin{equation}
-\frac{\partial J(w, b)}{\partial b} = \frac{1}{m} (a-y)^T
+db = \frac{\partial J(w, b)}{\partial b}
+= \frac{1}{m} \sum_{i=1}^{m}\frac{\partial L(\hat{y}^{(i)}, y^{(i)})}{\partial b}
+= \frac{1}{m} \sum_{i=1}^{m}(a^{(i)}-y^{(i)})^T
 \end{equation}</script><p>在写代码的时候，为了简化变量名，通常使用 $dw$ 与 $db$ 来代表 $\frac{\partial J(w, b)}{\partial w}$ 和 $\frac{\partial J(w, b)}{\partial b}$。</p>
 <p>如果你学过高等数学的话，我十分建议你动笔自己来算一算，这个计算的过程很有趣，看似复杂的表达式，最终却能够得到如此简洁的结果，实则美妙。</p>
 <p>到目前为止，我们已将完成了每一个“链条”的求解，如果在图像上标示出来，这个过程就是 图1-9 的上半部分，而 图1-9 的下半部分就是通过链式法则将各“链条”相乘得到最终的计算结果，整个 图1-9 的过程被称作<strong>向后传播(Back-propagation)</strong>，又叫反向传播。</p>
 <p><img src="/2019/03/02/DeepLearning-01/10.jpg" alt="Logistic 回归的向后传播过程"></p>
 <center>图1-9 Logistic 回归的向后传播过程</center>
 
-<p>梯度下降的核心在于参量的更新，也就是更新量的求解。现在，我们已经计算得到了答案（公式(23)和公式(24)），Logistic 回归中的梯度下降法最终被归纳为下面两行：</p>
+<p>梯度下降的核心在于参量的更新，也就是更新量的求解。现在，我们已经计算得到了答案（公式(24)和公式(25)），Logistic 回归中的梯度下降法最终被归纳为下面两行：</p>
 <script type="math/tex; mode=display">
 \begin{equation}
 w := w - \alpha dw
@@ -655,18 +679,28 @@ w := w - \alpha dw
 \begin{equation}
 b := b - \alpha db
 \end{equation}</script><p>重申一次，如果你对上面的推导过程感到很头疼的话，不用过于担心，记住最后的结论也是没有问题的。</p>
-<p>至此，神经网络完成了一轮训练，即一次完整的向前传播、向后传播与参数更新。</p>
-<p>至此，你已经完成了 Logistic 回归的理论学习，下一篇将介绍向量化的相关内容，你将了解到在神经网络当中向量化的重要性，以及如何向量化 Logistic 回归、如何向量化 Logistic 回归的梯度输出。<br>在进入下一篇之前，请先试着思考以下几个问题，这些是本篇的核心内容：</p>
+<p>至此，你的神经网络已经完成了一轮训练，即一次完整的向前传播（图1-5）、向后传播（图1-9）与参数更新（公式(26)(27)）。在实际的神经网络训练过程当中就是通过重复这个过程来不断地迭代参数 $w$ 和 $b$ 使得全局损失函数 $J(w, b)$ 尽可能小，达到“学习”优化的目的。</p>
+<p>至此，你已经完成了 Logistic 回归的理论部分学习，下一篇中将介绍向量化的相关内容，你将了解到在神经网络当中向量化的重要性，以及如何向量化 Logistic 回归、如何向量化 Logistic 回归的梯度输出。<br>在进入下一篇之前，你可试着先试着思考以下几个问题，这些是本篇当中的核心内容：</p>
+<blockquote>
 <ol>
 <li>二元分类问题中的 Logistic 回归是怎样的？（<font color="#fff">不清楚请看 图1-4</font>）</li>
 <li>为什么要引入 Sigmoid 激活函数？（<font color="#fff">不清楚请看 1.1节</font>）</li>
 <li>Logistic 回归中使用什么作为损失函数？（<font color="#fff">Loss Function / Cost Function</font>）</li>
 <li>梯度下降法的“下降”核心可以分为哪两部份？（<font color="#fff">学习率 $\alpha$ 与 梯度(斜率)</font>）</li>
-<li>Logistic 回归中参数 $w$ 与 $b$ 的迭代公式是？（<font color="#fff">公式(13)(14) 或 公式(25)(26)</font>）</li>
+<li>Logistic 回归中参数 $w$ 与 $b$ 的迭代公式是？（<font color="#fff">公式(14)(15) 或 公式(26)(27)</font>）</li>
 </ol>
-<blockquote>
-<p>选中括号内容以查看答案。</p>
+<p>使用鼠标选中括号内容以查看答案。</p>
 </blockquote>
+<div class="spoiler collapsed"><div class="spoiler-title">点击查看本篇总结</div><div class="spoiler-content"><p><strong>Logistic 回归</strong>：Logistic 回归是一种广义上的线性回归，常用于处理二元分类问题。</p>
+<p><strong>Sigmoid 函数</strong>：Sigmoid 函数将 $z=w^Tx+b$ 映射到区间 $[0,1]$ 上，便于将其视为概率来进行分类。</p>
+<p><strong>损失函数</strong>：Loss Function 代表单样本损失，Cost Function 代表整体损失均值，用于衡量预测精确度。</p>
+<p><strong>梯度下降法</strong>：利用损失函数是凸函数的特性，通过梯度(斜率)特征来更新参数 $w$ 和 $b$，并结合学习率 $\alpha$ 控制更新步幅，以引导损失函数 $J(w,b)$ 走向全局最低点。</p>
+<p><strong>Logistic 回归中对于单样本的参数更新公式</strong>：</p>
+<script type="math/tex; mode=display">
+w := w - \alpha x(a-y)^T</script><script type="math/tex; mode=display">
+b := b - \alpha (a-y)^T</script><p><strong>对于单样本在向前传播中计算</strong>：预测值 $a = \sigma(z)$ 与 损失函数 $L(a,y)$。</p>
+<p><strong>对于单样本在反向传播中计算</strong>：参数 $w$ 和 $b$ 的更新梯度 $x(a-y)^T$ 与 $(a-y)^T$。</p>
+</div></div>
 <!--
 
 # 二、向量化
@@ -706,7 +740,7 @@ b := b - \alpha db
 # 四、小结
 
 -->
-<center>--- END ---</center>
+<center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
       
     </div>
 
@@ -1014,7 +1048,7 @@ b := b - \alpha db
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 45.3k 字</span>
+  <span class="post-count">博客全站共 46.2k 字</span>
 </div>
 
 <!--
