@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-loading-bar.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="概述 本篇属于理论篇，你将了解什么是向量化、向量化对神经网络训练优化的重要性，以及如何向量化 Logistic 回归及其梯度输出。">
+<meta name="keywords" content="学习笔记,深度学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度学习（二）向量化 Logistic 回归及其梯度输出">
+<meta property="og:url" content="http://Sunwish.coding.me/2019/03/03/DeepLearning-02/index.html">
+<meta property="og:site_name" content="猴开发 | 博客">
+<meta property="og:description" content="概述 本篇属于理论篇，你将了解什么是向量化、向量化对神经网络训练优化的重要性，以及如何向量化 Logistic 回归及其梯度输出。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/03/DeepLearning-02/1.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/03/DeepLearning-02/2.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/03/DeepLearning-02/3.jpg">
+<meta property="og:updated_time" content="2019-03-03T14:44:16.158Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深度学习（二）向量化 Logistic 回归及其梯度输出">
+<meta name="twitter:description" content="概述 本篇属于理论篇，你将了解什么是向量化、向量化对神经网络训练优化的重要性，以及如何向量化 Logistic 回归及其梯度输出。">
+<meta name="twitter:image" content="http://sunwish.coding.me/2019/03/03/DeepLearning-02/1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://Sunwish.coding.me/2019/03/03/DeepLearning-02/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>深度学习（二）向量化 Logistic 回归及其梯度输出 | 猴开发 | 博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">猴开发 | 博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">积极思考  活跃创造</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-投稿">
+    <a href="/contribute/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-pencil"></i> <br />投稿</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-札记">
+    <a href="/series/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/03/03/DeepLearning-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>2. Alterful · 键盘增强：<br>https://www.alterful.com/<br>3. AQTS · 自动量化交易系统<br><br>个人经历：<br>某杯全国大学生数学建模竞赛三等奖<br>某不知名社区UI设计大赛一等奖<br>某不知名院校职规大赛一等奖<br>某不知名团队创始人<br>数模国赛现役选手">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴开发 | 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">深度学习（二）向量化 Logistic 回归及其梯度输出
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+          
+          <span class="post-meta-author-icon">
+            <i class="fa fa-user-o"></i>
+          </span>
+	  
+	  
+	  
+	  <span class="post-meta-author-text">作者 Sunwish</span>
+	  <span class="post-meta-divider">|</span>
+          
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-03 14:21:17 / 修改时间：22:44:16" itemprop="dateCreated datePublished" datetime="2019-03-03T14:21:17+08:00">2019-03-03</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/03/DeepLearning-02/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/03/03/DeepLearning-02/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>本篇属于理论篇，你将了解什么是向量化、向量化对神经网络训练优化的重要性，以及如何向量化 Logistic 回归及其梯度输出。</p>
+</blockquote>
+<p><img src="/2019/03/03/DeepLearning-02/1.jpg" alt="Title"></p>
+<a id="more"></a>
+<hr>
+<h1 id="2-0-向量化概述"><a href="#2-0-向量化概述" class="headerlink" title="2.0 向量化概述"></a>2.0 向量化概述</h1><p>在前面，你已经认识了 Logistic 回归，并且对梯度下降以及梯度下降是如何工作的有了一个具体的认知。如果你有认真阅读第一篇的话，相信你还记得在第一篇中曾经提到过一个矩阵 $X$，它表示将所有的输入样本在水平方向上堆叠起来，也就是下面这个样子：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+X = 
+\begin{bmatrix}
+{\vdots}&{\vdots}&{\vdots}&{\vdots}\\
+x^{(1)}&x^{(2)}&{\cdots}&x^{(m)}\\
+{\vdots}&{\vdots}&{\vdots}&{\vdots}\\
+\end{bmatrix}
+_{n_x \times m}
+\end{equation}</script><p>为了在后面方便说明，这里将每一个输入样本的下标也标示出来，这样你将看到公式(1)更加完整的形式：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+X = 
+\begin{bmatrix}
+x^{(1)}_1&x^{(2)}&{\cdots}&x^{(m)}_1\\
+x^{(1)}_2&x^{(2)}&{\cdots}&x^{(m)}_2\\
+{\vdots}&{\vdots}&{\cdots}&{\vdots}\\
+x^{(1)}_{n_x}&x^{(2)}_{n_x}&{\cdots}&x^{(m)}_{n_x}\\
+\end{bmatrix}
+_{n_x \times m}
+\end{equation}</script><p>为了确保你明白公式(2)中每一个角标的含义，在这里特别说明一下，使用小括号括起来的上标表示的是样本的编号，而没有用括号括起来的下标代表的是样本的某一个输入，例如对于符号 $x^{(2)}_{n_x}$，它所代表的是训练集中第2个训练样本的第 $n_x$ 个输入，因为 $n_x$ 是指输入的总个数，所以 $x^{(2)}_{n_x}$ 表示的就是第2个训练样本的最后一个输入。</p>
+<p>将原本独立的一个个样本组合在一起，构成一个新的矩阵，其实这就是向量化。你可能要问，在上篇中已经实现了 Logistic 回归，使用 $x$ 表示单个样本，在对所有样本逐个计算就足够了，为什么还要使用向量化引入一个样本矩阵 $X$？</p>
+<h1 id="2-1-非向量化与向量化实例"><a href="#2-1-非向量化与向量化实例" class="headerlink" title="2.1 非向量化与向量化实例"></a>2.1 非向量化与向量化实例</h1><p>试想，如果给你一个给你 1000000 个数据 $a_1$~$a_{1000000}$，以及 1000000 个数据 $b_1$~$b_{1000000}$，要你求每一对 $a_i$ 和 $b_i$ 相乘的结果的总和$c$，你会怎么做？</p>
+<p>在接触向量化之前，你应该会想到使用 for 循环，将 $a_i$ 与 $b_i$ 的乘积依次相加，就可以得到结果 $c$ 了，我们来试一下。</p>
+<h2 id="使用-for-循环"><a href="#使用-for-循环" class="headerlink" title="使用 for 循环"></a>使用 for 循环</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> time <span class="keyword">as</span> t</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成 1000000 随机数据</span></span><br><span class="line">a = np.random.rand(<span class="number">1000000</span>)</span><br><span class="line">b = np.random.rand(<span class="number">1000000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># for 循环版本</span></span><br><span class="line">c = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始计时</span></span><br><span class="line">startTime = t.time()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 循环计算</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000000</span>):</span><br><span class="line">    c += a[i]*b[i]</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 停止计时</span></span><br><span class="line">deltaTime = t.time() - startTime</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果与耗时情况</span></span><br><span class="line">print(<span class="string">"计算结果："</span> + str(c) + <span class="string">", for 循环计算耗时："</span> + str(<span class="number">1000</span> * deltaTime) + <span class="string">"ms"</span>)</span><br></pre></td></tr></table></figure>
+<p>以上是使用 for 循环完成要求计算的 python 代码，输出结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">计算结果：249879.05298545936, for 循环计算耗时：519.999980927ms</span><br></pre></td></tr></table></figure>
+<h2 id="使用向量化"><a href="#使用向量化" class="headerlink" title="使用向量化"></a>使用向量化</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 向量化版本</span></span><br><span class="line">c = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始计时</span></span><br><span class="line">startTime = t.time()</span><br><span class="line"></span><br><span class="line"><span class="comment">#矩阵计算</span></span><br><span class="line">c = np.dot(a,b)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止计时</span></span><br><span class="line">deltaTime = t.time() - startTime</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果与耗时情况</span></span><br><span class="line">print(<span class="string">"计算结果："</span> + str(c) + <span class="string">", 矩阵计算耗时："</span> + str(<span class="number">1000</span> * deltaTime) + <span class="string">"ms"</span>)</span><br></pre></td></tr></table></figure>
+<p>以上是使用向量化完成要求计算的 python 代码，输出结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">计算结果：249879.05298545936, 矩阵计算耗时：0.999927520752ms</span><br></pre></td></tr></table></figure>
+<p>进行多次计算，可以绘制出 for 循环与向量化计算的耗时对比图：</p>
+<p><img src="/2019/03/03/DeepLearning-02/2.jpg" alt="Title"></p>
+<center>图 1-1 for 循环与向量化计算耗时对比</center>
+
+<p>实在是令人惊喜，正如你所看到的，向量化版本没有使用 for 循环就正确完成了所有计算，并且计算的代码量只有一行，而仅针对简单的乘法与加法运算而言，向量化计算的效率就要比 for 循环高出 500 倍上下，在其他更加复杂的运算下，这个差距还会拉得更大。可以看到，无论从简洁性还是从效率的角度讲，向量化计算几乎是完美的。</p>
+<p>因此，不管是在什么算法当中，如果能够不使用 for 循环就尽量不要使用 for 循环，其效率实在是太糟糕了。在神经网络的训练过程中，效率显得尤为重要，面对数量巨大的训练样本，向量化你的模型是非常有必要的，它能够大量地节约你的时间去做更多的训练，或是做参数的调整。</p>
+<h1 id="2-2-向量化-Logistic-回归"><a href="#2-2-向量化-Logistic-回归" class="headerlink" title="2.2 向量化 Logistic 回归"></a>2.2 向量化 Logistic 回归</h1><p>在前面你已经见识到了向量化威力，通过向量化你能够实现数据的并发计算，进而为你节约大量的时间。下面，我将用伪代码给出 Logistic 回归非向量化版本，即使用 for 循环编码实现上一篇当中的理论模型，你可以直接阅读代码，并思考如何向量化这个过程。</p>
+<h2 id="for-循环版本"><a href="#for-循环版本" class="headerlink" title="for 循环版本"></a>for 循环版本</h2><p>&nbsp;1&nbsp;&nbsp;| $for$ $i$ $=$ $1$ $to$ $m$</p>
+<p>&nbsp;2&nbsp;&nbsp;| $\{$</p>
+<p>&nbsp;3&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$z^{(i)}$ $=$ $w^Tx^{(i)}$ $+$ $b$ # 计算线性输出</p>
+<p>&nbsp;4&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$a^{(i)}$ $=$ $\sigma(z^{(i)})$ # 映射到 $[0,1]$</p>
+<p>&nbsp;5&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$J$ $+=$ $L(a^{(i)},y^{(i)})$ # 记录 Loss Function 的累加</p>
+<p>&nbsp;6&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$dz^{(i)}$ $=$ $a^{(i)}-y^{(i)}$ # 计算 $\frac{\partial L(a,y)}{\partial a} \frac{d\sigma(z)}{dz}$ (前两段”链条”的乘积)</p>
+<p>&nbsp;7&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$for$ $j$ $=$ $1$ $to$ $n_x$</p>
+<p>&nbsp;8&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$dw_j$ $+=$ $x^{(i)}_jdz$ # 累加 $dw$</p>
+<p>&nbsp;9&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$db$ $+=$ $dz$ # 累加 $db$</p>
+<p>10&nbsp;| $\}$</p>
+<p>11&nbsp;| $for$ $j$ $=$ $1$ $to$ $n_x$</p>
+<p>12&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$dw_j$ $=$ $dw_j/m$ # 计算每个输入的 $dw$</p>
+<p>13&nbsp;| $db$ = $db/m$ # 计算 $db$</p>
+<p>14&nbsp;| $J$ = $J/m$ # 计算 $Cost Function$</p>
+<hr>
+<p>可以看到，在这段代码中出现了三个 for 循环，甚至出现了循环嵌套，这对算法效率的影响是很大的。如果你试着读上面的代码并结合注释，能够理解每一行代码在做些什么的话最好了。如果你觉得以你目前的思维将模型投射到代码还是有些困难也没有关系，我们来逐行解读代码，并一步步地将其向量化。</p>
+<p>在这里，向量化的过程其实就是消除 for 循环的过程，我们从最里层的 for 循环开始。你看到了，最里层的 for 循环也就是 7 到 8 行，在 11 到 12 行也有一个小小的 for 循环，我们先从 7 到 8 行的 for 循环开始。</p>
+<p>&nbsp;7&nbsp;&nbsp;| $for$ $j$ $=$ $1$ $to$ $n_x$</p>
+<p>&nbsp;8&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$dw_j$ $+=$ $x^{(i)}_jdz$ # 累加 $dw$</p>
+<p>如果你还是觉得这个通式太抽象地话，我们可以将这个 for 循环一条条详细地列出来：</p>
+<script type="math/tex; mode=display">
+dw_1 += x^{(i)}_1dz</script><script type="math/tex; mode=display">
+dw_2 += x^{(i)}_2dz</script><script type="math/tex; mode=display">
+\vdots</script><script type="math/tex; mode=display">
+dw_{n_x} += x^{(i)}_{n_x}dz</script><p>仔细看一看，你有没有发现向量化的影子？</p>
+<p><img src="/2019/03/03/DeepLearning-02/3.jpg" alt="for 循环展开"></p>
+<center>图 1-1 for 循环展开</center>
+
+<p>这简直就是天然的矩阵形式！我们只需将等式左侧的所有 $dw_{…}$ 封装进一个列矩阵 $dw$ 即可，等式的右侧也是同理，所有的 $x^{(i)}_{…}$ 可以封装进一个列矩阵 $x^{(i)}$，即：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+dw = 
+\begin{bmatrix}
+dw_1\\
+dw_2\\
+{\vdots}\\
+dw_{n_x}\\
+\end{bmatrix}
+_{n_x \times 1}
+,
+dw = 
+\begin{bmatrix}
+x^{(i)}_1\\
+x^{(i)}_2\\
+{\vdots}\\
+x^{(i)}_{n_x}\\
+\end{bmatrix}
+_{n_x \times 1}
+\end{equation}</script><p>这时你会惊喜地发现，整个循环操作直接被简化成为了一行极其简短的矩阵运算！</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+dw += x^{(i)}dz
+\end{equation}</script><p>至此，我们已经迈出了向量化的第一步，成功消除了代码中的一个 for 循环。下面我们继续看一看第二个即代码中 11 到 12 行的 for 循环。使用同样的方法，如果将其展开的话，你会发现这个 for 循环其实在做如下的重复性劳动：</p>
+<script type="math/tex; mode=display">
+dw_1 = dw_1/m</script><script type="math/tex; mode=display">
+dw_2 = dw_2/m</script><script type="math/tex; mode=display">
+\vdots</script><script type="math/tex; mode=display">
+dw_{n_x} = dw_{n_x}/m</script><p>我相信这一次你已经可以一眼看出如何将其向量化了，你会发现这个过程其实真的很简单，只需要将等式左侧的循环变量封装进一个列矩阵 $dw = [dw_1,dw_2,\cdots,dw_{n_x}]^T$，这个循环就被简化成为了下面一行代码：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+dw = dw/m
+\end{equation}</script><p>到现在为止，我们已经完成了所有输入的向量化，我们没有使用一个 for 循环就处理了所有输入系数 $w$ 的 $dw$ 计算，<strong>如果你觉得自己对 for 循环向量化的过程已经有所领会的话，建议你到此停下来，自己尝试将第一层也是最大的一层 for 循环也完成向量化，如果你能做到的话，你就实现了不使用一个 for 循环并一口气完成所有样本的训练。</strong></p>
+<hr>
+<p>下面我们来看最外一层的样本循环，首先第一条是线性组合的计算：</p>
+<p>&nbsp;3&nbsp;&nbsp;| $z^{(i)}$ $=$ $w^Tx^{(i)}$ $+$ $b$</p>
+<p>先等一下，你可能会像之前一样将循环展开来看一看，之后得到封装的矩阵，最后用矩阵去替换原来的整列。但是其实你会发现你需要做的仅仅是将所有的循环变量替换掉，而不需要每一次都展开来看了。就比如上面这个第 3 行代码，它的循环变量是 $z^{(i)}$ 与 $x^{(i)}$，识别的方法就是它们带有这一层循环的变量 $i$，将其直接替换为 $Z$ 与 $X$，你就得到了最终结果：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+Z = w^TX + b
+\end{equation}</script><p>你只需要在心里记得与明白， $Z$ 和 $X$ 是循环产生的列就好(公式(7))，也就是 图1-1 那样的形式，那是它的由来，但在实际向量化的过程中，你并不需每次都那样走一次过场，心中懂的道理，手上直接写结果就行了。</p>
+<script type="math/tex; mode=display">
+X = 
+\begin{bmatrix}
+{\vdots}&{\vdots}&{\vdots}&{\vdots}\\
+x^{(1)}&x^{(2)}&{\cdots}&x^{(m)}\\
+{\vdots}&{\vdots}&{\vdots}&{\vdots}\\
+\end{bmatrix}
+_{n_x \times m}
+,
+\begin{equation}
+Z = 
+\begin{bmatrix}
+z^{(1)}&z^{(2)}&{\cdots}&z^{(m)}\\
+\end{bmatrix}
+_{1 \times m}
+\end{equation}</script><p>同理，第 4、5、6 行的向量形式应该分别是公式(8)(9)(10)所示：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+A = \sigma(Z)
+\end{equation}</script><script type="math/tex; mode=display">
+\begin{equation}
+J = -(1/m)(YlogA + (1-Y)log(1-A))
+\end{equation}</script><script type="math/tex; mode=display">
+\begin{equation}
+dZ = A - Y
+\end{equation}</script><p>其中：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+A = 
+\begin{bmatrix}
+a^{(1)}&a^{(2)}&{\cdots}&a^{(m)}\\
+\end{bmatrix}
+_{1 \times m}
+\end{equation}</script><script type="math/tex; mode=display">
+\begin{equation}
+Y = 
+\begin{bmatrix}
+y^{(1)}&y^{(2)}&{\cdots}&y^{(m)}\\
+\end{bmatrix}
+_{1 \times m}
+\end{equation}</script><p>至此，整个 for 循环版本都被我们向量化了，下面你看到的就是 Logistic 回归及其梯度输出的向量化版本：</p>
+<h2 id="向量化版本"><a href="#向量化版本" class="headerlink" title="向量化版本"></a>向量化版本</h2><p>&nbsp;1&nbsp;&nbsp;| $Z$ = $w^TX$ $+$ $b$</p>
+<p>&nbsp;2&nbsp;&nbsp;| $A$ = $\sigma(Z)$</p>
+<p>&nbsp;3&nbsp;&nbsp;| $J$ = $-(1/m)(YlogA$ $+$ $(1-Y)log(1-A))$</p>
+<p>&nbsp;4&nbsp;&nbsp;| $dZ$ = $A$ $-$ $Y$</p>
+<p>&nbsp;5&nbsp;&nbsp;| $dw$ = $(1/m)XdZ^T$</p>
+<p>&nbsp;6&nbsp;&nbsp;| $db$ = $(1/m)dZ^T$</p>
+<p>甚至，由于你在写代码的过程中并不需要将中间量写出来，因此你可以得到下面这个更简的版本：</p>
+<p>&nbsp;1&nbsp;&nbsp;| $A$ = $\sigma(w^TX$ $+$ $b)$</p>
+<p>&nbsp;2&nbsp;&nbsp;| $J$ = $-(1/m)(YlogA$ $+$ $(1-Y)log(1-A))$</p>
+<p>&nbsp;3&nbsp;&nbsp;| $dw$ = $(1/m)X(A$ $-$ $Y)^T$</p>
+<p>&nbsp;4&nbsp;&nbsp;| $db$ = $(1/m)(A$ $-$ $Y)^T$</p>
+<p>你没看错，只有短短的四行！并且这四行精简的代码是一次性并行完成整个数据集上所有样本的训练！现在你可以想象，假如没有经过向量化操作，直接用嵌套的 for 循环去训练基数庞大的海量数据，不仅代码繁杂，效率上更将是多么可怕的一件事。向量化技术极大的提升了神经网络的训练的效率，也正因如此，向量化才在神经网络与深度学习当中具有重要的意义。</p>
+<h1 id="2-3-本篇小结"><a href="#2-3-本篇小结" class="headerlink" title="2.3 本篇小结"></a>2.3 本篇小结</h1><p>经过向量化后的 Logistic 回归，并没有使用一个 for 循环，我们只用四行极简的代码，抽象了上一篇中上万字的复杂过程，我想你也不得不为向量化与矩阵运算的强大而感慨了。</p>
+<p>至此，你已经完成了向量化的理论部分学习，在下一篇里，你将在实战中看到向量化 Logistic 回归及其梯度输出的落地实现，即猫图的识别。你将看到单层神经网络的模块化开发与如何一步步编写代码，动手搭建一个自己的神经网络，并使它完整的工作起来。</p>
+<p>在进入下一篇之前，你可以试着先思考以下几个问题，这些是本篇当中的核心内容：</p>
+<blockquote>
+<ol>
+<li>在第一篇中已经建立了 Logistic 回归模型，还有必要做向量化工作吗？（<font color="#fff">有必要</font>）</li>
+<li>向量化后的 Logistic 回归能够一次性完成所有样本的一次训练，并完成参数的一次迭代，正确或错误？（<font color="#fff">正确</font>）</li>
+<li>下面是向量化版本的 Logistic 回归与梯度输出，其中哪几行实现的是向前传播？哪几行实现的是向后传播？（<font color="#fff">向前1、2行；向后3、4行</font>）<br>&nbsp;1&nbsp;&nbsp;| $A$ = $\sigma(w^TX$ $+$ $b)$<br>&nbsp;2&nbsp;&nbsp;| $J$ = $-(1/m)(YlogA$ $+$ $(1-Y)log(1-A))$<br>&nbsp;3&nbsp;&nbsp;| $dw$ = $(1/m)X(A$ $-$ $Y)^T$<br>&nbsp;4&nbsp;&nbsp;| $db$ = $(1/m)(A$ $-$ $Y)^T$</li>
+<li>试用向量化技术将下面代码简化成一行，其中 $Fun(a,b) = a + b$，$k_i$ 与 $\mu_i$ 是维度相同的矩阵（<font color="#fff">$var=(1/n)(k+\mu)$</font>）<br>&nbsp;1&nbsp;&nbsp;|$for$ $i$ $=$ $1$ $to$ $n$<br>&nbsp;2&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$var_i$ $+=$ $Fun(k_i,\mu_i)$<br>&nbsp;1&nbsp;&nbsp;|$for$ $i$ $=$ $1$ $to$ $n$<br>&nbsp;2&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$var_i$ $=$ $var_i/n$</li>
+</ol>
+<p>使用鼠标选中括号内容以查看答案。</p>
+</blockquote>
+<div class="spoiler collapsed"><div class="spoiler-title">点击查看本篇总结</div><div class="spoiler-content"><p><strong>向量化的意义</strong>：实现循环操作的并行化。</p>
+<p><strong>向量化后的 Logistic 回归模型及其梯度输出：</strong></p>
+<p>$A = \sigma(w^TX + b)$<br>$J = -\frac{1}{m}(YlogA + (1-Y)log(1-A))$<br>$dw = \frac{1}{m}X(A - Y)^T$<br>$db = \frac{1}{m}(A - Y)^T$</p>
+</div></div>
+<!--
+
+# 三、实战 - 识别猫图
+
+# 3.0 上篇回顾
+
+# 3.1 数据格式化
+
+# 3.2 模块化
+
+## sigmoid 函数
+
+## 参数的初始化
+
+## 向前与向后传播
+
+## 梯度下降
+
+## 识别函数
+
+# 3.3 模块封装与测试
+
+# 3.4 识别自定图片
+
+# 3.5、本篇小结
+
+--><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>大兄弟，赏点银子吧！<br/></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Sunwish 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
+          
+            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/02/DeepLearning-01/" rel="next" title="深度学习（一）Logistic 回归与梯度下降">
+                <i class="fa fa-chevron-left"></i> 深度学习（一）Logistic 回归与梯度下降
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sunwish</p>
+              <p class="site-description motion-element" itemprop="description">个人项目：<br>1. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>2. Alterful · 键盘增强：<br>https://www.alterful.com/<br>3. AQTS · 自动量化交易系统<br><br>个人经历：<br>某杯全国大学生数学建模竞赛三等奖<br>某不知名社区UI设计大赛一等奖<br>某不知名院校职规大赛一等奖<br>某不知名团队创始人<br>数模国赛现役选手</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://clkip.com/" title="果园科协" target="_blank">果园科协</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alterful.com/" title="Alterful" target="_blank">Alterful</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://easecurve.com/" title="Easecurve" target="_blank">Easecurve</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zoshny.com/" title="Zoshny" target="_blank">Zoshny</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-0-向量化概述"><span class="nav-text">2.0 向量化概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-1-非向量化与向量化实例"><span class="nav-text">2.1 非向量化与向量化实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-for-循环"><span class="nav-text">使用 for 循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用向量化"><span class="nav-text">使用向量化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-2-向量化-Logistic-回归"><span class="nav-text">2.2 向量化 Logistic 回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#for-循环版本"><span class="nav-text">for 循环版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向量化版本"><span class="nav-text">向量化版本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-3-本篇小结"><span class="nav-text">2.3 本篇小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sunwish</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 49.8k 字</span>
+</div>
+
+<!--
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+-->
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65941008";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sa3sYJwnqEBnYDpS7VFT70ya-gzGzoHsz',
+        appKey: 'TPHHBKrFtoGkcocnjqN78Fue',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 15694#<app_id>,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
