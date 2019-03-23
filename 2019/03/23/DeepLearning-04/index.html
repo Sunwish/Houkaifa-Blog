@@ -154,7 +154,7 @@
 <meta property="og:image" content="http://sunwish.coding.me/2019/03/23/DeepLearning-04/4.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2019/03/23/DeepLearning-04/5.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2019/03/23/DeepLearning-04/6.jpg">
-<meta property="og:updated_time" content="2019-03-23T05:20:23.610Z">
+<meta property="og:updated_time" content="2019-03-23T05:56:20.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习（四）浅层神经网络及其向量化">
 <meta name="twitter:description" content="概述 本篇简要介绍浅层神经网络，并给出其向量化形式。">
@@ -402,7 +402,7 @@
                 
               
 
-              <time title="创建时间：2019-03-23 10:32:28 / 修改时间：13:20:23" itemprop="dateCreated datePublished" datetime="2019-03-23T10:32:28+08:00">2019-03-23</time>
+              <time title="创建时间：2019-03-23 10:32:28 / 修改时间：13:56:20" itemprop="dateCreated datePublished" datetime="2019-03-23T10:32:28+08:00">2019-03-23</time>
             
 
             
@@ -525,7 +525,7 @@ Z^{[1]} = W^{[1]}x + b^{[1]}
 \end{equation}</script><script type="math/tex; mode=display">
 \begin{equation}
 A^{[1]} = \sigma(Z^{[1]})
-\end{equation}</script><p>其中大写的 $Z^{[1]}$、$A^{[1]}$、$W^{[1]}$ 是每个单元 $z_i$、$a_i$、$w_i$ 的纵向堆叠，其中 $n_x$ 表示输入个数，$n_1$、$n_2$ 表示隐藏层与输出层的单元个数：</p>
+\end{equation}</script><p>其中大写的 $Z^{[1]}$、$A^{[1]}$、$W^{[1]}$ 是每个单元 $z_i$、$a_i$、$w_i$ 的纵向堆叠，其中 $n_x$ 表示输入个数，$n_1$ 表示隐藏层的单元个数：</p>
 <script type="math/tex; mode=display">
 \begin{equation}
 Z^{[1]} = 
@@ -535,7 +535,7 @@ z^{[1]}_2\\
 {\vdots}\\
 z^{[1]}_{n_0}
 \end{bmatrix}
-_{1 \times n_0}
+_{n_1 \times 1}
 ,
 A^{[1]} = 
 \begin{bmatrix}
@@ -544,7 +544,7 @@ a^{[1]}_2\\
 {\vdots}\\
 a^{[1]}_{n_0}
 \end{bmatrix}
-_{1 \times n_0}
+_{n_1 \times 1}
 ,
 W^{[1]} = 
 \begin{bmatrix}
@@ -552,7 +552,7 @@ W^{[1]} =
 {\cdots}&w^{[1]}_2&{\cdots}\\
 {\cdots}&w^{[1]}_3&{\cdots}\\
 \end{bmatrix}
-_{n_2 \times n_1}
+_{n_1 \times n_x}
 \end{equation}</script><p>对于输出层而言也是同理，将隐藏层的输出作为输出层的输入，可得向量化形式：</p>
 <script type="math/tex; mode=display">
 \begin{equation}
