@@ -139,42 +139,33 @@
 
 
 
-  <meta name="description" content="概述 分别通过 QT Designer 与 connect 函数添加(绑定)信号与槽。环境：Win10 + VS2017 + QT5.9.2。实现内容：点击按钮退出程序、点击按钮弹出信息框。">
-<meta name="keywords" content="学习笔记,QT">
+  <meta name="description" content="概述 本篇简要介绍浅层神经网络，并给出其向量化形式。">
+<meta name="keywords" content="学习笔记,深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="QT（一）：信号与槽">
-<meta property="og:url" content="http://Sunwish.coding.me/2019/02/18/LearningNotes-QT-01/index.html">
+<meta property="og:title" content="深度学习（四）浅层神经网络及其向量化">
+<meta property="og:url" content="http://Sunwish.coding.me/2019/03/23/DeepLearning-04/index.html">
 <meta property="og:site_name" content="猴开发 | 博客">
-<meta property="og:description" content="概述 分别通过 QT Designer 与 connect 函数添加(绑定)信号与槽。环境：Win10 + VS2017 + QT5.9.2。实现内容：点击按钮退出程序、点击按钮弹出信息框。">
+<meta property="og:description" content="概述 本篇简要介绍浅层神经网络，并给出其向量化形式。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/1.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/2.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/3.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/4.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/5.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/6.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/7.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/8.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/9.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/10.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/11.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/13.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/14.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/12.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/15.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/16.jpg">
-<meta property="og:updated_time" content="2019-02-18T11:18:52.222Z">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/23/DeepLearning-04/1.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/23/DeepLearning-04/7.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/23/DeepLearning-04/2.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/23/DeepLearning-04/3.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/23/DeepLearning-04/4.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/23/DeepLearning-04/5.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/23/DeepLearning-04/6.jpg">
+<meta property="og:updated_time" content="2019-03-23T05:20:23.610Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="QT（一）：信号与槽">
-<meta name="twitter:description" content="概述 分别通过 QT Designer 与 connect 函数添加(绑定)信号与槽。环境：Win10 + VS2017 + QT5.9.2。实现内容：点击按钮退出程序、点击按钮弹出信息框。">
-<meta name="twitter:image" content="http://sunwish.coding.me/2019/02/18/LearningNotes-QT-01/1.jpg">
+<meta name="twitter:title" content="深度学习（四）浅层神经网络及其向量化">
+<meta name="twitter:description" content="概述 本篇简要介绍浅层神经网络，并给出其向量化形式。">
+<meta name="twitter:image" content="http://sunwish.coding.me/2019/03/23/DeepLearning-04/1.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://Sunwish.coding.me/2019/02/18/LearningNotes-QT-01/"/>
+  <link rel="canonical" href="http://Sunwish.coding.me/2019/03/23/DeepLearning-04/"/>
 
 
 
@@ -184,7 +175,7 @@
   };
 </script>
 
-  <title>QT（一）：信号与槽 | 猴开发 | 博客</title>
+  <title>深度学习（四）浅层神经网络及其向量化 | 猴开发 | 博客</title>
   
 
 
@@ -357,7 +348,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/02/18/LearningNotes-QT-01/">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/03/23/DeepLearning-04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sunwish">
@@ -374,7 +365,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">QT（一）：信号与槽
+          <h1 class="post-title" itemprop="name headline">深度学习（四）浅层神经网络及其向量化
               
             
           </h1>
@@ -411,7 +402,7 @@
                 
               
 
-              <time title="创建时间：2019-02-18 17:36:54 / 修改时间：19:18:52" itemprop="dateCreated datePublished" datetime="2019-02-18T17:36:54+08:00">2019-02-18</time>
+              <time title="创建时间：2019-03-23 10:32:28 / 修改时间：13:20:23" itemprop="dateCreated datePublished" datetime="2019-03-23T10:32:28+08:00">2019-03-23</time>
             
 
             
@@ -430,8 +421,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/02/18/LearningNotes-QT-01/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/18/LearningNotes-QT-01/" itemprop="commentCount"></span>
+                <a href="/2019/03/23/DeepLearning-04/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/03/23/DeepLearning-04/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -460,59 +451,125 @@
 
       
         <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
-<p>分别通过 QT Designer 与 connect 函数添加(绑定)信号与槽。<br>环境：Win10 + VS2017 + QT5.9.2。<br>实现内容：点击按钮退出程序、点击按钮弹出信息框。</p>
+<p>本篇简要介绍浅层神经网络，并给出其向量化形式。</p>
 </blockquote>
-<p><img src="/2019/02/18/LearningNotes-QT-01/1.jpg" alt="Title"></p>
+<p><img src="/2019/03/23/DeepLearning-04/1.jpg" alt="Title"></p>
 <a id="more"></a>
 <hr>
-<h1 id="一、建立-QT-项目"><a href="#一、建立-QT-项目" class="headerlink" title="一、建立 QT 项目"></a>一、建立 QT 项目</h1><p><strong>打开 Visual Studio 2017，新建 QT GUI Application。</strong></p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/2.jpg" alt="Title"></p>
-<p><strong>一路 Next，Finish。</strong></p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/3.jpg" alt="Title"></p>
-<p><strong>下图是初始目录结构：</strong></p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/4.jpg" alt="Title"></p>
-<p><strong>F5调试程序，看到初始的GUI界面：</strong></p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/5.jpg" alt="Title"></p>
-<h1 id="二、使用-QT-Designer-添加信号与槽"><a href="#二、使用-QT-Designer-添加信号与槽" class="headerlink" title="二、使用 QT Designer 添加信号与槽"></a>二、使用 QT Designer 添加信号与槽</h1><p><strong>在解决方案中，找到默认生成的.ui文件，双击以在 QT Designer 中打开。</strong></p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/6.jpg" alt="Title"></p>
-<p><strong>在 Widget Box 中拖拽 Push Button 到主窗口上。</strong></p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/7.jpg" alt="Title"></p>
-<p><strong>在属性编辑器中修改 objectName、text 的值为 “closeButton”。</strong></p>
-<blockquote>
-<p>其中 objectName 是 Widget 组件的组件名，text 是显示在按钮上的标题。text 值还可以通过双击添加的按钮来快速修改。</p>
-</blockquote>
-<p><img src="/2019/02/18/LearningNotes-QT-01/8.jpg" alt="Title"></p>
-<p><strong>随后在信号/槽编辑器中添加信号槽。</strong></p>
-<p>发送者为按钮 closeButton，信号为 clicked() 即鼠标左键单击信号(事件/event)，接收者为 QtGuiApplicationClass，槽为 close()，即 QtGuiApplicationClass 的销毁函数。</p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/9.jpg" alt="Title"></p>
-<p><strong>Ctrl+S 保存修改，回到 VS2017，F5调试程序，点击 closeButton 按钮，程序退出。</strong></p>
-<blockquote>
-<p>信号与槽是 QtGui 开发当中事件的表示形式，信号即是事件的触发条件，槽即是信号所触发的事件处理函数。<br>在 Qt Designer 中可以通过信号/槽编辑器方便地添加一些原生的信号槽。后文描述了如何添加自定义的槽。</p>
-</blockquote>
-<h1 id="三、通过-connect-函数绑定自定义槽"><a href="#三、通过-connect-函数绑定自定义槽" class="headerlink" title="三、通过 connect 函数绑定自定义槽"></a>三、通过 connect 函数绑定自定义槽</h1><p><strong>在 QT Designer 中添加一个新的按钮，相关属性修改为 MessageButton，现在我们有了两个按钮。</strong></p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/10.jpg" alt="Title"></p>
-<p><strong>回到 VS2017，转到.h文件中，添加槽的定义。</strong></p>
-<p>其中函数名及返回值类型是固定的格式：<strong>void on_WidgetName_Event()。</strong><br>此处 WidgetName 是 MessageButton，对应的事件是 clicked，因此可以在下图中看到，完整函数声明是：</p>
-<blockquote>
-<p>void on_MessageButton_clicked();</p>
-</blockquote>
-<p><img src="/2019/02/18/LearningNotes-QT-01/11.jpg" alt="Title"></p>
-<blockquote>
-<p>如果.h文件中出现 ui_*.h文件的包含错误，如下图：<br><img src="/2019/02/18/LearningNotes-QT-01/13.jpg" alt="Title"><br>只需在 VS2017 的 QT VS Tools 菜单栏中选择 Convert Project to QMake Generated Project 即可解决。<br><img src="/2019/02/18/LearningNotes-QT-01/14.jpg" alt="Title"></p>
-</blockquote>
-<p><strong>之后就可以跳转到对应的.cpp文件添加函数的实现了。</strong></p>
-<p>这里使用了 QMessageBox 类中的 warning 函数，用以显示警告信息框。在 QMessageBox 头文件中提供了丰富的信息框样式，<strong>对应的调用其中的信息框需要在.h文件中包含其头文件。</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QMessageBox.h&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/02/18/LearningNotes-QT-01/12.jpg" alt="Title"></p>
-<p><strong>截至目前，我们添加了一个按钮 MessageButton，定义并实现了其一个槽函数（on_MessageButton_clicked）。</strong></p>
-<p>但是现在我们运行程序，单击 messageButton 按钮是不会有任何反应的，因为我们只完成了槽函数的定义和实现，下面我们在 QtGui 类的构造函数处，将信号与槽通过 connect 函数进行连接。</p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/15.jpg" alt="Title"></p>
-<blockquote>
-<p>此处 connect 函数的原型如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">static QMetaObject::Connection connect(const QObject *sender, const QMetaMethod &amp;signal,</span><br><span class="line">                        const QObject *receiver, const QMetaMethod &amp;method,</span><br><span class="line">                        Qt::ConnectionType type = Qt::AutoConnection);</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p><strong>至此，F5调试程序，按下按钮可以看到弹出了信息框。</strong></p>
-<p><img src="/2019/02/18/LearningNotes-QT-01/16.jpg" alt="Title"></p>
-<center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<h1 id="4-0-Logistic-回顾"><a href="#4-0-Logistic-回顾" class="headerlink" title="4.0 Logistic 回顾"></a>4.0 Logistic 回顾</h1><p>在前三篇当中，我们见过了 Logistic 回归的相关内容，了解了向前传播、向后传播、梯度下降与向量化等重要概念，并结合一个实际例子在 Jupyter Notebook 环境下搭建了一个 Logistic 回归网络，成功实现了 72% 测试集准确率的猫图识别功能。</p>
+<p><img src="/2019/03/23/DeepLearning-04/7.jpg" alt="Title"></p>
+<center>图 1-0 Logistic 回归</center>
+
+<p>虽然 Logistic 回归能够较好的学习线性函数，但是由于它太过简单，对于非线性的数据往往不能够很好地适应，而这一点在浅层神经网络当中将有所改善。在这一篇中将介绍浅层神经网络的一些内容，你将看到浅层神经网络是怎样向前传播的，以及如何对其进行向量化处理。</p>
+<h1 id="4-1-浅层神经网络"><a href="#4-1-浅层神经网络" class="headerlink" title="4.1 浅层神经网络"></a>4.1 浅层神经网络</h1><p>下图1-1就是一个浅层神经网络的示例。</p>
+<p><img src="/2019/03/23/DeepLearning-04/2.jpg" alt="Title"></p>
+<center>图 1-1 浅层神经网络示例图</center>
+
+<p>浅层神经网络是一个单隐层的神经网络，也是一个双层神经网络。对于上图的单输出情况而言，如果你遮住输入层不看的话，你会发现隐藏层与输出层所组成的结构与 Logistic 回归网络完全一致（图1-2左），事实上，如果你不遮住输入层，单看一个隐藏单元的话情况是一样的（图1-2右）。</p>
+<p><img src="/2019/03/23/DeepLearning-04/3.jpg" alt="Title"></p>
+<center>图 1-2 浅层神经网络是多个单层神经网络的堆叠</center>
+
+<p>从这个层面上来讲，可以认为浅层神经网络就是多个 Logistic 回归的堆叠，更准确的说是多个单层神经网的堆叠，区别在于浅层神经网络具有隐藏层与输入层共两层，因此可以有不同的激活函数的选择，而在单层神经网络中，只能够为输出层选择一个激活函数。</p>
+<h1 id="4-2-浅层网络的向前传播"><a href="#4-2-浅层网络的向前传播" class="headerlink" title="4.2 浅层网络的向前传播"></a>4.2 浅层网络的向前传播</h1><p>在前面你看到了一个单输出的浅层神经网络是什么样子的，其实就是多个单层网络的堆叠。下面来看一看浅层神经网络是怎样进行向前传播的。</p>
+<p>为了方便描述，在浅层神经网络中所有第一层的参数我们都用方括号上标来表示，而该层中的某一个单元则用下标来表示，例如 图1-2右 中隐藏层的第一个单元，它作为一个独立的“单层网络”具有的参数 $w$ 和 $b$，就用符号 $w^{[1]}_1$ 和 $b^{[1]}_1$ 来表示，输出层只有一个单元，其参数就用 $w^{[2]}_1$ 和 $b^{[2]}_1$ 来表示。下面来看一看对于下图 图1-3 所显示的这个隐藏单元都经历了什么。</p>
+<p><img src="/2019/03/23/DeepLearning-04/4.jpg" alt="Title"></p>
+<center>图 1-3 单输出的浅层神经网络</center>
+
+<p>与 Logistic 回归相同，每一个神经网络单元在向前传播中都分别完成线性计算与激活函数这两步，因此 $x_1 … x_{nx}$ 作为输入数据进入到了第一个隐藏单元中同样完成了这两步：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+z^{[1]}_1 = w^{[1]}_1x + b^{[1]}_1
+\end{equation}</script><script type="math/tex; mode=display">
+\begin{equation}
+a^{[1]}_1 = \sigma(z^{[1]}_1)
+\end{equation}</script><p>隐藏层中的第二个隐藏单元也是同理：</p>
+<p><img src="/2019/03/23/DeepLearning-04/5.jpg" alt="Title"></p>
+<center>图 1-4 单输出的浅层神经网络</center>
+
+<p>对于 $n_x$ 个输入 $x_1…x_{n_x}$，有</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+z^{[1]}_2 = w^{[1]}_2x + b^{[1]}_2
+\end{equation}</script><script type="math/tex; mode=display">
+\begin{equation}
+a^{[1]}_2 = \sigma(z^{[1]}_2)
+\end{equation}</script><p>第三个单元也是在做同样的计算，这里就不再写出了。</p>
+<p>当隐藏层中所有的单元都完成了计算，也就完成了浅层神经网络中第一层的向前传播。现在，你的神经网络的向前传播正处在 图1-5 的情形：</p>
+<p><img src="/2019/03/23/DeepLearning-04/6.jpg" alt="Title"></p>
+<center>图 1-5 完成了第一层的向前传播</center>
+
+<p>第一层完成了所有单元的激活函数的计算，现在所有的第一层单元作为第二层的输入，进行后续的传播，相信不难想到这一层的传播方程是公式 (5)(6) 所示了：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+z^{[2]}_1 = w^{[2]}_1a^{[1]} + b^{[2]}_1
+\end{equation}</script><script type="math/tex; mode=display">
+\begin{equation}
+\hat{y} = a^{[2]}_1 = \sigma(z^{[2]}_1)
+\end{equation}</script><p>输出单元的计算结果 $a^{[2]}_1$ 即是整个网络的最终输出了，相信你还记得，这个输出用 $\hat{y}$ 来表示。至此，浅层神经网络就完成了一轮完整的向前传播。</p>
+<p>下面，你就可以计算损失函数了：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+L(\hat{y},y) = -[ ylog(\hat{y}) + (1-y)log(1-\hat{y}) ]
+\end{equation}</script><p>在编写代码的过程当中，我们不希望看到显式的 for 循环降低神经网络计算的效率，因此下面来看一看浅层网络的向前传播如何用向量化的方式实现。</p>
+<h1 id="4-3-浅层网络的向量化"><a href="#4-3-浅层网络的向量化" class="headerlink" title="4.3 浅层网络的向量化"></a>4.3 浅层网络的向量化</h1><p>对于隐藏层而言，结合公式(1)(2)(3)(4)不难得到其第 $i$ 个单元的计算通式：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+z^{[1]}_i = w^{[1]}_ix + b^{[1]}_i
+\end{equation}</script><script type="math/tex; mode=display">
+\begin{equation}
+a^{[1]}_i = \sigma(z^{[1]}_i)
+\end{equation}</script><p>去除变量角标并大写即可得到向量化形式：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+Z^{[1]} = W^{[1]}x + b^{[1]}
+\end{equation}</script><script type="math/tex; mode=display">
+\begin{equation}
+A^{[1]} = \sigma(Z^{[1]})
+\end{equation}</script><p>其中大写的 $Z^{[1]}$、$A^{[1]}$、$W^{[1]}$ 是每个单元 $z_i$、$a_i$、$w_i$ 的纵向堆叠，其中 $n_x$ 表示输入个数，$n_1$、$n_2$ 表示隐藏层与输出层的单元个数：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+Z^{[1]} = 
+\begin{bmatrix}
+z^{[1]}_1\\
+z^{[1]}_2\\
+{\vdots}\\
+z^{[1]}_{n_0}
+\end{bmatrix}
+_{1 \times n_0}
+,
+A^{[1]} = 
+\begin{bmatrix}
+a^{[1]}_1\\
+a^{[1]}_2\\
+{\vdots}\\
+a^{[1]}_{n_0}
+\end{bmatrix}
+_{1 \times n_0}
+,
+W^{[1]} = 
+\begin{bmatrix}
+{\cdots}&w^{[1]}_1&{\cdots}\\
+{\cdots}&w^{[1]}_2&{\cdots}\\
+{\cdots}&w^{[1]}_3&{\cdots}\\
+\end{bmatrix}
+_{n_2 \times n_1}
+\end{equation}</script><p>对于输出层而言也是同理，将隐藏层的输出作为输出层的输入，可得向量化形式：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+Z^{[2]} = W^{[2]}A^{[1]} + b^{[2]}
+\end{equation}</script><script type="math/tex; mode=display">
+\begin{equation}
+A^{[2]} = \sigma(Z^{[2]})
+\end{equation}</script><p>单输出浅层神经网络成本函数的形式与 Logistic 回归中一致：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+J = -(1/m)(YlogA^{[2]} + (1-Y)log(1-A^{[2]}))
+\end{equation}</script><p>如果对向量化过程有任何疑问，可以回看<a href="/2019/03/03/DeepLearning-02/">深度学习（二）向量化 Logistic 回归及其梯度输出</a></p>
+<p><strong>本篇小结</strong></p>
+<p>至此，你已经完成了浅层神经网络的向前传播及其向量化，但是这个过程还是有值得改进的地方，主要在于公式(8)(10)，在目前为止的这几篇里在处理 $z$ 上一直使用的是 sigmoid 函数作为激活函数，事实上有其他更好的函数可供选择，而将其它这些函数作为隐藏层的激活函数所训练出的网络往往具有更好的效果。</p>
+<p>关于激活函数的选择将在下篇中进行探讨，同时在下一篇中你将看到浅层神经网络的向后传播过程，并将对双层神经网络具有一个较为完整的认识。</p>
+<div class="spoiler collapsed"><div class="spoiler-title">隐藏内容</div><div class="spoiler-content"><p>没有隐藏内容(・∀・(・∀・(・∀・*)</p>
+</div></div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
       
     </div>
 
@@ -558,7 +615,7 @@
           
             <a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
           
-            <a href="/tags/QT/" rel="tag"><i class="fa fa-tag"></i> QT</a>
+            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
           
         </div>
       
@@ -583,8 +640,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/02/BlogUpdate2019/" rel="next" title="2019年猴开发博客更新计划">
-                <i class="fa fa-chevron-left"></i> 2019年猴开发博客更新计划
+              <a href="/2019/03/21/alterfulPost01/" rel="next" title="Alterful：开启效率次元门！">
+                <i class="fa fa-chevron-left"></i> Alterful：开启效率次元门！
               </a>
             
           </div>
@@ -592,10 +649,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/19/LearningNotes-QT-02/" rel="prev" title="QT（二）：简单多窗口程序">
-                QT（二）：简单多窗口程序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -779,7 +832,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、建立-QT-项目"><span class="nav-text">一、建立 QT 项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、使用-QT-Designer-添加信号与槽"><span class="nav-text">二、使用 QT Designer 添加信号与槽</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、通过-connect-函数绑定自定义槽"><span class="nav-text">三、通过 connect 函数绑定自定义槽</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-0-Logistic-回顾"><span class="nav-text">4.0 Logistic 回顾</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-1-浅层神经网络"><span class="nav-text">4.1 浅层神经网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-2-浅层网络的向前传播"><span class="nav-text">4.2 浅层网络的向前传播</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-3-浅层网络的向量化"><span class="nav-text">4.3 浅层网络的向量化</span></a></li></ol></div>
             
 
           </div>
