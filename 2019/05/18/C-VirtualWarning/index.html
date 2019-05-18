@@ -139,45 +139,27 @@
 
 
 
-  <meta name="description" content="概述 本篇记录如何通过 QT Creator 开发一个简单的多窗口程序。环境：Win10 + QT Creator4.4.1 + QT5.9.2。实现内容：在主窗口中输入指定的口令，点击按钮载入另一个窗口，并给出了子窗口只允许同时载入一次的三种方法。">
-<meta name="keywords" content="学习笔记,QT">
+  <meta name="description" content="概述 virtual 关键字作为 C++ 多态特性的表现载体，在多态 base class 的析构当中对内存泄漏的避免具有相当重要的意义，但是与此同时却也存在一些难以窥探到的风险性，如果在开发过程中对 virtual 的使用稍有疏忽就很有可能走上弯路，甚至造成一些不必要的麻烦。这些麻烦轻则导致程序运行质量的降低，耗费了更多的内存，重则造成更加严重的问题，产生内存泄漏、影响程序的移植性。">
+<meta name="keywords" content="沿途简记,C++细节">
 <meta property="og:type" content="article">
-<meta property="og:title" content="QT（二）：简单多窗口程序">
-<meta property="og:url" content="http://Sunwish.coding.me/2019/02/19/LearningNotes-QT-02/index.html">
+<meta property="og:title" content="由C++虚析构函数风险性产生的思考">
+<meta property="og:url" content="http://Sunwish.coding.me/2019/05/18/C-VirtualWarning/index.html">
 <meta property="og:site_name" content="猴开发 | 博客">
-<meta property="og:description" content="概述 本篇记录如何通过 QT Creator 开发一个简单的多窗口程序。环境：Win10 + QT Creator4.4.1 + QT5.9.2。实现内容：在主窗口中输入指定的口令，点击按钮载入另一个窗口，并给出了子窗口只允许同时载入一次的三种方法。">
+<meta property="og:description" content="概述 virtual 关键字作为 C++ 多态特性的表现载体，在多态 base class 的析构当中对内存泄漏的避免具有相当重要的意义，但是与此同时却也存在一些难以窥探到的风险性，如果在开发过程中对 virtual 的使用稍有疏忽就很有可能走上弯路，甚至造成一些不必要的麻烦。这些麻烦轻则导致程序运行质量的降低，耗费了更多的内存，重则造成更加严重的问题，产生内存泄漏、影响程序的移植性。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/1.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/2.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/3.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/4.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/5.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/6.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/7.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/8.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/9.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/10.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/11.gif">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/12.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/13.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/14.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/15.gif">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/16.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/17.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/18.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/19.gif">
-<meta property="og:updated_time" content="2019-02-19T13:56:10.843Z">
+<meta property="og:image" content="http://sunwish.coding.me/2019/05/18/C-VirtualWarning/1.jpg">
+<meta property="og:updated_time" content="2019-05-18T05:15:43.892Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="QT（二）：简单多窗口程序">
-<meta name="twitter:description" content="概述 本篇记录如何通过 QT Creator 开发一个简单的多窗口程序。环境：Win10 + QT Creator4.4.1 + QT5.9.2。实现内容：在主窗口中输入指定的口令，点击按钮载入另一个窗口，并给出了子窗口只允许同时载入一次的三种方法。">
-<meta name="twitter:image" content="http://sunwish.coding.me/2019/02/19/LearningNotes-QT-02/1.jpg">
+<meta name="twitter:title" content="由C++虚析构函数风险性产生的思考">
+<meta name="twitter:description" content="概述 virtual 关键字作为 C++ 多态特性的表现载体，在多态 base class 的析构当中对内存泄漏的避免具有相当重要的意义，但是与此同时却也存在一些难以窥探到的风险性，如果在开发过程中对 virtual 的使用稍有疏忽就很有可能走上弯路，甚至造成一些不必要的麻烦。这些麻烦轻则导致程序运行质量的降低，耗费了更多的内存，重则造成更加严重的问题，产生内存泄漏、影响程序的移植性。">
+<meta name="twitter:image" content="http://sunwish.coding.me/2019/05/18/C-VirtualWarning/1.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://Sunwish.coding.me/2019/02/19/LearningNotes-QT-02/"/>
+  <link rel="canonical" href="http://Sunwish.coding.me/2019/05/18/C-VirtualWarning/"/>
 
 
 
@@ -187,7 +169,7 @@
   };
 </script>
 
-  <title>QT（二）：简单多窗口程序 | 猴开发 | 博客</title>
+  <title>由C++虚析构函数风险性产生的思考 | 猴开发 | 博客</title>
   
 
 
@@ -360,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/02/19/LearningNotes-QT-02/">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/05/18/C-VirtualWarning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sunwish">
@@ -377,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">QT（二）：简单多窗口程序
+          <h1 class="post-title" itemprop="name headline">由C++虚析构函数风险性产生的思考
               
             
           </h1>
@@ -414,7 +396,7 @@
                 
               
 
-              <time title="创建时间：2019-02-19 19:54:43 / 修改时间：21:56:10" itemprop="dateCreated datePublished" datetime="2019-02-19T19:54:43+08:00">2019-02-19</time>
+              <time title="创建时间：2019-05-18 13:14:20 / 修改时间：13:15:43" itemprop="dateCreated datePublished" datetime="2019-05-18T13:14:20+08:00">2019-05-18</time>
             
 
             
@@ -433,8 +415,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/02/19/LearningNotes-QT-02/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/19/LearningNotes-QT-02/" itemprop="commentCount"></span>
+                <a href="/2019/05/18/C-VirtualWarning/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/05/18/C-VirtualWarning/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -462,83 +444,43 @@
       
 
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
-<p>本篇记录如何通过 QT Creator 开发一个简单的多窗口程序。<br>环境：Win10 + QT Creator4.4.1 + QT5.9.2。<br>实现内容：在主窗口中输入指定的口令，点击按钮载入另一个窗口，并给出了子窗口只允许同时载入一次的三种方法。</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><blockquote>
+<p>virtual 关键字作为 C++ 多态特性的表现载体，在多态 base class 的析构当中对内存泄漏的避免具有相当重要的意义，但是与此同时却也存在一些难以窥探到的风险性，如果在开发过程中对 virtual 的使用稍有疏忽就很有可能走上弯路，甚至造成一些不必要的麻烦。这些麻烦轻则导致程序运行质量的降低，耗费了更多的内存，重则造成更加严重的问题，产生内存泄漏、影响程序的移植性。</p>
 </blockquote>
-<p><img src="/2019/02/19/LearningNotes-QT-02/1.jpg" alt="Title"></p>
+<p><img src="/2019/05/18/C-VirtualWarning/1.jpg" alt="Title"></p>
 <a id="more"></a>
 <hr>
-<h1 id="一、建立-QT-项目"><a href="#一、建立-QT-项目" class="headerlink" title="一、建立 QT 项目"></a>一、建立 QT 项目</h1><p><strong>打开 QT Creator，新建 Qt Widget Application 项目。</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/2.jpg" alt="Title"></p>
-<p><strong>设置项目名称，一直下一步完成项目创建。</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/3.jpg" alt="Title"></p>
-<p><strong>下图是初始的工程结构：</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/4.jpg" alt="Title"></p>
-<h1 id="二、添加新的GUI文件"><a href="#二、添加新的GUI文件" class="headerlink" title="二、添加新的GUI文件"></a>二、添加新的GUI文件</h1><p><strong>在项目目录中选中 Forms 右键，添加新文件。</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/5.jpg" alt="Title"></p>
-<p><strong>在新建文件窗口中选择 Qt 类，Qt 设计师界面类，确定。</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/6.jpg" alt="Title"></p>
-<p><strong>按照实际需要选择界面模板，此处选择的依旧是 Main Window，下一步。</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/7.jpg" alt="Title"></p>
-<p><strong>默认的类目还是 MainWindow，为了避免与主窗口冲突，重新选择类名，一路下一步，完成。</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/8.jpg" alt="Title"></p>
-<p><strong>新的 Qt 设计器界面类创建完成后的工程结构：</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/9.jpg" alt="Title"></p>
-<h1 id="三、窗口载入的实现"><a href="#三、窗口载入的实现" class="headerlink" title="三、窗口载入的实现"></a>三、窗口载入的实现</h1><p><strong>打开主窗口的.ui文件，添加一个 lineEdit 和一个 pushButton 做一个简陋的界面意思一下，其中 lineEdit 设置了显示方式为 Password，并设置了默认文本：</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/10.jpg" alt="Title"></p>
-<p><strong>运行起来的效果是这样的：</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/11.gif" alt="Title"></p>
-<p><strong>接下来我们要实现的是，当文本框中的内容为指定内容，如 Houkaifa 时，点击确认按钮载入窗口 ChildWindow。</strong></p>
-<p><strong>首先，我们在主窗口的.h文件中添加对子窗口的头文件包含：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;childwindow.h&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>并在主窗口类中定义一个子窗口类的私有成员：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">private:</span><br><span class="line">    ChildWindow *cw;</span><br></pre></td></tr></table></figure>
-<p><strong>完整的代码看上去是这样的：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#ifndef MAINWINDOW_H</span><br><span class="line">#define MAINWINDOW_H</span><br><span class="line"></span><br><span class="line">#include &lt;childwindow.h&gt;</span><br><span class="line">#include &lt;QMainWindow&gt;</span><br><span class="line"></span><br><span class="line">namespace Ui &#123;</span><br><span class="line">class MainWindow;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MainWindow : public QMainWindow</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">public:</span><br><span class="line">    explicit MainWindow(QWidget *parent = 0);</span><br><span class="line">    ~MainWindow();</span><br><span class="line">private:</span><br><span class="line">    Ui::MainWindow *ui;</span><br><span class="line">private:</span><br><span class="line">    ChildWindow *cw;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif // MAINWINDOW_H</span><br></pre></td></tr></table></figure>
-<p><strong>emmm，还是放图片看起来清楚些：</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/12.jpg" alt="Title"></p>
-<center><font size="2" color="#bbbbbb">立个小flag，找时间一定给博客的代码做一下高亮支持（小声BB，你们看不到你们看不到）</font></center>
-
-<p><strong>下面，我们为主窗口的 pushButton 添加 clicked 信号的槽函数，用以判断口令是否正确。</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/13.jpg" alt="Title"></p>
-<p><strong>在口令正确的情况下，如何载入子窗口 cw？</strong><br>在主窗口类中我们定义了 ChildWindow 类的一个私有成员，只需在合适的位置将其实例化，并调用show()函数进行显示即可，具体代码如图：</p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/14.jpg" alt="Title"></p>
-<p><strong>当然，不将子窗口类定义为类成员，直接在需要的时候创建临时变量也是可行的，例如删除 cw 的成员声明，而在上图的注释(// Load ChildWindow)处直接添加如下代码：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ChildWindow *cw = new ChildWindow(this);</span><br><span class="line">cw-&gt;show();</span><br></pre></td></tr></table></figure>
-<p><strong>F5调试程序，测试效果：</strong></p>
-<ul>
-<li>输入错误口令，点击确认按钮，提示口令错误。</li>
-</ul>
-<p><img src="/2019/02/19/LearningNotes-QT-02/15.gif" alt="Title"></p>
-<ul>
-<li>输入正确口令，点击确认按钮，载入 ChildWindow。</li>
-</ul>
-<p><img src="/2019/02/19/LearningNotes-QT-02/16.jpg" alt="Title"></p>
-<center>--- END（假的） ---</center>
-
-<hr>
-<p><strong>此时你会发现，多次点击确认按钮，会载入多个 ChildWindow，如果不希望子窗口被多次同时载入，可以：</strong></p>
-<ul>
-<li><p>方法一：在子窗口载入完成后将主窗口隐藏：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">cw-&gt;show();	// 显示子窗口</span><br><span class="line">this-&gt;hide();	// 隐藏主窗口</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>方法二：将 ChildWindow 改装成单例类。</p>
-</li>
-<li><p>方法三：像本例一样将 ChildWindow 定义为主窗口的类成员，并在子窗口被关闭后将指针置空，在点击确认按钮时验证指针状态，即可知道窗口是否已创建，详细见下文：</p>
-</li>
-</ul>
-<p><strong>如何在子窗口关闭后将指针置空？</strong><br><strong>答：重写 closeEvent 事件函数。</strong></p>
+<h2 id="为多态基类声明虚析构函数"><a href="#为多态基类声明虚析构函数" class="headerlink" title="为多态基类声明虚析构函数"></a>为多态基类声明虚析构函数</h2><p>在许多程序当中需要使用到计时器，那么设计一个计时基类 Timer base class 及一些用来以不同的方式计时的派生类就显得十分正常。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Timerbase</span>	// 时钟基类</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Timerbase();</span><br><span class="line">    ~Timerbase();</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AtomicClock</span>:</span> <span class="keyword">public</span> Timebase &#123;...&#125;;	<span class="comment">// 原子钟</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WristWatch</span>:</span> <span class="keyword">public</span> Timebase &#123;...&#125;;	<span class="comment">// 腕表</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>如果作为库程序的开发者，那么其用户通常不想关心库函数的具体实现，他们只是想要一个用以实现计时功能的计时器，那么一般情况下我们可以给出一个工厂函数（Factory），这个函数最终将返回一个被需求的计时器，一个  base class 指针，指向新生的派生对象。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Timerbase* <span class="title">makeTimer</span><span class="params">()</span></span>;	<span class="comment">// 以 Timerbase 为基类动态分配一个计时对象</span></span><br></pre></td></tr></table></figure>
+<p>为了避免内存泄露，库程序的使用者就应该在计时对象使用完毕后通过 delete 将其销毁，以避免资源浪费。其中一个比较浅白的风险在于，makeTimer 函数返回一个指向派生对象的指针，最终却经由一个基类指针删除，而此时的基类中并未声明虚析构函数，这正是此风险的源头。因为在C++当中明确指出，一个派生对象经由一个基类指针 delete，而这个基类不存在一个虚的析构函数，那么此操作是无定义的，并且通常情况下派生对象并不会被销毁释放。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Timerbase* atomicClock = makeTimer();	<span class="comment">// 返回一个指向派生对象 AtomicClock 的指针</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">delete</span> atomicClock;	<span class="comment">// 派生成分 AtomicClock 并未被销毁</span></span><br></pre></td></tr></table></figure>
+<p>在通过无虚析构函数的基类指针销毁其派生类对象时，派生实例未被销毁，派生类的析构函数也未被执行，而其基类成分却被销毁了，这就产生了一个诡异的被“局部销毁”的对象，最终结果则是造成了资源泄露。</p>
+<p>消除这一风险的办法很简单，将基类的析构函数定义为 virtual 即可，同时也可为基类的其他成员函数冠以 virtual 以实现派生对象的客制化。由此可见，对于一个除析构函数外拥有虚函数的类而言，将析构函数写作为虚析构函数这一举措是非常有必要的。</p>
+<h2 id="只为多态基类声明虚析构函数"><a href="#只为多态基类声明虚析构函数" class="headerlink" title="只为多态基类声明虚析构函数"></a>只为多态基类声明虚析构函数</h2><p>通常情况下，一个不包含任何虚函数的类是不被希望作为基类的，那么将一个非基类的析构函数冠以 virtual 是否又合理呢？换句话说，为了避免多态特性下派生类的销毁带来的内存隐患，是否值得将所有类的析构函数都替为虚析构函数？</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span>	// <span class="title">Point</span> 是一个独立的类，并不意图作为其他任何类的基类</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Point(<span class="keyword">int</span> x, <span class="keyword">int</span> y);</span><br><span class="line">    <span class="keyword">virtual</span> ~Point();	<span class="comment">// 但是却声明了 virtual 析构函数</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> m_iX;</span><br><span class="line">    <span class="keyword">int</span> m_iY;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>事实表明这种做法是比较糟糕的，就拿上面的 Point class 为例，在其析构函数还不是虚函数的情况下，其有两个 int 型成员，若 int 型在内存当中占用 32 bits，也就意味着一个 Point 对象是可以被装载进 64-bit 的缓存器中，甚至在考虑更广泛的情况下，这个对象可以被传给 C 或其他的语言所编写的函数。</p>
+<p>可是如若 Point 的析构函数是虚函数，形式就产生了变化。为了实现虚函数带来的动态指向性，所有使用了 virtual 的类必然要携带一份 vptr，用以存放所有 virtual 函数的函数指针，以便于在编译时为编译器指明基类的成员函数被 call 时的实际被调函数。此处 vptr 的结构及其实现细节并不重要，重要的是 Point 携带了 vptr 后必然占有更大的空间，原本可以装载进 64-bit 缓存器的对象此时却可能需要 96 bits，这直接导致了 C++ 中的 Point 对象不再与 C 或其它语言内具有相同声明的结构相匹配了（因为其他语言当中并没有 vptr 的同型受体），也就意味着不能在其他语言直接进行 Point 对象的传递（与被传递），也就扼杀了 Point 本有的移植性。</p>
 <blockquote>
-<p>closeEvent 是 QCloseEvent 类中的虚函数，其原型为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void closeEvent(QCloseEvent* event);</span><br></pre></td></tr></table></figure></p>
-<p>在窗口关闭时被触发，将该类包含在子窗口的头文件中，并对 closeEvent 函数进行重写，即可实现在子窗口关闭时进行自定义操作。</p>
+<p>当然，如果非要这样做的话，可以在其他语言内手动填充 vptr 那部分细节，可这不是自找麻烦吗？</p>
 </blockquote>
-<p><img src="/2019/02/19/LearningNotes-QT-02/17.jpg" alt="Title"></p>
-<p><strong>接下来在子窗口的.cpp文件中对 closeEvent 函数进行实现，直接发送信号：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void ChildWindow::closeEvent(QCloseEvent* event)</span><br><span class="line">&#123;</span><br><span class="line">    emit windowClosed();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>最后补全主窗口的代码即可：</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/18.jpg" alt="Title"></p>
-<p><strong>效果：</strong></p>
-<p><img src="/2019/02/19/LearningNotes-QT-02/19.gif" alt="Title"></p>
+<p>由此可见，virtual 析构函数的使用是需要视具体情况而定的。</p>
+<ul>
+<li>如果正在编写的是带多态性质的 base class，在未来将派生出更多的类并加以控制，那么就需要一个虚析构函数；</li>
+<li>如果正在编写的类不欲作为其他类的基类，那么就应具有一个普通的析构函数而不该拥有一个虚析构函数。</li>
+</ul>
+<p>总结为一句话就是，<strong>只为多态基类声明虚析构函数</strong>，只要遵循这一原则，就可以避免 virtual 带来的这部分麻烦。</p>
+<h2 id="谨慎选择派生基类"><a href="#谨慎选择派生基类" class="headerlink" title="谨慎选择派生基类"></a>谨慎选择派生基类</h2><p>在确保只为多态基类声明虚析构函数的前提下，就不会产生任何问题了吗？问题依旧存在！就算为一个非多态类声明普通的析构函数，依旧有资源泄露的可能。<strong>问题就在于开发者是否错误地将一个非多态类作为 base class 并生成派生对象了。</strong>一般而言，这种错误可能会出现在合作开发或引用了外部库的情况下，无意间将带有非虚析构函数的类作为基类了，例如下面这种情况。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyString</span>:</span> <span class="keyword">public</span> <span class="built_in">std</span>::<span class="built_in">string</span>	<span class="comment">// 将 std::string 作为基类编写 MyString class</span></span><br><span class="line">&#123;</span><br><span class="line">	MyString();</span><br><span class="line">	~MyString();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>注意，此处 std::string 具有非虚析构函数！那么就存在这样一种情况，如果在开发的过程中无意地将一个 MyString 类型指针转换成为了 string 类型的指针，不幸的是这又是合法的，而之后又将这个 string 指针 delete 了，那么就造成了 MyString 对象的部分销毁，产生了资源泄露。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MyString* pMyString = <span class="keyword">new</span> MyString(<span class="string">"Hello World!"</span>);</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">string</span>* pString;</span><br><span class="line">...</span><br><span class="line">pString = pMyString;	<span class="comment">// 不小心将派生类指针 MyString* 转换成了无虚析构函数的基类指针 std::string*！</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">delete</span> pString;	<span class="comment">// 将基类指针 delete，但 MyString 的析构函数未被调用，造成内存泄露。</span></span><br></pre></td></tr></table></figure>
+<p>这主要提醒了一点：在进行派生类的编写时，基类的选择值得留心（有可能是选择库中的类，有可能是同事开发的类，也可能是很久以前自己编写的类），如果对所选择的基类是否具有多态性，是否具有虚析构函数并不明确的话，一定要加以考察和确认，以避免产生不必要的麻烦。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>务必为多态基类声明虚析构函数（避免内存泄露）；</li>
+<li>且只为多态基类声明虚析构函数（减少内存占用，保护移植性）；</li>
+<li>确保派生类的基类具有多态特性（避免内存泄露）。</li>
+</ul>
 <center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
       
     </div>
@@ -583,9 +525,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
+            <a href="/tags/沿途简记/" rel="tag"><i class="fa fa-tag"></i> 沿途简记</a>
           
-            <a href="/tags/QT/" rel="tag"><i class="fa fa-tag"></i> QT</a>
+            <a href="/tags/C-细节/" rel="tag"><i class="fa fa-tag"></i> C++细节</a>
           
         </div>
       
@@ -610,8 +552,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/18/LearningNotes-QT-01/" rel="next" title="QT（一）：信号与槽">
-                <i class="fa fa-chevron-left"></i> QT（一）：信号与槽
+              <a href="/2019/03/24/DeepLearning-05/" rel="next" title="深度学习（五）激活函数的选择 & 浅层神经网络的梯度下降">
+                <i class="fa fa-chevron-left"></i> 深度学习（五）激活函数的选择 & 浅层神经网络的梯度下降
               </a>
             
           </div>
@@ -619,10 +561,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/20/LearningNotes-QT-03/" rel="prev" title="QT（三）：浅探 QTimer 类">
-                QT（三）：浅探 QTimer 类 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -808,7 +746,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、建立-QT-项目"><span class="nav-text">一、建立 QT 项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、添加新的GUI文件"><span class="nav-text">二、添加新的GUI文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、窗口载入的实现"><span class="nav-text">三、窗口载入的实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为多态基类声明虚析构函数"><span class="nav-text">为多态基类声明虚析构函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#只为多态基类声明虚析构函数"><span class="nav-text">只为多态基类声明虚析构函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#谨慎选择派生基类"><span class="nav-text">谨慎选择派生基类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
