@@ -26,7 +26,16 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-  <meta charset="UTF-8"/>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "bf6ac372"
+    });
+  daovoice('update');
+  </script>
+
+<meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
@@ -140,7 +149,7 @@
 
 
   <meta name="description" content="概述 本篇记录了利用基于HSV颜色模型的肤色提取与连通区域过滤实现图片的人脸定位，附带知识的介绍略烦多，附带Matlab相关程序代码。   一、预备知识图像预处理 1.1 灰度化　在RGB模型中，如果R=G=B时，则彩色表示一种灰度颜色，其中R=G=B的值叫灰度值，因此，灰度图像每个像素只需一个字节存放灰度值（又称强度值、亮度值），灰度范围为0-255。一般有分量法 最大值法平均值法加权平均法四种">
-<meta name="keywords" content="算法,沿途简记,数学建模">
+<meta name="keywords" content="沿途简记,数学建模,算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于HSV肤色提取与连通区域过滤的人脸定位算法（Matlab）">
 <meta property="og:url" content="http://Sunwish.coding.me/2018/12/15/faceDetact/index.html">
@@ -246,6 +255,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+
     
       
         <p class="site-subtitle">积极思考  活跃创造</p>
@@ -259,12 +269,9 @@
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
     </button>
+
   </div>
 </div>
-
-
-
-
 
 
 
@@ -316,7 +323,7 @@
       
       
     </ul>
-          <div style="width: 100%; height: 110px; margin-top: -15px; margin-bottom: 5px;">
+          <div id="music" style="width: 100%; height: 110px; margin-top: -15px; margin-bottom: 5px;">
            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2851637030&auto=0&height=90"></iframe>
           </div>
   
@@ -325,7 +332,6 @@
 
   
 </nav>
-
 
 
   
@@ -595,11 +601,11 @@ I_4=I_3∧I_2</script><h2 id="4-中值滤波"><a href="#4-中值滤波" class="h
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
-          
             <a href="/tags/沿途简记/" rel="tag"><i class="fa fa-tag"></i> 沿途简记</a>
           
             <a href="/tags/数学建模/" rel="tag"><i class="fa fa-tag"></i> 数学建模</a>
+          
+            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
           
         </div>
       
@@ -1136,3 +1142,4 @@ I_4=I_3∧I_2</script><h2 id="4-中值滤波"><a href="#4-中值滤波" class="h
 
 </body>
 </html>
+
