@@ -148,34 +148,27 @@
 
 
 
-  <meta name="description" content="&amp;emsp;0x01 观察题目&amp;emsp;&amp;emsp;用模拟器运行程序，看到题目营造了一个情景让我们破解应用的登录系统，先随便输入一串数字，提示我们密码不对，请继续破解。">
-<meta name="keywords" content="逆向破解">
+  <meta name="description" content="概述 在过去一篇博文《如何科学卸载 Ubuntu？》中曾提到 Ubuntu 启动引导的删除，其中先后通过 EasyUEFI 与 diskpart 工具删除了 Ubuntu 的启动引导条目以及 Ubuntu 的 EFI 分区，但是仍有可能出现启动引导的残留，最直接的表现就是在开机的时候依旧没有正常进入系统而是进入了 GRUB 界面。本文以清理 Ubuntu 启动引导残留为例，演示如何借助 Bcded">
+<meta name="keywords" content="沿途简记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sun的逆向之路（三）——暴破15年阿里移动安全挑战赛第一题">
-<meta property="og:url" content="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-3/index.html">
+<meta property="og:title" content="Bcdedit 删除 Boot Menu 中的多余启动引导">
+<meta property="og:url" content="http://Sunwish.coding.me/2019/08/27/bcdedit-clean-bootmenu/index.html">
 <meta property="og:site_name" content="猴开发 | 博客">
-<meta property="og:description" content="&amp;emsp;0x01 观察题目&amp;emsp;&amp;emsp;用模拟器运行程序，看到题目营造了一个情景让我们破解应用的登录系统，先随便输入一串数字，提示我们密码不对，请继续破解。">
+<meta property="og:description" content="概述 在过去一篇博文《如何科学卸载 Ubuntu？》中曾提到 Ubuntu 启动引导的删除，其中先后通过 EasyUEFI 与 diskpart 工具删除了 Ubuntu 的启动引导条目以及 Ubuntu 的 EFI 分区，但是仍有可能出现启动引导的残留，最直接的表现就是在开机的时候依旧没有正常进入系统而是进入了 GRUB 界面。本文以清理 Ubuntu 启动引导残留为例，演示如何借助 Bcded">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-3/1.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-3/2.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-3/3.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-3/4.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-3/5.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-3/6.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-3/7.jpg">
-<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-3/8.jpg">
-<meta property="og:updated_time" content="2018-07-30T12:47:27.548Z">
+<meta property="og:image" content="http://sunwish.coding.me/2019/08/27/bcdedit-clean-bootmenu/1.jpg">
+<meta property="og:updated_time" content="2019-08-27T05:04:51.688Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sun的逆向之路（三）——暴破15年阿里移动安全挑战赛第一题">
-<meta name="twitter:description" content="&amp;emsp;0x01 观察题目&amp;emsp;&amp;emsp;用模拟器运行程序，看到题目营造了一个情景让我们破解应用的登录系统，先随便输入一串数字，提示我们密码不对，请继续破解。">
-<meta name="twitter:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-3/1.jpg">
+<meta name="twitter:title" content="Bcdedit 删除 Boot Menu 中的多余启动引导">
+<meta name="twitter:description" content="概述 在过去一篇博文《如何科学卸载 Ubuntu？》中曾提到 Ubuntu 启动引导的删除，其中先后通过 EasyUEFI 与 diskpart 工具删除了 Ubuntu 的启动引导条目以及 Ubuntu 的 EFI 分区，但是仍有可能出现启动引导的残留，最直接的表现就是在开机的时候依旧没有正常进入系统而是进入了 GRUB 界面。本文以清理 Ubuntu 启动引导残留为例，演示如何借助 Bcded">
+<meta name="twitter:image" content="http://sunwish.coding.me/2019/08/27/bcdedit-clean-bootmenu/1.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-3/"/>
+  <link rel="canonical" href="http://Sunwish.coding.me/2019/08/27/bcdedit-clean-bootmenu/"/>
 
 
 
@@ -185,7 +178,7 @@
   };
 </script>
 
-  <title>Sun的逆向之路（三）——暴破15年阿里移动安全挑战赛第一题 | 猴开发 | 博客</title>
+  <title>Bcdedit 删除 Boot Menu 中的多余启动引导 | 猴开发 | 博客</title>
   
 
 
@@ -362,7 +355,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-3/">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/08/27/bcdedit-clean-bootmenu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sunwish">
@@ -379,7 +372,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Sun的逆向之路（三）——暴破15年阿里移动安全挑战赛第一题
+          <h1 class="post-title" itemprop="name headline">Bcdedit 删除 Boot Menu 中的多余启动引导
               
             
           </h1>
@@ -399,7 +392,7 @@
           </span>
 	  
 	  
-          
+	  
 	  <span class="post-meta-author-text">作者 Sunwish</span>
 	  <span class="post-meta-divider">|</span>
           
@@ -416,7 +409,7 @@
                 
               
 
-              <time title="创建时间：2018-07-30 20:42:28 / 修改时间：20:47:27" itemprop="dateCreated datePublished" datetime="2018-07-30T20:42:28+08:00">2018-07-30</time>
+              <time title="创建时间：2019-08-27 12:12:57 / 修改时间：13:04:51" itemprop="dateCreated datePublished" datetime="2019-08-27T12:12:57+08:00">2019-08-27</time>
             
 
             
@@ -435,8 +428,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/07/30/sun-s-reverse-3/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/07/30/sun-s-reverse-3/" itemprop="commentCount"></span>
+                <a href="/2019/08/27/bcdedit-clean-bootmenu/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/08/27/bcdedit-clean-bootmenu/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -464,24 +457,41 @@
       
 
       
-        <p><img src="/2018/07/30/sun-s-reverse-3/1.jpg" alt="这里写图片描述"></p>
-<h3 id="emsp-0x01-观察题目"><a href="#emsp-0x01-观察题目" class="headerlink" title="&emsp;0x01 观察题目"></a>&emsp;<strong>0x01 观察题目</strong></h3><p>&emsp;&emsp;用模拟器运行程序，看到题目营造了一个情景让我们破解应用的登录系统，先随便输入一串数字，提示我们密码不对，请继续破解。<br><a id="more"></a><br><img src="/2018/07/30/sun-s-reverse-3/2.jpg" alt="这里写图片描述"></p>
-<h3 id="emsp-0x02-静态暴破"><a href="#emsp-0x02-静态暴破" class="headerlink" title="&emsp;0x02 静态暴破"></a>&emsp;<strong>0x02 静态暴破</strong></h3><p>&emsp;&emsp;首先将AliCrackme_1.apk用apktool进行反编译。<br><img src="/2018/07/30/sun-s-reverse-3/3.jpg" alt="这里写图片描述"></p>
-<p>&emsp;&emsp;反编译成功后得到输出文件夹：<br><img src="/2018/07/30/sun-s-reverse-3/4.jpg" alt="这里写图片描述"></p>
-<p>&emsp;&emsp;在eclipse中新建Java Project，将反编译文件夹设为工程目录，我们来看一看工程结构。<br><img src="/2018/07/30/sun-s-reverse-3/5.jpg" alt="这里写图片描述"></p>
-<p>&emsp;&emsp;接下来查找一下“密码”，发现没有做编码，定位到了string.xml文件中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;resources&gt;</span><br><span class="line">    &lt;string name=&quot;abc_action_mode_done&quot;&gt;Done&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_action_bar_home_description&quot;&gt;Navigate home&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_action_bar_up_description&quot;&gt;Navigate up&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_action_menu_overflow_description&quot;&gt;More options&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_searchview_description_search&quot;&gt;Search&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_searchview_description_query&quot;&gt;Search query&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_searchview_description_clear&quot;&gt;Clear query&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_searchview_description_submit&quot;&gt;Submit query&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_searchview_description_voice&quot;&gt;Voice search&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_activitychooserview_choose_application&quot;&gt;Choose an app&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_activity_chooser_view_see_all&quot;&gt;See all&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_shareactionprovider_share_with_application&quot;&gt;Share with %s&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;abc_shareactionprovider_share_with&quot;&gt;Share with&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;app_name&quot;&gt;UFO&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;hello_world&quot;&gt;Hello world!&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;action_settings&quot;&gt;Settings&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;dialog_title&quot;&gt;提示&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;dialog_error_tips&quot;&gt;密码不对，请继续破解&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;dialog_good_tips&quot;&gt;恭喜！！！破解成功！！！&lt;/string&gt;</span><br><span class="line">    &lt;string name=&quot;dialog_ok&quot;&gt;确定&lt;/string&gt;</span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;对应string name是”dialog_error_tips”，顺便记录一下破解成功的string name，根据已有的线索追踪引用dialog_error_tips的位置，不难定位到public.xml文件。</p>
-<p><img src="/2018/07/30/sun-s-reverse-3/6.jpg" alt="这里写图片描述"></p>
-<p>&emsp;&emsp;可以看到其id为0x7f0a0011，而顺带记录下0x7f0a0012。顺藤摸瓜，看看哪里引用了0x7f0a0011，发现在MainActivity\$1与R\$String这两个文件中该字符串有出没，但显然后者没有有效信息，于是进入第一个smali文件，找到id所在位置，对应代码块如下：<br><img src="/2018/07/30/sun-s-reverse-3/7.jpg" alt="这里写图片描述"></p>
-<p>&emsp;&emsp;发现下面一大片位于:cond_0中，而整个:cond_0位于onClick函数内，这应该就是按钮的点击事件的处理函数，先看看在这里:cond_0中都做了哪些操作。<br>&emsp;&emsp;首先new-instance新创建了一个实例，随后const v6作为中间变量，不断调用AlertDialog$Builder中的setMessage函数构造Dialog的各部分字符串，在.line 67处显示了对话框，也就是我们看到的密码不正确的提示框。再往下翻，紧接着goto :goto_0，发现goto_0处就直接return-void了。<br>&emsp;&emsp;分析完了:cond_0内的逻辑，来看看哪些地方跳到了这儿。大致浏览一番，定位到了如下代码块：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">if-eqz v4, :cond_0</span><br><span class="line">const-string v6, &quot;&quot;</span><br><span class="line">invoke-virtual &#123;v4, v6&#125;, Ljava/lang/String;-&gt;equals(Ljava/lang/Object;)Z</span><br><span class="line">move-result v6</span><br><span class="line">if-nez v6, :cond_0</span><br><span class="line">invoke-virtual &#123;v4, v2&#125;, Ljava/lang/String;-&gt;equals(Ljava/lang/Object;)Z</span><br><span class="line">move-result v6</span><br><span class="line">if-eqz v6, :cond_0</span><br><span class="line">.line 55</span><br><span class="line">iget-object v6, p0, Lcom/example/simpleencryption/MainActivity$1;-&gt;this$0:Lcom/example/simpleencryption/MainActivity;</span><br><span class="line">invoke-static &#123;v6&#125;, Lcom/example/simpleencryption/MainActivity;-&gt;access$1(Lcom/example/simpleencryption/MainActivity;)V</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;首先判断v4是否等于零，是的话跳转到:cond_0，后面连续几个判断都跳到了:cond_0，说明v4，v6的值代表了输入的密码是否正确，这里我们直接黑掉这几个判断，代码顺利执行到.line 55，这里access\$1函数引起了我们的关注，于是进入MainActivity中找到access$1，函数代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.method static synthetic access$1(Lcom/example/simpleencryption/MainActivity;)V</span><br><span class="line">    .locals 0</span><br><span class="line">    .prologue</span><br><span class="line">    .line 73</span><br><span class="line">    invoke-direct &#123;p0&#125;, Lcom/example/simpleencryption/MainActivity;-&gt;showDialog()V</span><br><span class="line">    return-void</span><br><span class="line">.end method</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;函数内部又调用了showDiglog，找到showDiglog函数，发现与onClick函数的:cond_0逻辑神似，也是构造对话框，意外发现了一串熟悉的id: 0x7f0a0012</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.method private showDialog()V</span><br><span class="line">    .locals 3</span><br><span class="line">    .prologue</span><br><span class="line">    .line 74</span><br><span class="line">    new-instance v0, Landroid/app/AlertDialog$Builder;</span><br><span class="line">    invoke-direct &#123;v0, p0&#125;, Landroid/app/AlertDialog$Builder;-&gt;&lt;init&gt;(Landroid/content/Context;)V</span><br><span class="line">    .line 75</span><br><span class="line">    .local v0, &quot;builder&quot;:Landroid/app/AlertDialog$Builder;</span><br><span class="line">    const v1, 0x7f0a0012</span><br><span class="line">    invoke-virtual &#123;v0, v1&#125;, Landroid/app/AlertDialog$Builder;-&gt;setMessage(I)Landroid/app/AlertDialog$Builder;</span><br><span class="line">    .line 76</span><br><span class="line">    const v1, 0x7f0a0010</span><br><span class="line">    invoke-virtual &#123;v0, v1&#125;, Landroid/app/AlertDialog$Builder;-&gt;setTitle(I)Landroid/app/AlertDialog$Builder;</span><br><span class="line">    .line 77</span><br><span class="line">    const v1, 0x7f0a0013</span><br><span class="line">    .line 78</span><br><span class="line">    new-instance v2, Lcom/example/simpleencryption/MainActivity$2;</span><br><span class="line">    invoke-direct &#123;v2, p0&#125;, Lcom/example/simpleencryption/MainActivity$2;-&gt;&lt;init&gt;(Lcom/example/simpleencryption/MainActivity;)V</span><br><span class="line">    .line 77</span><br><span class="line">    invoke-virtual &#123;v0, v1, v2&#125;, Landroid/app/AlertDialog$Builder;-&gt;setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;</span><br><span class="line">    .line 84</span><br><span class="line">    invoke-virtual &#123;v0&#125;, Landroid/app/AlertDialog$Builder;-&gt;show()Landroid/app/AlertDialog;</span><br><span class="line">    .line 85</span><br><span class="line">    return-void</span><br><span class="line">.end method</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;很明显我们找到了提示成功信息的地方。最后回编译apk文件，打上签名在模拟器上安装应用，随便输入密码，点击确认，可以看到已经破解成功了。<br><img src="/2018/07/30/sun-s-reverse-3/8.jpg" alt="这里写图片描述"></p>
-<h3 id="emsp-0x03-总结"><a href="#emsp-0x03-总结" class="headerlink" title="&emsp;0x03 总结"></a>&emsp;<strong>0x03 总结</strong></h3><p>&emsp;&emsp;<strong>考虑到暴破相对来说有点低级了，下一篇将尝试从动态调试的角度重新审视此题，并真正意义上的破解出该题的正确密码。</strong></p>
-<center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>在过去一篇博文《<a href="https://houkaifa.com/2019/08/15/ubuntu-uninstall/" target="_blank" rel="noopener">如何科学卸载 Ubuntu？</a>》中曾提到 Ubuntu 启动引导的删除，其中先后通过 EasyUEFI 与 diskpart 工具删除了 Ubuntu 的启动引导条目以及 Ubuntu 的 EFI 分区，但是仍有可能出现启动引导的残留，最直接的表现就是在开机的时候依旧没有正常进入系统而是进入了 GRUB 界面。本文以清理 Ubuntu 启动引导残留为例，演示如何借助 Bcdedit 移除固件应用程序，进而彻底清理启动引导残留，同理亦可以移除多系统下不需要的启动引导。</p>
+</blockquote>
+<p><img src="/2019/08/27/bcdedit-clean-bootmenu/1.jpg" alt="Title"></p>
+<a id="more"></a>
+<hr>
+<h1 id="一、找到固件GUID"><a href="#一、找到固件GUID" class="headerlink" title="一、找到固件GUID"></a>一、找到固件GUID</h1><p>在 PowerShell 中输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bcdedit /enum firmware</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">固件启动管理器</span><br><span class="line">---------------------</span><br><span class="line">标识符                  &#123;fwbootmgr&#125;</span><br><span class="line">displayorder            &#123;8729d185-7270-11e7-bd79-850bbbb583d1&#125;</span><br><span class="line">                        &#123;bootmgr&#125;</span><br><span class="line">timeout                 1</span><br><span class="line"></span><br><span class="line">Windows 启动管理器</span><br><span class="line">--------------------</span><br><span class="line">标识符                  &#123;bootmgr&#125;</span><br><span class="line">device                  partition=\Device\HarddiskVolume1</span><br><span class="line">path                    \EFI\MICROSOFT\BOOT\BOOTMGFW.EFI</span><br><span class="line">description             Windows Boot Manager</span><br><span class="line">locale                  zh-CN</span><br><span class="line">inherit                 &#123;globalsettings&#125;</span><br><span class="line">flightsigning           Yes</span><br><span class="line">default                 &#123;current&#125;</span><br><span class="line">resumeobject            &#123;8729d17d-7270-11e7-bd79-850bbbb583d1&#125;</span><br><span class="line">displayorder            &#123;current&#125;</span><br><span class="line">toolsdisplayorder       &#123;memdiag&#125;</span><br><span class="line">timeout                 30</span><br><span class="line"></span><br><span class="line">固件应用程序(101fffff)</span><br><span class="line">-------------------------------</span><br><span class="line">标识符                  &#123;8729d185-7270-11e7-bd79-850bbbb583d1&#125;</span><br><span class="line">device                  partition=\Device\HarddiskVolume1</span><br><span class="line">path                    \EFI\UBUNTU\SHIMX64.EFI</span><br><span class="line">description             ubuntu</span><br></pre></td></tr></table></figure>
+<p>其中固件应用程序(101ffff)为我们要删除的 Ubuntu 启动引导：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">固件应用程序(101fffff)</span><br><span class="line">-------------------------------</span><br><span class="line">标识符                  &#123;8729d185-7270-11e7-bd79-850bbbb583d1&#125;</span><br><span class="line">device                  partition=\Device\HarddiskVolume1</span><br><span class="line">path                    \EFI\UBUNTU\SHIMX64.EFI</span><br><span class="line">description             ubuntu</span><br></pre></td></tr></table></figure>
+<p>记下其标识符：{8729d185-7270-11e7-bd79-850bbbb583d1}</p>
+<h1 id="二、删除对应固件条目"><a href="#二、删除对应固件条目" class="headerlink" title="二、删除对应固件条目"></a>二、删除对应固件条目</h1><p>1.通过 <strong>Bcdedit</strong> 保存一份电脑上现行的 bcd 文件副本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bcdedit /export savebcd</span><br></pre></td></tr></table></figure>
+<p>2.拷贝一份 savebcd 文件的副本用于协助 bcdedit 删除操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Copy savebcd newbcd</span><br></pre></td></tr></table></figure>
+<p>3.枚举系统BCD存储中的固件命名空间对象并将输出结果保存到文本文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bcdedit /enum firmware &gt; enumfw.txt</span><br></pre></td></tr></table></figure>
+<p>4.使用记事本打开 enumfw.txt 文件，可以看到里面的内容与在 “一、找到固件GUID” 中是一致的，在输出的文本文件中找到要删除的 Ubuntu 启动引导对应的固件应用程序标识符：{8729d185-7270-11e7-bd79-850bbbb583d1}，复制备用。</p>
+<p>5.在任意位置创建一个文本文档 RemoveDups.txt</p>
+<p>6.使用记事本打开 RemoveDups.txt 并写入以下内容（其中GUID替换为你在上一步中复制的标标识符）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bcdedit /store newbcd /delete GUID</span><br></pre></td></tr></table></figure>
+<p>特别地，如果有多个要删除的固件应用程序的话，就将上面一行拷贝添加多行，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Bcdedit /store newbcd /delete GUID1</span><br><span class="line">Bcdedit /store newbcd /delete GUID2</span><br><span class="line">Bcdedit /store newbcd /delete GUID3</span><br><span class="line">Bcdedit /store newbcd /delete GUID4</span><br></pre></td></tr></table></figure>
+<p><strong>注意：在EFI固件为本地设备初始化NVRAM条目的计算机上，如果需要，可以删除所有GUID条目。但不要删除的条目 {bootmgr}！</strong></p>
+<p>7.在 RemoveDups.txt 的最后一行写入以下命令，通过使用/clean选项删除导入操作中的所有NVRAM条目来导入新的BCD文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bcdedit /import newbcd /clean</span><br></pre></td></tr></table></figure>
+<p>8.保存 RemoveDups.txt 文件，并将其重命名为 RemoveDups.cmd，使其成为命令行文件。</p>
+<p>9.将 RemoveDups.cmd 文件复制到 C:\Windows\system32 目录下，并在 PowerShell 中执行它：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RemoveDups.cmd</span><br></pre></td></tr></table></figure>
+<p>10.重新启动系统。在重新启动期间，EFI固件将使用与连接到系统的设备对应的固件对象 GUID 重新初始化 NVRAM。进入系统后，可使用 bcdedit /enum firmware 命令进一步验证是否已删除所有需要删除的固件条目。</p>
+<p>参考文献：<a href="http://1t.click/SA8" target="_blank" rel="noopener">Remove Duplicate Firmware Objects in BCD and NVRAM</a></p>
+<p>扩展阅读：<a href="https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-vista/cc766450%28v%3dws.10%29" target="_blank" rel="noopener">Deploy to UEFI-based Computers</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
       
     </div>
 
@@ -525,7 +535,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/逆向破解/" rel="tag"><i class="fa fa-tag"></i> 逆向破解</a>
+            <a href="/tags/沿途简记/" rel="tag"><i class="fa fa-tag"></i> 沿途简记</a>
           
         </div>
       
@@ -550,8 +560,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/30/sun-s-reverse-2/" rel="next" title="Sun的逆向之路（二）——FiF口语训练的刷分剖析">
-                <i class="fa fa-chevron-left"></i> Sun的逆向之路（二）——FiF口语训练的刷分剖析
+              <a href="/2019/08/15/ubuntu-uninstall/" rel="next" title="如何科学卸载 Ubuntu？">
+                <i class="fa fa-chevron-left"></i> 如何科学卸载 Ubuntu？
               </a>
             
           </div>
@@ -559,10 +569,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/30/C-DLL-E/" rel="prev" title="C++DLL在E中的调用（C+E模式）">
-                C++DLL在E中的调用（C+E模式） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -748,7 +754,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-0x01-观察题目"><span class="nav-text"> 0x01 观察题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-0x02-静态暴破"><span class="nav-text"> 0x02 静态暴破</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-0x03-总结"><span class="nav-text"> 0x03 总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、找到固件GUID"><span class="nav-text">一、找到固件GUID</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、删除对应固件条目"><span class="nav-text">二、删除对应固件条目</span></a></li></ol></div>
             
 
           </div>
@@ -1007,6 +1013,30 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 

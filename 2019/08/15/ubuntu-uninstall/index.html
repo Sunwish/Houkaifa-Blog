@@ -167,7 +167,7 @@
 <meta property="og:image" content="http://sunwish.coding.me/2019/08/15/ubuntu-uninstall/9.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2019/08/15/ubuntu-uninstall/10.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2019/08/15/ubuntu-uninstall/11.jpg">
-<meta property="og:updated_time" content="2019-08-15T06:58:16.648Z">
+<meta property="og:updated_time" content="2019-08-27T05:00:45.935Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何科学卸载 Ubuntu？">
 <meta name="twitter:description" content="概述 本篇记录 Win10+Ubuntu 双系统下卸载 Ubuntu 的全步骤。由于磁盘空间告急，而且 Ubuntu 在近期内并没有使用需求，考虑到之前装的 Ubuntu 遇到的显卡驱动问题始终得不到解决，因此决定暂时将 Ubuntu 卸载以空出磁盘空间给 Win10 使用，下次需要 Ubuntu 时也方便重新安装，也期待下次安装时能够解决显卡驱动问题。">
@@ -419,12 +419,24 @@
                 
               
 
-              <time title="创建时间：2019-08-15 14:01:21 / 修改时间：14:58:16" itemprop="dateCreated datePublished" datetime="2019-08-15T14:01:21+08:00">2019-08-15</time>
+              <time title="创建时间：2019-08-15 14:01:21" itemprop="dateCreated datePublished" datetime="2019-08-15T14:01:21+08:00">2019-08-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-27 13:00:45" itemprop="dateModified" datetime="2019-08-27T13:00:45+08:00">2019-08-27</time>
               
             
           </span>
@@ -473,7 +485,7 @@
 <p><img src="/2019/08/15/ubuntu-uninstall/1.jpg" alt="Title"></p>
 <a id="more"></a>
 <hr>
-<h1 id="一、删除Ubuntu启动引导"><a href="#一、删除Ubuntu启动引导" class="headerlink" title="一、删除Ubuntu启动引导"></a>一、删除Ubuntu启动引导</h1><p>我的系统是 GTP+UEFI 的分区模式，因此选择 EasyUEFI 进行启动引导的删除。同时我的系统是 Win10 企业版，因此只能使用 EasyUEFI 的企业版进行操作。</p>
+<h1 id="一、删除Ubuntu启动引导-启动引导删不干净？戳我"><a href="#一、删除Ubuntu启动引导-启动引导删不干净？戳我" class="headerlink" title="一、删除Ubuntu启动引导 (启动引导删不干净？戳我)"></a>一、删除Ubuntu启动引导 (<a href="https://houkaifa.com/2019/08/27/bcdedit-clean-bootmenu/" target="_blank" rel="noopener">启动引导删不干净？戳我</a>)</h1><p>我的系统是 GTP+UEFI 的分区模式，因此选择 EasyUEFI 进行启动引导的删除。同时我的系统是 Win10 企业版，因此只能使用 EasyUEFI 的企业版进行操作。</p>
 <p>选中启动序列中的 ubuntu 项，并在右侧操作栏中找到并点击<strong>删除选中项</strong>按钮，即可完成 Ubuntu 启动引导的删除。</p>
 <blockquote>
 <p>如果没有做此步骤的话，可能在重启之后无法直接进入 Win10 系统，而是进入了 GRUB 引导界面，这时只要在 GRUB 中键入 exit 并回车即可进入 Win10。</p>
@@ -599,6 +611,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/08/27/bcdedit-clean-bootmenu/" rel="prev" title="Bcdedit 删除 Boot Menu 中的多余启动引导">
+                Bcdedit 删除 Boot Menu 中的多余启动引导 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -673,7 +689,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -783,7 +799,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、删除Ubuntu启动引导"><span class="nav-text">一、删除Ubuntu启动引导</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、删除Ubuntu相关分区"><span class="nav-text">二、删除Ubuntu相关分区</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#删除主分区"><span class="nav-text">删除主分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除-EFI-分区"><span class="nav-text">删除 EFI 分区</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、删除Ubuntu启动引导-启动引导删不干净？戳我"><span class="nav-text">一、删除Ubuntu启动引导 (启动引导删不干净？戳我)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、删除Ubuntu相关分区"><span class="nav-text">二、删除Ubuntu相关分区</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#删除主分区"><span class="nav-text">删除主分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除-EFI-分区"><span class="nav-text">删除 EFI 分区</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -831,7 +847,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 63.4k 字</span>
+  <span class="post-count">博客全站共 64.3k 字</span>
 </div>
 
 <!--
