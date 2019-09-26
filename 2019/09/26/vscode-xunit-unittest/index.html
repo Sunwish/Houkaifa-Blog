@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "bf6ac372"
+    });
+  daovoice('update');
+  </script>
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-loading-bar.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="概述 什么是单元测试？为什么要写单元测试？如何写一个单元测试？实话实说，写单元测试是一件挺麻烦的事情，却又是你在软件开发的成长路上难以回避的一个问题。我个人在以前也并不喜欢单元测试，不过现在我的态度有所改观了。如果本文所写的内容可以让你理解单元测试的重要性，并且说服你在今后也开始尝试编写单元测试的话，那么这篇博文就是成功的。">
+<meta name="keywords" content="沿途简记,经验心得">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VSCode + xUnit 编写 C# 单元测试">
+<meta property="og:url" content="http://Sunwish.coding.me/2019/09/26/vscode-xunit-unittest/index.html">
+<meta property="og:site_name" content="猴开发 | 博客">
+<meta property="og:description" content="概述 什么是单元测试？为什么要写单元测试？如何写一个单元测试？实话实说，写单元测试是一件挺麻烦的事情，却又是你在软件开发的成长路上难以回避的一个问题。我个人在以前也并不喜欢单元测试，不过现在我的态度有所改观了。如果本文所写的内容可以让你理解单元测试的重要性，并且说服你在今后也开始尝试编写单元测试的话，那么这篇博文就是成功的。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunwish.coding.me/2019/09/26/vscode-xunit-unittest/1.jpg">
+<meta property="og:updated_time" content="2019-09-26T16:33:05.500Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VSCode + xUnit 编写 C# 单元测试">
+<meta name="twitter:description" content="概述 什么是单元测试？为什么要写单元测试？如何写一个单元测试？实话实说，写单元测试是一件挺麻烦的事情，却又是你在软件开发的成长路上难以回避的一个问题。我个人在以前也并不喜欢单元测试，不过现在我的态度有所改观了。如果本文所写的内容可以让你理解单元测试的重要性，并且说服你在今后也开始尝试编写单元测试的话，那么这篇博文就是成功的。">
+<meta name="twitter:image" content="http://sunwish.coding.me/2019/09/26/vscode-xunit-unittest/1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://Sunwish.coding.me/2019/09/26/vscode-xunit-unittest/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>VSCode + xUnit 编写 C# 单元测试 | 猴开发 | 博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">猴开发 | 博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+
+    
+      
+        <p class="site-subtitle">积极思考  活跃创造</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-投稿">
+    <a href="/contribute/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-pencil"></i> <br />投稿</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-札记">
+    <a href="/series/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
+  </li>
+
+      
+      
+    </ul>
+          <div id="music" style="width: 100%; height: 110px; margin-top: -15px; margin-bottom: 5px;">
+           <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2851637030&auto=0&height=90"></iframe>
+          </div>
+  
+
+  
+
+  
+</nav>
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/09/26/vscode-xunit-unittest/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>2. Alterful · 键盘增强：<br>https://www.alterful.com/<br>3. AQTS · 自动量化交易系统">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴开发 | 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">VSCode + xUnit 编写 C# 单元测试
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+          
+          <span class="post-meta-author-icon">
+            <i class="fa fa-user-o"></i>
+          </span>
+	  
+	  
+	  
+	  <span class="post-meta-author-text">作者 Sunwish</span>
+	  <span class="post-meta-divider">|</span>
+          
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-26 23:59:06" itemprop="dateCreated datePublished" datetime="2019-09-26T23:59:06+08:00">2019-09-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-27 00:33:05" itemprop="dateModified" datetime="2019-09-27T00:33:05+08:00">2019-09-27</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/26/vscode-xunit-unittest/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/09/26/vscode-xunit-unittest/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>什么是单元测试？为什么要写单元测试？如何写一个单元测试？实话实说，写单元测试是一件挺麻烦的事情，却又是你在软件开发的成长路上难以回避的一个问题。我个人在以前也并不喜欢单元测试，不过现在我的态度有所改观了。如果本文所写的内容可以让你理解单元测试的重要性，并且说服你在今后也开始尝试编写单元测试的话，那么这篇博文就是成功的。</p>
+</blockquote>
+<p><img src="/2019/09/26/vscode-xunit-unittest/1.jpg" alt="Title"></p>
+<a id="more"></a>
+<hr>
+<h1 id="一、什么是单元测试？"><a href="#一、什么是单元测试？" class="headerlink" title="一、什么是单元测试？"></a>一、什么是单元测试？</h1><blockquote>
+<p>Having automated tests is a great way to ensure a software application does what its authors intend it to do. There are multiple types of tests for software applications. These include integration tests, web tests, load tests, and others. <strong>Unit tests</strong> test individual software components and methods. Unit tests should only test code within the developer’s control. They should not test infrastructure concerns. Infrastructure concerns include databases, file systems, and network resources.</p>
+</blockquote>
+<p>以上是微软在官方文档《<a href="https://docs.microsoft.com/zh-cn/dotnet/core/testing/" target="_blank" rel="noopener">.NET Core 和 .NET Standard 中的单元测试</a>》中对单元测试给出的描述。其中提到，单元测试用于测试个人软件组件或方法，单元测试仅应测试开发人员控件内的代码，它们不应测试基础结构问题。 基础结构问题包括数据库、文件系统和网络资源。也就是说单元测试的被测目标必须足够的“独立”，进而测试代码也应足够简洁。</p>
+<p>按我的理解来说，单元测试就是一项验证一个类或方法是否能够正常执行并得到正确结果的测试工作，其中的类或方法就是被测试的单元。看完这些，你可能还是不能够清晰地理解单元测试，不过不要紧，在后面的分析中，相信单元测试的形象将会在你的脑海中逐渐清晰。</p>
+<h1 id="二、为什么要写单元测试？"><a href="#二、为什么要写单元测试？" class="headerlink" title="二、为什么要写单元测试？"></a>二、为什么要写单元测试？</h1><p>实话实说，写单元测试是一件挺麻烦的事情，我个人在以前也并不喜欢单元测试，不过现在我的态度有所改观了。如果我之后写的内容可以让你理解单元测试的重要性，并且说服你在今后也开始尝试单元测试，那么这一小节就是成功的。</p>
+<p>首先，在实际的开发过程中施行单元测试是一项非常有意义的事情，它既可以保证我们程序的健壮性，也可以在很大程度上帮助我们写出更稳定、低耦合的代码，进而在维护期保护了应用程序迭代更新的安全性与需求变动时的可拓展性。这是因为，一个优秀完备的单元测试往往能够覆盖类和方法的各种边界条件，进而在源头处破灭了许多bug诞生的梦想，由此各个单元都能够稳定正确地执行，整个程序的健壮性便得到了保障。</p>
+<p>考虑一个简单的例子，你正在写一个求整型数组中最大元素的方法，下面是其实现代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">namespace MyAlgorithm</span><br><span class="line">&#123;</span><br><span class="line">    public  class ArrayService</span><br><span class="line">    &#123;</span><br><span class="line">        public static int MaxItemValue(int[] arr)</span><br><span class="line">        &#123;</span><br><span class="line">            var maxValue = arr[0];</span><br><span class="line">            foreach(var item in arr)</span><br><span class="line">            &#123;</span><br><span class="line">                if(item&gt;maxValue)	maxValue = item;</span><br><span class="line">            &#125;</span><br><span class="line">            return maxValue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通常，如果你直接着手实现的细节而开始写代码的话，你将难免忘记考虑一些边界条件，而程序在各种环境运行的过程中，情况往往丰富多变，这就导致所写出的程序往往在调试期间可以“正确运行”，可是一旦投入使用，各种灵异错误就接踵而来。上面的代码段作为一个错误的例子，相信你不难看出是有明显的问题的。在通常的输入下，它可以正常的执行，可是如果输入的数组为空呢？那就糟糕了，你绝对不想看到编译器给你抛出一堆鲜红的Errors，更不希望让用户看到错误警告。可是当你养成写单元测试的习惯时，你就会自然地为测试单元有意地设计各种看似“不合理”的输入，而一旦你的代码通过了严苛而险恶的单元测试，恭喜你，这个可靠的单元可以被你贴上”合格”的标签放心地使用了。</p>
+<p>于此同时，单元测试帮助代码更稳定、低耦合是由于，一个与其它单元耦合度高又内部复杂的类或方法，我们几乎无法为其写出一个简明可行的单元测试，这就显示地要求开发者对当前过分复杂的“单元”进行拆分与解耦，以便为其书写单元测试，这也就促使程序变得更加模块化，更具可读性了。这对于一直想要写出更加优秀代码的你来讲简直是太棒了，不是吗？</p>
+<p>由此可以发现，单元测试其实就是为组成我们程序的一个个小单元，可以是类或方法或是其它的组件，单独编写测试用例，以保证它们的正确性与可靠性。这既是单元测试的进一步阐述，也是你为什么要写单元测试的原因。</p>
+<h1 id="三、如何创建单元测试？"><a href="#三、如何创建单元测试？" class="headerlink" title="三、如何创建单元测试？"></a>三、如何创建单元测试？</h1><p>了解了单元测试及其必要性，下面就来看一看如何写一个单元测试吧。在不同的编辑器或集成开发环境中为代码编写单元测试的方法不尽相同，本节中将演示如何在 VSCode 中使用 xUnit 为 C# 项目编写一个简单的单元测试。这一节演示将分为四个部分：创建项目、编写一个示例类、为示例类创建单元测试类，以及在单元测试类中为示例类的一个成员函数编写单元测试代码。</p>
+<p>在演示中，我们将创建一个用于数字计算的 NumberCacluation 类，并实现该类的一个整数求和函数 add()，最后为该类创建单元测试类并为其成员函数 add() 编写单元测试代码。如果你使用的是 Visual Studio，那么网上也有很多针对 VS 的单元测试编写指导，在此就不多提了。下面就让我们开始吧！</p>
+<h2 id="1-创建项目"><a href="#1-创建项目" class="headerlink" title="1.创建项目"></a>1.创建项目</h2><ol>
+<li><p>在 VSCode 中打开一个文件夹，本例中新建并打开文件夹 MyProject。</p>
+</li>
+<li><p>打开终端，执行 <code>dotnet new sln</code> 来新建一个解决方案，此时你在 MyProject 文件夹中将得到一个 MyProject.sln 解决方案文件。</p>
+</li>
+<li><p>在 MyProject 文件夹下新建一个目录 MyMath，作为我们的数学计算类库文件夹。</p>
+</li>
+<li><p>在终端中进入 MyMath 目录，执行 <code>dotnet new classlib</code> 来对此类库文件夹进行初始化，你将在 MyMath 文件夹中得到 MyMath.csproj 与一个默认的 cs 文件 Class1.cs，在此我们将其改名为 NumberCalculation.cs，其代码结构如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line"></span><br><span class="line">namespace MyMath.Number</span><br><span class="line">&#123;</span><br><span class="line">    public class NumberCalculation</span><br><span class="line">    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后，在终端中回到 MyProject 目录，执行 <code>dotnet sln add .\MyMath\MyMath.csproj</code> 来将 MyMath 添加到解决方案当中。至此，我们就完成了项目的创建。</p>
+</li>
+</ol>
+<h2 id="2-编写示例类"><a href="#2-编写示例类" class="headerlink" title="2.编写示例类"></a>2.编写示例类</h2><p>打开 MyMath 目录下的 NumberCalculation.cs 文件，下面我们为其编写一个静态函数，用于求解两个整数求和计算的结果，实现代码非常简单，下面是完整的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line"></span><br><span class="line">namespace MyMath.Number</span><br><span class="line">&#123;</span><br><span class="line">    public class NumberCalculation</span><br><span class="line">    &#123;</span><br><span class="line">        public static int add(int a, int b)</span><br><span class="line">        &#123;</span><br><span class="line">            return a + b;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-创建单元测试"><a href="#3-创建单元测试" class="headerlink" title="3.创建单元测试"></a>3.创建单元测试</h2><ol>
+<li><p>我们先在终端 MyProject 目录下新建一个文件夹：MyMath.Tests，这个文件夹中用于存放 MyMath 的相关单元测试文件。</p>
+</li>
+<li><p>在终端中进入 MyMath.Tests 目录，执行 <code>dotnet new xunit</code> 来初始化 xunit，此命令会创建将 xUnit 用作测试库的测试项目。你将得到 MyMath.csproj 和 一个默认的单元测试类 UnitTest1.cs，我们将其改名为 MyMath.Tests.Number.cs，代码结构如下（记得为其手动添加 NumberCalculation 的命名空间引用<code>using MyMath.Number;</code>）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using Xunit;</span><br><span class="line"></span><br><span class="line">namespace MyMath.Tests.Number</span><br><span class="line">&#123;</span><br><span class="line">    public class UnitTest1</span><br><span class="line">    &#123;</span><br><span class="line">        [Fact]</span><br><span class="line">        public void Test1()</span><br><span class="line">        &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在终端 MyMath.Tests 目录下执行 <code>dotnet add reference ..\MyMath\MyMath.csproj</code> 来将 MyMath 引入到我们的单元测试项目中来。</p>
+</li>
+<li><p>最后在终端中回到 MyProject 目录，执行 <code>dotnet sln add .\MyMath.Tests\MyMath.Tests.csproj</code> 来将 MyMath.Tests 添加到解决方案中。至此，我们完成了 MyMath 类单元测试的创建与一些初始设置。</p>
+</li>
+</ol>
+<h2 id="4-编写单元测试"><a href="#4-编写单元测试" class="headerlink" title="4. 编写单元测试"></a>4. 编写单元测试</h2><p>打开 MyMath.Tests 目录下的 UnitTest1.cs 文件，编写如下四个测试用例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using Xunit;</span><br><span class="line">using MyMath.Number;</span><br><span class="line">namespace MyMath.Tests.Number</span><br><span class="line">&#123;</span><br><span class="line">    public class UnitTest1</span><br><span class="line">    &#123;</span><br><span class="line">        [Fact]</span><br><span class="line">        public void Test1()</span><br><span class="line">        &#123;</span><br><span class="line">            Assert.True(NumberCalculation.add(0,2)==2, &quot;0 + 2 Should be 2&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        [Fact]</span><br><span class="line">        public void Test2()</span><br><span class="line">        &#123;</span><br><span class="line">            Assert.True(NumberCalculation.add(1,2)==3, &quot;1 + 2 Should be 3&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        [Fact]</span><br><span class="line">        public void Test3()</span><br><span class="line">        &#123;</span><br><span class="line">            Assert.True(NumberCalculation.add(-1,2)==1, &quot;-1 + 2 Should be 1&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        [Fact]</span><br><span class="line">        public void Test4()</span><br><span class="line">        &#123;</span><br><span class="line">            Assert.True(NumberCalculation.add(-1,-2)==-3, &quot;-1 + -2 Should be -3&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样，我们就完成了 add() 方法的简单单元测试示例。其中 <code>[Fact]</code> 标记指明下面的方法为测试方法，<code>Assert.True()</code> 函数中的第一项参数为实际值，其预期值为 <code>True</code>，当实际值与预期值一致时，该测试就可以通过，否则该测试不能通过，并将在终端中将参数二作为错误信息输出显示。</p>
+<p>最后，在终端中 MyMath.Tests 文件夹下执行 <code>dotnet test</code> 即可运行单元测试。显然，我们之前编写的函数是可以正确计算所给用例的加法的，因此终端输出了如下信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">PS C:\...\MyProject&gt; dotnet test</span><br><span class="line">已开始生成，请等待...</span><br><span class="line">Skipping running test for project C:\...\MyProject\MyMath\MyMath.csproj. To run tests with dotnet test add &quot;&lt;IsTestProject&gt;true&lt;IsTestProject&gt;&quot; property to project file.</span><br><span class="line">完成的生成。</span><br><span class="line"></span><br><span class="line">C:\...\MyProject\MyMath.Tests\bin\Debug\netcoreapp2.2\MyMath.Tests.dll 的测试运行(.NETCoreApp,Version=v2.2)</span><br><span class="line">Microsoft (R) 测试执行命令行工具版本 15.9.0</span><br><span class="line">版权所有 (C) Microsoft Corporation。保留所有权利。</span><br><span class="line"></span><br><span class="line">正在启动测试执行，请稍候...</span><br><span class="line"></span><br><span class="line">总测试: 4。已通过: 4。失败: 0。已跳过: 0。</span><br><span class="line">测试运行成功。</span><br><span class="line">测试执行时间: 2.4093 秒</span><br></pre></td></tr></table></figure>
+<p>如果我们的 add() 方法编写有误，例如将 <code>return a + b;</code> 错误地修改为 <code>return b;</code>，再次执行 <code>dotnet test</code> 将得到如下信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">PS C:\...\MyProject&gt; dotnet test</span><br><span class="line">已开始生成，请等待...</span><br><span class="line">Skipping running test for project C:\...\MyProject\MyMath\MyMath.csproj. To run tests with dotnet test add &quot;&lt;IsTestProject&gt;true&lt;IsTestProject&gt;&quot; property to project file.</span><br><span class="line">完成的生成。</span><br><span class="line"></span><br><span class="line">C:\...\MyProject\MyMath.Tests\bin\Debug\netcoreapp2.2\MyMath.Tests.dll 的测试运行(.NETCoreApp,Version=v2.2)</span><br><span class="line">Microsoft (R) 测试执行命令行工具版本 15.9.0</span><br><span class="line">版权所有 (C) Microsoft Corporation。保留所有权利。</span><br><span class="line"></span><br><span class="line">正在启动测试执行，请稍候...</span><br><span class="line">[xUnit.net 00:00:01.04]     MyMath.Tests.Number.UnitTest1.Test4 [FAIL]</span><br><span class="line">[xUnit.net 00:00:01.07]     MyMath.Tests.Number.UnitTest1.Test2 [FAIL]</span><br><span class="line">[xUnit.net 00:00:01.07]     MyMath.Tests.Number.UnitTest1.Test3 [FAIL]</span><br><span class="line">MyMath.Tests.Number.UnitTest1.Test4 个失败</span><br><span class="line">错误消息:</span><br><span class="line"> -1 + -2 Should be -3</span><br><span class="line">Expected: True</span><br><span class="line">Actual:   False</span><br><span class="line">堆栈跟踪:</span><br><span class="line">   at MyMath.Tests.Number.UnitTest1.Test4() in C:\...\MyProject\MyMath.Tests\UnitTest1.cs:line 26</span><br><span class="line">MyMath.Tests.Number.UnitTest1.Test2 个失败</span><br><span class="line">错误消息:</span><br><span class="line"> 1 + 2 Should be 3</span><br><span class="line">Expected: True</span><br><span class="line">Actual:   False</span><br><span class="line">堆栈跟踪:</span><br><span class="line">   at MyMath.Tests.Number.UnitTest1.Test2() in C:\...\MyProject\MyMath.Tests\UnitTest1.cs:line 16</span><br><span class="line">MyMath.Tests.Number.UnitTest1.Test3 个失败</span><br><span class="line">错误消息:</span><br><span class="line"> -1 + 2 Should be 1</span><br><span class="line">Expected: True</span><br><span class="line">Actual:   False</span><br><span class="line">堆栈跟踪:</span><br><span class="line">   at MyMath.Tests.Number.UnitTest1.Test3() in C:\...\MyProject\MyMath.Tests\UnitTest1.cs:line 21</span><br><span class="line"></span><br><span class="line">总测试: 4。已通过: 1。失败: 3。已跳过: 0。</span><br><span class="line">测试运行失败。</span><br><span class="line">测试执行时间: 2.4545 秒</span><br></pre></td></tr></table></figure>
+<p>可以看到，终端中明确输出了未通过测试的用例及其错误信息，这将帮助你很快地定位并修复相关错误。</p>
+<h1 id="四、优化你的单元测试"><a href="#四、优化你的单元测试" class="headerlink" title="四、优化你的单元测试"></a>四、优化你的单元测试</h1><p>写出一个单元测试不是一件难事，但是写出一个好的单元测试也不是一件容易的事。就上一小结 <strong>编写单元测试</strong> 中给出的测试代码就是极度糟糕的代码的典范。为了使用 xUnit 写出基本还不错的测试代码，你需要了解 <a href="https://xunit.net/" target="_blank" rel="noopener">xUnit</a> 的一些其它属性。例如 <code>[Theory]</code> 表示执行相同的代码，但是使用不同的输入参数用来测试，并使用 <code>[InlineData]</code> 来指定这些参数的输入值。</p>
+<p>由此改进后的单元测试代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class UnitTest1</span><br><span class="line">    &#123;</span><br><span class="line">        [Theory]</span><br><span class="line">        [InlineData(0,2,2)]</span><br><span class="line">        [InlineData(1,2,3)]</span><br><span class="line">        [InlineData(-1,2,1)]</span><br><span class="line">        [InlineData(-1,-2,-3)]</span><br><span class="line">        public void Test1(int a, int b, int excepted)</span><br><span class="line">        &#123;</span><br><span class="line">            Assert.True(NumberCalculation.add(a,b)==excepted, $&quot;&#123;a&#125; + &#123;b&#125; Should be &#123;excepted&#125;&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>同时，为了确保单元测试的正确性与轻便性，应当选取尽可能少且具有代表性的参数作为测试用例，否则过多的测试用例不仅有可能被人为地赋予错误期望造成单元测试失效（例如不小心将 [InlineData(-1,-2,-3)] 的期望输出写成了 3），也将增加每一次单元测试的时间开销。</p>
+<p>针对 .NET Core 和 .NET Standard 单元测试的最佳做法与工程实施规范，微软在其官方文档中给出了详尽的说明，这些条款在单元测试的编写中具有很好的指导意义，可以帮助你写出更具规范与更易读的单元测试：<a href="https://docs.microsoft.com/zh-cn/dotnet/core/testing/unit-testing-best-practices" target="_blank" rel="noopener">《.NET Core 和 .NET Standard 单元测试最佳做法》</a>。</p>
+<h1 id="五、参考文章"><a href="#五、参考文章" class="headerlink" title="五、参考文章"></a>五、参考文章</h1><ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/core/testing/" target="_blank" rel="noopener">.NET Core 和 .NET Standard 中的单元测试</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/core/testing/unit-testing-with-dotnet-test" target="_blank" rel="noopener">使用 dotnet test 和 xUnit 在 .NET Core 中进行 C# 单元测试</a></li>
+<li><a href="https://deviq.com/explicit-dependencies-principle/" target="_blank" rel="noopener">The Explicit Dependencies Principle states</a></li>
+</ul>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>大兄弟，赏点银子吧！<br/></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Sunwish 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/沿途简记/" rel="tag"><i class="fa fa-tag"></i> 沿途简记</a>
+          
+            <a href="/tags/经验心得/" rel="tag"><i class="fa fa-tag"></i> 经验心得</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/27/bcdedit-clean-bootmenu/" rel="next" title="Bcdedit 删除 Boot Menu 中的多余启动引导">
+                <i class="fa fa-chevron-left"></i> Bcdedit 删除 Boot Menu 中的多余启动引导
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+
+    <div class="sidebar-inner">
+      
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sunwish</p>
+              <p class="site-description motion-element" itemprop="description">个人项目：<br>1. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>2. Alterful · 键盘增强：<br>https://www.alterful.com/<br>3. AQTS · 自动量化交易系统</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.planeguan.com/" title="Planeguan" target="_blank">Planeguan</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zoshny.com/" title="Zoshny" target="_blank">Zoshny</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alterful.com/" title="Alterful" target="_blank">Alterful</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://easecurve.com/" title="Easecurve" target="_blank">Easecurve</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+          
+            
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、什么是单元测试？"><span class="nav-text">一、什么是单元测试？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、为什么要写单元测试？"><span class="nav-text">二、为什么要写单元测试？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、如何创建单元测试？"><span class="nav-text">三、如何创建单元测试？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-创建项目"><span class="nav-text">1.创建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-编写示例类"><span class="nav-text">2.编写示例类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-创建单元测试"><span class="nav-text">3.创建单元测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-编写单元测试"><span class="nav-text">4. 编写单元测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、优化你的单元测试"><span class="nav-text">四、优化你的单元测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、参考文章"><span class="nav-text">五、参考文章</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+          
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sunwish</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 67.7k 字</span>
+</div>
+
+<!--
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+-->
+
+
+
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65941008";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sa3sYJwnqEBnYDpS7VFT70ya-gzGzoHsz',
+        appKey: 'TPHHBKrFtoGkcocnjqN78Fue',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 15694#<app_id>,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
