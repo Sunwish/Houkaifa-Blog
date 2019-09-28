@@ -148,29 +148,25 @@
 
 
 
-  <meta name="description" content="&amp;emsp;&amp;emsp;最近代码码多了于是打算翻翻有什么游戏可玩，无意之中翻到了之前玩的元气骑士，想到还有许多人物都没有解锁，但是又不想攒金币因为太慢了，况且还有一些角色是要RMB才能买的，通过PKiP发现无加固壳，于是一怒之下打算破解其内购。  0x01 找寻突破口&amp;emsp;&amp;emsp;打开元气骑士进入购买人物的场景，点击购买，因为钻石不够所以点进去发现跳转到了购买钻石的页面。1块钱可以兑换8">
-<meta name="keywords" content="逆向破解">
+  <meta name="description" content="概述在面向对象的程序设计语言中，类的设计对软件的整体架构而言影响非常深远。类的封装作为面向对象的三大基石之首，几乎所有的主流 OOP 程序设计语言都为其提供了诸如 private、protected 和 public 这三种访问限定修饰符，其目的无非是为了帮助类更方便地与外界进行一些必要的交流和沟通。可是，对于类的数据成员而言，一旦你为其声明了 public/protected 的访问限定，那么这">
+<meta name="keywords" content="沿途简记,经验心得">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sun的逆向之路（一）——元气骑士的内购破解">
-<meta property="og:url" content="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-1/index.html">
+<meta property="og:title" content="让你的数据成员远离 public&#x2F;protected！">
+<meta property="og:url" content="http://Sunwish.coding.me/2019/09/28/donot-use-public-protected/index.html">
 <meta property="og:site_name" content="猴开发 | 博客">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;最近代码码多了于是打算翻翻有什么游戏可玩，无意之中翻到了之前玩的元气骑士，想到还有许多人物都没有解锁，但是又不想攒金币因为太慢了，况且还有一些角色是要RMB才能买的，通过PKiP发现无加固壳，于是一怒之下打算破解其内购。  0x01 找寻突破口&amp;emsp;&amp;emsp;打开元气骑士进入购买人物的场景，点击购买，因为钻石不够所以点进去发现跳转到了购买钻石的页面。1块钱可以兑换8">
+<meta property="og:description" content="概述在面向对象的程序设计语言中，类的设计对软件的整体架构而言影响非常深远。类的封装作为面向对象的三大基石之首，几乎所有的主流 OOP 程序设计语言都为其提供了诸如 private、protected 和 public 这三种访问限定修饰符，其目的无非是为了帮助类更方便地与外界进行一些必要的交流和沟通。可是，对于类的数据成员而言，一旦你为其声明了 public/protected 的访问限定，那么这">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-1/1.png">
-<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-1/2.png">
-<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-1/3.png">
-<meta property="og:updated_time" content="2018-07-30T12:34:28.868Z">
+<meta property="og:updated_time" content="2019-09-28T06:38:00.598Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sun的逆向之路（一）——元气骑士的内购破解">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;最近代码码多了于是打算翻翻有什么游戏可玩，无意之中翻到了之前玩的元气骑士，想到还有许多人物都没有解锁，但是又不想攒金币因为太慢了，况且还有一些角色是要RMB才能买的，通过PKiP发现无加固壳，于是一怒之下打算破解其内购。  0x01 找寻突破口&amp;emsp;&amp;emsp;打开元气骑士进入购买人物的场景，点击购买，因为钻石不够所以点进去发现跳转到了购买钻石的页面。1块钱可以兑换8">
-<meta name="twitter:image" content="http://sunwish.coding.me/2018/07/30/sun-s-reverse-1/1.png">
+<meta name="twitter:title" content="让你的数据成员远离 public&#x2F;protected！">
+<meta name="twitter:description" content="概述在面向对象的程序设计语言中，类的设计对软件的整体架构而言影响非常深远。类的封装作为面向对象的三大基石之首，几乎所有的主流 OOP 程序设计语言都为其提供了诸如 private、protected 和 public 这三种访问限定修饰符，其目的无非是为了帮助类更方便地与外界进行一些必要的交流和沟通。可是，对于类的数据成员而言，一旦你为其声明了 public/protected 的访问限定，那么这">
 
 
 
 
 
 
-  <link rel="canonical" href="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-1/"/>
+  <link rel="canonical" href="http://Sunwish.coding.me/2019/09/28/donot-use-public-protected/"/>
 
 
 
@@ -180,7 +176,7 @@
   };
 </script>
 
-  <title>Sun的逆向之路（一）——元气骑士的内购破解 | 猴开发 | 博客</title>
+  <title>让你的数据成员远离 public/protected！ | 猴开发 | 博客</title>
   
 
 
@@ -357,7 +353,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-1/">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/09/28/donot-use-public-protected/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sunwish">
@@ -374,7 +370,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Sun的逆向之路（一）——元气骑士的内购破解
+          <h1 class="post-title" itemprop="name headline">让你的数据成员远离 public/protected！
               
             
           </h1>
@@ -411,7 +407,7 @@
                 
               
 
-              <time title="创建时间：2018-07-30 20:25:08 / 修改时间：20:34:28" itemprop="dateCreated datePublished" datetime="2018-07-30T20:25:08+08:00">2018-07-30</time>
+              <time title="创建时间：2019-09-28 14:31:13 / 修改时间：14:38:00" itemprop="dateCreated datePublished" datetime="2019-09-28T14:31:13+08:00">2019-09-28</time>
             
 
             
@@ -430,8 +426,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/07/30/sun-s-reverse-1/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/07/30/sun-s-reverse-1/" itemprop="commentCount"></span>
+                <a href="/2019/09/28/donot-use-public-protected/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/09/28/donot-use-public-protected/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -459,21 +455,18 @@
       
 
       
-        <p>&emsp;&emsp;最近代码码多了于是打算翻翻有什么游戏可玩，无意之中翻到了之前玩的元气骑士，想到还有许多人物都没有解锁，但是又不想攒金币因为太慢了，况且还有一些角色是要RMB才能买的，通过PKiP发现无加固壳，于是一怒之下打算破解其内购。</p>
-<hr>
-<h3 id="0x01-找寻突破口"><a href="#0x01-找寻突破口" class="headerlink" title="0x01 找寻突破口"></a><strong>0x01 找寻突破口</strong></h3><p>&emsp;&emsp;打开元气骑士进入购买人物的场景，点击购买，因为钻石不够所以点进去发现跳转到了购买钻石的页面。1块钱可以兑换800钻石，于是点购买跳转到了爱贝支付。返回取消购买回到了游戏入口界面，提示购买失败。</p>
-<h3 id="0x02-初步尝试破解"><a href="#0x02-初步尝试破解" class="headerlink" title="0x02 初步尝试破解"></a><strong>0x02 初步尝试破解</strong></h3><p>&emsp;&emsp;于是用MT2拿到apk的dex文件，搜索“失败”，发现iapppay下的IAppPayOrderChecker和MainActivit\$3\$1格外瞩目。进入IAppPayOrderChecker发现没有相关内容，于是转到MainActivity\$3\$1中。在OnPayResult函数中发现如下代码块：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.line 113</span><br><span class="line">iget-object v1, p0, Lcom/chillyroomsdk/iapppay/MainActivity$3$1;-&gt;this$1:Lcom/chillyroomsdk/iapppay/MainActivity$3;</span><br><span class="line">iget-object v2, p0, Lcom/chillyroomsdk/iapppay/MainActivity$3$1;-&gt;val$orderId:Ljava/lang/String;</span><br><span class="line">iget-object v3, p0, Lcom/chillyroomsdk/iapppay/MainActivity$3$1;-&gt;val$extra:Ljava/lang/String;</span><br><span class="line">invoke-virtual &#123;v1, v2, v3&#125;, Lcom/chillyroomsdk/iapppay/MainActivity$3;-&gt;onPayFail(Ljava/lang/String;Ljava/lang/String;)V</span><br><span class="line">.line 116</span><br><span class="line">:goto_18</span><br><span class="line">const-string v1, &quot;Unity&quot;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;其中的OnPayFail值得注意，既然有OnPayFail那么就应该有OnPaySuccess，我们继续往下翻的确找到了OnPaySuccess，同时在OnPaySuccess上方看到 :pswitch_45，将其记录下来。翻到底部找到了一个pswitch结构：<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> .line 96</span><br><span class="line">:pswitch_data_86</span><br><span class="line">.packed-switch 0x0</span><br><span class="line">    :pswitch_45</span><br><span class="line">    :pswitch_4</span><br><span class="line">    :pswitch_7c</span><br><span class="line">.end packed-switch</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;注意到:pswitch_45下方还有:pswitch_4和:pswitch_7c，我们找到pswitch_4所在的位置发现正好跳转到了OnPayFail所在的位置。这时我们大概清楚了代码逻辑，即不同的情况分别跳转到不同的:pswitch_代码块。我们将另外两个pswitch的跳转编号全部修改为45。到这里，购买成功的破解就完成了。</p>
-<h3 id="0x03-深入订单校验"><a href="#0x03-深入订单校验" class="headerlink" title="0x03 深入订单校验"></a><strong>0x03 深入订单校验</strong></h3><p>&emsp;&emsp;但是进入游戏发现仍然购买失败。提示的是：支付成功但验签失败。<br><img src="/2018/07/30/sun-s-reverse-1/1.png" alt=""><br>&emsp;&emsp;看来元气骑士的内购验证还是比较严密的。回到dex文件，发现该字符串仍旧位于MainActivity\$3$1，由:cond_6e跳转而来，发现原来在OnPaySuccess的上一步还做了一个支付判断（if-eqz v0, :cond_6e），如果订单状态校验不吻合就跳转到:cond_6e。将这条代码注释掉，重新进入游戏购买，发现还是失败了，提示订单支付失败。若发生丢单请勿重复支付，并联系客服。<br><img src="/2018/07/30/sun-s-reverse-1/2.png" alt=""><br>&emsp;&emsp;这时冷静下来，猜想除了 MainActivity 内的 OnPayResult 判断外，应该还有其他的订单检验方法，重新审视了一下com类，不出所料，在最开始被忽视的 <strong>IAppPayOrderChecker</strong> 中发现了对应字符串，代码块对应 :cond_f5，往上一翻发现多处if-eqz跳转到了此处！二话不说对所有转到 :cond_f5 的判断语句进行注释，中途还发现一个 :cond_133 跳转到验证失败于是也一并注释了。<br>至此不出意外应该已经成功完成了内购破解。</p>
-<h3 id="0x04-破除apk签名验证"><a href="#0x04-破除apk签名验证" class="headerlink" title="0x04 破除apk签名验证"></a><strong>0x04 破除apk签名验证</strong></h3><p>有意思的是，虽然内购破解应该已经顺利完成了，但是重编译并自己手动打上签名安装后发现直接无法进入游戏了，提示我们请下载正版游戏并跳转到了元气骑士的官方网站。猜想是联网验证于是断掉无线局域网重进游戏，发现依旧无法进入游戏并直接闪退了，看来游戏做了联网+本地的双重验证。<br>回到dex++，最终在 UnityExtendAcitivity 中的起始位置发现了名为 GetKeyHash 函数，代码片段如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.method public static GetKeyHash()Ljava/lang/String;</span><br><span class="line">   .registers 7</span><br><span class="line">   .prologue</span><br><span class="line">   const/4 v3, 0x0</span><br><span class="line">   .line 26</span><br><span class="line">   :try_start_1</span><br><span class="line">   sget-object v4, Lcom/unity3d/player/UnityPlayer;-&gt;currentActivity:Landroid/app/Activity;</span><br><span class="line">   invoke-virtual &#123;v4&#125;, Landroid/app/Activity;-&gt;getPackageManager()Landroid/content/pm/PackageManager;</span><br><span class="line">   move-result-object v4</span><br></pre></td></tr></table></figure>
-<p>在.prologue与const/4 v3, 0x0之间直接插入return-void拦截此函数的执行，最后保存修改过的dex文件，更新apk包并打上应用签名，重新安装apk文件，没有出现异常，可以进入游戏了，随便购买一个人物，进入订单页面，返回取消订单，可以看到支付成功，除了人物之外，钻石也可以随意购买了。<br><img src="/2018/07/30/sun-s-reverse-1/3.png" alt="支付成功"></p>
-<h3 id="0x05-附件与声明"><a href="#0x05-附件与声明" class="headerlink" title="0x05 附件与声明"></a><strong>0x05 附件与声明</strong></h3><blockquote>
-<p>破解后的游戏下载地址：<a href="https://pan.baidu.com/s/1pL1JzsR" target="_blank" rel="noopener">https://pan.baidu.com/s/1pL1JzsR</a> 密码: 7dvq<br>本文及附件内容仅限于技术学习，同时希望相应公司尽快修复相关漏洞。</p>
-</blockquote>
-<center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>在面向对象的程序设计语言中，类的设计对软件的整体架构而言影响非常深远。类的封装作为面向对象的三大基石之首，几乎所有的主流 OOP 程序设计语言都为其提供了诸如 private、protected 和 public 这三种访问限定修饰符，其目的无非是为了帮助类更方便地与外界进行一些必要的交流和沟通。可是，对于类的数据成员而言，一旦你为其声明了 public/protected 的访问限定，那么这一举措对你的中大型程序构建而言将是灾难性的。</p>
+<h1 id="一、数据的安全性引人忧虑"><a href="#一、数据的安全性引人忧虑" class="headerlink" title="一、数据的安全性引人忧虑"></a>一、数据的安全性引人忧虑</h1><p>要深刻理解为什么 public/protected 如何可怕，就要首先明白封装的意义何在。</p>
+<p>在曾经主流的面向过程的程序开发当中，代码的复用是函数级的，而在每一个函数当中所实行的都是过程式编码，这也就意味着在主函数当中的函数调用式编程亦是过程式的。在作用域的约束之下，为了使得不同的函数域都能够访问同一个变量，达到函数职能效益的最大化，往往将其声明为全局变量。这直接导致了任何的函数都将能够对其进行读和写的操作，对于数据的安全性而言这简直是当头一棒！在小型程序开发者的眼里，这点风险根本不足为惧，可是对于大型程序开发者来说，变量值的修改将完全不再受到开发者的掌控，值异常现象将有可能由庞大代码量中的任何一个操作该变量的默默无闻的小角落中产生。如此一来，大型程序的开发与维护变得举步维艰。</p>
+<a id="more"></a>
+<h1 id="二、封装与-private-带来曙光"><a href="#二、封装与-private-带来曙光" class="headerlink" title="二、封装与 private 带来曙光"></a>二、封装与 private 带来曙光</h1><p>幸运的是，面向对象的编程范式应运而生了，类的封装不仅使得程序开发逻辑更加符合人的自然思考方式，代码也变得更加简洁、更具可读性了。更加重要的是，面向对象编程语言为我们提供了丰富的访问限定标识，数据的暴露与否终于不再非黑即白，而是变得更加可控了。开发人员终于可以在安全性与功能性之间找到平衡，男默女泪。</p>
+<p>对于 private 而言，它绝对是帮助程序员编写稳固代码的最佳帮手。一旦你将类的某个数据成员声明为 private，也就对外宣布了主权：这个成员是我的私藏品，只有我才能够访问它！于此同时，你也可以通过为某一私有数据成员编写公有的 get/set 方法将其选择性地对外暴露，如此一来，你可以为你的数据成员对外创造出”不准访问“、”只读访问“和”读写访问“，你甚至还可以对外创造出一个”只写访问“的奇葩数据成员。</p>
+<p>终于，你可以籍由 private 访问限定符随心所欲地将具有相关需求的数据成员对外暴露并且不必过分忧虑其安全问题，因为在访问限定的“继承体制”加持下，你的数据成员将一直保持着一个有所保留的矜持者形象，绝不允许被某些好心办坏事或是图谋不轨的不明代码肆意篡改。由此一来，每当你为你的数据成员显式地敲下私有的访问限定符，都是为将来维护阶段中无数个修 bug 的加班日夜争取了一些享受生活的美好时光。珍爱生命，我用 private。</p>
+<h1 id="三、public-protected-是复辟者"><a href="#三、public-protected-是复辟者" class="headerlink" title="三、public/protected 是复辟者"></a>三、public/protected 是复辟者</h1><p>但是注意！不要因为 private 为我们带来一片利好，就不暇思索地也对其它访问限定符付出真心并委以重任，若如此你便身处险境了。事实上，在所有的访问限定修饰符当中，唯有 private 才是帮助开发人员维护代码稳定与数据安全的正规军，其它诸如 public 与 protected 等皆是旧制度下风险派的邪恶复辟者！这些囚徒们妄想冲出封装的牢笼，将你构建安全、稳定、低耦合代码的美梦砸个粉碎，并籍由编译器发声，在未来的某一天向你抛出一堆鲜红的 Errors 得意示威。</p>
+<p>试想一下，如果你将一个数据成员的访问限定符声明为了 protected，这将意味着什么？这将意味着在未来，以这个类作为父类的所有派生类都将具有直接读写该成员的至高权利！你或许觉得“对啊，这正是我想要的，这对于我的开发而言应该是有利的吧“，因为你认为具有父子关系的两个类不再需要为安全性问题而夙夜忧患了，构建 get/set 围墙的工作好像失去了必要性。然而你所不知道的是，你的项目在你做出 protected 这一决定的时候已然搭上了贴有“维护困难”标签的班车，并且随着你敲下越来越多的 protected 关键字，你的项目也哼着小曲儿，随着你一起在驶向终点站 “无法维护” 的道路上所向睥睨。</p>
+<p>在未来的某一天里，由于某些原因，被你指定为 protected 的那些数据成员需要转型为 private 时，所有继承并操作了这一成员的派生类就要喜提 Errors 了，因为它们无法再像以前一样直接操作这些数据，你需要将所有相关代码全部重写为以 get/set 的方式进行访问，甚至当这些数据成员被取消使用时，所有的访问代码都失去了意义。你看到了，一个基类 protected 数据成员的变更将破坏所有相关的派生类。而若你的数据成员声明的不是 protected 而是 public，又将有多少代码受到伤害？</p>
+<p>对于数据成员而言，public/protected 在表面上光鲜亮丽，好像是”自由“与”开放“的崇尚者，然而实际上确实另一维度上的 “const”。可以说，它们不仅大大增加了代码修改与维护的难度，将数据与多个类使用胶水一般粘在了一起，还具有极其隐蔽的风险性，而规避这些问题最好的办法便是拒绝使用它们。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
       
     </div>
 
@@ -517,7 +510,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/逆向破解/" rel="tag"><i class="fa fa-tag"></i> 逆向破解</a>
+            <a href="/tags/沿途简记/" rel="tag"><i class="fa fa-tag"></i> 沿途简记</a>
+          
+            <a href="/tags/经验心得/" rel="tag"><i class="fa fa-tag"></i> 经验心得</a>
           
         </div>
       
@@ -542,8 +537,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/20/My-First-Post/" rel="next" title="Sunwish's Blog 开通啦">
-                <i class="fa fa-chevron-left"></i> Sunwish's Blog 开通啦
+              <a href="/2019/09/26/vscode-xunit-unittest/" rel="next" title="VSCode + xUnit 编写 C# 单元测试">
+                <i class="fa fa-chevron-left"></i> VSCode + xUnit 编写 C# 单元测试
               </a>
             
           </div>
@@ -551,10 +546,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/30/sun-s-reverse-2/" rel="prev" title="Sun的逆向之路（二）——FiF口语训练的刷分剖析">
-                Sun的逆向之路（二）——FiF口语训练的刷分剖析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -740,7 +731,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-找寻突破口"><span class="nav-text">0x01 找寻突破口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-初步尝试破解"><span class="nav-text">0x02 初步尝试破解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-深入订单校验"><span class="nav-text">0x03 深入订单校验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x04-破除apk签名验证"><span class="nav-text">0x04 破除apk签名验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x05-附件与声明"><span class="nav-text">0x05 附件与声明</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、数据的安全性引人忧虑"><span class="nav-text">一、数据的安全性引人忧虑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、封装与-private-带来曙光"><span class="nav-text">二、封装与 private 带来曙光</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、public-protected-是复辟者"><span class="nav-text">三、public/protected 是复辟者</span></a></li></ol></div>
             
 
           </div>
