@@ -148,25 +148,27 @@
 
 
 
-  <meta name="description" content="概述在面向对象的程序设计语言中，类的设计对软件的整体架构而言影响非常深远。类的封装作为面向对象的三大基石之首，几乎所有的主流 OOP 程序设计语言都为其提供了诸如 private、protected 和 public 这三种访问限定修饰符，其目的无非是为了帮助类更方便地与外界进行一些必要的交流和沟通。可是，对于类的数据成员而言，一旦你为其声明了 public/protected 的访问限定，那么这">
-<meta name="keywords" content="沿途简记,经验心得">
+  <meta name="description" content="概述 阻塞模式下的 Socket 编程往往是非常低效的，然而 Java 中的典型 Socket 编程核心采用的正是这种模式。好在 Java 提供了另一种解决方案，通过 Socket Channel 技术实现了非阻塞的异步 Socket 编程。本文将以一个简单的同步 Socket Demo 切入，引出并介绍 Java 中的 Socket Channel 并完成一个 Asynchronous Sock">
+<meta name="keywords" content="沿途简记,Java,Socket">
 <meta property="og:type" content="article">
-<meta property="og:title" content="让你的数据成员远离 public&#x2F;protected！">
-<meta property="og:url" content="http://Sunwish.coding.me/2019/09/28/donot-use-public-protected/index.html">
+<meta property="og:title" content="初探 Java 中的异步 Socket">
+<meta property="og:url" content="http://Sunwish.coding.me/2019/10/10/Java-AsynchronousSocketChannels/index.html">
 <meta property="og:site_name" content="猴开发 | 博客">
-<meta property="og:description" content="概述在面向对象的程序设计语言中，类的设计对软件的整体架构而言影响非常深远。类的封装作为面向对象的三大基石之首，几乎所有的主流 OOP 程序设计语言都为其提供了诸如 private、protected 和 public 这三种访问限定修饰符，其目的无非是为了帮助类更方便地与外界进行一些必要的交流和沟通。可是，对于类的数据成员而言，一旦你为其声明了 public/protected 的访问限定，那么这">
+<meta property="og:description" content="概述 阻塞模式下的 Socket 编程往往是非常低效的，然而 Java 中的典型 Socket 编程核心采用的正是这种模式。好在 Java 提供了另一种解决方案，通过 Socket Channel 技术实现了非阻塞的异步 Socket 编程。本文将以一个简单的同步 Socket Demo 切入，引出并介绍 Java 中的 Socket Channel 并完成一个 Asynchronous Sock">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-28T06:38:00.598Z">
+<meta property="og:image" content="http://sunwish.coding.me/2019/10/10/Java-AsynchronousSocketChannels/1.jpg">
+<meta property="og:updated_time" content="2019-10-10T14:46:03.379Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="让你的数据成员远离 public&#x2F;protected！">
-<meta name="twitter:description" content="概述在面向对象的程序设计语言中，类的设计对软件的整体架构而言影响非常深远。类的封装作为面向对象的三大基石之首，几乎所有的主流 OOP 程序设计语言都为其提供了诸如 private、protected 和 public 这三种访问限定修饰符，其目的无非是为了帮助类更方便地与外界进行一些必要的交流和沟通。可是，对于类的数据成员而言，一旦你为其声明了 public/protected 的访问限定，那么这">
+<meta name="twitter:title" content="初探 Java 中的异步 Socket">
+<meta name="twitter:description" content="概述 阻塞模式下的 Socket 编程往往是非常低效的，然而 Java 中的典型 Socket 编程核心采用的正是这种模式。好在 Java 提供了另一种解决方案，通过 Socket Channel 技术实现了非阻塞的异步 Socket 编程。本文将以一个简单的同步 Socket Demo 切入，引出并介绍 Java 中的 Socket Channel 并完成一个 Asynchronous Sock">
+<meta name="twitter:image" content="http://sunwish.coding.me/2019/10/10/Java-AsynchronousSocketChannels/1.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://Sunwish.coding.me/2019/09/28/donot-use-public-protected/"/>
+  <link rel="canonical" href="http://Sunwish.coding.me/2019/10/10/Java-AsynchronousSocketChannels/"/>
 
 
 
@@ -176,7 +178,7 @@
   };
 </script>
 
-  <title>让你的数据成员远离 public/protected！ | 猴开发 | 博客</title>
+  <title>初探 Java 中的异步 Socket | 猴开发 | 博客</title>
   
 
 
@@ -353,7 +355,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/09/28/donot-use-public-protected/">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/10/10/Java-AsynchronousSocketChannels/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sunwish">
@@ -370,7 +372,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">让你的数据成员远离 public/protected！
+          <h1 class="post-title" itemprop="name headline">初探 Java 中的异步 Socket
               
             
           </h1>
@@ -407,7 +409,7 @@
                 
               
 
-              <time title="创建时间：2019-09-28 14:31:13 / 修改时间：14:38:00" itemprop="dateCreated datePublished" datetime="2019-09-28T14:31:13+08:00">2019-09-28</time>
+              <time title="创建时间：2019-10-10 16:41:15 / 修改时间：22:46:03" itemprop="dateCreated datePublished" datetime="2019-10-10T16:41:15+08:00">2019-10-10</time>
             
 
             
@@ -426,8 +428,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/09/28/donot-use-public-protected/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/09/28/donot-use-public-protected/" itemprop="commentCount"></span>
+                <a href="/2019/10/10/Java-AsynchronousSocketChannels/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/10/10/Java-AsynchronousSocketChannels/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -455,17 +457,21 @@
       
 
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>在面向对象的程序设计语言中，类的设计对软件的整体架构而言影响非常深远。类的封装作为面向对象的三大基石之首，几乎所有的主流 OOP 程序设计语言都为其提供了诸如 private、protected 和 public 这三种访问限定修饰符，其目的无非是为了帮助类更方便地与外界进行一些必要的交流和沟通。可是，对于类的数据成员而言，一旦你为其声明了 public/protected 的访问限定，那么这一举措对你的中大型程序构建而言将是灾难性的。</p>
-<h1 id="一、数据的安全性引人忧虑"><a href="#一、数据的安全性引人忧虑" class="headerlink" title="一、数据的安全性引人忧虑"></a>一、数据的安全性引人忧虑</h1><p>要深刻理解为什么 public/protected 如何可怕，就要首先明白封装的意义何在。</p>
-<p>在曾经主流的面向过程的程序开发当中，代码的复用是函数级的，而在每一个函数当中所实行的都是过程式编码，这也就意味着在主函数当中的函数调用式编程亦是过程式的。在作用域的约束之下，为了使得不同的函数域都能够访问同一个变量，达到函数职能效益的最大化，往往将其声明为全局变量。这直接导致了任何的函数都将能够对其进行读和写的操作，对于数据的安全性而言这简直是当头一棒！在小型程序开发者的眼里，这点风险根本不足为惧，可是对于大型程序开发者来说，变量值的修改将完全不再受到开发者的掌控，值异常现象将有可能由庞大代码量中的任何一个操作该变量的默默无闻的小角落中产生。如此一来，大型程序的开发与维护变得举步维艰。</p>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>阻塞模式下的 Socket 编程往往是非常低效的，然而 Java 中的典型 Socket 编程核心采用的正是这种模式。好在 Java 提供了另一种解决方案，通过 Socket Channel 技术实现了非阻塞的异步 Socket 编程。本文将以一个简单的同步 Socket Demo 切入，引出并介绍 Java 中的 Socket Channel 并完成一个 Asynchronous Socket 案例。</p>
+</blockquote>
+<p><img src="/2019/10/10/Java-AsynchronousSocketChannels/1.jpg" alt="文章头图"></p>
 <a id="more"></a>
-<h1 id="二、封装与-private-带来曙光"><a href="#二、封装与-private-带来曙光" class="headerlink" title="二、封装与 private 带来曙光"></a>二、封装与 private 带来曙光</h1><p>幸运的是，面向对象的编程范式应运而生了，类的封装不仅使得程序开发逻辑更加符合人的自然思考方式，代码也变得更加简洁、更具可读性了。更加重要的是，面向对象编程语言为我们提供了丰富的访问限定标识，数据的暴露与否终于不再非黑即白，而是变得更加可控了。开发人员终于可以在安全性与功能性之间找到平衡，男默女泪。</p>
-<p>对于 private 而言，它绝对是帮助程序员编写稳固代码的最佳帮手。一旦你将类的某个数据成员声明为 private，也就对外宣布了主权：这个成员是我的私藏品，只有我才能够访问它！于此同时，你也可以通过为某一私有数据成员编写公有的 get/set 方法将其选择性地对外暴露，如此一来，你可以为你的数据成员对外创造出”不准访问“、”只读访问“和”读写访问“，你甚至还可以对外创造出一个”只写访问“的奇葩数据成员。</p>
-<p>终于，你可以籍由 private 访问限定符随心所欲地将具有相关需求的数据成员对外暴露并且不必过分忧虑其安全问题，因为在访问限定的“继承体制”加持下，你的数据成员将一直保持着一个有所保留的矜持者形象，绝不允许被某些好心办坏事或是图谋不轨的不明代码肆意篡改。由此一来，每当你为你的数据成员显式地敲下私有的访问限定符，都是为将来维护阶段中无数个修 bug 的加班日夜争取了一些享受生活的美好时光。珍爱生命，我用 private。</p>
-<h1 id="三、public-protected-是复辟者"><a href="#三、public-protected-是复辟者" class="headerlink" title="三、public/protected 是复辟者"></a>三、public/protected 是复辟者</h1><p>但是注意！不要因为 private 为我们带来一片利好，就不暇思索地也对其它访问限定符付出真心并委以重任，若如此你便身处险境了。事实上，在所有的访问限定修饰符当中，唯有 private 才是帮助开发人员维护代码稳定与数据安全的正规军，其它诸如 public 与 protected 等皆是旧制度下风险派的邪恶复辟者！这些囚徒们妄想冲出封装的牢笼，将你构建安全、稳定、低耦合代码的美梦砸个粉碎，并籍由编译器发声，在未来的某一天向你抛出一堆鲜红的 Errors 得意示威。</p>
-<p>试想一下，如果你将一个数据成员的访问限定符声明为了 protected，这将意味着什么？这将意味着在未来，以这个类作为父类的所有派生类都将具有直接读写该成员的至高权利！你或许觉得“对啊，这正是我想要的，这对于我的开发而言应该是有利的吧“，因为你认为具有父子关系的两个类不再需要为安全性问题而夙夜忧患了，构建 get/set 围墙的工作好像失去了必要性。然而你所不知道的是，你的项目在你做出 protected 这一决定的时候已然搭上了贴有“维护困难”标签的班车，并且随着你敲下越来越多的 protected 关键字，你的项目也哼着小曲儿，随着你一起在驶向终点站 “无法维护” 的道路上所向睥睨。</p>
-<p>在未来的某一天里，由于某些原因，被你指定为 protected 的那些数据成员需要转型为 private 时，所有继承并操作了这一成员的派生类就要喜提 Errors 了，因为它们无法再像以前一样直接操作这些数据，你需要将所有相关代码全部重写为以 get/set 的方式进行访问，甚至当这些数据成员被取消使用时，所有的访问代码都失去了意义。你看到了，一个基类 protected 数据成员的变更将破坏所有相关的派生类。而若你的数据成员声明的不是 protected 而是 public，又将有多少代码受到伤害？</p>
-<p>对于数据成员而言，public/protected 在表面上光鲜亮丽，好像是”自由“与”开放“的崇尚者，然而实际上确实另一维度上的 “const”。可以说，它们不仅大大增加了代码修改与维护的难度，将数据与多个类使用胶水一般粘在了一起，还具有极其隐蔽的风险性，而规避这些问题最好的办法便是拒绝使用它们。</p>
+<blockquote>
+<p><strong>友情提示</strong>：本文还没有写完，明天再说吧（我太难了5555）</p>
+</blockquote>
+<h1 id="一、Socket"><a href="#一、Socket" class="headerlink" title="一、Socket"></a>一、Socket</h1><p>在今天的软需分析课上，老师向我们展示了一段用 Java 编写的简单 Socket 通信例程，实现的是基础的 C/S 双向通信。我曾使用 Python 和其它语言开发过 Socket 项目，但为了熟悉 Java 便拿着老师给的代码照着码了一遍：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Server</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ChatServer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> EOFException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Server is listening on port 8080."</span>);</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">try</span>(</span><br><span class="line">                <span class="comment">// Create a socket server</span></span><br><span class="line">                ServerSocket serverSocket = <span class="keyword">new</span> ServerSocket(<span class="number">8080</span>);</span><br><span class="line">                <span class="comment">// Get server socket</span></span><br><span class="line">                Socket socket = serverSocket.accept();</span><br><span class="line">                <span class="comment">// Get socket I/O stream</span></span><br><span class="line">                DataInputStream inputStream = <span class="keyword">new</span> DataInputStream(socket.getInputStream());</span><br><span class="line">                DataOutputStream outputStream = <span class="keyword">new</span> DataOutputStream(socket.getOutputStream());</span><br><span class="line">                <span class="comment">// Get Console buffered Reader</span></span><br><span class="line">                BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">            )&#123;</span><br><span class="line">                <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">                    <span class="comment">// Input</span></span><br><span class="line">                    <span class="comment">// Receive message from clients</span></span><br><span class="line">                    String iString = inputStream.readUTF();</span><br><span class="line">                    <span class="comment">// Display message received</span></span><br><span class="line">                    System.out.println(<span class="string">"[Client] "</span> + iString);</span><br><span class="line">                    <span class="comment">// Output</span></span><br><span class="line">                    <span class="comment">// Get console input</span></span><br><span class="line">                    String aString = bufferedReader.readLine();</span><br><span class="line">                    <span class="keyword">if</span>(aString.equals(<span class="string">"bye"</span>))<span class="keyword">break</span>;</span><br><span class="line">                    outputStream.writeUTF(aString);</span><br><span class="line">                    outputStream.flush();</span><br><span class="line">                    System.out.println(<span class="string">"[Info] "</span> + aString + <span class="string">" has been sent."</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (IOException exp) &#123;</span><br><span class="line">                exp.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        thread.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Client</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ChatClient</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Client is running."</span>);</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">try</span>(</span><br><span class="line">                    <span class="comment">// Socket connect</span></span><br><span class="line">                    Socket socket = <span class="keyword">new</span> Socket(<span class="string">"localhost"</span>,<span class="number">8080</span>);</span><br><span class="line">                    <span class="comment">// Get socket I/O stream</span></span><br><span class="line">                    DataInputStream dataInputStream = <span class="keyword">new</span> DataInputStream(socket.getInputStream());</span><br><span class="line">                    DataOutputStream dataOutputStream = <span class="keyword">new</span> DataOutputStream(socket.getOutputStream());</span><br><span class="line">                    <span class="comment">// Build a Console buffered Reader</span></span><br><span class="line">                    BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">            )</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">                    <span class="comment">// Output</span></span><br><span class="line">                    <span class="comment">// Get console input</span></span><br><span class="line">                    String aString = bufferedReader.readLine();</span><br><span class="line">                    <span class="keyword">if</span>(aString.equals(<span class="string">"bye"</span>))<span class="keyword">break</span>;</span><br><span class="line">                    <span class="comment">// Send message</span></span><br><span class="line">                    dataOutputStream.writeUTF(aString);</span><br><span class="line">                    dataOutputStream.flush();</span><br><span class="line">                    System.out.println(<span class="string">"[Info] "</span> + aString + <span class="string">" has been sent."</span>);</span><br><span class="line">                    <span class="comment">// Input</span></span><br><span class="line">                    <span class="comment">// Receive message from server</span></span><br><span class="line">                    String iString = dataInputStream.readUTF();</span><br><span class="line">                    <span class="comment">// Display message received</span></span><br><span class="line">                    System.out.println(<span class="string">"[Server] "</span> + iString);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">catch</span>(UnknownHostException exp)&#123;</span><br><span class="line">                exp.printStackTrace();</span><br><span class="line">            &#125;<span class="keyword">catch</span> (IOException exp) &#123;</span><br><span class="line">                exp.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        thread.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然而运行结果不尽人意。C/S 之间确实可以相互收发，但彼此间的通信总是被“随机地” “延迟” 送达。课后重新调试时才发现，Java (Server)Socket 类中的 I/O 及 Client 连接均是阻塞的 Synchronous 实现。阻塞模式下的 Socket 编程往往是非常低效的，然而 Java 中的典型 Socket 编程核心采用的正是这种模式。</p>
+<h1 id="二、Socket-Channel"><a href="#二、Socket-Channel" class="headerlink" title="二、Socket Channel"></a>二、Socket Channel</h1><h1 id="三、Asynchronous-Socket-Channel"><a href="#三、Asynchronous-Socket-Channel" class="headerlink" title="三、Asynchronous Socket Channel"></a>三、Asynchronous Socket Channel</h1><h1 id="四、构建一个简易的异步-Socket-演示"><a href="#四、构建一个简易的异步-Socket-演示" class="headerlink" title="四、构建一个简易的异步 Socket 演示"></a>四、构建一个简易的异步 Socket 演示</h1><h1 id="五、参考文章与推荐阅读"><a href="#五、参考文章与推荐阅读" class="headerlink" title="五、参考文章与推荐阅读"></a>五、参考文章与推荐阅读</h1><p>[1] <a href="https://www.codejava.net/java-se/networking/java-socket-server-examples-tcp-ip" target="_blank" rel="noopener">Java Socket Server Examples (TCP/IP)</a></p>
+<p>[2] <a href="https://www.developer.com/java/data/understanding-asynchronous-socket-channels-in-java.html" target="_blank" rel="noopener">Understanding Asynchronous Socket Channels in Java</a></p>
+<p>[3] <a href="http://www.java2s.com/Tutorials/Java/Java_Network/0080__Java_Network_Asynchronous_Socket_Channels.htm" target="_blank" rel="noopener">Java Network Tutorial - Java Asynchronous Socket Channels</a></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
       
     </div>
@@ -512,7 +518,9 @@
           
             <a href="/tags/沿途简记/" rel="tag"><i class="fa fa-tag"></i> 沿途简记</a>
           
-            <a href="/tags/经验心得/" rel="tag"><i class="fa fa-tag"></i> 经验心得</a>
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/tags/Socket/" rel="tag"><i class="fa fa-tag"></i> Socket</a>
           
         </div>
       
@@ -537,8 +545,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/26/vscode-xunit-unittest/" rel="next" title="VSCode + xUnit 编写 C# 单元测试">
-                <i class="fa fa-chevron-left"></i> VSCode + xUnit 编写 C# 单元测试
+              <a href="/2019/09/28/donot-use-public-protected/" rel="next" title="让你的数据成员远离 public/protected！">
+                <i class="fa fa-chevron-left"></i> 让你的数据成员远离 public/protected！
               </a>
             
           </div>
@@ -546,10 +554,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/10/Java-AsynchronousSocketChannels/" rel="prev" title="初探 Java 中的异步 Socket">
-                初探 Java 中的异步 Socket <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -739,7 +743,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、数据的安全性引人忧虑"><span class="nav-text">一、数据的安全性引人忧虑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、封装与-private-带来曙光"><span class="nav-text">二、封装与 private 带来曙光</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、public-protected-是复辟者"><span class="nav-text">三、public/protected 是复辟者</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、Socket"><span class="nav-text">一、Socket</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、Socket-Channel"><span class="nav-text">二、Socket Channel</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、Asynchronous-Socket-Channel"><span class="nav-text">三、Asynchronous Socket Channel</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、构建一个简易的异步-Socket-演示"><span class="nav-text">四、构建一个简易的异步 Socket 演示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、参考文章与推荐阅读"><span class="nav-text">五、参考文章与推荐阅读</span></a></li></ol></div>
             
 
           </div>
