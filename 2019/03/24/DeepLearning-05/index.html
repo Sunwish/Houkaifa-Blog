@@ -149,7 +149,7 @@
 
 
   <meta name="description" content="概述 本篇中你将了解几种常见的激活函数，并看到在浅层神经网络中向后传播及梯度下降是如何进行的。">
-<meta name="keywords" content="学习笔记,深度学习">
+<meta name="keywords" content="Algorithm,DeepLearning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度学习（五）激活函数的选择 &amp; 浅层神经网络的梯度下降">
 <meta property="og:url" content="http://Sunwish.coding.me/2019/03/24/DeepLearning-05/index.html">
@@ -162,7 +162,7 @@
 <meta property="og:image" content="http://sunwish.coding.me/2019/03/24/DeepLearning-05/4d.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2019/03/24/DeepLearning-05/5b.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2019/03/24/DeepLearning-05/6a.jpg">
-<meta property="og:updated_time" content="2019-08-27T05:14:52.114Z">
+<meta property="og:updated_time" content="2019-10-16T15:15:31.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习（五）激活函数的选择 &amp; 浅层神经网络的梯度下降">
 <meta name="twitter:description" content="概述 本篇中你将了解几种常见的激活函数，并看到在浅层神经网络中向后传播及梯度下降是如何进行的。">
@@ -309,6 +309,14 @@
     <a href="/series/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
   </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
 
       
       
@@ -442,11 +450,36 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-27 13:14:52" itemprop="dateModified" datetime="2019-08-27T13:14:52+08:00">2019-08-27</time>
+                <time title="修改时间：2019-10-16 23:15:31" itemprop="dateModified" datetime="2019-10-16T23:15:31+08:00">2019-10-16</time>
               
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -494,9 +527,7 @@
 <h1 id="5-0-上篇回顾"><a href="#5-0-上篇回顾" class="headerlink" title="5.0 上篇回顾"></a>5.0 上篇回顾</h1><p>在上一篇中，你见到了一个单输出的浅层（双层）神经网络是如何进行向前传播的，就同 Logistic 回归网络一样，不过多重复了几次单层网络的向前传播过程而已。</p>
 <p>对于隐藏层而言，所有的隐藏单元与输入层都构成了简单的单层网络结构，所有的隐藏单元均进行一次向前传播（图1-0左），所有隐藏单元完成向前传播后，隐藏层的输出数据就作为输出层的输入数据，继续向前推进，完成输出层的向前传播（图1-0右）。</p>
 <p><img src="/2019/03/24/DeepLearning-05/2a.jpg" alt="Title"></p>
-<center>图 1-0 浅层神经网络的向前传播过程</center>
-
-<p>如果你了解了 Logistic 回归的向前传播过程，那么浅层神经网络当中的向前传播是很好理解的。</p>
+<p><center>图 1-0 浅层神经网络的向前传播过程</center><br>如果你了解了 Logistic 回归的向前传播过程，那么浅层神经网络当中的向前传播是很好理解的。</p>
 <p>还记得在上篇的末尾留下了一个问题，即激活函数的选择。在之前我们一直使用的是 sigmoid 函数：</p>
 <script type="math/tex; mode=display">
 \begin{equation}
@@ -508,9 +539,7 @@
 \tanh(z) = \frac{e^{z} - e^{-z}}{e^{z} + e^{-z}}
 \end{equation}</script><p>如果你对数学敏感的话，或许可以发现它与 sigmoid 函数的相似之处。如果观察图像的话，可以更加直观地看到，tanh 函数的形态与 sigmoid 函数是非常相似的，事实上 tanh 就是 sigmoid 函数的一个伸缩平移版本，两者是线性相关的。</p>
 <p><img src="/2019/03/24/DeepLearning-05/3c.jpg" alt="Title"></p>
-<center>图 1-1 tanh 函数图像及其梯度图像</center>
-
-<p>你可能会疑惑，既然 tanh 函数与 sigmoid 函数形态如此相似，为什么不直接使用 sigmoid 函数而是要换用一个看上去更复杂的 tanh 函数？答案很简单，tanh 函数可以很好的规避 sigmoid 函数导致的 zigzag 现象。如果你观察 tanh 函数的值域的话，你会发现它处于区间 $[-1,1]$，并且其中心点在坐标原点处，这意味着 tanh 是 0 均值的，这对神经网络的训练很有帮助。</p>
+<p><center>图 1-1 tanh 函数图像及其梯度图像</center><br>你可能会疑惑，既然 tanh 函数与 sigmoid 函数形态如此相似，为什么不直接使用 sigmoid 函数而是要换用一个看上去更复杂的 tanh 函数？答案很简单，tanh 函数可以很好的规避 sigmoid 函数导致的 zigzag 现象。如果你观察 tanh 函数的值域的话，你会发现它处于区间 $[-1,1]$，并且其中心点在坐标原点处，这意味着 tanh 是 0 均值的，这对神经网络的训练很有帮助。</p>
 <p><strong>零均值能避免 zigzag？能提高网络的训练效率？WHY？</strong></p>
 <p>如果你对原理不感兴趣，只需要知道上面一行黑体字是结论就行了。不过如果感兴趣，我们来从根本上看一看 sigmoid 函数为什么效率上不如零均值的 tanh 函数吧。</p>
 <p>最大的问题在于 sigmoid 函数的输出全部是非负的，这直接导致了下一层网络在反向传播的过程中同层同单元参数 $w$ 的更新梯度总是同向的。想一想这是为什么？又会导致什么后果？</p>
@@ -525,16 +554,12 @@
 <p>当然也有更简洁的表示方式：</p>
 <p>\begin{equation}<br>ReLU(z)=max(0,z)<br>\end{equation}</p>
 <p><img src="/2019/03/24/DeepLearning-05/4d.jpg" alt="Title"></p>
-<center>图 1-2 ReLU 函数图像及其梯度图像</center>
-
-<p>上图1-2严格上来说在横轴的零刻度处应当标注空心点，这也意味着 ReLU 函数在原点处是不可微的，尽管在实际情况下出现完全为零的前驱输入是概率很小的，但为了避免这种未定义在反向传播中造成错误，在实际的使用过程中通常手动为其原点处添加函数值定义及其导数定义。</p>
+<p><center>图 1-2 ReLU 函数图像及其梯度图像</center><br>上图1-2严格上来说在横轴的零刻度处应当标注空心点，这也意味着 ReLU 函数在原点处是不可微的，尽管在实际情况下出现完全为零的前驱输入是概率很小的，但为了避免这种未定义在反向传播中造成错误，在实际的使用过程中通常手动为其原点处添加函数值定义及其导数定义。</p>
 <p>\begin{equation}<br>ReLU(z)=\left\{<br>\begin{array}{rcl}<br>z &amp; &amp; {z&gt;0}\\<br>0 &amp; &amp; {z \leq 0}<br>\end{array} \right.<br>\end{equation}</p>
 <p>如果你了解 tanh 与 sigmoid 作为隐藏层激活函数的通病的话，那么采用 ReLU 作为激活函数的优点就显而易见了。</p>
 <p>虽然 tanh 缓解了 sigmoid 输出恒正造成的锯齿状梯度下降，但其同样具有“饱和区”，即当绝对值较大的数作为输入时，梯度会接近于零，这一点从二者的函数图像上显而易见，当输入 $x$ 趋近与无穷大/小时，图像基本上平了，这会导致梯度更新几乎失活。而 ReLU 函数则不同，在 $x&gt;0$ 的区域，ReLU 的导数具有一个恒定的值，可以保证梯度下降能够在大输入下依旧持续工作。</p>
 <p><img src="/2019/03/24/DeepLearning-05/5b.jpg" alt="Title"></p>
-<center>图 1-3 sigmoid、tanh、ReLU 的梯度函数图像对比</center>
-
-<p><strong>你可能会疑问：可是 ReLU 函数和 sigmoid 函数一样，也是非零均值的？</strong></p>
+<p><center>图 1-3 sigmoid、tanh、ReLU 的梯度函数图像对比</center><br><strong>你可能会疑问：可是 ReLU 函数和 sigmoid 函数一样，也是非零均值的？</strong></p>
 <p>的确，使用 tanh 代替 sigmoid 就是为了提高其迭代效率，可是虽然 ReLU 也是非零均值函数，但是 ReLU 不需要求自然指数呀，因此其计算复杂度要远远小于 tanh，就算非零均值，小计算量也可以帮助 ReLU 的梯度快速收敛。总而言之，瑕不掩瑜。 </p>
 <p>不过，ReLU 函数有一个问题——在负数区硬饱和。当输入落在小于零的区间时，ReLU 函数将直接输出零，这种现象被称作<strong>Dead ReLU</strong>，但这一特性也被列入 ReLU 的优势：</p>
 <blockquote>
@@ -544,8 +569,7 @@
 <p>\begin{equation}<br>LeakyReLU(z)=\left\{<br>\begin{array}{rcl}<br>z &amp; &amp; {z&gt;0}\\<br>\alpha z &amp; &amp; {z&lt;0}<br>\end{array} \right.<br>\end{equation}</p>
 <p>Leaky ReLU 与 ReLU 的区别仅仅在于当输入量小于零时，引入了一个极小的梯度 $\alpha$（图1-4中取值为0.05），使得神经元不至于被完全抑制，但是这种做法的优劣不好评定，在一些情况下，Leaky ReLU 可能表现更好，另一些情况下可能 ReLU 更胜一筹，谁知道呢。</p>
 <p><img src="/2019/03/24/DeepLearning-05/6a.jpg" alt="Title"></p>
-<center>图 1-4 Leaky ReLU 函数图像及其梯度图像</center>
-
+<p><center>图 1-4 Leaky ReLU 函数图像及其梯度图像</center></p>
 <h1 id="5-2-浅层网络的向后传播"><a href="#5-2-浅层网络的向后传播" class="headerlink" title="5.2 浅层网络的向后传播"></a>5.2 浅层网络的向后传播</h1><p>聊完了几种常见的激活函数，现在回过神来，看一看浅层神经网络的向后传播吧。还记得在 Logistic 回归当中，向后传播的 $dz$ 直接一步到位用 $a-y$ 来表示了，这是默认将 sigmoid 作为激活函数后用链式法则求导化简后的结果。但现在我们知道了，激活函数的选择是多种多样的，那么在浅层神经网络当中隐藏层激活函数不确定的情况下，就不能够用沿用之前的结果了。</p>
 <p>同样也是为了方便后续的深层神经网络叙述，下面将统一使用符号 $g^{[l]}$ 代表第 $l$ 层使用的激活函数，$dg^{[l]}$ 表示第 $l$ 层激活函数关于成本函数的导数。</p>
 <h1 id="5-3-浅层网络的梯度下降"><a href="#5-3-浅层网络的梯度下降" class="headerlink" title="5.3 浅层网络的梯度下降"></a>5.3 浅层网络的梯度下降</h1><h1 id="5-4-浅层神经网络小结"><a href="#5-4-浅层神经网络小结" class="headerlink" title="5.4 浅层神经网络小结"></a>5.4 浅层神经网络小结</h1><div class="spoiler collapsed"><div class="spoiler-title">隐藏内容</div><div class="spoiler-content"><p>没有隐藏内容(・∀・(・∀・(・∀・*)</p>
@@ -593,9 +617,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
+            <a href="/tags/Algorithm/" rel="tag"><i class="fa fa-tag"></i> Algorithm</a>
           
-            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
+            <a href="/tags/DeepLearning/" rel="tag"><i class="fa fa-tag"></i> DeepLearning</a>
           
         </div>
       
@@ -715,6 +739,39 @@
               
 
               
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
 
               
                 
@@ -759,7 +816,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

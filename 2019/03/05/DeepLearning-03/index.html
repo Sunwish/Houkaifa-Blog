@@ -149,7 +149,7 @@
 
 
   <meta name="description" content="概述 本篇详细记录了如何使用 Python 语言基于 Logistic 回归搭建一个简单的单层神经网络，并实现猫图的识别。本篇中的单层神经网络在训练集与测试集上分别获得了 95.7% 与 74.0% 的正确率。">
-<meta name="keywords" content="学习笔记,深度学习">
+<meta name="keywords" content="Algorithm,DeepLearning,Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度学习（三）实战：动手实现猫图识别">
 <meta property="og:url" content="http://Sunwish.coding.me/2019/03/05/DeepLearning-03/index.html">
@@ -164,7 +164,7 @@
 <meta property="og:image" content="http://sunwish.coding.me/2019/03/05/DeepLearning-03/6.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2019/03/05/DeepLearning-03/7.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2019/03/05/DeepLearning-03/8.jpg">
-<meta property="og:updated_time" content="2019-03-05T13:18:49.064Z">
+<meta property="og:updated_time" content="2019-10-16T14:53:08.849Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习（三）实战：动手实现猫图识别">
 <meta name="twitter:description" content="概述 本篇详细记录了如何使用 Python 语言基于 Logistic 回归搭建一个简单的单层神经网络，并实现猫图的识别。本篇中的单层神经网络在训练集与测试集上分别获得了 95.7% 与 74.0% 的正确率。">
@@ -311,6 +311,14 @@
     <a href="/series/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
   </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
 
       
       
@@ -427,16 +435,53 @@
                 
               
 
-              <time title="创建时间：2019-03-05 21:08:39 / 修改时间：21:18:49" itemprop="dateCreated datePublished" datetime="2019-03-05T21:08:39+08:00">2019-03-05</time>
+              <time title="创建时间：2019-03-05 21:08:39" itemprop="dateCreated datePublished" datetime="2019-03-05T21:08:39+08:00">2019-03-05</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-16 22:53:08" itemprop="dateModified" datetime="2019-10-16T22:53:08+08:00">2019-10-16</time>
               
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -509,12 +554,9 @@
 <p>通过 matplotlib.pyplot 中提供的 imshow 函数可以将一幅 RGB 图像显示出来：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示训练集中的第 index 个训练图像</span></span><br><span class="line">index = <span class="number">102</span></span><br><span class="line">plt.imshow(train_set_x_orig[index])</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"y = "</span> + str(train_set_y[:, index]) + <span class="string">", it's a '"</span> + classes[int(train_set_y[:, index])] +  <span class="string">"' picture."</span>)</span><br></pre></td></tr></table></figure>
 <p><img src="/2019/03/05/DeepLearning-03/3.jpg" alt="Title"></p>
-<center>图 1-1 使用 imshow 函数显示图像</center>
-
-<p>可以看到，在训练集中的第103个样本图像是一张猫图。其中输出的结果 “y = [1]” 表示这张图片的标注是 “1”，也就表示 “是” 的意思。不妨再看一看第104个样本，可以看到不是猫图，而对应的输出结果也变成了 “y = [0]”。</p>
+<p><center>图 1-1 使用 imshow 函数显示图像</center><br>可以看到，在训练集中的第103个样本图像是一张猫图。其中输出的结果 “y = [1]” 表示这张图片的标注是 “1”，也就表示 “是” 的意思。不妨再看一看第104个样本，可以看到不是猫图，而对应的输出结果也变成了 “y = [0]”。</p>
 <p><img src="/2019/03/05/DeepLearning-03/4.jpg" alt="Title"></p>
-<center>图 1-2 使用 imshow 函数显示图像</center>
-
+<p><center>图 1-2 使用 imshow 函数显示图像</center></p>
 <h1 id="3-1-数据处理"><a href="#3-1-数据处理" class="headerlink" title="3.1 数据处理"></a>3.1 数据处理</h1><p>在前面已经完成了数据集的导入，并且查看了训练集当中的两个样本图像及对应的图像标注。但是这些数据目前为止还不方便我们使用，下面看一看如何将其调整为合适的格式。</p>
 <p>对于单个训练样本而言，所有的输入按照列矩阵的形式传入网络，即输入 $x$ 的是 $n_x \times 1$ 维的矩阵，但是一幅 $64 \times 64$ 图像的在数据集中是以 $64 \times 64 \times 3$ 的矩阵形状进行存储的，为了满足神经网络的输入格式，在 Python 中可以使用 reshape 函数改变矩阵的形状，对于一个形状为 $(a,b,c,d)$ 的矩阵 $M_1$ 而言，通过 $M_1.reshape(M_1.shape[0],-1).T$ 就可以将其转换为形状为 $(b \times c \times d,a)$ 的矩阵了。</p>
 <p>其中第一项参数 $M_1.shape[0]$ 表示的就是 $M_1$ 原来的第一维长度 $a$，第二项参数 $-1$ 表示将后面的所有维度堆叠成一个维度，这样就得到了一个形为 $(a,b \times c \times d)$ 的矩阵，再通过”.T”进行转置，就得到了 $a$ 个列矩阵堆叠得到的“向量化矩阵”。</p>
@@ -532,9 +574,7 @@
 [R_1, R_2, ..., R_{4096}, G_1, G_2, ..., G_{4096}, B_1, B_2, ..., B_{4096}]^T
 \end{equation}</script><p><strong>至此，我们完成了数据集的格式化处理，即 图1-3 中左侧RGB图像到右侧输入层的转换。</strong></p>
 <p><img src="/2019/03/05/DeepLearning-03/5.jpg" alt="Title"></p>
-<center>图 1-3 输入数据格式化</center>
-
-<p><strong>不过，imshow()显示图像时对double型是认为在0~1范围内，因此再将颜色值全部除以255将值转换到0~1。</strong></p>
+<p><center>图 1-3 输入数据格式化</center><br><strong>不过，imshow()显示图像时对double型是认为在0~1范围内，因此再将颜色值全部除以255将值转换到0~1。</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">train_set_x = <span class="number">1.0</span>*train_set_x_flatten/<span class="number">255</span></span><br><span class="line">test_set_x = <span class="number">1.0</span>*test_set_x_flatten/<span class="number">255</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Shape of train_set_x: "</span> + str(train_set_x.shape))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Value of test_set_x: "</span> + str(test_set_x))</span><br></pre></td></tr></table></figure>
 <p>输出结果：</p>
 <blockquote>
@@ -608,22 +648,18 @@ _{12288 \times 209}
 <p>Accuracy on train_set: 95.69377990430623%<br>Accuracy on test_set: 74.0%<br>[[1. 1. 1. 1. 1. 0. 0. 1. 1. 1. 0. 0. 1. 1. 0. 1. 0. 1. 0. 0. 1. 0. 0. 1. 1. 1. 1. 0. 0. 1. 0. 1. 1. 0. 1. 0. 0. 1. 0. 0. 1. 1. 1. 0. 1. 0. 0. 1. 1. 0.]]</p>
 </blockquote>
 <p><img src="/2019/03/05/DeepLearning-03/6.jpg" alt="Title"></p>
-<center>图 1-4 成本函数关于训练次数图像</center>
-
-<p>可以看到，对于学习率 0.002，训练2000次可以在训练集与测试集上分别得到 95.69% 与 74% 的正确率！这对于一个如此简单的单层神经网络来说已经算是不错了。</p>
+<p><center>图 1-4 成本函数关于训练次数图像</center><br>可以看到，对于学习率 0.002，训练2000次可以在训练集与测试集上分别得到 95.69% 与 74% 的正确率！这对于一个如此简单的单层神经网络来说已经算是不错了。</p>
 <p>看看测试集中预测与图片的对比：</p>
 <p><img src="/2019/03/05/DeepLearning-03/7.jpg" alt="Title"></p>
-<center>图 1-4 测试集中预测与图片的对比</center>
-
+<p><center>图 1-4 测试集中预测与图片的对比</center></p>
 <h2 id="试试自己的数据"><a href="#试试自己的数据" class="headerlink" title="试试自己的数据"></a>试试自己的数据</h2><p>下面的函数 isCat 是对模型的进一步封装，用其来预测一张自定义的照片。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isCat</span><span class="params">(my_image = <span class="string">"my_image.jpg"</span>, dirname = <span class="string">"images/"</span>)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 初始化图片路径</span></span><br><span class="line">    fname = dirname + my_image</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 读取图片</span></span><br><span class="line">    image = np.array(plt.imread(fname))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 将图片转换为训练集一样的尺寸</span></span><br><span class="line">    num_px = train_set_x_orig.shape[<span class="number">2</span>]</span><br><span class="line">    my_image = skimage.transform.resize(image, output_shape=(num_px,num_px)).reshape((<span class="number">1</span>, num_px*num_px*<span class="number">3</span>)).T</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 预测</span></span><br><span class="line">    my_predicted_image = predict(w, b, my_image)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 绘图与结果输出</span></span><br><span class="line">    plt.imshow(image)</span><br><span class="line">    print(<span class="string">"y = "</span> + str(int(my_predicted_image)) + <span class="string">", our neutral network predicts a \""</span> + classes[int(my_predicted_image),] +  <span class="string">"\" picture."</span>)</span><br></pre></td></tr></table></figure>
 <p>接下来我们试试识别自己拍的照片吧！</p>
 <p>下面是我自己拍摄的一张白猫的照片，可以看到我们搭建的网络得到了正确的识别结果：</p>
 <p><img src="/2019/03/05/DeepLearning-03/8.jpg" alt="Title"></p>
-<center>图 1-4 识别自己拍摄的照片</center>
-
-<div class="spoiler collapsed"><div class="spoiler-title">附件</div><div class="spoiler-content"><p>链接: <a href="https://pan.baidu.com/s/1-38tRj_SRNNX3v9gs0keEQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1-38tRj_SRNNX3v9gs0keEQ</a> 提取码: uhf3</p>
-</div></div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<p><center>图 1-4 识别自己拍摄的照片</center><br><div class="spoiler collapsed"><div class="spoiler-title">附件</div><div class="spoiler-content"><p>链接: <a href="https://pan.baidu.com/s/1-38tRj_SRNNX3v9gs0keEQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1-38tRj_SRNNX3v9gs0keEQ</a> 提取码: uhf3</p>
+</div></div></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
       
     </div>
 
@@ -667,9 +703,11 @@ _{12288 \times 209}
       
         <div class="post-tags">
           
-            <a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
+            <a href="/tags/Algorithm/" rel="tag"><i class="fa fa-tag"></i> Algorithm</a>
           
-            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
+            <a href="/tags/DeepLearning/" rel="tag"><i class="fa fa-tag"></i> DeepLearning</a>
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
           
         </div>
       
@@ -789,6 +827,39 @@ _{12288 \times 209}
               
 
               
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
 
               
                 
@@ -833,7 +904,9 @@ _{12288 \times 209}
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

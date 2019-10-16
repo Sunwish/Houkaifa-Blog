@@ -149,7 +149,7 @@
 
 
   <meta name="description" content="概述 本篇属于理论篇，你将了解什么是向量化、向量化对神经网络训练优化的重要性，以及如何向量化 Logistic 回归及其梯度输出。">
-<meta name="keywords" content="学习笔记,深度学习">
+<meta name="keywords" content="Algorithm,DeepLearning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度学习（二）向量化 Logistic 回归及其梯度输出">
 <meta property="og:url" content="http://Sunwish.coding.me/2019/03/03/DeepLearning-02/index.html">
@@ -159,7 +159,7 @@
 <meta property="og:image" content="http://sunwish.coding.me/2019/03/03/DeepLearning-02/1.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2019/03/03/DeepLearning-02/2.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/2019/03/03/DeepLearning-02/3.jpg">
-<meta property="og:updated_time" content="2019-03-04T13:04:21.072Z">
+<meta property="og:updated_time" content="2019-10-16T14:52:35.430Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习（二）向量化 Logistic 回归及其梯度输出">
 <meta name="twitter:description" content="概述 本篇属于理论篇，你将了解什么是向量化、向量化对神经网络训练优化的重要性，以及如何向量化 Logistic 回归及其梯度输出。">
@@ -306,6 +306,14 @@
     <a href="/series/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
   </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
 
       
       
@@ -439,11 +447,36 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-04 21:04:21" itemprop="dateModified" datetime="2019-03-04T21:04:21+08:00">2019-03-04</time>
+                <time title="修改时间：2019-10-16 22:52:35" itemprop="dateModified" datetime="2019-10-16T22:52:35+08:00">2019-10-16</time>
               
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -521,9 +554,7 @@ _{n_x \times m}
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">计算结果：249879.05298545936, 矩阵计算耗时：0.999927520752ms</span><br></pre></td></tr></table></figure>
 <p>进行多次计算，可以绘制出 for 循环与向量化计算的耗时对比图：</p>
 <p><img src="/2019/03/03/DeepLearning-02/2.jpg" alt="Title"></p>
-<center>图 1-1 for 循环与向量化计算耗时对比</center>
-
-<p>实在是令人惊喜，正如你所看到的，向量化版本没有使用 for 循环就正确完成了所有计算，并且计算的代码量只有一行，而仅针对简单的乘法与加法运算而言，向量化计算的效率就要比 for 循环高出 500 倍上下，在其他更加复杂的运算下，这个差距还会拉得更大。可以看到，无论从简洁性还是从效率的角度讲，向量化计算几乎是完美的。</p>
+<p><center>图 1-1 for 循环与向量化计算耗时对比</center><br>实在是令人惊喜，正如你所看到的，向量化版本没有使用 for 循环就正确完成了所有计算，并且计算的代码量只有一行，而仅针对简单的乘法与加法运算而言，向量化计算的效率就要比 for 循环高出 500 倍上下，在其他更加复杂的运算下，这个差距还会拉得更大。可以看到，无论从简洁性还是从效率的角度讲，向量化计算几乎是完美的。</p>
 <p>因此，不管是在什么算法当中，如果能够不使用 for 循环就尽量不要使用 for 循环，其效率实在是太糟糕了。在神经网络的训练过程中，效率显得尤为重要，面对数量巨大的训练样本，向量化你的模型是非常有必要的，它能够大量地节约你的时间去做更多的训练，或是做参数的调整。</p>
 <h1 id="2-2-向量化-Logistic-回归"><a href="#2-2-向量化-Logistic-回归" class="headerlink" title="2.2 向量化 Logistic 回归"></a>2.2 向量化 Logistic 回归</h1><p>在前面你已经见识到了向量化威力，通过向量化你能够实现数据的并发计算，进而为你节约大量的时间。下面，我将用伪代码给出 Logistic 回归非向量化版本，即使用 for 循环编码实现上一篇当中的理论模型，你可以直接阅读代码，并思考如何向量化这个过程。</p>
 <h2 id="for-循环版本"><a href="#for-循环版本" class="headerlink" title="for 循环版本"></a>for 循环版本</h2><p>&nbsp;1&nbsp;&nbsp;| $for$ $i$ $=$ $1$ $to$ $m$</p>
@@ -552,9 +583,7 @@ dw_2 += x^{(i)}_2dz</script><script type="math/tex; mode=display">
 \vdots</script><script type="math/tex; mode=display">
 dw_{n_x} += x^{(i)}_{n_x}dz</script><p>仔细看一看，你有没有发现向量化的影子？</p>
 <p><img src="/2019/03/03/DeepLearning-02/3.jpg" alt="for 循环展开"></p>
-<center>图 1-1 for 循环展开</center>
-
-<p>这简直就是天然的矩阵形式！我们只需将等式左侧的所有 $dw_{…}$ 封装进一个列矩阵 $dw$ 即可，等式的右侧也是同理，所有的 $x^{(i)}_{…}$ 可以封装进一个列矩阵 $x^{(i)}$，即：</p>
+<p><center>图 1-1 for 循环展开</center><br>这简直就是天然的矩阵形式！我们只需将等式左侧的所有 $dw_{…}$ 封装进一个列矩阵 $dw$ 即可，等式的右侧也是同理，所有的 $x^{(i)}_{…}$ 可以封装进一个列矩阵 $x^{(i)}$，即：</p>
 <script type="math/tex; mode=display">
 \begin{equation}
 dw = 
@@ -735,9 +764,9 @@ _{1 \times m}
       
         <div class="post-tags">
           
-            <a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
+            <a href="/tags/Algorithm/" rel="tag"><i class="fa fa-tag"></i> Algorithm</a>
           
-            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
+            <a href="/tags/DeepLearning/" rel="tag"><i class="fa fa-tag"></i> DeepLearning</a>
           
         </div>
       
@@ -857,6 +886,39 @@ _{1 \times m}
               
 
               
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
 
               
                 
@@ -901,7 +963,9 @@ _{1 \times m}
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

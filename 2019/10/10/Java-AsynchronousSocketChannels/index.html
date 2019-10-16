@@ -149,7 +149,7 @@
 
 
   <meta name="description" content="概述 阻塞模式下的 Socket 编程往往是非常低效的，然而 Java 中的典型 Socket 编程核心采用的正是这种模式。好在 Java 提供了另一种解决方案，通过 Socket Channel 技术实现了非阻塞的异步 Socket 编程。本文将以一个简单的同步 Socket Demo 切入，引出并介绍 Java 中的 Socket Channel 并完成一个 Asynchronous Sock">
-<meta name="keywords" content="沿途简记,Java,Socket">
+<meta name="keywords" content="Java,Socket">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初探 Java 中的异步 Socket">
 <meta property="og:url" content="http://Sunwish.coding.me/2019/10/10/Java-AsynchronousSocketChannels/index.html">
@@ -157,7 +157,7 @@
 <meta property="og:description" content="概述 阻塞模式下的 Socket 编程往往是非常低效的，然而 Java 中的典型 Socket 编程核心采用的正是这种模式。好在 Java 提供了另一种解决方案，通过 Socket Channel 技术实现了非阻塞的异步 Socket 编程。本文将以一个简单的同步 Socket Demo 切入，引出并介绍 Java 中的 Socket Channel 并完成一个 Asynchronous Sock">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://sunwish.coding.me/2019/10/10/Java-AsynchronousSocketChannels/1.jpg">
-<meta property="og:updated_time" content="2019-10-10T14:46:03.379Z">
+<meta property="og:updated_time" content="2019-10-16T14:56:29.892Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初探 Java 中的异步 Socket">
 <meta name="twitter:description" content="概述 阻塞模式下的 Socket 编程往往是非常低效的，然而 Java 中的典型 Socket 编程核心采用的正是这种模式。好在 Java 提供了另一种解决方案，通过 Socket Channel 技术实现了非阻塞的异步 Socket 编程。本文将以一个简单的同步 Socket Demo 切入，引出并介绍 Java 中的 Socket Channel 并完成一个 Asynchronous Sock">
@@ -304,6 +304,14 @@
     <a href="/series/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
   </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
 
       
       
@@ -420,16 +428,46 @@
                 
               
 
-              <time title="创建时间：2019-10-10 16:41:15 / 修改时间：22:46:03" itemprop="dateCreated datePublished" datetime="2019-10-10T16:41:15+08:00">2019-10-10</time>
+              <time title="创建时间：2019-10-10 16:41:15" itemprop="dateCreated datePublished" datetime="2019-10-10T16:41:15+08:00">2019-10-10</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-16 22:56:29" itemprop="dateModified" datetime="2019-10-16T22:56:29+08:00">2019-10-16</time>
               
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/沿途简记/" itemprop="url" rel="index"><span itemprop="name">沿途简记</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -526,8 +564,6 @@
     <footer class="post-footer">
       
         <div class="post-tags">
-          
-            <a href="/tags/沿途简记/" rel="tag"><i class="fa fa-tag"></i> 沿途简记</a>
           
             <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
           
@@ -647,6 +683,39 @@
               
 
               
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
 
               
                 
@@ -691,7 +760,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
