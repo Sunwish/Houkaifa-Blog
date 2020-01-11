@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>【搬运】一个成功的 Git 分支模型</title>
+    <title>【翻译】一个成功的 Git 分支模型</title>
     <url>/2020/01/11/a-successful-branching-model/</url>
     <content><![CDATA[<blockquote>
 <p>在这篇文章中，我将向你们介绍一个开发模型，早在差不多一年前，我已经将这个模型应用于我的多个项目，而事实证明，这个模型是非常成功的。其实这篇文章我早就打算写了，只是一直没有时间，直到现在。在这篇文章中我将不会谈及任何项目细节，分支策略和发布管理才是本文的核心内容。</p>
@@ -10,7 +10,7 @@
 <a id="more"></a>
 <hr>
 <blockquote>
-<p>原文地址：<a href="https://nvie.com/posts/a-successful-git-branching-model/spoiler" target="_blank" rel="noopener">https://nvie.com/posts/a-successful-git-branching-model/spoiler</a></p>
+<p>原文地址：<a href="https://nvie.com/posts/a-successful-git-branching-model/spoiler" target="_blank" rel="noopener">https://nvie.com/posts/a-successful-git-branching-model/spoiler</a><br>原文作者：Vincent Driessen<br>全文翻译：Sunwish</p>
 </blockquote>
 <h2 id="为什么是-Git"><a href="#为什么是-Git" class="headerlink" title="为什么是 Git"></a>为什么是 Git</h2><p>如果去深入地探讨网络上关于 Git 优缺点的分析，以及 Git 与其他的中心化源代码控制系统的对比，你就可以发现，大家对此都持有自己的观点和看法。就我而言，作为一名开发者，相比其他所有的同类工具，我都更喜爱 Git。毫不过分地说，Git 彻底地改变了我们开发者对于合并和分支操作的看法和感受。我作为一名从传统 CVS/SVN 转到 Git 的开发者，可以说曾经的合并和分支操作总是让人觉得有点可怕（每当合并过程产生了冲突，总让人感到害怕），并且也是一个短期内使用频率很低的操作。</p>
 <p>但是来到 Git 这边，情况就完全不一样了。合并和分支操作作为 Git 当中简单轻松的操作，在开发者的日常工作流中往往是核心部分之一。这一点从两者的相关书籍中就可以看出，在 CVS/SVN 的书籍中，合并和分支往往在最后的章节（进阶部分）才抛头露面，而在几乎所有的 Git 书籍中，合并和分支则是在第三章（基础部分）就已经讨论过了。</p>
