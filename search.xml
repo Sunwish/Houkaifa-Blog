@@ -450,7 +450,7 @@
       </tags>
   </entry>
   <entry>
-    <title>深度学习（五）激活函数的选择 & 浅层神经网络的梯度下降</title>
+    <title>深度学习（五）激活函数的选择 &amp; 浅层神经网络的梯度下降</title>
     <url>/2019/03/24/DeepLearning-05/</url>
     <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
 <p>本篇中你将了解几种常见的激活函数，并看到在浅层神经网络中向后传播及梯度下降是如何进行的。</p>
@@ -2323,7 +2323,7 @@ I_4=I_3∧I_2</script><h2 id="4-中值滤波"><a href="#4-中值滤波" class="h
       </categories>
   </entry>
   <entry>
-    <title>【Nao-04】 Naoqi Framework & Broker & Proxy & Modules</title>
+    <title>【Nao-04】 Naoqi Framework &amp; Broker &amp; Proxy &amp; Modules</title>
     <url>/2018/11/08/Robot-Nao-04/</url>
     <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
 <p>尚在更新</p>
@@ -2453,7 +2453,7 @@ I_4=I_3∧I_2</script><h2 id="4-中值滤波"><a href="#4-中值滤波" class="h
       </tags>
   </entry>
   <entry>
-    <title>【Nao-03】 Naoqi APIs 架构概览 & Hello World！</title>
+    <title>【Nao-03】 Naoqi APIs 架构概览 &amp; Hello World！</title>
     <url>/2018/11/05/Robot-Nao-03/</url>
     <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
 <p>本篇列出了几类常用的 API 功能模块，介绍了一个重要的 API 函数 ALProxy，并自己创建了一个 Python 指令盒，简单实现了让 Nao 说出 Hello World 的程序代码。</p>
@@ -2507,7 +2507,7 @@ I_4=I_3∧I_2</script><h2 id="4-中值滤波"><a href="#4-中值滤波" class="h
       </tags>
   </entry>
   <entry>
-    <title>【Nao-02】 Choregraphe 环境介绍 & 让 Virtual Robot 运行一个盒子</title>
+    <title>【Nao-02】 Choregraphe 环境介绍 &amp; 让 Virtual Robot 运行一个盒子</title>
     <url>/2018/11/04/Robot-Nao-02/</url>
     <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
 <p>本篇初步介绍了 Choregraphe 开发环境，并演示如何让 Vitual Robot 安装并运行一个已有的指令盒。</p>
@@ -2860,7 +2860,7 @@ k(t)&=\frac{1}{2}[sin(\pi t- \frac{\pi}{2})+1] \\\
       </tags>
   </entry>
   <entry>
-    <title>Sunwish's Blog 开通啦</title>
+    <title>Sunwish&#39;s Blog 开通啦</title>
     <url>/2018/07/20/My-First-Post/</url>
     <content><![CDATA[<p>说实话，其实一直以来都想搭建一个自己的博客的…</p>
 <p>至于原因很简单啊，因为有一个自己的博客的话就可以没事吹吹水啊，写些心得体会啊，记录一些有趣和有意义的事情啊记录一些乱七八糟的事情啊什么的…</p>
