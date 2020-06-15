@@ -166,7 +166,7 @@
 <meta property="og:image" content="http://sunwish.coding.me/2020/06/14/Aliyun-SSL-certificate-enables-HTTPS-connection-nginx/ssl06.png">
 <meta property="og:image" content="http://sunwish.coding.me/2020/06/14/Aliyun-SSL-certificate-enables-HTTPS-connection-nginx/ssl006.png">
 <meta property="og:image" content="http://sunwish.coding.me/2020/06/14/Aliyun-SSL-certificate-enables-HTTPS-connection-nginx/ssl08.png">
-<meta property="og:updated_time" content="2020-06-15T01:30:04.774Z">
+<meta property="og:updated_time" content="2020-06-15T01:58:16.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为 Nginx 服务器配置 SSL 证书启用 HTTPS 连接">
 <meta name="twitter:description" content="概述 本文记录了如何为 Nginx 服务器配置 SSL 证书，并让网站默认以 HTTPS 方式建立连接。">
@@ -485,11 +485,29 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-06-15 09:30:04" itemprop="dateModified" datetime="2020-06-15T09:30:04+08:00">2020-06-15</time>
+                <time title="修改时间：2020-06-15 09:58:16" itemprop="dateModified" datetime="2020-06-15T09:58:16+08:00">2020-06-15</time>
               
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/沿途简记/" itemprop="url" rel="index"><span itemprop="name">沿途简记</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -566,11 +584,11 @@
 <center>图 3-1 在阿里云 ECS 安全组规则中快速添加访问规则</center>
 
 <p><img src="/2020/06/14/Aliyun-SSL-certificate-enables-HTTPS-connection-nginx/ssl06.png" alt="Title"></p>
-<center>图 3-1 在快速添加访问规则中勾选允许 HTTPS</center>
+<center>图 3-2 在快速添加访问规则中勾选允许 HTTPS</center>
 
-<h2 id="3-2-将证书文件上传至服务器"><a href="#3-2-将证书文件上传至服务器" class="headerlink" title="3.2 将证书文件上传至服务器"></a>3.2 将证书文件上传至服务器</h2><p>在 nginx.conf 同级目录下创建 cert 文件夹，并将之前下载的证书文件放入 cert 文件中完成证书文件的部署。</p>
+<h2 id="3-2-将证书文件上传至服务器"><a href="#3-2-将证书文件上传至服务器" class="headerlink" title="3.2 将证书文件上传至服务器"></a>3.2 将证书文件上传至服务器</h2><p>在 nginx.conf 同级目录下创建 cert 文件夹，并将之前下载的证书文件放入 cert 文件夹中完成证书文件的部署。</p>
 <p><img src="/2020/06/14/Aliyun-SSL-certificate-enables-HTTPS-connection-nginx/ssl006.png" alt="Title"></p>
-<center>图 3-2 部署证书文件</center>
+<center>图 3-3 部署证书文件</center>
 
 <h2 id="3-3-配置-Nginx-SSL"><a href="#3-3-配置-Nginx-SSL" class="headerlink" title="3.3 配置 Nginx SSL"></a>3.3 配置 Nginx SSL</h2><p>在 Nginx 配置文件 nginx.conf 中找到或添加如下代码段，用于监听 HTTPS 443 端口，以下是你需要关心和修改的部分：</p>
 <ul>
