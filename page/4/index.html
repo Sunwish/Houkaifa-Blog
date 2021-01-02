@@ -402,6 +402,226 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/11/08/Robot-Nao-04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴开发 | 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/08/Robot-Nao-04/" itemprop="url">
+                  【Nao-04】 Naoqi Framework & Broker & Proxy & Modules
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+          
+          <span class="post-meta-author-icon">
+            <i class="fa fa-user-o"></i>
+          </span>
+	  
+	  
+          
+	  <span class="post-meta-author-text">作者 Sunwish</span>
+	  <span class="post-meta-divider">|</span>
+          
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-08 19:19:22" itemprop="dateCreated datePublished" datetime="2018-11-08T19:19:22+08:00">2018-11-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-16 23:19:04" itemprop="dateModified" datetime="2019-10-16T23:19:04+08:00">2019-10-16</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/NAO/" itemprop="url" rel="index"><span itemprop="name">NAO</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/08/Robot-Nao-04/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/11/08/Robot-Nao-04/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/11/08/Robot-Nao-04/" class="leancloud_visitors" data-flag-title="【Nao-04】 Naoqi Framework & Broker & Proxy & Modules">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
+<p>尚在更新</p>
+</blockquote>
+<p><img src="/2018/11/08/Robot-Nao-04/1.jpg" alt="Title"></p>
+<hr>
+<!--
+# 敬告：本篇虽短小精悍，却写的乱七八糟，逻辑令人费解且抓狂，若您已经点进全文阅读，请现在立即停止阅读并关闭本页面，不然可能导致您在精神上感到无尽的痛苦与无助，犹如一百二十只油黑的乌鸦对着三十四只短脚的螃蟹呀呀乱叫，这简直是博主几年来所写过的最最最烂的一篇博文，没有底线，没有之一！但不得不面对这篇博文就是出自博主之手这一无比残酷的现实，从头读到尾，无论是章节与章节之间的联系、小节与小节之间的接洽，还是中英弱关系混排造成的概念蒙蔽、阅读障碍，无不令人撕心裂肺、痛哭流涕。这篇博文的诞生简直是对博主贫乏文笔与理性逻辑的毁灭性轰炸，彻底刷新了博主在学术性文章方面的丑陋下限，颠覆了博主对世纪烂文的一贯认知！在此郑重提醒，请各位读者珍爱生命，远离下文！-->
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/08/Robot-Nao-04/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/11/08/C-ConveyMode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2319,216 +2539,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/07/30/sun-s-reverse-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sunwish">
-      <meta itemprop="description" content="个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="猴开发 | 博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/30/sun-s-reverse-2/" itemprop="url">
-                  Sun的逆向之路（二）——FiF口语训练的刷分剖析
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-time">
-
-            
-            
-            
-
-          
-          <span class="post-meta-author-icon">
-            <i class="fa fa-user-o"></i>
-          </span>
-	  
-	  
-          
-	  <span class="post-meta-author-text">作者 Sunwish</span>
-	  <span class="post-meta-divider">|</span>
-          
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-30 20:35:55" itemprop="dateCreated datePublished" datetime="2018-07-30T20:35:55+08:00">2018-07-30</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-10-16 23:06:35" itemprop="dateModified" datetime="2019-10-16T23:06:35+08:00">2019-10-16</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/逆向破解/" itemprop="url" rel="index"><span itemprop="name">逆向破解</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/07/30/sun-s-reverse-2/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/07/30/sun-s-reverse-2/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/07/30/sun-s-reverse-2/" class="leancloud_visitors" data-flag-title="Sun的逆向之路（二）——FiF口语训练的刷分剖析">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&emsp;&emsp;闲来无事看了看FiF口语中一些Task的排行榜，翻着翻着意外发现了一个101分的榜首，按理来说满分才只有100分，因此猜想这个分数一定是被动过手脚的，于是来了兴致，从POST请求与APK反编译两个角度分别尝试破解FiF。</p>
-<hr>
-<h3 id="方案一：APK反编译"><a href="#方案一：APK反编译" class="headerlink" title="方案一：APK反编译"></a><strong>方案一：APK反编译</strong></h3><p>&emsp;&emsp;将FiF的apk文件拖入AndroidKiller，发现加载失败，于是拖入jadx，发现原来上了奇虎的加固壳，考虑到只是把玩娱乐，脱壳会大大增加复杂性，于是暂时放弃反编译的想法。</p>
-<h3 id="方案二：POST请求拦截"><a href="#方案二：POST请求拦截" class="headerlink" title="方案二：POST请求拦截"></a><strong>方案二：POST请求拦截</strong></h3><h3 id="emsp-0x01-配置Fiddler"><a href="#emsp-0x01-配置Fiddler" class="headerlink" title="&emsp;0x01 配置Fiddler"></a>&emsp;<strong>0x01 配置Fiddler</strong></h3><p>&emsp;&emsp;因为自从用了新电脑就没有抓过包了，因此还是要做一些配置的。Java Jdk和环境变量的配置工作在此掠过了，但考虑到这次Fiddler的配置过程还有点不同寻常，所以这里做一下记录。<br>&emsp;&emsp;运行Fiddler提示8888端口被占用了，询问是否随机取端口。考虑到不使用8888可能后面会造成一些不必要的麻烦，于是打开cmd输入netstat -ano|findstr “8888”，发现原来端口被PID为20348的应用占用了，打开任务管理器的详细信息选卡，发现是Matlab，于是结束进程。<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/30/sun-s-reverse-2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2575,7 +2585,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2673,7 +2683,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">25</span>
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2745,7 +2757,7 @@
         
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -2770,7 +2782,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 78.5k 字</span>
+  <span class="post-count">博客全站共 84.1k 字</span>
 </div>
 
 <!--
@@ -3324,9 +3336,9 @@
       
     
       
-        
-      
     
+      
+        
       
     
       
