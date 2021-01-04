@@ -128,7 +128,11 @@ v_y = -3P_{0y}(1-t)^2 + 3P_{1y}(1-t)^2 - 6P_{1y}t(1-t) + 6P_{2y}t(1-t) - 3P_{2y}
 <p><img src="/2021/01/02/UniformBezier/11.gif" alt="匀速化缓动贝塞尔实例3"></p>
 <center>图 3-7 匀速化缓动贝塞尔实例3</center>
 
-<h1 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h1><p>这篇文章其实算是填了之前那篇的坑，在之前《贝塞尔曲线运动n阶追踪方程的数学原理及其匀速化方法和应用》中有许多实现细节聊地相当模糊，实现和应用部分一笔带过，也没有区分两种匀速化，除去推导出了 $n$ 阶通式之外算是写的相当失败了hhh，本文对贝塞尔曲线及其应用做了更加具体深入的展开和探究，其中缓动方面的匀速化在网上鲜有文章，但我觉得是大有用武之地的，至少目前是自家 Easecurve 项目的内核。本片应当与之前那篇合并起来，才能算是《贝塞尔曲线运动n阶追踪方程的数学原理及其匀速化方法和应用》的完全体。</p>
+<h1 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h1><p>当然，将路径匀速化与缓动匀速化相结合也是极好的，即沿着贝塞尔路径做指定贝塞尔缓动，结合演示如图：</p>
+<p><img src="/2021/01/02/UniformBezier/21.gif" alt="缓动贝塞尔+路径贝塞尔 = 贝塞尔缓动路径"></p>
+<center>图 4-1 缓动贝塞尔+路径贝塞尔 = 贝塞尔缓动路径</center>
+
+<p>这篇文章其实算是填了之前那篇的坑，在之前《贝塞尔曲线运动n阶追踪方程的数学原理及其匀速化方法和应用》中有许多实现细节聊地相当模糊，实现和应用部分一笔带过，也没有区分两种匀速化，除去推导出了 $n$ 阶通式之外算是写的相当失败了hhh，本文对贝塞尔曲线及其应用做了更加具体深入的展开和探究，其中缓动方面的匀速化在网上鲜有文章，但我觉得是大有用武之地的，至少目前是自家 Easecurve 项目的内核。本片应当与之前那篇合并起来，才能算是《贝塞尔曲线运动n阶追踪方程的数学原理及其匀速化方法和应用》的完全体。</p>
 <div class="spoiler collapsed"><div class="spoiler-title">点击查看隐藏内容</div><div class="spoiler-content"><p>没有隐藏内容(・∀・(・∀・(・∀・*)</p>
 </div></div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
@@ -192,8 +196,8 @@ v_y = -3P_{0y}(1-t)^2 + 3P_{1y}(1-t)^2 - 6P_{1y}t(1-t) + 6P_{2y}t(1-t) - 3P_{2y}
         <category>沿途简记</category>
       </categories>
       <tags>
-        <tag>C#</tag>
         <tag>Notifier</tag>
+        <tag>C#</tag>
         <tag>ServerChan</tag>
       </tags>
   </entry>
