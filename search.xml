@@ -302,6 +302,46 @@ p_{00} & p_{10} & p_{01} & p_{20} & p_{11} & p_{02} \\ \hline
       </tags>
   </entry>
   <entry>
+    <title>2019年猴开发博客更新计划</title>
+    <url>/2019/02/02/BlogUpdate2019/</url>
+    <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
+<p>猴开发博客从上线至今虽已有一段时间，但过去以来都没有过多的更新与维护过。再过几天就是2019年的春节了，这也是正式步入新年的标志。在新的一年里，为了促进个人进步和经验共享，也为了猴开发博客在猪年的进一步完善和发展，我在此列出了一份博客更新计划，主要内容涉及栏目的调整以及博客体制的小变动，也是希望在新的一年里能够与大家共同进步，书写一个满意的新年篇章。</p>
+</blockquote>
+<p><img src="/2019/02/02/BlogUpdate2019/1.jpg" alt="Title"></p>
+<a id="more"></a>
+<hr>
+<h3 id="一、新的栏目"><a href="#一、新的栏目" class="headerlink" title="一、新的栏目"></a><strong>一、新的栏目</strong></h3><p>博客将开设两个新的栏目：<strong>札记</strong>、<strong>周任务清单</strong>，同时 <strong>归档</strong> 栏目将被移除。</p>
+<p>计划开设的新栏目将于2019年3月1日前陆续上线。</p>
+<h4 id="札记"><a href="#札记" class="headerlink" title="札记"></a>札记</h4><p>在博客内成系列的文章以及以系列形式更新的文章将单独收录在札记板块中，包括且不限于：读书笔记、学习心得、热点资讯的跟踪和个人观点。</p>
+<p>将文章以札记的形式进行汇总和更新，一用以促进持续性学习，二便于构建自己的完整知识体系。</p>
+<h4 id="周任务清单"><a href="#周任务清单" class="headerlink" title="周任务清单"></a>周任务清单</h4><p>周任务清单栏目将在每周日或次周的周一定期更新，并在每周任意时刻不定期更新。</p>
+<p>定期更新内容包括新一周任务计划的发布与上一周任务计划的归档；</p>
+<p>不定期更新是更新当前周任务的进展与完成情况。</p>
+<p>周任务清单将以单页面瀑布流的形式持续更新，一用以自我督促，二便于自我督促。</p>
+<hr>
+<h3 id="二、博客投稿"><a href="#二、博客投稿" class="headerlink" title="二、博客投稿"></a><strong>二、博客投稿</strong></h3><p>猴开发博客将于2019年02月05日起接受<strong>原创投稿</strong>，投稿的原创文章经审核后将公开发表在猴开发博客中，优秀文章可在一定期限内置顶显示。</p>
+<p>特别的，如果在博客连续投稿且投稿文章质量较好且具主题连续性的，将单独在札记板块为其开设主题札记。</p>
+<p>在猴开发博客成功发表的文章所获得的打赏金额归文章原作者所有，博主不收取任何费用。</p>
+<p>投稿的基本要求与具体的投稿方法以及你们会有的疑问，<a href="/contribute/">请看这里</a>。</p>
+<h3 id="三、其它调整"><a href="#三、其它调整" class="headerlink" title="三、其它调整"></a><strong>三、其它调整</strong></h3><ul>
+<li><p>博客由原 <strong>Sunwish’s Blog</strong> 正式更名为 <strong>猴开发博客 / Houkaifa Blog</strong>；</p>
+</li>
+<li><p>博客主页侧栏中的博主简介内容陆续移至 <strong>关于</strong> 栏目；</p>
+</li>
+<li><p>移除 <strong>归档</strong> 栏目，归档内容仍可在 <strong>关于</strong> 页面进行访问；</p>
+</li>
+<li><p>文章标题处显示文章作者。</p>
+</li>
+</ul>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>博客历程</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>贝塞尔曲线运动n阶追踪方程的数学原理及其匀速化方法和应用</title>
     <url>/2018/07/30/BezierCurve/</url>
     <content><![CDATA[<h3 id="emsp-前言"><a href="#emsp-前言" class="headerlink" title="&emsp;前言"></a>&emsp;<strong>前言</strong></h3><blockquote>
@@ -404,46 +444,6 @@ k(t)&=\frac{1}{2}[sin(\pi t- \frac{\pi}{2})+1] \\\
       </tags>
   </entry>
   <entry>
-    <title>2019年猴开发博客更新计划</title>
-    <url>/2019/02/02/BlogUpdate2019/</url>
-    <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
-<p>猴开发博客从上线至今虽已有一段时间，但过去以来都没有过多的更新与维护过。再过几天就是2019年的春节了，这也是正式步入新年的标志。在新的一年里，为了促进个人进步和经验共享，也为了猴开发博客在猪年的进一步完善和发展，我在此列出了一份博客更新计划，主要内容涉及栏目的调整以及博客体制的小变动，也是希望在新的一年里能够与大家共同进步，书写一个满意的新年篇章。</p>
-</blockquote>
-<p><img src="/2019/02/02/BlogUpdate2019/1.jpg" alt="Title"></p>
-<a id="more"></a>
-<hr>
-<h3 id="一、新的栏目"><a href="#一、新的栏目" class="headerlink" title="一、新的栏目"></a><strong>一、新的栏目</strong></h3><p>博客将开设两个新的栏目：<strong>札记</strong>、<strong>周任务清单</strong>，同时 <strong>归档</strong> 栏目将被移除。</p>
-<p>计划开设的新栏目将于2019年3月1日前陆续上线。</p>
-<h4 id="札记"><a href="#札记" class="headerlink" title="札记"></a>札记</h4><p>在博客内成系列的文章以及以系列形式更新的文章将单独收录在札记板块中，包括且不限于：读书笔记、学习心得、热点资讯的跟踪和个人观点。</p>
-<p>将文章以札记的形式进行汇总和更新，一用以促进持续性学习，二便于构建自己的完整知识体系。</p>
-<h4 id="周任务清单"><a href="#周任务清单" class="headerlink" title="周任务清单"></a>周任务清单</h4><p>周任务清单栏目将在每周日或次周的周一定期更新，并在每周任意时刻不定期更新。</p>
-<p>定期更新内容包括新一周任务计划的发布与上一周任务计划的归档；</p>
-<p>不定期更新是更新当前周任务的进展与完成情况。</p>
-<p>周任务清单将以单页面瀑布流的形式持续更新，一用以自我督促，二便于自我督促。</p>
-<hr>
-<h3 id="二、博客投稿"><a href="#二、博客投稿" class="headerlink" title="二、博客投稿"></a><strong>二、博客投稿</strong></h3><p>猴开发博客将于2019年02月05日起接受<strong>原创投稿</strong>，投稿的原创文章经审核后将公开发表在猴开发博客中，优秀文章可在一定期限内置顶显示。</p>
-<p>特别的，如果在博客连续投稿且投稿文章质量较好且具主题连续性的，将单独在札记板块为其开设主题札记。</p>
-<p>在猴开发博客成功发表的文章所获得的打赏金额归文章原作者所有，博主不收取任何费用。</p>
-<p>投稿的基本要求与具体的投稿方法以及你们会有的疑问，<a href="/contribute/">请看这里</a>。</p>
-<h3 id="三、其它调整"><a href="#三、其它调整" class="headerlink" title="三、其它调整"></a><strong>三、其它调整</strong></h3><ul>
-<li><p>博客由原 <strong>Sunwish’s Blog</strong> 正式更名为 <strong>猴开发博客 / Houkaifa Blog</strong>；</p>
-</li>
-<li><p>博客主页侧栏中的博主简介内容陆续移至 <strong>关于</strong> 栏目；</p>
-</li>
-<li><p>移除 <strong>归档</strong> 栏目，归档内容仍可在 <strong>关于</strong> 页面进行访问；</p>
-</li>
-<li><p>文章标题处显示文章作者。</p>
-</li>
-</ul>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>博客历程</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>由C++虚析构函数风险性产生的思考</title>
     <url>/2019/05/18/C-VirtualWarning/</url>
     <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><blockquote>
@@ -490,11 +490,6 @@ k(t)&=\frac{1}{2}[sin(\pi t- \frac{\pi}{2})+1] \\\
       <tags>
         <tag>CPP</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>遗憾！</title>
-    <url>/2018/11/27/CUMCM-PITY/</url>
-    <content><![CDATA[<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
   </entry>
   <entry>
     <title>对数学建模分工、初期准备、相关资源的总结与建议</title>
@@ -577,157 +572,9 @@ k(t)&=\frac{1}{2}[sin(\pi t- \frac{\pi}{2})+1] \\\
       </categories>
   </entry>
   <entry>
-    <title>深度学习（三）实战：动手实现猫图识别</title>
-    <url>/2019/03/05/DeepLearning-03/</url>
-    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
-<p>本篇详细记录了如何使用 Python 语言基于 Logistic 回归搭建一个简单的单层神经网络，并实现猫图的识别。<br>本篇中的单层神经网络在训练集与测试集上分别获得了 95.7% 与 74.0% 的正确率。</p>
-</blockquote>
-<p><img src="/2019/03/05/DeepLearning-03/1.jpg" alt="Title"></p>
-<a id="more"></a>
-<hr>
-<p>本篇将在 Jupyter Nootbook 中使用 Python 语言进行编程。</p>
-<p>简单来说， <strong>Jupyter 是一个交互式笔记本</strong>，可以在一个 Jupyer 笔记本文件中同时记录 Markdown 笔记与添加可分段执行的代码块。</p>
-<blockquote>
-<p>Jupyter Notebook 是一个基于网页的用于交互计算的应用程序。其可被应用于全过程计算：开发、文档编写、运行代码和展示结果。（<a href="https://link.jianshu.com/?t=https%3A%2F%2Fjupyter-notebook.readthedocs.io%2Fen%2Fstable%2Fnotebook.html" target="_blank" rel="noopener">摘自官方介绍</a>）</p>
-<p>Jupyter Notebook（此前被称为 IPython notebook）是一个交互式笔记本，支持运行 40 多种编程语言。Jupyter Notebook 的本质是一个 Web 应用程序，便于创建和共享文学化程序文档，支持实时代码，数学方程，可视化和 markdown。 用途包括：数据清理和转换，数值模拟，统计建模，机器学习等等。（<a href="https://baike.baidu.com/item/Jupyter/20423051?fr=aladdin" target="_blank" rel="noopener">摘自百度百科</a>）</p>
-</blockquote>
-<h1 id="3-0-数据导入"><a href="#3-0-数据导入" class="headerlink" title="3.0 数据导入"></a>3.0 数据导入</h1><p>本篇使用的数据摘自吴恩达深度学习课程，可以在本篇末尾获取下载。在搭建神经网络之前，不如先看一看数据是怎样的。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> lr_utils <span class="keyword">import</span> load_dataset</span><br><span class="line">train_X_orig, train_Y, test_X_orig, test_Y, classes = load_dataset()</span><br></pre></td></tr></table></figure>
-<p>其中 load_dataset 就将数据进行了导入，如果你好奇数据是怎么导入的，可以点开下面的隐藏块查看代码细节，但是目前为止你并不需要关心数据是怎么导入的，以及数据来源是什么，因为这些都不是本篇的重点，你要关注内容的应该是神经网络在编程中到底是如何实现的，当你真正实现了你的神经网络之后，只需要将数据按照你的网络需要进行格式处理并输入就行了。在本篇当中你直接将数据下载下来并使用上面的一行代码导入进行使用即可。</p>
-<div class="spoiler collapsed"><div class="spoiler-title">detail of load_dataset</div><div class="spoiler-content"><p><img src="/2019/03/05/DeepLearning-03/2.jpg" alt="Title"></p>
-</div></div>
-<p>导入数据后的第一件事情，应该关心数据的存储结构，下面几行代码输出了训练集输入（train_set_x_orig）、训练集输出（train_set_y）、测试集输入（test_set_x_orig）及测试集输出（test_set_y）的形状。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">print</span> (<span class="string">"Shape of train_set_x_orig: "</span> + str(train_set_x_orig.shape))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Shape of train_set_y: "</span> + str(train_set_y.shape))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Shape of test_set_x_orig: "</span> + str(test_set_x_orig.shape))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Shape of test_set_y: "</span> + str(test_set_y.shape))</span><br></pre></td></tr></table></figure>
-<p>输出结果是：</p>
-<blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Shape of train_X_orig: (209L, 64L, 64L, 3L)<br>&nbsp;&nbsp;&nbsp;&nbsp;Shape of train_Y: (1L, 209L)<br>&nbsp;&nbsp;&nbsp;&nbsp;Shape of test_X_orig: (50L, 64L, 64L, 3L)<br>&nbsp;&nbsp;&nbsp;&nbsp;Shape of test_Y: (1L, 50L)</p>
-</blockquote>
-<p>由此不难获得几点信息：</p>
-<ul>
-<li><p>训练集中有209个训练元素；测试集中有50个测试元素。<br>即 $m_{train} = 209$, $m_{test} = 50$。</p>
-</li>
-<li><p>训练集和测试集的图像宽高均为 $64 \times 64$。</p>
-</li>
-</ul>
-<p>而 $3L$ 代表的是 $RGB$ 三通道。如果对图像在计算机当中的存储形式有所了解的话，应该对 $RGB$ 不陌生，电脑屏幕上的所有颜色，都由这红色(R)绿色(G)蓝色(B)三种色光按照不同的比例混合而成。</p>
-<p>通过 matplotlib.pyplot 中提供的 imshow 函数可以将一幅 RGB 图像显示出来：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示训练集中的第 index 个训练图像</span></span><br><span class="line">index = <span class="number">102</span></span><br><span class="line">plt.imshow(train_set_x_orig[index])</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"y = "</span> + str(train_set_y[:, index]) + <span class="string">", it's a '"</span> + classes[int(train_set_y[:, index])] +  <span class="string">"' picture."</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/03/05/DeepLearning-03/3.jpg" alt="Title"></p>
-<p><center>图 1-1 使用 imshow 函数显示图像</center><br>可以看到，在训练集中的第103个样本图像是一张猫图。其中输出的结果 “y = [1]” 表示这张图片的标注是 “1”，也就表示 “是” 的意思。不妨再看一看第104个样本，可以看到不是猫图，而对应的输出结果也变成了 “y = [0]”。</p>
-<p><img src="/2019/03/05/DeepLearning-03/4.jpg" alt="Title"></p>
-<p><center>图 1-2 使用 imshow 函数显示图像</center></p>
-<h1 id="3-1-数据处理"><a href="#3-1-数据处理" class="headerlink" title="3.1 数据处理"></a>3.1 数据处理</h1><p>在前面已经完成了数据集的导入，并且查看了训练集当中的两个样本图像及对应的图像标注。但是这些数据目前为止还不方便我们使用，下面看一看如何将其调整为合适的格式。</p>
-<p>对于单个训练样本而言，所有的输入按照列矩阵的形式传入网络，即输入 $x$ 的是 $n_x \times 1$ 维的矩阵，但是一幅 $64 \times 64$ 图像的在数据集中是以 $64 \times 64 \times 3$ 的矩阵形状进行存储的，为了满足神经网络的输入格式，在 Python 中可以使用 reshape 函数改变矩阵的形状，对于一个形状为 $(a,b,c,d)$ 的矩阵 $M_1$ 而言，通过 $M_1.reshape(M_1.shape[0],-1).T$ 就可以将其转换为形状为 $(b \times c \times d,a)$ 的矩阵了。</p>
-<p>其中第一项参数 $M_1.shape[0]$ 表示的就是 $M_1$ 原来的第一维长度 $a$，第二项参数 $-1$ 表示将后面的所有维度堆叠成一个维度，这样就得到了一个形为 $(a,b \times c \times d)$ 的矩阵，再通过”.T”进行转置，就得到了 $a$ 个列矩阵堆叠得到的“向量化矩阵”。</p>
-<p>使用这个方法就可以对数据集中的图像数据进行降维处理了：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">train_set_x_flatten = train_set_x_orig.reshape(train_set_x_orig.shape[<span class="number">0</span>],<span class="number">-1</span>).T</span><br><span class="line">test_set_x_flatten = test_set_x_orig.reshape(test_set_x_orig.shape[<span class="number">0</span>],<span class="number">-1</span>).T</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Shape of train_set_x_flatten: "</span> + str(train_set_x_flatten.shape))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Value of test_set_x_flatten: "</span> + str(test_set_x_flatten))</span><br></pre></td></tr></table></figure>
-<p>输出结果：</p>
-<blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Shape of train_set_x_flatten: (12288L, 209L)<br>&nbsp;&nbsp;&nbsp;&nbsp;Value of test_set_x_flatten: [[158 115 255 …  41  18 133]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[104 110 253 …  47  18 163]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ 83 111 254 …  84  16  75]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;…<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[173 171 133 … 183 144   5]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[128 176 101 … 141 137  22]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[110 186 121 … 116 108   5]]</p>
-</blockquote>
-<p>其中按列看，每一列代表一个样本图像的所有 $RGB$ 数值，共有209个训练样本，因此 train_set_x_flatten 有209列。</p>
-<p><strong>数字 12288 是 RGB 全部铺平的数值总量</strong><br>因为图片是 $64×64$ 的，因此 $R、G、B$ 各有 $64×64=4096$ 个值，$RGB$ 共三层，$4096×3=12288$。</p>
-<p><strong>单个样本的RGB颜色值在 flatten 当中应该是这样存放的：</strong></p>
-<script type="math/tex; mode=display">
-\begin{equation}
-[R_1, R_2, ..., R_{4096}, G_1, G_2, ..., G_{4096}, B_1, B_2, ..., B_{4096}]^T
-\end{equation}</script><p><strong>至此，我们完成了数据集的格式化处理，即 图1-3 中左侧RGB图像到右侧输入层的转换。</strong></p>
-<p><img src="/2019/03/05/DeepLearning-03/5.jpg" alt="Title"></p>
-<p><center>图 1-3 输入数据格式化</center><br><strong>不过，imshow()显示图像时对double型是认为在0~1范围内，因此再将颜色值全部除以255将值转换到0~1。</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">train_set_x = <span class="number">1.0</span>*train_set_x_flatten/<span class="number">255</span></span><br><span class="line">test_set_x = <span class="number">1.0</span>*test_set_x_flatten/<span class="number">255</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Shape of train_set_x: "</span> + str(train_set_x.shape))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Value of test_set_x: "</span> + str(test_set_x))</span><br></pre></td></tr></table></figure>
-<p>输出结果：</p>
-<blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Shape of train_set_x: (12288L, 209L)<br>&nbsp;&nbsp;&nbsp;&nbsp;Value of test_set_x: [[0.61960784 0.45098039 1.         … &gt; &nbsp;&nbsp;&nbsp;&nbsp;0.16078431 0.07058824 0.52156863]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0.40784314 0.43137255 0.99215686 … 0.18431373 0.07058824 0.63921569]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0.3254902  0.43529412 0.99607843 … 0.32941176 0.0627451  0.29411765]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;…<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0.67843137 0.67058824 0.52156863 … 0.71764706 0.56470588 0.01960784]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0.50196078 0.69019608 0.39607843 … 0.55294118 0.5372549  0.08627451]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0.43137255 0.72941176 0.4745098  … 0.45490196 0.42352941 0.01960784]]</p>
-</blockquote>
-<p>现在，整个数据集的输入数据都已经处理好了放在矩阵 train_set_x 与 test_set_x 当中，形式如下：</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-train\_set\_x = 
-\begin{bmatrix}
-R^{(1)}_1&R^{(2)}_1&{\cdots}&R^{(209)}_1\\
-R^{(1)}_2&R^{(2)}_2&{\cdots}&R^{(209)}_2\\
-{\vdots}&{\vdots}&{\cdots}&{\vdots}\\
-R^{(1)}_{4096}&R^{(2)}_{4096}&{\cdots}&R^{(209)}_{4096}\\
-G^{(1)}_1&G^{(2)}_1&{\cdots}&G^{(209)}_1\\
-G^{(1)}_2&G^{(2)}_2&{\cdots}&G^{(209)}_2\\
-{\vdots}&{\vdots}&{\cdots}&{\vdots}\\
-G^{(1)}_{4096}&G^{(2)}_{4096}&{\cdots}&G^{(209)}_{4096}\\
-B^{(1)}_1&B^{(2)}_1&{\cdots}&B^{(209)}_1\\
-B^{(1)}_2&B^{(2)}_2&{\cdots}&B^{(209)}_2\\
-{\vdots}&{\vdots}&{\cdots}&{\vdots}\\
-B^{(1)}_{4096}&B^{(2)}_{4096}&{\cdots}&x^{(209)}_{4096}\\
-\end{bmatrix}
-_{12288 \times 209}
-，
-test\_set\_x = 
-\begin{bmatrix}
-R^{(1)}_1&R^{(2)}_1&{\cdots}&R^{(50)}_1\\
-R^{(1)}_2&R^{(2)}_2&{\cdots}&R^{(50)}_2\\
-{\vdots}&{\vdots}&{\cdots}&{\vdots}\\
-R^{(1)}_{4096}&R^{(2)}_{4096}&{\cdots}&R^{(50)}_{4096}\\
-G^{(1)}_1&G^{(2)}_1&{\cdots}&G^{(50)}_1\\
-G^{(1)}_2&G^{(2)}_2&{\cdots}&G^{(50)}_2\\
-{\vdots}&{\vdots}&{\cdots}&{\vdots}\\
-G^{(1)}_{4096}&G^{(2)}_{4096}&{\cdots}&G^{(50)}_{4096}\\
-B^{(1)}_1&B^{(2)}_1&{\cdots}&B^{(50)}_1\\
-B^{(1)}_2&B^{(2)}_2&{\cdots}&B^{(50)}_2\\
-{\vdots}&{\vdots}&{\cdots}&{\vdots}\\
-B^{(1)}_{4096}&B^{(2)}_{4096}&{\cdots}&x^{(50)}_{4096}\\
-\end{bmatrix}
-_{12288 \times 209}
-\end{equation}</script><p>如果你有些忘记了上面这个矩阵的行数、列数及每一个角标的意义的话，请回看上一篇向量化的第一节，里面有详细的解释，不过结合矩阵的角标你应该很好理解了。</p>
-<p><strong>至此，训练和测试数据都有了并且都规范好了，正式开始搭建你的神经网络吧！</strong></p>
-<h1 id="3-2-搭建神经网络"><a href="#3-2-搭建神经网络" class="headerlink" title="3.2 搭建神经网络"></a>3.2 搭建神经网络</h1><h2 id="numpy"><a href="#numpy" class="headerlink" title="numpy"></a>numpy</h2><p>在开始写代码之前，你需要先导入一下 numpy：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
-<p>numpy 是 Python 的一种开源的数值计算扩展，这种工具可用来存储和处理大型矩阵，在上一篇向量化当中所记录的是如何将 Logistic 回归向量化，即将循环代码转换为矩阵计算的形式，而 numpy 就可以帮助你实现矩阵的相关计算。</p>
-<p>例如现在将定义一个函数 sigmoid 用于计算所有输入样本 $z$ 值的 $\sigma$ 函数值：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># sigmoid 函数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sigmoid</span><span class="params">(z)</span>:</span></span><br><span class="line">    a = <span class="number">1.</span>/(<span class="number">1</span>+np.exp(-z))</span><br><span class="line">    <span class="keyword">return</span> a</span><br></pre></td></tr></table></figure>
-<p>np.exp 是 numpy 提供的求自然指数的函数，对如输入参数为矩阵的时候，会对矩阵中的所有元素求自然指数，如果不使用 numpy 的话，你就要写一个大的 for 循环来遍历所有的数据并计算了，在上一篇中你已经看到了 for 循环的效率是很低的，这就是使用 numpy 的必要性，即向量化计算的落地实现。</p>
-<h2 id="初始化参数"><a href="#初始化参数" class="headerlink" title="初始化参数"></a>初始化参数</h2><p>下面定义的函数 initialize_parameters 用于初始化参数 $w$ 和 $b$，传入输入的维数，返回一个值为 0 的 $b$ 及对应维数的 $w$。</p>
-<blockquote>
-<p>np.zeros((a,b))，用于生成一个形状为 $a \times b$ 的零矩阵。 </p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Initialize parameters</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">initialize_parameters</span><span class="params">(dim)</span>:</span></span><br><span class="line">    w = np.zeros(shape=(dim, <span class="number">1</span>), dtype=np.float32)</span><br><span class="line">    b = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> w, b</span><br></pre></td></tr></table></figure>
-<h2 id="向前-后传播"><a href="#向前-后传播" class="headerlink" title="向前/后传播"></a>向前/后传播</h2><p>下面定义的函数 propagate 将完成一次向前传播与向后传播。</p>
-<p>如果对下面代码理解还有困难的话，其中向前传播的 Cost Function 见 <a href="/2019/03/02/DeepLearning-01/">第一篇</a> 中的1.2节，向后传播中 $dw$ 与 $db$ 见 <a href="/2019/03/02/DeepLearning-01/">第一篇</a> 中公式(24)(25)，对向量化形式的不清楚请回看 <a href="/2019/03/03/DeepLearning-02/">第二篇</a>。</p>
-<blockquote>
-<p>np.sum(M)，是 numpy 中的求和函数，可以对矩阵按行/列进行堆叠求和，参数 axis = 1 时表示按行求和。<br>np.dot(M1,M2)，是 numpy 中的点乘函数，用于对两个矩阵做点乘运算。</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">propagate</span><span class="params">(w, b, X, Y)</span>:</span></span><br><span class="line">    </span><br><span class="line">    m = X.shape[<span class="number">1</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 向前传播</span></span><br><span class="line">    A = sigmoid(np.dot(w.T,X) + b)</span><br><span class="line">    </span><br><span class="line">    cost = (<span class="number">-1.</span>/m) * np.sum((Y*np.log(A) + (<span class="number">1</span>-Y)*np.log(<span class="number">1</span>-A)), axis = <span class="number">1</span>) <span class="comment"># axis = 1 代表按行求和</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 向后传播</span></span><br><span class="line">    dw = (<span class="number">1.</span>/m)*np.dot(X, ((A-Y).T))</span><br><span class="line">    db = (<span class="number">1.</span>/m)*np.sum(A-Y, axis = <span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    cost = np.squeeze(cost) <span class="comment"># trans cost from matrix 1x1 into a real number</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> dw, db, cost</span><br></pre></td></tr></table></figure>
-<h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h2><p>下面的函数 optimized 将实现梯度下降，参数 train_times 和 learning_rate 分别用于设定训练次数及学习率。变量 costs 用于记录参数 $w$、$b$ 对应的成本函数值，每训练100次记录一次成本，用于后期绘制 costs 关于训练次数的变化图像，以了解模型的学习情况。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">optimized</span><span class="params">(w, b, X, Y, train_times, learning_rate)</span>:</span></span><br><span class="line">    </span><br><span class="line">    costs = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(train_times):</span><br><span class="line">        </span><br><span class="line">        dw, db, cost = propagate(w, b, X, Y)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 参数迭代</span></span><br><span class="line">        w = w - learning_rate * dw</span><br><span class="line">        b = b - learning_rate * db</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 记录成本函数</span></span><br><span class="line">        <span class="keyword">if</span> i%<span class="number">100</span> == <span class="number">0</span>:</span><br><span class="line">            costs.append(cost)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> w, b, costs</span><br></pre></td></tr></table></figure>
-<h2 id="输入预测"><a href="#输入预测" class="headerlink" title="输入预测"></a>输入预测</h2><p>下面的函数 predict 用于输入预测，其实也就是计算一次向前传播，得到输出结果就是预测值。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(w, b, X)</span>:</span></span><br><span class="line">    </span><br><span class="line">    m = X.shape[<span class="number">1</span>]</span><br><span class="line">    Y_prediction = np.zeros((<span class="number">1</span>,m))</span><br><span class="line">    </span><br><span class="line">	<span class="comment"># 确保矩阵维数匹配</span></span><br><span class="line">    w = w.reshape(X.shape[<span class="number">0</span>], <span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">	<span class="comment"># 计算 Logistic 回归</span></span><br><span class="line">    A = sigmoid(np.dot(w.T, X) + b)</span><br><span class="line">	</span><br><span class="line">	<span class="comment"># 如果结果大于0.5，打上标签"1"，反之记录为"0"</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(A.shape[<span class="number">1</span>]):</span><br><span class="line">        <span class="keyword">if</span> A[<span class="number">0</span>, i] &gt; <span class="number">0.5</span>:</span><br><span class="line">            Y_prediction[<span class="number">0</span>, i] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            Y_prediction[<span class="number">0</span>, i] = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">	<span class="comment"># 确保一下矩阵维数正确</span></span><br><span class="line">    <span class="keyword">assert</span>(Y_prediction.shape == (<span class="number">1</span>,m))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> Y_prediction</span><br></pre></td></tr></table></figure>
-<h2 id="模型封装"><a href="#模型封装" class="headerlink" title="模型封装"></a>模型封装</h2><p>在前面我们已经将模型的主体即向前传播向后传播和梯度下降都模块化地完成了，接下来把这些步骤拼接在一起得到最终的模型吧！</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestMyModel</span><span class="params">(X_train, Y_train, X_test, Y_test, train_times = <span class="number">100</span>, learning_rate = <span class="number">0.005</span>)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 初始化参数</span></span><br><span class="line">    w, b = initialize_parameters(X_train.shape[<span class="number">0</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 开始梯度下降训练</span></span><br><span class="line">    w, b, costs = optimized(w, b, X_train, Y_train, train_times, learning_rate)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 训练完成，测试一下效果</span></span><br><span class="line">    Y_prediction_train = predict(w, b, X_train)</span><br><span class="line">    Y_prediction_test = predict(w, b, X_test)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 输出效果</span></span><br><span class="line">    print(<span class="string">"Accuracy on train_set: "</span> + str(<span class="number">100</span> - np.mean(np.abs(Y_prediction_train-Y_train)) * <span class="number">100</span>) + <span class="string">"%"</span>)</span><br><span class="line">    print(<span class="string">"Accuracy on test_set: "</span> + str(<span class="number">100</span> - np.mean(np.abs(Y_prediction_test-Y_test)) * <span class="number">100</span>) + <span class="string">"%"</span>)</span><br><span class="line">    print(Y_prediction_test)</span><br><span class="line">    <span class="keyword">return</span> w, b, costs, Y_prediction_test</span><br></pre></td></tr></table></figure>
-<h1 id="3-3-效果测试"><a href="#3-3-效果测试" class="headerlink" title="3.3 效果测试"></a>3.3 效果测试</h1><h2 id="数据集测试"><a href="#数据集测试" class="headerlink" title="数据集测试"></a>数据集测试</h2><p>至此，你已经完成了一个单层神经网络的构建，让我们来测试一下效果吧！</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">w, b, costs, Y_prediction_test = TestMyModel(train_set_x, train_set_y, test_set_x, test_set_y, <span class="number">2000</span>, <span class="number">0.002</span>)</span><br><span class="line">plot_costs = np.squeeze(costs)</span><br><span class="line">plt.plot(plot_costs)</span><br></pre></td></tr></table></figure>
-<p>输出结果：</p>
-<blockquote>
-<p>Accuracy on train_set: 95.69377990430623%<br>Accuracy on test_set: 74.0%<br>[[1. 1. 1. 1. 1. 0. 0. 1. 1. 1. 0. 0. 1. 1. 0. 1. 0. 1. 0. 0. 1. 0. 0. 1. 1. 1. 1. 0. 0. 1. 0. 1. 1. 0. 1. 0. 0. 1. 0. 0. 1. 1. 1. 0. 1. 0. 0. 1. 1. 0.]]</p>
-</blockquote>
-<p><img src="/2019/03/05/DeepLearning-03/6.jpg" alt="Title"></p>
-<p><center>图 1-4 成本函数关于训练次数图像</center><br>可以看到，对于学习率 0.002，训练2000次可以在训练集与测试集上分别得到 95.69% 与 74% 的正确率！这对于一个如此简单的单层神经网络来说已经算是不错了。</p>
-<p>看看测试集中预测与图片的对比：</p>
-<p><img src="/2019/03/05/DeepLearning-03/7.jpg" alt="Title"></p>
-<p><center>图 1-4 测试集中预测与图片的对比</center></p>
-<h2 id="试试自己的数据"><a href="#试试自己的数据" class="headerlink" title="试试自己的数据"></a>试试自己的数据</h2><p>下面的函数 isCat 是对模型的进一步封装，用其来预测一张自定义的照片。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isCat</span><span class="params">(my_image = <span class="string">"my_image.jpg"</span>, dirname = <span class="string">"images/"</span>)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 初始化图片路径</span></span><br><span class="line">    fname = dirname + my_image</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 读取图片</span></span><br><span class="line">    image = np.array(plt.imread(fname))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 将图片转换为训练集一样的尺寸</span></span><br><span class="line">    num_px = train_set_x_orig.shape[<span class="number">2</span>]</span><br><span class="line">    my_image = skimage.transform.resize(image, output_shape=(num_px,num_px)).reshape((<span class="number">1</span>, num_px*num_px*<span class="number">3</span>)).T</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 预测</span></span><br><span class="line">    my_predicted_image = predict(w, b, my_image)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 绘图与结果输出</span></span><br><span class="line">    plt.imshow(image)</span><br><span class="line">    print(<span class="string">"y = "</span> + str(int(my_predicted_image)) + <span class="string">", our neutral network predicts a \""</span> + classes[int(my_predicted_image),] +  <span class="string">"\" picture."</span>)</span><br></pre></td></tr></table></figure>
-<p>接下来我们试试识别自己拍的照片吧！</p>
-<p>下面是我自己拍摄的一张白猫的照片，可以看到我们搭建的网络得到了正确的识别结果：</p>
-<p><img src="/2019/03/05/DeepLearning-03/8.jpg" alt="Title"></p>
-<p><center>图 1-4 识别自己拍摄的照片</center><br><div class="spoiler collapsed"><div class="spoiler-title">附件</div><div class="spoiler-content"><p>链接: <a href="https://pan.baidu.com/s/1-38tRj_SRNNX3v9gs0keEQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1-38tRj_SRNNX3v9gs0keEQ</a> 提取码: uhf3</p>
-</div></div></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>深度学习</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>DeepLearning</tag>
-        <tag>Python</tag>
-      </tags>
+    <title>遗憾！</title>
+    <url>/2018/11/27/CUMCM-PITY/</url>
+    <content><![CDATA[<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
   </entry>
   <entry>
     <title>深度学习（一）Logistic 回归与梯度下降</title>
@@ -1304,6 +1151,197 @@ J = -(1/m)(YlogA^{[2]} + (1-Y)log(1-A^{[2]}))
       </tags>
   </entry>
   <entry>
+    <title>深度学习（三）实战：动手实现猫图识别</title>
+    <url>/2019/03/05/DeepLearning-03/</url>
+    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>本篇详细记录了如何使用 Python 语言基于 Logistic 回归搭建一个简单的单层神经网络，并实现猫图的识别。<br>本篇中的单层神经网络在训练集与测试集上分别获得了 95.7% 与 74.0% 的正确率。</p>
+</blockquote>
+<p><img src="/2019/03/05/DeepLearning-03/1.jpg" alt="Title"></p>
+<a id="more"></a>
+<hr>
+<p>本篇将在 Jupyter Nootbook 中使用 Python 语言进行编程。</p>
+<p>简单来说， <strong>Jupyter 是一个交互式笔记本</strong>，可以在一个 Jupyer 笔记本文件中同时记录 Markdown 笔记与添加可分段执行的代码块。</p>
+<blockquote>
+<p>Jupyter Notebook 是一个基于网页的用于交互计算的应用程序。其可被应用于全过程计算：开发、文档编写、运行代码和展示结果。（<a href="https://link.jianshu.com/?t=https%3A%2F%2Fjupyter-notebook.readthedocs.io%2Fen%2Fstable%2Fnotebook.html" target="_blank" rel="noopener">摘自官方介绍</a>）</p>
+<p>Jupyter Notebook（此前被称为 IPython notebook）是一个交互式笔记本，支持运行 40 多种编程语言。Jupyter Notebook 的本质是一个 Web 应用程序，便于创建和共享文学化程序文档，支持实时代码，数学方程，可视化和 markdown。 用途包括：数据清理和转换，数值模拟，统计建模，机器学习等等。（<a href="https://baike.baidu.com/item/Jupyter/20423051?fr=aladdin" target="_blank" rel="noopener">摘自百度百科</a>）</p>
+</blockquote>
+<h1 id="3-0-数据导入"><a href="#3-0-数据导入" class="headerlink" title="3.0 数据导入"></a>3.0 数据导入</h1><p>本篇使用的数据摘自吴恩达深度学习课程，可以在本篇末尾获取下载。在搭建神经网络之前，不如先看一看数据是怎样的。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> lr_utils <span class="keyword">import</span> load_dataset</span><br><span class="line">train_X_orig, train_Y, test_X_orig, test_Y, classes = load_dataset()</span><br></pre></td></tr></table></figure>
+<p>其中 load_dataset 就将数据进行了导入，如果你好奇数据是怎么导入的，可以点开下面的隐藏块查看代码细节，但是目前为止你并不需要关心数据是怎么导入的，以及数据来源是什么，因为这些都不是本篇的重点，你要关注内容的应该是神经网络在编程中到底是如何实现的，当你真正实现了你的神经网络之后，只需要将数据按照你的网络需要进行格式处理并输入就行了。在本篇当中你直接将数据下载下来并使用上面的一行代码导入进行使用即可。</p>
+<div class="spoiler collapsed"><div class="spoiler-title">detail of load_dataset</div><div class="spoiler-content"><p><img src="/2019/03/05/DeepLearning-03/2.jpg" alt="Title"></p>
+</div></div>
+<p>导入数据后的第一件事情，应该关心数据的存储结构，下面几行代码输出了训练集输入（train_set_x_orig）、训练集输出（train_set_y）、测试集输入（test_set_x_orig）及测试集输出（test_set_y）的形状。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">print</span> (<span class="string">"Shape of train_set_x_orig: "</span> + str(train_set_x_orig.shape))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Shape of train_set_y: "</span> + str(train_set_y.shape))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Shape of test_set_x_orig: "</span> + str(test_set_x_orig.shape))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Shape of test_set_y: "</span> + str(test_set_y.shape))</span><br></pre></td></tr></table></figure>
+<p>输出结果是：</p>
+<blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Shape of train_X_orig: (209L, 64L, 64L, 3L)<br>&nbsp;&nbsp;&nbsp;&nbsp;Shape of train_Y: (1L, 209L)<br>&nbsp;&nbsp;&nbsp;&nbsp;Shape of test_X_orig: (50L, 64L, 64L, 3L)<br>&nbsp;&nbsp;&nbsp;&nbsp;Shape of test_Y: (1L, 50L)</p>
+</blockquote>
+<p>由此不难获得几点信息：</p>
+<ul>
+<li><p>训练集中有209个训练元素；测试集中有50个测试元素。<br>即 $m_{train} = 209$, $m_{test} = 50$。</p>
+</li>
+<li><p>训练集和测试集的图像宽高均为 $64 \times 64$。</p>
+</li>
+</ul>
+<p>而 $3L$ 代表的是 $RGB$ 三通道。如果对图像在计算机当中的存储形式有所了解的话，应该对 $RGB$ 不陌生，电脑屏幕上的所有颜色，都由这红色(R)绿色(G)蓝色(B)三种色光按照不同的比例混合而成。</p>
+<p>通过 matplotlib.pyplot 中提供的 imshow 函数可以将一幅 RGB 图像显示出来：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示训练集中的第 index 个训练图像</span></span><br><span class="line">index = <span class="number">102</span></span><br><span class="line">plt.imshow(train_set_x_orig[index])</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"y = "</span> + str(train_set_y[:, index]) + <span class="string">", it's a '"</span> + classes[int(train_set_y[:, index])] +  <span class="string">"' picture."</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/03/05/DeepLearning-03/3.jpg" alt="Title"></p>
+<p><center>图 1-1 使用 imshow 函数显示图像</center><br>可以看到，在训练集中的第103个样本图像是一张猫图。其中输出的结果 “y = [1]” 表示这张图片的标注是 “1”，也就表示 “是” 的意思。不妨再看一看第104个样本，可以看到不是猫图，而对应的输出结果也变成了 “y = [0]”。</p>
+<p><img src="/2019/03/05/DeepLearning-03/4.jpg" alt="Title"></p>
+<p><center>图 1-2 使用 imshow 函数显示图像</center></p>
+<h1 id="3-1-数据处理"><a href="#3-1-数据处理" class="headerlink" title="3.1 数据处理"></a>3.1 数据处理</h1><p>在前面已经完成了数据集的导入，并且查看了训练集当中的两个样本图像及对应的图像标注。但是这些数据目前为止还不方便我们使用，下面看一看如何将其调整为合适的格式。</p>
+<p>对于单个训练样本而言，所有的输入按照列矩阵的形式传入网络，即输入 $x$ 的是 $n_x \times 1$ 维的矩阵，但是一幅 $64 \times 64$ 图像的在数据集中是以 $64 \times 64 \times 3$ 的矩阵形状进行存储的，为了满足神经网络的输入格式，在 Python 中可以使用 reshape 函数改变矩阵的形状，对于一个形状为 $(a,b,c,d)$ 的矩阵 $M_1$ 而言，通过 $M_1.reshape(M_1.shape[0],-1).T$ 就可以将其转换为形状为 $(b \times c \times d,a)$ 的矩阵了。</p>
+<p>其中第一项参数 $M_1.shape[0]$ 表示的就是 $M_1$ 原来的第一维长度 $a$，第二项参数 $-1$ 表示将后面的所有维度堆叠成一个维度，这样就得到了一个形为 $(a,b \times c \times d)$ 的矩阵，再通过”.T”进行转置，就得到了 $a$ 个列矩阵堆叠得到的“向量化矩阵”。</p>
+<p>使用这个方法就可以对数据集中的图像数据进行降维处理了：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">train_set_x_flatten = train_set_x_orig.reshape(train_set_x_orig.shape[<span class="number">0</span>],<span class="number">-1</span>).T</span><br><span class="line">test_set_x_flatten = test_set_x_orig.reshape(test_set_x_orig.shape[<span class="number">0</span>],<span class="number">-1</span>).T</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Shape of train_set_x_flatten: "</span> + str(train_set_x_flatten.shape))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Value of test_set_x_flatten: "</span> + str(test_set_x_flatten))</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Shape of train_set_x_flatten: (12288L, 209L)<br>&nbsp;&nbsp;&nbsp;&nbsp;Value of test_set_x_flatten: [[158 115 255 …  41  18 133]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[104 110 253 …  47  18 163]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ 83 111 254 …  84  16  75]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;…<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[173 171 133 … 183 144   5]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[128 176 101 … 141 137  22]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[110 186 121 … 116 108   5]]</p>
+</blockquote>
+<p>其中按列看，每一列代表一个样本图像的所有 $RGB$ 数值，共有209个训练样本，因此 train_set_x_flatten 有209列。</p>
+<p><strong>数字 12288 是 RGB 全部铺平的数值总量</strong><br>因为图片是 $64×64$ 的，因此 $R、G、B$ 各有 $64×64=4096$ 个值，$RGB$ 共三层，$4096×3=12288$。</p>
+<p><strong>单个样本的RGB颜色值在 flatten 当中应该是这样存放的：</strong></p>
+<script type="math/tex; mode=display">
+\begin{equation}
+[R_1, R_2, ..., R_{4096}, G_1, G_2, ..., G_{4096}, B_1, B_2, ..., B_{4096}]^T
+\end{equation}</script><p><strong>至此，我们完成了数据集的格式化处理，即 图1-3 中左侧RGB图像到右侧输入层的转换。</strong></p>
+<p><img src="/2019/03/05/DeepLearning-03/5.jpg" alt="Title"></p>
+<p><center>图 1-3 输入数据格式化</center><br><strong>不过，imshow()显示图像时对double型是认为在0~1范围内，因此再将颜色值全部除以255将值转换到0~1。</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">train_set_x = <span class="number">1.0</span>*train_set_x_flatten/<span class="number">255</span></span><br><span class="line">test_set_x = <span class="number">1.0</span>*test_set_x_flatten/<span class="number">255</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Shape of train_set_x: "</span> + str(train_set_x.shape))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Value of test_set_x: "</span> + str(test_set_x))</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Shape of train_set_x: (12288L, 209L)<br>&nbsp;&nbsp;&nbsp;&nbsp;Value of test_set_x: [[0.61960784 0.45098039 1.         … &gt; &nbsp;&nbsp;&nbsp;&nbsp;0.16078431 0.07058824 0.52156863]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0.40784314 0.43137255 0.99215686 … 0.18431373 0.07058824 0.63921569]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0.3254902  0.43529412 0.99607843 … 0.32941176 0.0627451  0.29411765]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;…<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0.67843137 0.67058824 0.52156863 … 0.71764706 0.56470588 0.01960784]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0.50196078 0.69019608 0.39607843 … 0.55294118 0.5372549  0.08627451]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0.43137255 0.72941176 0.4745098  … 0.45490196 0.42352941 0.01960784]]</p>
+</blockquote>
+<p>现在，整个数据集的输入数据都已经处理好了放在矩阵 train_set_x 与 test_set_x 当中，形式如下：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+train\_set\_x = 
+\begin{bmatrix}
+R^{(1)}_1&R^{(2)}_1&{\cdots}&R^{(209)}_1\\
+R^{(1)}_2&R^{(2)}_2&{\cdots}&R^{(209)}_2\\
+{\vdots}&{\vdots}&{\cdots}&{\vdots}\\
+R^{(1)}_{4096}&R^{(2)}_{4096}&{\cdots}&R^{(209)}_{4096}\\
+G^{(1)}_1&G^{(2)}_1&{\cdots}&G^{(209)}_1\\
+G^{(1)}_2&G^{(2)}_2&{\cdots}&G^{(209)}_2\\
+{\vdots}&{\vdots}&{\cdots}&{\vdots}\\
+G^{(1)}_{4096}&G^{(2)}_{4096}&{\cdots}&G^{(209)}_{4096}\\
+B^{(1)}_1&B^{(2)}_1&{\cdots}&B^{(209)}_1\\
+B^{(1)}_2&B^{(2)}_2&{\cdots}&B^{(209)}_2\\
+{\vdots}&{\vdots}&{\cdots}&{\vdots}\\
+B^{(1)}_{4096}&B^{(2)}_{4096}&{\cdots}&x^{(209)}_{4096}\\
+\end{bmatrix}
+_{12288 \times 209}
+，
+test\_set\_x = 
+\begin{bmatrix}
+R^{(1)}_1&R^{(2)}_1&{\cdots}&R^{(50)}_1\\
+R^{(1)}_2&R^{(2)}_2&{\cdots}&R^{(50)}_2\\
+{\vdots}&{\vdots}&{\cdots}&{\vdots}\\
+R^{(1)}_{4096}&R^{(2)}_{4096}&{\cdots}&R^{(50)}_{4096}\\
+G^{(1)}_1&G^{(2)}_1&{\cdots}&G^{(50)}_1\\
+G^{(1)}_2&G^{(2)}_2&{\cdots}&G^{(50)}_2\\
+{\vdots}&{\vdots}&{\cdots}&{\vdots}\\
+G^{(1)}_{4096}&G^{(2)}_{4096}&{\cdots}&G^{(50)}_{4096}\\
+B^{(1)}_1&B^{(2)}_1&{\cdots}&B^{(50)}_1\\
+B^{(1)}_2&B^{(2)}_2&{\cdots}&B^{(50)}_2\\
+{\vdots}&{\vdots}&{\cdots}&{\vdots}\\
+B^{(1)}_{4096}&B^{(2)}_{4096}&{\cdots}&x^{(50)}_{4096}\\
+\end{bmatrix}
+_{12288 \times 209}
+\end{equation}</script><p>如果你有些忘记了上面这个矩阵的行数、列数及每一个角标的意义的话，请回看上一篇向量化的第一节，里面有详细的解释，不过结合矩阵的角标你应该很好理解了。</p>
+<p><strong>至此，训练和测试数据都有了并且都规范好了，正式开始搭建你的神经网络吧！</strong></p>
+<h1 id="3-2-搭建神经网络"><a href="#3-2-搭建神经网络" class="headerlink" title="3.2 搭建神经网络"></a>3.2 搭建神经网络</h1><h2 id="numpy"><a href="#numpy" class="headerlink" title="numpy"></a>numpy</h2><p>在开始写代码之前，你需要先导入一下 numpy：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<p>numpy 是 Python 的一种开源的数值计算扩展，这种工具可用来存储和处理大型矩阵，在上一篇向量化当中所记录的是如何将 Logistic 回归向量化，即将循环代码转换为矩阵计算的形式，而 numpy 就可以帮助你实现矩阵的相关计算。</p>
+<p>例如现在将定义一个函数 sigmoid 用于计算所有输入样本 $z$ 值的 $\sigma$ 函数值：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># sigmoid 函数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sigmoid</span><span class="params">(z)</span>:</span></span><br><span class="line">    a = <span class="number">1.</span>/(<span class="number">1</span>+np.exp(-z))</span><br><span class="line">    <span class="keyword">return</span> a</span><br></pre></td></tr></table></figure>
+<p>np.exp 是 numpy 提供的求自然指数的函数，对如输入参数为矩阵的时候，会对矩阵中的所有元素求自然指数，如果不使用 numpy 的话，你就要写一个大的 for 循环来遍历所有的数据并计算了，在上一篇中你已经看到了 for 循环的效率是很低的，这就是使用 numpy 的必要性，即向量化计算的落地实现。</p>
+<h2 id="初始化参数"><a href="#初始化参数" class="headerlink" title="初始化参数"></a>初始化参数</h2><p>下面定义的函数 initialize_parameters 用于初始化参数 $w$ 和 $b$，传入输入的维数，返回一个值为 0 的 $b$ 及对应维数的 $w$。</p>
+<blockquote>
+<p>np.zeros((a,b))，用于生成一个形状为 $a \times b$ 的零矩阵。 </p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Initialize parameters</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">initialize_parameters</span><span class="params">(dim)</span>:</span></span><br><span class="line">    w = np.zeros(shape=(dim, <span class="number">1</span>), dtype=np.float32)</span><br><span class="line">    b = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> w, b</span><br></pre></td></tr></table></figure>
+<h2 id="向前-后传播"><a href="#向前-后传播" class="headerlink" title="向前/后传播"></a>向前/后传播</h2><p>下面定义的函数 propagate 将完成一次向前传播与向后传播。</p>
+<p>如果对下面代码理解还有困难的话，其中向前传播的 Cost Function 见 <a href="/2019/03/02/DeepLearning-01/">第一篇</a> 中的1.2节，向后传播中 $dw$ 与 $db$ 见 <a href="/2019/03/02/DeepLearning-01/">第一篇</a> 中公式(24)(25)，对向量化形式的不清楚请回看 <a href="/2019/03/03/DeepLearning-02/">第二篇</a>。</p>
+<blockquote>
+<p>np.sum(M)，是 numpy 中的求和函数，可以对矩阵按行/列进行堆叠求和，参数 axis = 1 时表示按行求和。<br>np.dot(M1,M2)，是 numpy 中的点乘函数，用于对两个矩阵做点乘运算。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">propagate</span><span class="params">(w, b, X, Y)</span>:</span></span><br><span class="line">    </span><br><span class="line">    m = X.shape[<span class="number">1</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 向前传播</span></span><br><span class="line">    A = sigmoid(np.dot(w.T,X) + b)</span><br><span class="line">    </span><br><span class="line">    cost = (<span class="number">-1.</span>/m) * np.sum((Y*np.log(A) + (<span class="number">1</span>-Y)*np.log(<span class="number">1</span>-A)), axis = <span class="number">1</span>) <span class="comment"># axis = 1 代表按行求和</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 向后传播</span></span><br><span class="line">    dw = (<span class="number">1.</span>/m)*np.dot(X, ((A-Y).T))</span><br><span class="line">    db = (<span class="number">1.</span>/m)*np.sum(A-Y, axis = <span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    cost = np.squeeze(cost) <span class="comment"># trans cost from matrix 1x1 into a real number</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> dw, db, cost</span><br></pre></td></tr></table></figure>
+<h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h2><p>下面的函数 optimized 将实现梯度下降，参数 train_times 和 learning_rate 分别用于设定训练次数及学习率。变量 costs 用于记录参数 $w$、$b$ 对应的成本函数值，每训练100次记录一次成本，用于后期绘制 costs 关于训练次数的变化图像，以了解模型的学习情况。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">optimized</span><span class="params">(w, b, X, Y, train_times, learning_rate)</span>:</span></span><br><span class="line">    </span><br><span class="line">    costs = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(train_times):</span><br><span class="line">        </span><br><span class="line">        dw, db, cost = propagate(w, b, X, Y)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 参数迭代</span></span><br><span class="line">        w = w - learning_rate * dw</span><br><span class="line">        b = b - learning_rate * db</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 记录成本函数</span></span><br><span class="line">        <span class="keyword">if</span> i%<span class="number">100</span> == <span class="number">0</span>:</span><br><span class="line">            costs.append(cost)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> w, b, costs</span><br></pre></td></tr></table></figure>
+<h2 id="输入预测"><a href="#输入预测" class="headerlink" title="输入预测"></a>输入预测</h2><p>下面的函数 predict 用于输入预测，其实也就是计算一次向前传播，得到输出结果就是预测值。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(w, b, X)</span>:</span></span><br><span class="line">    </span><br><span class="line">    m = X.shape[<span class="number">1</span>]</span><br><span class="line">    Y_prediction = np.zeros((<span class="number">1</span>,m))</span><br><span class="line">    </span><br><span class="line">	<span class="comment"># 确保矩阵维数匹配</span></span><br><span class="line">    w = w.reshape(X.shape[<span class="number">0</span>], <span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">	<span class="comment"># 计算 Logistic 回归</span></span><br><span class="line">    A = sigmoid(np.dot(w.T, X) + b)</span><br><span class="line">	</span><br><span class="line">	<span class="comment"># 如果结果大于0.5，打上标签"1"，反之记录为"0"</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(A.shape[<span class="number">1</span>]):</span><br><span class="line">        <span class="keyword">if</span> A[<span class="number">0</span>, i] &gt; <span class="number">0.5</span>:</span><br><span class="line">            Y_prediction[<span class="number">0</span>, i] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            Y_prediction[<span class="number">0</span>, i] = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">	<span class="comment"># 确保一下矩阵维数正确</span></span><br><span class="line">    <span class="keyword">assert</span>(Y_prediction.shape == (<span class="number">1</span>,m))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> Y_prediction</span><br></pre></td></tr></table></figure>
+<h2 id="模型封装"><a href="#模型封装" class="headerlink" title="模型封装"></a>模型封装</h2><p>在前面我们已经将模型的主体即向前传播向后传播和梯度下降都模块化地完成了，接下来把这些步骤拼接在一起得到最终的模型吧！</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestMyModel</span><span class="params">(X_train, Y_train, X_test, Y_test, train_times = <span class="number">100</span>, learning_rate = <span class="number">0.005</span>)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 初始化参数</span></span><br><span class="line">    w, b = initialize_parameters(X_train.shape[<span class="number">0</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 开始梯度下降训练</span></span><br><span class="line">    w, b, costs = optimized(w, b, X_train, Y_train, train_times, learning_rate)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 训练完成，测试一下效果</span></span><br><span class="line">    Y_prediction_train = predict(w, b, X_train)</span><br><span class="line">    Y_prediction_test = predict(w, b, X_test)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 输出效果</span></span><br><span class="line">    print(<span class="string">"Accuracy on train_set: "</span> + str(<span class="number">100</span> - np.mean(np.abs(Y_prediction_train-Y_train)) * <span class="number">100</span>) + <span class="string">"%"</span>)</span><br><span class="line">    print(<span class="string">"Accuracy on test_set: "</span> + str(<span class="number">100</span> - np.mean(np.abs(Y_prediction_test-Y_test)) * <span class="number">100</span>) + <span class="string">"%"</span>)</span><br><span class="line">    print(Y_prediction_test)</span><br><span class="line">    <span class="keyword">return</span> w, b, costs, Y_prediction_test</span><br></pre></td></tr></table></figure>
+<h1 id="3-3-效果测试"><a href="#3-3-效果测试" class="headerlink" title="3.3 效果测试"></a>3.3 效果测试</h1><h2 id="数据集测试"><a href="#数据集测试" class="headerlink" title="数据集测试"></a>数据集测试</h2><p>至此，你已经完成了一个单层神经网络的构建，让我们来测试一下效果吧！</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">w, b, costs, Y_prediction_test = TestMyModel(train_set_x, train_set_y, test_set_x, test_set_y, <span class="number">2000</span>, <span class="number">0.002</span>)</span><br><span class="line">plot_costs = np.squeeze(costs)</span><br><span class="line">plt.plot(plot_costs)</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<blockquote>
+<p>Accuracy on train_set: 95.69377990430623%<br>Accuracy on test_set: 74.0%<br>[[1. 1. 1. 1. 1. 0. 0. 1. 1. 1. 0. 0. 1. 1. 0. 1. 0. 1. 0. 0. 1. 0. 0. 1. 1. 1. 1. 0. 0. 1. 0. 1. 1. 0. 1. 0. 0. 1. 0. 0. 1. 1. 1. 0. 1. 0. 0. 1. 1. 0.]]</p>
+</blockquote>
+<p><img src="/2019/03/05/DeepLearning-03/6.jpg" alt="Title"></p>
+<p><center>图 1-4 成本函数关于训练次数图像</center><br>可以看到，对于学习率 0.002，训练2000次可以在训练集与测试集上分别得到 95.69% 与 74% 的正确率！这对于一个如此简单的单层神经网络来说已经算是不错了。</p>
+<p>看看测试集中预测与图片的对比：</p>
+<p><img src="/2019/03/05/DeepLearning-03/7.jpg" alt="Title"></p>
+<p><center>图 1-4 测试集中预测与图片的对比</center></p>
+<h2 id="试试自己的数据"><a href="#试试自己的数据" class="headerlink" title="试试自己的数据"></a>试试自己的数据</h2><p>下面的函数 isCat 是对模型的进一步封装，用其来预测一张自定义的照片。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isCat</span><span class="params">(my_image = <span class="string">"my_image.jpg"</span>, dirname = <span class="string">"images/"</span>)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 初始化图片路径</span></span><br><span class="line">    fname = dirname + my_image</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 读取图片</span></span><br><span class="line">    image = np.array(plt.imread(fname))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 将图片转换为训练集一样的尺寸</span></span><br><span class="line">    num_px = train_set_x_orig.shape[<span class="number">2</span>]</span><br><span class="line">    my_image = skimage.transform.resize(image, output_shape=(num_px,num_px)).reshape((<span class="number">1</span>, num_px*num_px*<span class="number">3</span>)).T</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 预测</span></span><br><span class="line">    my_predicted_image = predict(w, b, my_image)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 绘图与结果输出</span></span><br><span class="line">    plt.imshow(image)</span><br><span class="line">    print(<span class="string">"y = "</span> + str(int(my_predicted_image)) + <span class="string">", our neutral network predicts a \""</span> + classes[int(my_predicted_image),] +  <span class="string">"\" picture."</span>)</span><br></pre></td></tr></table></figure>
+<p>接下来我们试试识别自己拍的照片吧！</p>
+<p>下面是我自己拍摄的一张白猫的照片，可以看到我们搭建的网络得到了正确的识别结果：</p>
+<p><img src="/2019/03/05/DeepLearning-03/8.jpg" alt="Title"></p>
+<p><center>图 1-4 识别自己拍摄的照片</center><br><div class="spoiler collapsed"><div class="spoiler-title">附件</div><div class="spoiler-content"><p>链接: <a href="https://pan.baidu.com/s/1-38tRj_SRNNX3v9gs0keEQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1-38tRj_SRNNX3v9gs0keEQ</a> 提取码: uhf3</p>
+</div></div></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>DeepLearning</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>部署本地仓库至 GitHub/Coding</title>
+    <url>/2018/11/25/DeployToCoding/</url>
+    <content><![CDATA[<h2 id="一、建立本地-Git-仓库"><a href="#一、建立本地-Git-仓库" class="headerlink" title="一、建立本地 Git 仓库"></a>一、建立本地 Git 仓库</h2><ol>
+<li><p>初始化本地仓库</p>
+<blockquote>
+<p><code>git init</code></p>
+</blockquote>
+</li>
+<li><p>上传所有代码到本地仓库</p>
+<blockquote>
+<p><code>git add .</code><br><code>git commit -m &quot;initial commit&quot;</code></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="二、推送至-Github-Coding"><a href="#二、推送至-Github-Coding" class="headerlink" title="二、推送至 Github/Coding"></a>二、推送至 Github/Coding</h2><ol>
+<li><p>指向 Coding 的 Git</p>
+<blockquote>
+<p><code>git remote add origin xxx.git</code><br> xxx 为 github/coding 上的 git 仓库地址</p>
+</blockquote>
+</li>
+<li><p>查看是否指向成功，成功则输出 origin</p>
+<blockquote>
+<p><code>git remote</code></p>
+<p>若出现如下错误则敲下方代码后跳第3步<br>::fatal: remote origin already exists::<br><code>git remote remove origin</code></p>
+</blockquote>
+</li>
+<li><p>本地仓库推送到 Coding 仓库</p>
+<blockquote>
+<p><code>git push -u origin master</code></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="三、部署完成，Enjoy！"><a href="#三、部署完成，Enjoy！" class="headerlink" title="三、部署完成，Enjoy！"></a>三、部署完成，Enjoy！</h2><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>沿途简记</category>
+      </categories>
+  </entry>
+  <entry>
     <title>深度学习（五）激活函数的选择 &amp; 浅层神经网络的梯度下降</title>
     <url>/2019/03/24/DeepLearning-05/</url>
     <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
@@ -1370,44 +1408,6 @@ J = -(1/m)(YlogA^{[2]} + (1-Y)log(1-A^{[2]}))
         <tag>Algorithm</tag>
         <tag>DeepLearning</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>部署本地仓库至 GitHub/Coding</title>
-    <url>/2018/11/25/DeployToCoding/</url>
-    <content><![CDATA[<h2 id="一、建立本地-Git-仓库"><a href="#一、建立本地-Git-仓库" class="headerlink" title="一、建立本地 Git 仓库"></a>一、建立本地 Git 仓库</h2><ol>
-<li><p>初始化本地仓库</p>
-<blockquote>
-<p><code>git init</code></p>
-</blockquote>
-</li>
-<li><p>上传所有代码到本地仓库</p>
-<blockquote>
-<p><code>git add .</code><br><code>git commit -m &quot;initial commit&quot;</code></p>
-</blockquote>
-</li>
-</ol>
-<h2 id="二、推送至-Github-Coding"><a href="#二、推送至-Github-Coding" class="headerlink" title="二、推送至 Github/Coding"></a>二、推送至 Github/Coding</h2><ol>
-<li><p>指向 Coding 的 Git</p>
-<blockquote>
-<p><code>git remote add origin xxx.git</code><br> xxx 为 github/coding 上的 git 仓库地址</p>
-</blockquote>
-</li>
-<li><p>查看是否指向成功，成功则输出 origin</p>
-<blockquote>
-<p><code>git remote</code></p>
-<p>若出现如下错误则敲下方代码后跳第3步<br>::fatal: remote origin already exists::<br><code>git remote remove origin</code></p>
-</blockquote>
-</li>
-<li><p>本地仓库推送到 Coding 仓库</p>
-<blockquote>
-<p><code>git push -u origin master</code></p>
-</blockquote>
-</li>
-</ol>
-<h2 id="三、部署完成，Enjoy！"><a href="#三、部署完成，Enjoy！" class="headerlink" title="三、部署完成，Enjoy！"></a>三、部署完成，Enjoy！</h2><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>沿途简记</category>
-      </categories>
   </entry>
   <entry>
     <title>【项目白皮书】 Easecurve · 专业交互动效开发引擎</title>
@@ -1542,33 +1542,6 @@ J = -(1/m)(YlogA^{[2]} + (1-Y)log(1-A^{[2]}))
       </tags>
   </entry>
   <entry>
-    <title>初探 Java 中的异步 Socket</title>
-    <url>/2019/10/10/Java-AsynchronousSocketChannels/</url>
-    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
-<p>阻塞模式下的 Socket 编程往往是非常低效的，然而 Java 中的典型 Socket 编程核心采用的正是这种模式。好在 Java 提供了另一种解决方案，通过 Socket Channel 技术实现了非阻塞的异步 Socket 编程。本文将以一个简单的同步 Socket Demo 切入，引出并介绍 Java 中的 Socket Channel 并完成一个 Asynchronous Socket 案例。</p>
-</blockquote>
-<p><img src="/2019/10/10/Java-AsynchronousSocketChannels/1.jpg" alt="文章头图"></p>
-<a id="more"></a>
-<blockquote>
-<p><strong>友情提示</strong>：本文还没有写完，明天再说吧（我太难了5555）</p>
-</blockquote>
-<h1 id="一、Socket"><a href="#一、Socket" class="headerlink" title="一、Socket"></a>一、Socket</h1><p>在今天的软需分析课上，老师向我们展示了一段用 Java 编写的简单 Socket 通信例程，实现的是基础的 C/S 双向通信。我曾使用 Python 和其它语言开发过 Socket 项目，但为了熟悉 Java 便拿着老师给的代码照着码了一遍：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Server</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ChatServer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> EOFException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Server is listening on port 8080."</span>);</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">try</span>(</span><br><span class="line">                <span class="comment">// Create a socket server</span></span><br><span class="line">                ServerSocket serverSocket = <span class="keyword">new</span> ServerSocket(<span class="number">8080</span>);</span><br><span class="line">                <span class="comment">// Get server socket</span></span><br><span class="line">                Socket socket = serverSocket.accept();</span><br><span class="line">                <span class="comment">// Get socket I/O stream</span></span><br><span class="line">                DataInputStream inputStream = <span class="keyword">new</span> DataInputStream(socket.getInputStream());</span><br><span class="line">                DataOutputStream outputStream = <span class="keyword">new</span> DataOutputStream(socket.getOutputStream());</span><br><span class="line">                <span class="comment">// Get Console buffered Reader</span></span><br><span class="line">                BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">            )&#123;</span><br><span class="line">                <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">                    <span class="comment">// Input</span></span><br><span class="line">                    <span class="comment">// Receive message from clients</span></span><br><span class="line">                    String iString = inputStream.readUTF();</span><br><span class="line">                    <span class="comment">// Display message received</span></span><br><span class="line">                    System.out.println(<span class="string">"[Client] "</span> + iString);</span><br><span class="line">                    <span class="comment">// Output</span></span><br><span class="line">                    <span class="comment">// Get console input</span></span><br><span class="line">                    String aString = bufferedReader.readLine();</span><br><span class="line">                    <span class="keyword">if</span>(aString.equals(<span class="string">"bye"</span>))<span class="keyword">break</span>;</span><br><span class="line">                    outputStream.writeUTF(aString);</span><br><span class="line">                    outputStream.flush();</span><br><span class="line">                    System.out.println(<span class="string">"[Info] "</span> + aString + <span class="string">" has been sent."</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (IOException exp) &#123;</span><br><span class="line">                exp.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        thread.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Client</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ChatClient</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Client is running."</span>);</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">try</span>(</span><br><span class="line">                    <span class="comment">// Socket connect</span></span><br><span class="line">                    Socket socket = <span class="keyword">new</span> Socket(<span class="string">"localhost"</span>,<span class="number">8080</span>);</span><br><span class="line">                    <span class="comment">// Get socket I/O stream</span></span><br><span class="line">                    DataInputStream dataInputStream = <span class="keyword">new</span> DataInputStream(socket.getInputStream());</span><br><span class="line">                    DataOutputStream dataOutputStream = <span class="keyword">new</span> DataOutputStream(socket.getOutputStream());</span><br><span class="line">                    <span class="comment">// Build a Console buffered Reader</span></span><br><span class="line">                    BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">            )</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">                    <span class="comment">// Output</span></span><br><span class="line">                    <span class="comment">// Get console input</span></span><br><span class="line">                    String aString = bufferedReader.readLine();</span><br><span class="line">                    <span class="keyword">if</span>(aString.equals(<span class="string">"bye"</span>))<span class="keyword">break</span>;</span><br><span class="line">                    <span class="comment">// Send message</span></span><br><span class="line">                    dataOutputStream.writeUTF(aString);</span><br><span class="line">                    dataOutputStream.flush();</span><br><span class="line">                    System.out.println(<span class="string">"[Info] "</span> + aString + <span class="string">" has been sent."</span>);</span><br><span class="line">                    <span class="comment">// Input</span></span><br><span class="line">                    <span class="comment">// Receive message from server</span></span><br><span class="line">                    String iString = dataInputStream.readUTF();</span><br><span class="line">                    <span class="comment">// Display message received</span></span><br><span class="line">                    System.out.println(<span class="string">"[Server] "</span> + iString);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">catch</span>(UnknownHostException exp)&#123;</span><br><span class="line">                exp.printStackTrace();</span><br><span class="line">            &#125;<span class="keyword">catch</span> (IOException exp) &#123;</span><br><span class="line">                exp.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        thread.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然而运行结果不尽人意。C/S 之间确实可以相互收发，但彼此间的通信总是被“随机地” “延迟” 送达。课后重新调试时才发现，Java (Server)Socket 类中的 I/O 及 Client 连接均是阻塞的 Synchronous 实现。阻塞模式下的 Socket 编程往往是非常低效的，然而 Java 中的典型 Socket 编程核心采用的正是这种模式。</p>
-<h1 id="二、Socket-Channel"><a href="#二、Socket-Channel" class="headerlink" title="二、Socket Channel"></a>二、Socket Channel</h1><h1 id="三、Asynchronous-Socket-Channel"><a href="#三、Asynchronous-Socket-Channel" class="headerlink" title="三、Asynchronous Socket Channel"></a>三、Asynchronous Socket Channel</h1><h1 id="四、构建一个简易的异步-Socket-演示"><a href="#四、构建一个简易的异步-Socket-演示" class="headerlink" title="四、构建一个简易的异步 Socket 演示"></a>四、构建一个简易的异步 Socket 演示</h1><h1 id="五、参考文章与推荐阅读"><a href="#五、参考文章与推荐阅读" class="headerlink" title="五、参考文章与推荐阅读"></a>五、参考文章与推荐阅读</h1><p>[1] <a href="https://www.codejava.net/java-se/networking/java-socket-server-examples-tcp-ip" target="_blank" rel="noopener">Java Socket Server Examples (TCP/IP)</a></p>
-<p>[2] <a href="https://www.developer.com/java/data/understanding-asynchronous-socket-channels-in-java.html" target="_blank" rel="noopener">Understanding Asynchronous Socket Channels in Java</a></p>
-<p>[3] <a href="http://www.java2s.com/Tutorials/Java/Java_Network/0080__Java_Network_Asynchronous_Socket_Channels.htm" target="_blank" rel="noopener">Java Network Tutorial - Java Asynchronous Socket Channels</a></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>沿途简记</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Socket</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>QT（一）：信号与槽</title>
     <url>/2019/02/18/LearningNotes-QT-01/</url>
     <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
@@ -1632,6 +1605,33 @@ J = -(1/m)(YlogA^{[2]} + (1-Y)log(1-A^{[2]}))
       <tags>
         <tag>CPP</tag>
         <tag>QT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初探 Java 中的异步 Socket</title>
+    <url>/2019/10/10/Java-AsynchronousSocketChannels/</url>
+    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>阻塞模式下的 Socket 编程往往是非常低效的，然而 Java 中的典型 Socket 编程核心采用的正是这种模式。好在 Java 提供了另一种解决方案，通过 Socket Channel 技术实现了非阻塞的异步 Socket 编程。本文将以一个简单的同步 Socket Demo 切入，引出并介绍 Java 中的 Socket Channel 并完成一个 Asynchronous Socket 案例。</p>
+</blockquote>
+<p><img src="/2019/10/10/Java-AsynchronousSocketChannels/1.jpg" alt="文章头图"></p>
+<a id="more"></a>
+<blockquote>
+<p><strong>友情提示</strong>：本文还没有写完，明天再说吧（我太难了5555）</p>
+</blockquote>
+<h1 id="一、Socket"><a href="#一、Socket" class="headerlink" title="一、Socket"></a>一、Socket</h1><p>在今天的软需分析课上，老师向我们展示了一段用 Java 编写的简单 Socket 通信例程，实现的是基础的 C/S 双向通信。我曾使用 Python 和其它语言开发过 Socket 项目，但为了熟悉 Java 便拿着老师给的代码照着码了一遍：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Server</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ChatServer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> EOFException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Server is listening on port 8080."</span>);</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">try</span>(</span><br><span class="line">                <span class="comment">// Create a socket server</span></span><br><span class="line">                ServerSocket serverSocket = <span class="keyword">new</span> ServerSocket(<span class="number">8080</span>);</span><br><span class="line">                <span class="comment">// Get server socket</span></span><br><span class="line">                Socket socket = serverSocket.accept();</span><br><span class="line">                <span class="comment">// Get socket I/O stream</span></span><br><span class="line">                DataInputStream inputStream = <span class="keyword">new</span> DataInputStream(socket.getInputStream());</span><br><span class="line">                DataOutputStream outputStream = <span class="keyword">new</span> DataOutputStream(socket.getOutputStream());</span><br><span class="line">                <span class="comment">// Get Console buffered Reader</span></span><br><span class="line">                BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">            )&#123;</span><br><span class="line">                <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">                    <span class="comment">// Input</span></span><br><span class="line">                    <span class="comment">// Receive message from clients</span></span><br><span class="line">                    String iString = inputStream.readUTF();</span><br><span class="line">                    <span class="comment">// Display message received</span></span><br><span class="line">                    System.out.println(<span class="string">"[Client] "</span> + iString);</span><br><span class="line">                    <span class="comment">// Output</span></span><br><span class="line">                    <span class="comment">// Get console input</span></span><br><span class="line">                    String aString = bufferedReader.readLine();</span><br><span class="line">                    <span class="keyword">if</span>(aString.equals(<span class="string">"bye"</span>))<span class="keyword">break</span>;</span><br><span class="line">                    outputStream.writeUTF(aString);</span><br><span class="line">                    outputStream.flush();</span><br><span class="line">                    System.out.println(<span class="string">"[Info] "</span> + aString + <span class="string">" has been sent."</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (IOException exp) &#123;</span><br><span class="line">                exp.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        thread.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Client</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ChatClient</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Client is running."</span>);</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">try</span>(</span><br><span class="line">                    <span class="comment">// Socket connect</span></span><br><span class="line">                    Socket socket = <span class="keyword">new</span> Socket(<span class="string">"localhost"</span>,<span class="number">8080</span>);</span><br><span class="line">                    <span class="comment">// Get socket I/O stream</span></span><br><span class="line">                    DataInputStream dataInputStream = <span class="keyword">new</span> DataInputStream(socket.getInputStream());</span><br><span class="line">                    DataOutputStream dataOutputStream = <span class="keyword">new</span> DataOutputStream(socket.getOutputStream());</span><br><span class="line">                    <span class="comment">// Build a Console buffered Reader</span></span><br><span class="line">                    BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">            )</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">                    <span class="comment">// Output</span></span><br><span class="line">                    <span class="comment">// Get console input</span></span><br><span class="line">                    String aString = bufferedReader.readLine();</span><br><span class="line">                    <span class="keyword">if</span>(aString.equals(<span class="string">"bye"</span>))<span class="keyword">break</span>;</span><br><span class="line">                    <span class="comment">// Send message</span></span><br><span class="line">                    dataOutputStream.writeUTF(aString);</span><br><span class="line">                    dataOutputStream.flush();</span><br><span class="line">                    System.out.println(<span class="string">"[Info] "</span> + aString + <span class="string">" has been sent."</span>);</span><br><span class="line">                    <span class="comment">// Input</span></span><br><span class="line">                    <span class="comment">// Receive message from server</span></span><br><span class="line">                    String iString = dataInputStream.readUTF();</span><br><span class="line">                    <span class="comment">// Display message received</span></span><br><span class="line">                    System.out.println(<span class="string">"[Server] "</span> + iString);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">catch</span>(UnknownHostException exp)&#123;</span><br><span class="line">                exp.printStackTrace();</span><br><span class="line">            &#125;<span class="keyword">catch</span> (IOException exp) &#123;</span><br><span class="line">                exp.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        thread.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然而运行结果不尽人意。C/S 之间确实可以相互收发，但彼此间的通信总是被“随机地” “延迟” 送达。课后重新调试时才发现，Java (Server)Socket 类中的 I/O 及 Client 连接均是阻塞的 Synchronous 实现。阻塞模式下的 Socket 编程往往是非常低效的，然而 Java 中的典型 Socket 编程核心采用的正是这种模式。</p>
+<h1 id="二、Socket-Channel"><a href="#二、Socket-Channel" class="headerlink" title="二、Socket Channel"></a>二、Socket Channel</h1><h1 id="三、Asynchronous-Socket-Channel"><a href="#三、Asynchronous-Socket-Channel" class="headerlink" title="三、Asynchronous Socket Channel"></a>三、Asynchronous Socket Channel</h1><h1 id="四、构建一个简易的异步-Socket-演示"><a href="#四、构建一个简易的异步-Socket-演示" class="headerlink" title="四、构建一个简易的异步 Socket 演示"></a>四、构建一个简易的异步 Socket 演示</h1><h1 id="五、参考文章与推荐阅读"><a href="#五、参考文章与推荐阅读" class="headerlink" title="五、参考文章与推荐阅读"></a>五、参考文章与推荐阅读</h1><p>[1] <a href="https://www.codejava.net/java-se/networking/java-socket-server-examples-tcp-ip" target="_blank" rel="noopener">Java Socket Server Examples (TCP/IP)</a></p>
+<p>[2] <a href="https://www.developer.com/java/data/understanding-asynchronous-socket-channels-in-java.html" target="_blank" rel="noopener">Understanding Asynchronous Socket Channels in Java</a></p>
+<p>[3] <a href="http://www.java2s.com/Tutorials/Java/Java_Network/0080__Java_Network_Asynchronous_Socket_Channels.htm" target="_blank" rel="noopener">Java Network Tutorial - Java Asynchronous Socket Channels</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>沿途简记</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Socket</tag>
       </tags>
   </entry>
   <entry>
@@ -1862,40 +1862,6 @@ J = -(1/m)(YlogA^{[2]} + (1-Y)log(1-A^{[2]}))
       </tags>
   </entry>
   <entry>
-    <title>Sunwish&#39;s Blog 开通啦</title>
-    <url>/2018/07/20/My-First-Post/</url>
-    <content><![CDATA[<p>说实话，其实一直以来都想搭建一个自己的博客的…</p>
-<p>至于原因很简单啊，因为有一个自己的博客的话就可以没事吹吹水啊，写些心得体会啊，记录一些有趣和有意义的事情啊记录一些乱七八糟的事情啊什么的…</p>
-<p>反正是自己的 Space，想怎么瞎折腾都行，不像在别人的网站上写点东西，处处受限制，发个文章还得等审核</p>
-<p>不过现在就不一样啦哈哈哈，我的地盘我做主，想想还是一件很美好的事情诶。<br><img src="/2018/07/20/My-First-Post/1.JPG" alt=""></p>
-<p>不过虽说搭一个自己的博客是一直以来都想做的事情，可惜无奈之前一直一直实在是太太太太忙(lǎn)了，哪来的闲情折腾这个啊！</p>
-<p>然后就一拖再拖，一拖再拖，拖了又拖…到后来压根就忘了这壶 :)</p>
-<p>不过好在偶尔还是会想要写点东西的，先前都写在 CSDN 了，有些还写在了QQ日志…！%#@$</p>
-<p>说白了就是写哪儿都感到不自在，于是突然回想起来那啥我好像曾经还想搭个博客来着啥！</p>
-<p><img src="/2018/07/20/My-First-Post/2.GIF" alt=""></p>
-<p>于是这就重新燃起了我搭建博客的热血 —_—！</p>
-<p>直到今天…，终于忙(lǎn)里偷闲(qín)啊，总算是把自己的博客给搭起来了，于是乎这就成为了我博客的第一篇文章~~</p>
-<a id="more"></a>
-<p>其实这个博客的话前两天就已经捣鼓的差不多了，只是最近一直在忙数模，所以各种配置什么的都没鸟，于是 Blog 一直都处于毛坯状态，也没有真正 deploy，只是丢在本地没事的时候就开开 server 去 localhost 自我欣赏一下啊哈哈</p>
-<p><img src="/2018/07/20/My-First-Post/3.JPG" alt=""></p>
-<p>所以说虽然现在是 2018.7.20 22点39分，如果要论博客小屋的生日的话，那到应该往前推两天，也就是 7.18 才对</p>
-<p>今天的话稍微闲一点，所以就把 Blog Theme 和各种 Personal Config 给调教了一番，然后写下这篇开博之作，算是标志着 Sunwish’s Blog 的正式开通吧！</p>
-<p>万事开头难啊，发表这篇博客后，我就会陆陆续续把以前写在 CSDN 博客的文章给搬运过来，而后就正式开始博客的更新工作了！</p>
-<p>PS：关于域名的问题，我从很久以前就开始想了，奈何我起名困难啊！！！不然也不会这么耿直地叫 Sunwish’s Blog 了！！！</p>
-<p>想着还有一个 houkaifa.com 的域名搁着吹风，于是就拿来用了</p>
-<p>等我什么时候想好了合适的博客域名，或者是猴开发崛起了需要使用这个域名，再更换博客地址</p>
-<p>不过如果不出意外的话短期到中期都是 houkaifa.com 这个域名了 :)</p>
-<p>最后为自己的新博客打call~~</p>
-<p><img src="/2018/07/20/My-First-Post/4.gif" alt=""></p>
-<center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>博客历程</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于数学建模的算法与方法与资源的总结与收集</title>
     <url>/2018/09/20/MCM-Methods-Induce/</url>
     <content><![CDATA[<h3 id="emsp-前言"><a href="#emsp-前言" class="headerlink" title="&emsp;前言"></a>&emsp;<strong>前言</strong></h3><blockquote>
@@ -1928,38 +1894,37 @@ J = -(1/m)(YlogA^{[2]} + (1-Y)log(1-A^{[2]}))
 <h4 id="emsp-emsp-三、优化类问题"><a href="#emsp-emsp-三、优化类问题" class="headerlink" title="&emsp;&emsp;三、优化类问题"></a>&emsp;&emsp;<strong>三、优化类问题</strong></h4><h4 id="emsp-emsp-四、预测类问题"><a href="#emsp-emsp-四、预测类问题" class="headerlink" title="&emsp;&emsp;四、预测类问题"></a>&emsp;&emsp;<strong>四、预测类问题</strong></h4><h4 id="emsp-emsp-五、数据可视化"><a href="#emsp-emsp-五、数据可视化" class="headerlink" title="&emsp;&emsp;五、数据可视化"></a>&emsp;&emsp;<strong>五、数据可视化</strong></h4><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
   </entry>
   <entry>
-    <title>【Nao-01】 Windows+Naoqi+Python+Choregraphe 开发环境的搭建</title>
-    <url>/2018/11/01/Robot-Nao-01/</url>
-    <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
-<p>本篇介绍 Windows 系统中 Choregraphe 与 Python 的下载与安装，并给出了几个常见问题的解决办法。</p>
-</blockquote>
-<p><img src="/2018/11/01/Robot-Nao-01/1.jpg" alt="Choregraphe suit"></p>
-<hr>
-<h3 id="一、安装Choregraphe"><a href="#一、安装Choregraphe" class="headerlink" title="一、安装Choregraphe"></a><strong>一、安装Choregraphe</strong></h3><p>&emsp;&emsp;<strong>1.注册 SoftBank 帐号并登录</strong></p>
-<p>&emsp;&emsp;<strong>2.访问 <a href="https://community.ald.softbankrobotics.com/" target="_blank" rel="noopener">SoftBank Community</a>，点击网页右上角的 Resource 进入资源下载页面</strong></p>
-<p>&emsp;&emsp;<strong>3.下载 Choregraphe 并安装</strong></p>
-<p><img src="/2018/11/01/Robot-Nao-01/2.jpg" alt="Choregraphe suit"></p>
+    <title>Sunwish&#39;s Blog 开通啦</title>
+    <url>/2018/07/20/My-First-Post/</url>
+    <content><![CDATA[<p>说实话，其实一直以来都想搭建一个自己的博客的…</p>
+<p>至于原因很简单啊，因为有一个自己的博客的话就可以没事吹吹水啊，写些心得体会啊，记录一些有趣和有意义的事情啊记录一些乱七八糟的事情啊什么的…</p>
+<p>反正是自己的 Space，想怎么瞎折腾都行，不像在别人的网站上写点东西，处处受限制，发个文章还得等审核</p>
+<p>不过现在就不一样啦哈哈哈，我的地盘我做主，想想还是一件很美好的事情诶。<br><img src="/2018/07/20/My-First-Post/1.JPG" alt=""></p>
+<p>不过虽说搭一个自己的博客是一直以来都想做的事情，可惜无奈之前一直一直实在是太太太太忙(lǎn)了，哪来的闲情折腾这个啊！</p>
+<p>然后就一拖再拖，一拖再拖，拖了又拖…到后来压根就忘了这壶 :)</p>
+<p>不过好在偶尔还是会想要写点东西的，先前都写在 CSDN 了，有些还写在了QQ日志…！%#@$</p>
+<p>说白了就是写哪儿都感到不自在，于是突然回想起来那啥我好像曾经还想搭个博客来着啥！</p>
+<p><img src="/2018/07/20/My-First-Post/2.GIF" alt=""></p>
+<p>于是这就重新燃起了我搭建博客的热血 —_—！</p>
+<p>直到今天…，终于忙(lǎn)里偷闲(qín)啊，总算是把自己的博客给搭起来了，于是乎这就成为了我博客的第一篇文章~~</p>
 <a id="more"></a>
-<h3 id="二、安装Python"><a href="#二、安装Python" class="headerlink" title="二、安装Python"></a><strong>二、安装Python</strong></h3><p>&emsp;&emsp;<strong>1.访问 Python 官网下载 Python2.7，<a href="https://www.python.org/getit/" target="_blank" rel="noopener">下载地址戳我</a></strong></p>
-<p>&emsp;&emsp;<strong>2.安装 Python2.7，并通过控制台py指令检查是否安装成功</strong></p>
-<p>&emsp;&emsp;<strong>3.若未安装成功，检查系统环境变量是否配置正确</strong></p>
-<p><img src="/2018/11/01/Robot-Nao-01/3.jpg" alt="Choregraphe suit"></p>
-<blockquote>
-<p>注意:截至最新版本的 Choregraphe 2.8.3.54，目前仅支持 Python2.7，不支持 Python3.0.</p>
-</blockquote>
-<h3 id="三、常见问题"><a href="#三、常见问题" class="headerlink" title="三、常见问题"></a><strong>三、常见问题</strong></h3><p><strong>1.Choregraphe 无法连接至 127.0.0.1</strong></p>
-<p>&emsp;&emsp;解决方案①：检查安装路径是否包含中文，是的话去除中文，否的话见解决方案②。</p>
-<p>&emsp;&emsp;解决方案②：检查管理员用户名是否包含中文，是的话修改用户名，去除中文。</p>
-<p><strong>2.Choregraphe 无法连接至 Naoqi</strong></p>
-<p>&emsp;&emsp;解决方案①：等待几分钟，尝试重新连接。</p>
-<p>&emsp;&emsp;解决方案②：打开任务管理器，结束 naoqi-bin 进程，打开 Choregraphe 安装目录，找到 naoqi-bin.exe，右键以管理员身份运行，等待 naoqi-bin.exe 完成加载，跳转至 Choregraphe 再次尝试连接。</p>
+<p>其实这个博客的话前两天就已经捣鼓的差不多了，只是最近一直在忙数模，所以各种配置什么的都没鸟，于是 Blog 一直都处于毛坯状态，也没有真正 deploy，只是丢在本地没事的时候就开开 server 去 localhost 自我欣赏一下啊哈哈</p>
+<p><img src="/2018/07/20/My-First-Post/3.JPG" alt=""></p>
+<p>所以说虽然现在是 2018.7.20 22点39分，如果要论博客小屋的生日的话，那到应该往前推两天，也就是 7.18 才对</p>
+<p>今天的话稍微闲一点，所以就把 Blog Theme 和各种 Personal Config 给调教了一番，然后写下这篇开博之作，算是标志着 Sunwish’s Blog 的正式开通吧！</p>
+<p>万事开头难啊，发表这篇博客后，我就会陆陆续续把以前写在 CSDN 博客的文章给搬运过来，而后就正式开始博客的更新工作了！</p>
+<p>PS：关于域名的问题，我从很久以前就开始想了，奈何我起名困难啊！！！不然也不会这么耿直地叫 Sunwish’s Blog 了！！！</p>
+<p>想着还有一个 houkaifa.com 的域名搁着吹风，于是就拿来用了</p>
+<p>等我什么时候想好了合适的博客域名，或者是猴开发崛起了需要使用这个域名，再更换博客地址</p>
+<p>不过如果不出意外的话短期到中期都是 houkaifa.com 这个域名了 :)</p>
+<p>最后为自己的新博客打call~~</p>
+<p><img src="/2018/07/20/My-First-Post/4.gif" alt=""></p>
 <center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
-        <category>学习笔记</category>
-        <category>NAO</category>
+        <category>博客历程</category>
       </categories>
       <tags>
-        <tag>NAO</tag>
+        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -2027,6 +1992,41 @@ J = -(1/m)(YlogA^{[2]} + (1-Y)log(1-A^{[2]}))
       </tags>
   </entry>
   <entry>
+    <title>【Nao-01】 Windows+Naoqi+Python+Choregraphe 开发环境的搭建</title>
+    <url>/2018/11/01/Robot-Nao-01/</url>
+    <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
+<p>本篇介绍 Windows 系统中 Choregraphe 与 Python 的下载与安装，并给出了几个常见问题的解决办法。</p>
+</blockquote>
+<p><img src="/2018/11/01/Robot-Nao-01/1.jpg" alt="Choregraphe suit"></p>
+<hr>
+<h3 id="一、安装Choregraphe"><a href="#一、安装Choregraphe" class="headerlink" title="一、安装Choregraphe"></a><strong>一、安装Choregraphe</strong></h3><p>&emsp;&emsp;<strong>1.注册 SoftBank 帐号并登录</strong></p>
+<p>&emsp;&emsp;<strong>2.访问 <a href="https://community.ald.softbankrobotics.com/" target="_blank" rel="noopener">SoftBank Community</a>，点击网页右上角的 Resource 进入资源下载页面</strong></p>
+<p>&emsp;&emsp;<strong>3.下载 Choregraphe 并安装</strong></p>
+<p><img src="/2018/11/01/Robot-Nao-01/2.jpg" alt="Choregraphe suit"></p>
+<a id="more"></a>
+<h3 id="二、安装Python"><a href="#二、安装Python" class="headerlink" title="二、安装Python"></a><strong>二、安装Python</strong></h3><p>&emsp;&emsp;<strong>1.访问 Python 官网下载 Python2.7，<a href="https://www.python.org/getit/" target="_blank" rel="noopener">下载地址戳我</a></strong></p>
+<p>&emsp;&emsp;<strong>2.安装 Python2.7，并通过控制台py指令检查是否安装成功</strong></p>
+<p>&emsp;&emsp;<strong>3.若未安装成功，检查系统环境变量是否配置正确</strong></p>
+<p><img src="/2018/11/01/Robot-Nao-01/3.jpg" alt="Choregraphe suit"></p>
+<blockquote>
+<p>注意:截至最新版本的 Choregraphe 2.8.3.54，目前仅支持 Python2.7，不支持 Python3.0.</p>
+</blockquote>
+<h3 id="三、常见问题"><a href="#三、常见问题" class="headerlink" title="三、常见问题"></a><strong>三、常见问题</strong></h3><p><strong>1.Choregraphe 无法连接至 127.0.0.1</strong></p>
+<p>&emsp;&emsp;解决方案①：检查安装路径是否包含中文，是的话去除中文，否的话见解决方案②。</p>
+<p>&emsp;&emsp;解决方案②：检查管理员用户名是否包含中文，是的话修改用户名，去除中文。</p>
+<p><strong>2.Choregraphe 无法连接至 Naoqi</strong></p>
+<p>&emsp;&emsp;解决方案①：等待几分钟，尝试重新连接。</p>
+<p>&emsp;&emsp;解决方案②：打开任务管理器，结束 naoqi-bin 进程，打开 Choregraphe 安装目录，找到 naoqi-bin.exe，右键以管理员身份运行，等待 naoqi-bin.exe 完成加载，跳转至 Choregraphe 再次尝试连接。</p>
+<center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>NAO</category>
+      </categories>
+      <tags>
+        <tag>NAO</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Nao-03】 Naoqi APIs 架构概览 &amp; Hello World！</title>
     <url>/2018/11/05/Robot-Nao-03/</url>
     <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
@@ -2072,69 +2072,6 @@ J = -(1/m)(YlogA^{[2]} + (1-Y)log(1-A^{[2]}))
 <p>&emsp;&emsp;运行效果：</p>
 <p><img src="/2018/11/05/Robot-Nao-03/gif2.gif" alt="Title"></p>
 <center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>NAO</category>
-      </categories>
-      <tags>
-        <tag>NAO</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Nao-04】 Naoqi Framework &amp; Broker &amp; Proxy &amp; Modules</title>
-    <url>/2018/11/08/Robot-Nao-04/</url>
-    <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
-<p>尚在更新</p>
-</blockquote>
-<p><img src="/2018/11/08/Robot-Nao-04/1.jpg" alt="Title"></p>
-<hr>
-<!--
-# 敬告：本篇虽短小精悍，却写的乱七八糟，逻辑令人费解且抓狂，若您已经点进全文阅读，请现在立即停止阅读并关闭本页面，不然可能导致您在精神上感到无尽的痛苦与无助，犹如一百二十只油黑的乌鸦对着三十四只短脚的螃蟹呀呀乱叫，这简直是博主几年来所写过的最最最烂的一篇博文，没有底线，没有之一！但不得不面对这篇博文就是出自博主之手这一无比残酷的现实，从头读到尾，无论是章节与章节之间的联系、小节与小节之间的接洽，还是中英弱关系混排造成的概念蒙蔽、阅读障碍，无不令人撕心裂肺、痛哭流涕。这篇博文的诞生简直是对博主贫乏文笔与理性逻辑的毁灭性轰炸，彻底刷新了博主在学术性文章方面的丑陋下限，颠覆了博主对世纪烂文的一贯认知！在此郑重提醒，请各位读者珍爱生命，远离下文！-->
-<a id="more"></a>
-<h3 id="一、NAOqi-Framework"><a href="#一、NAOqi-Framework" class="headerlink" title="一、NAOqi Framework"></a><strong>一、NAOqi Framework</strong></h3><h4 id="1-什么是-NAOqi-Framework"><a href="#1-什么是-NAOqi-Framework" class="headerlink" title="1. 什么是 NAOqi Framework"></a><strong>1. 什么是 NAOqi Framework</strong></h4><p>&emsp;&emsp;<strong>Naoqi</strong> 是运行在我们的机器人上并对机器人实现控制的主程序，而 <strong>Naoqi Framework</strong> 则是为 <strong>SoftBank Robotics</strong> 机器人所设计的编程框架。通过这个框架，我们可以解决我们对机器人的常见需求，包括：并行性、资源、同步和事件。</p>
-<p>&emsp;&emsp;Naoqi Framwork 允许不同模块（运动、音频、视频）之间同构通信、同构编程以及同构信息共享。同时 Naoqi Framework 支持跨平台、跨语言。</p>
-<h4 id="2-跨平台："><a href="#2-跨平台：" class="headerlink" title="2. 跨平台："></a><strong>2. 跨平台：</strong></h4><p>&emsp;&emsp;Naoqi Framwork 同时兼容 Windows, Linux 和 Mac，因此我们在 Windows, Linux 和 Mac 环境下都可以利用 Naoqi Framework 进行相关开发。</p>
-<ul>
-<li>Python：可以轻松地在电脑上运行代码。也可以直接在机器人上运行代码。</li>
-<li>C++：和 Python 不同的是，由于 C++ 是一种编译语言，因此如果想要在机器人上运行 C++ 代码的话，需要先要在目标操作系统上完成代码的编译，需要使用交叉编译工具来生成能在机器人操作系统上（Naoqi OS）运行的代码。</li>
-</ul>
-<blockquote>
-<p>要使用 C++ 进行开发的话，请按照 <a href="http://doc.aldebaran.com/2-8/dev/cpp/install_guide.html#cpp-install-guide" target="_blank" rel="noopener">C++ SDK 安装指南</a> 以确保安装了所有所需的工具</p>
-</blockquote>
-<h4 id="3-跨语言："><a href="#3-跨语言：" class="headerlink" title="3. 跨语言："></a><strong>3. 跨语言：</strong></h4><p>&emsp;&emsp;在机器人上运行的软件既可以用 Python 来开发，也可以用 C++，并且在两种语言上开发方法是完全相同的。</p>
-<p><img src="/2018/11/08/Robot-Nao-04/framework_crosslangage.png" alt="framework_crosslangage"></p>
-<blockquote>
-<p>推荐初学者从 Python 开始学习，因为 Python 更好入门，进而更好更快的完成需求。<br>熟练的 C++ 开发人员应当花更多的时间来开发：<br>&emsp;&emsp;1. Python 中的 behavior<br>&emsp;&emsp;2. C++ 中的 Modules。</p>
-</blockquote>
-<h4 id="4-分布式："><a href="#4-分布式：" class="headerlink" title="4. 分布式："></a><strong>4. 分布式：</strong></h4><p>&emsp;&emsp;Naoqi Framework 的分布式主要体现在以下两点：</p>
-<p>&emsp;&emsp;1. 一个实时的应用程序不仅可以是一个可执行文件，还可以是分布在几个机器人上的多个进程或模块。无论你选择哪一个，调用的方法都是一致的。</p>
-<p>&emsp;&emsp;2. 使用一个机器人通过 IP 和端口将可执行文件连接到另一个机器人上时，调用来自其它可执行文件的 API 方法与调用本地的方法是完全一致的。</p>
-<p><img src="/2018/11/08/Robot-Nao-04/framework_communication.png" alt="framework_communication"></p>
-<blockquote>
-<p>在连接时 Naoqi 会自动选择使用快速直连（LPC）还是远程呼叫（RPC）。</p>
-</blockquote>
-<h4 id="5-如何使用："><a href="#5-如何使用：" class="headerlink" title="5. 如何使用："></a><strong>5. 如何使用：</strong></h4><p>&emsp;&emsp;<strong>Introspection</strong></p>
-<p>&emsp;&emsp;Introspection 是机器人 API、能力、监控和被监控功能的基础，通过 Introspection 机器人可以知道自身可用的所有 API 函数，若是卸载一个库文件，那么机器人就会自动删除相应的 API 函数，同时，在 module 中所定义的函数可以通过 BIND_METHOD 来将其添加到 API 中。（BIND_METHOD 定义于 almodule.h）</p>
-<p>&emsp;&emsp;如果你通过 BIND_METHOD 绑定了一个函数，尽管这个函数只有三行，你也将受益于以下几点：</p>
-<ul>
-<li>这个函数既可以在 C++ 中调用，也可以在 Python 中调用。（Naoqi Framework 的跨语言特性）</li>
-<li>可以知道这个函数是否被调用了。</li>
-<li>不仅可以在本地调用这个函数，还可以通过远程的方式调用该函数。（Naoqi Framework 的分布式特点） </li>
-<li>可以在函数中使用 wait, stop, isRunning 函数。</li>
-</ul>
-<p>&emsp;&emsp;<strong>Naoqi 进程</strong></p>
-<p>&emsp;&emsp;在机器上运行的 Naoqi 可执行文件其实相当于一个代理人，当 Naoqi 启动时，它将会加载一个名为  autoload.ini 的首选项文件，并从中读取应当加载哪些库，每一个库都包含了一个或多个模块，这些模块都使用代理的方式来对外开放。</p>
-<p><img src="/2018/11/08/Robot-Nao-04/broker-libraries-modules.png" alt="broker-libraries-modules"></p>
-<p>&emsp;&emsp;而且这个代理提供了查找功能，这样就方便我们在树或者说是 API 网络上找到对应的方法。</p>
-<p>&emsp;&emsp;每当加载一个模块的时候，都会建立一棵方法树来与这个模块进行关联，并且将模块与代理也进行关联。</p>
-<p><img src="/2018/11/08/Robot-Nao-04/broker-modules-methods.png" alt="broker-modules-methods"></p>
-<h3 id="二、Broker"><a href="#二、Broker" class="headerlink" title="二、Broker"></a><strong>二、Broker</strong></h3><p>Broker 其实就是一个对象，这个对象提供了：</p>
-<ul>
-<li>目录服务：允许你查找所有的模块和方法。</li>
-<li>网络访问：允许附加模块的方法从外部进程调用。</li>
-</ul>
-<p>在大多数时间里，我们并不需要去关注这个代理，因为它们只是在透明地执行他们的工作，来帮助你写出具有分布式特性的函数。</p>
-<h3 id="三、Proxy"><a href="#三、Proxy" class="headerlink" title="三、Proxy"></a><strong>三、Proxy</strong></h3><h1 id="博主已弃文而去（假的）"><a href="#博主已弃文而去（假的）" class="headerlink" title="博主已弃文而去（假的）"></a>博主已弃文而去（假的）</h1><h3 id="四、Modules"><a href="#四、Modules" class="headerlink" title="四、Modules"></a><strong>四、Modules</strong></h3><h1 id="博主已弃文而去（骗你的）"><a href="#博主已弃文而去（骗你的）" class="headerlink" title="博主已弃文而去（骗你的）"></a>博主已弃文而去（骗你的）</h1><center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>学习笔记</category>
         <category>NAO</category>
@@ -2288,6 +2225,69 @@ J = -(1/m)(YlogA^{[2]} + (1-Y)log(1-A^{[2]}))
       </tags>
   </entry>
   <entry>
+    <title>【Nao-04】 Naoqi Framework &amp; Broker &amp; Proxy &amp; Modules</title>
+    <url>/2018/11/08/Robot-Nao-04/</url>
+    <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
+<p>尚在更新</p>
+</blockquote>
+<p><img src="/2018/11/08/Robot-Nao-04/1.jpg" alt="Title"></p>
+<hr>
+<!--
+# 敬告：本篇虽短小精悍，却写的乱七八糟，逻辑令人费解且抓狂，若您已经点进全文阅读，请现在立即停止阅读并关闭本页面，不然可能导致您在精神上感到无尽的痛苦与无助，犹如一百二十只油黑的乌鸦对着三十四只短脚的螃蟹呀呀乱叫，这简直是博主几年来所写过的最最最烂的一篇博文，没有底线，没有之一！但不得不面对这篇博文就是出自博主之手这一无比残酷的现实，从头读到尾，无论是章节与章节之间的联系、小节与小节之间的接洽，还是中英弱关系混排造成的概念蒙蔽、阅读障碍，无不令人撕心裂肺、痛哭流涕。这篇博文的诞生简直是对博主贫乏文笔与理性逻辑的毁灭性轰炸，彻底刷新了博主在学术性文章方面的丑陋下限，颠覆了博主对世纪烂文的一贯认知！在此郑重提醒，请各位读者珍爱生命，远离下文！-->
+<a id="more"></a>
+<h3 id="一、NAOqi-Framework"><a href="#一、NAOqi-Framework" class="headerlink" title="一、NAOqi Framework"></a><strong>一、NAOqi Framework</strong></h3><h4 id="1-什么是-NAOqi-Framework"><a href="#1-什么是-NAOqi-Framework" class="headerlink" title="1. 什么是 NAOqi Framework"></a><strong>1. 什么是 NAOqi Framework</strong></h4><p>&emsp;&emsp;<strong>Naoqi</strong> 是运行在我们的机器人上并对机器人实现控制的主程序，而 <strong>Naoqi Framework</strong> 则是为 <strong>SoftBank Robotics</strong> 机器人所设计的编程框架。通过这个框架，我们可以解决我们对机器人的常见需求，包括：并行性、资源、同步和事件。</p>
+<p>&emsp;&emsp;Naoqi Framwork 允许不同模块（运动、音频、视频）之间同构通信、同构编程以及同构信息共享。同时 Naoqi Framework 支持跨平台、跨语言。</p>
+<h4 id="2-跨平台："><a href="#2-跨平台：" class="headerlink" title="2. 跨平台："></a><strong>2. 跨平台：</strong></h4><p>&emsp;&emsp;Naoqi Framwork 同时兼容 Windows, Linux 和 Mac，因此我们在 Windows, Linux 和 Mac 环境下都可以利用 Naoqi Framework 进行相关开发。</p>
+<ul>
+<li>Python：可以轻松地在电脑上运行代码。也可以直接在机器人上运行代码。</li>
+<li>C++：和 Python 不同的是，由于 C++ 是一种编译语言，因此如果想要在机器人上运行 C++ 代码的话，需要先要在目标操作系统上完成代码的编译，需要使用交叉编译工具来生成能在机器人操作系统上（Naoqi OS）运行的代码。</li>
+</ul>
+<blockquote>
+<p>要使用 C++ 进行开发的话，请按照 <a href="http://doc.aldebaran.com/2-8/dev/cpp/install_guide.html#cpp-install-guide" target="_blank" rel="noopener">C++ SDK 安装指南</a> 以确保安装了所有所需的工具</p>
+</blockquote>
+<h4 id="3-跨语言："><a href="#3-跨语言：" class="headerlink" title="3. 跨语言："></a><strong>3. 跨语言：</strong></h4><p>&emsp;&emsp;在机器人上运行的软件既可以用 Python 来开发，也可以用 C++，并且在两种语言上开发方法是完全相同的。</p>
+<p><img src="/2018/11/08/Robot-Nao-04/framework_crosslangage.png" alt="framework_crosslangage"></p>
+<blockquote>
+<p>推荐初学者从 Python 开始学习，因为 Python 更好入门，进而更好更快的完成需求。<br>熟练的 C++ 开发人员应当花更多的时间来开发：<br>&emsp;&emsp;1. Python 中的 behavior<br>&emsp;&emsp;2. C++ 中的 Modules。</p>
+</blockquote>
+<h4 id="4-分布式："><a href="#4-分布式：" class="headerlink" title="4. 分布式："></a><strong>4. 分布式：</strong></h4><p>&emsp;&emsp;Naoqi Framework 的分布式主要体现在以下两点：</p>
+<p>&emsp;&emsp;1. 一个实时的应用程序不仅可以是一个可执行文件，还可以是分布在几个机器人上的多个进程或模块。无论你选择哪一个，调用的方法都是一致的。</p>
+<p>&emsp;&emsp;2. 使用一个机器人通过 IP 和端口将可执行文件连接到另一个机器人上时，调用来自其它可执行文件的 API 方法与调用本地的方法是完全一致的。</p>
+<p><img src="/2018/11/08/Robot-Nao-04/framework_communication.png" alt="framework_communication"></p>
+<blockquote>
+<p>在连接时 Naoqi 会自动选择使用快速直连（LPC）还是远程呼叫（RPC）。</p>
+</blockquote>
+<h4 id="5-如何使用："><a href="#5-如何使用：" class="headerlink" title="5. 如何使用："></a><strong>5. 如何使用：</strong></h4><p>&emsp;&emsp;<strong>Introspection</strong></p>
+<p>&emsp;&emsp;Introspection 是机器人 API、能力、监控和被监控功能的基础，通过 Introspection 机器人可以知道自身可用的所有 API 函数，若是卸载一个库文件，那么机器人就会自动删除相应的 API 函数，同时，在 module 中所定义的函数可以通过 BIND_METHOD 来将其添加到 API 中。（BIND_METHOD 定义于 almodule.h）</p>
+<p>&emsp;&emsp;如果你通过 BIND_METHOD 绑定了一个函数，尽管这个函数只有三行，你也将受益于以下几点：</p>
+<ul>
+<li>这个函数既可以在 C++ 中调用，也可以在 Python 中调用。（Naoqi Framework 的跨语言特性）</li>
+<li>可以知道这个函数是否被调用了。</li>
+<li>不仅可以在本地调用这个函数，还可以通过远程的方式调用该函数。（Naoqi Framework 的分布式特点） </li>
+<li>可以在函数中使用 wait, stop, isRunning 函数。</li>
+</ul>
+<p>&emsp;&emsp;<strong>Naoqi 进程</strong></p>
+<p>&emsp;&emsp;在机器上运行的 Naoqi 可执行文件其实相当于一个代理人，当 Naoqi 启动时，它将会加载一个名为  autoload.ini 的首选项文件，并从中读取应当加载哪些库，每一个库都包含了一个或多个模块，这些模块都使用代理的方式来对外开放。</p>
+<p><img src="/2018/11/08/Robot-Nao-04/broker-libraries-modules.png" alt="broker-libraries-modules"></p>
+<p>&emsp;&emsp;而且这个代理提供了查找功能，这样就方便我们在树或者说是 API 网络上找到对应的方法。</p>
+<p>&emsp;&emsp;每当加载一个模块的时候，都会建立一棵方法树来与这个模块进行关联，并且将模块与代理也进行关联。</p>
+<p><img src="/2018/11/08/Robot-Nao-04/broker-modules-methods.png" alt="broker-modules-methods"></p>
+<h3 id="二、Broker"><a href="#二、Broker" class="headerlink" title="二、Broker"></a><strong>二、Broker</strong></h3><p>Broker 其实就是一个对象，这个对象提供了：</p>
+<ul>
+<li>目录服务：允许你查找所有的模块和方法。</li>
+<li>网络访问：允许附加模块的方法从外部进程调用。</li>
+</ul>
+<p>在大多数时间里，我们并不需要去关注这个代理，因为它们只是在透明地执行他们的工作，来帮助你写出具有分布式特性的函数。</p>
+<h3 id="三、Proxy"><a href="#三、Proxy" class="headerlink" title="三、Proxy"></a><strong>三、Proxy</strong></h3><h1 id="博主已弃文而去（假的）"><a href="#博主已弃文而去（假的）" class="headerlink" title="博主已弃文而去（假的）"></a>博主已弃文而去（假的）</h1><h3 id="四、Modules"><a href="#四、Modules" class="headerlink" title="四、Modules"></a><strong>四、Modules</strong></h3><h1 id="博主已弃文而去（骗你的）"><a href="#博主已弃文而去（骗你的）" class="headerlink" title="博主已弃文而去（骗你的）"></a>博主已弃文而去（骗你的）</h1><center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>NAO</category>
+      </categories>
+      <tags>
+        <tag>NAO</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>多视角探析贝塞尔曲线匀速化技术、实现及其应用</title>
     <url>/2021/01/02/UniformBezier/</url>
     <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
@@ -2429,6 +2429,172 @@ v_y = -3P_{0y}(1-t)^2 + 3P_{1y}(1-t)^2 - 6P_{1y}t(1-t) + 6P_{2y}t(1-t) - 3P_{2y}
         <tag>Algorithm</tag>
         <tag>Bezier</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Tensorflow 2.3 入门与实战笔记 02 —— 线性回归与梯度下降</title>
+    <url>/2021/02/03/Tensorflow-02/</url>
+    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>本文记录了 Tensorflow 中线性回归的实现方法及如何使用梯度下降算法，仅为框架用法，其理论与底层实现不做介绍，有需要请移步往期深度学习专题博文，搭配食用更佳 <a href="https://houkaifa.com/2019/03/02/DeepLearning-01/" target="_blank" rel="noopener">深度学习（一）Logistics 回归与梯度下降</a>。</p>
+</blockquote>
+<p><img src="/2021/02/03/Tensorflow-02/1.png" alt="Title"></p>
+<a id="more"></a>
+<hr>
+<h1 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h1><h2 id="1-包"><a href="#1-包" class="headerlink" title="1. 包"></a>1. 包</h2><p>确保你已经安装好 tensorflow 及接下来会使用到的包 pandas 及 matplotlib。</p>
+<h2 id="2-Jupyter-notebook"><a href="#2-Jupyter-notebook" class="headerlink" title="2. Jupyter notebook"></a>2. Jupyter notebook</h2><p>打开 Jupyter notebook 新建一个 Python 3 文件以编写与测试代码。</p>
+<h2 id="3-数据"><a href="#3-数据" class="headerlink" title="3. 数据"></a>3. 数据</h2><p>本篇以受教育年数与工作收入作为模型训练数据，以期实现一个由受教育年数来预测工作收入的简单模型。将以下数据放入记事本中，改后缀为 Income.csv 得到测试用数据，将文件放在新建的 Python 3 文件的同级目录或方便读取的目录。</p>
+<div class="spoiler collapsed"><div class="spoiler-title">点击查看 Income.csv 数据</div><div class="spoiler-content"><p>,Education,Income<br>1,10.000000 ,26.658839<br>2,10.401338 ,27.306435<br>3,10.842809 ,22.132410<br>4,11.244147 ,21.169841<br>5,11.645449 ,15.192634<br>6,12.086957 ,26.398951<br>7,12.048829 ,17.435307<br>8,12.889632 ,25.507885<br>9,13.290970 ,36.884595<br>10,13.732441 ,39.666109<br>11,14.133779 ,34.396281<br>12,14.635117 ,41.497994<br>13,14.978589 ,44.981575<br>14,15.377926 ,47.039595<br>15,15.779264 ,48.252578<br>16,16.220736 ,57.034251<br>17,16.622074 ,51.490919<br>18,17.023411 ,51.336621<br>19,17.464883 ,57.681998<br>20,17.866221 ,68.553714<br>21,18.267559 ,64.310925<br>22,18.709030 ,68.959009<br>23,19.110368 ,74.614639<br>24,19.511706 ,71.867195<br>25,19.913043 ,76.098135<br>26,20.354515 ,75.775216<br>27,20.755853 ,72.486055<br>28,21.167191 ,77.355021<br>29,21.598662 ,72.118790<br>30,22.000000 ,80.260571</p>
+</div></div>
+<h1 id="二、读入数据"><a href="#二、读入数据" class="headerlink" title="二、读入数据"></a>二、读入数据</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 导入 pandas 包用于读取 csv 数据</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment"># 读取 csv 数据</span></span><br><span class="line">data = pd.read_csv(<span class="string">"Income.csv"</span>)</span><br><span class="line"><span class="comment"># 输出读取得到的数据</span></span><br><span class="line">data</span><br></pre></td></tr></table></figure>
+<p>由 图2-1 输出可知数据包含两列，分别是 Education 与 Income。</p>
+<p><img src="/2021/02/03/Tensorflow-02/2.png" alt="输出data数据"></p>
+<center>图 2-1 输出内容</center>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 导入 matplotlib 包用于数据可视化</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="comment"># 内联显示</span></span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制 data 散点图，以 data.Education 为横坐标，data.Income 为纵坐标</span></span><br><span class="line">plt.scatter(data.Education, data.Income)</span><br></pre></td></tr></table></figure>
+<p>由 图2-2 可知分别以 Education 和 Income 为横轴坐标轴的数据分布基本呈现线性关系。</p>
+<p><img src="/2021/02/03/Tensorflow-02/3.png" alt="data散点图"></p>
+<center>图 2-2 data 散点图</center>
+
+<h1 id="三、模型搭建与训练"><a href="#三、模型搭建与训练" class="headerlink" title="三、模型搭建与训练"></a>三、模型搭建与训练</h1><h2 id="1-创建模型实例"><a href="#1-创建模型实例" class="headerlink" title="1. 创建模型实例"></a>1. 创建模型实例</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 建立序贯模型（最简单的线性），返回一个 Model 实例</span></span><br><span class="line">model = tf.keras.Sequential()</span><br><span class="line"><span class="comment"># 向模型添加层</span></span><br><span class="line">model.add(tf.keras.layers.Dense(<span class="number">1</span>, input_shape=[<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+<p>其中 <code>tf.keras.layers.Dense()</code> 返回一个常规的神经网络层（NN Layer），其第一个参数为 unit 正整数，指明输出矩阵维度，此处 1 表明该层的输出是 $\n times 1$ 的。</p>
+<p>第二个参数 input_shape 指明输入形状，input_shape=[1] 指明输入样本的特征数为 1（此例输入即 data.Education），而该层输入参数是 2 个（应该分别是一维的权重 $w$ 和偏置 $b$ 吧）。</p>
+<p>此外，查官方文档可知 input_shape 参数继承自 Layer 类，其实质是一个 TensorShape 类型的实例。</p>
+<p>因此也可写作 <code>model.add(tf.keras.layers.Dense(1, input_shape=tf.TensorShape([1])))</code></p>
+<p>此外，Dense 层也有其他参数，如可在构造函数中为 activation 赋值以指明本层激活函数，详细可以去看看<a href="https://tensorflow.google.cn/api_docs/python/tf/keras/layers/Dense?hl=en" target="_blank" rel="noopener">文档</a>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输出此时模型信息</span></span><br><span class="line">model.summary()</span><br></pre></td></tr></table></figure>
+<p>使用 summary 可以看出，此时 model 拥有了一个 Layer，这个 layer 的输出形状是 $None \times 1$ 的。经查阅 Tensorflow 官方文档，tf 中的输入输出形状均描述为形如 <code>(batch_size, ..., input/output_dim)</code> 的结构，即输出形状 $m \times n$ 的意义是 $m$ 个样本的输出，每个样本的输出维度为 $n$，这与往期深度学习博文中的抽象数学定义也是相符的。None 猜测一下应该是表示输出数待定，待定为我们输入样本的个数。</p>
+<p><img src="/2021/02/03/Tensorflow-02/4.png" alt="model summary"></p>
+<center>图 2-2 Model summary</center>
+
+<h2 id="2-配置模型"><a href="#2-配置模型" class="headerlink" title="2. 配置模型"></a>2. 配置模型</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 编译模型</span></span><br><span class="line">model.compile(optimizer=<span class="string">'adam'</span>, loss=<span class="string">'mse'</span>)</span><br></pre></td></tr></table></figure>
+<p>在训练模型之前还需对模型进行一些配置，例如指明优化方法、损失函数等，compile 就是用于指明这些配置，详细的可配置参数请移步 <a href="https://tensorflow.google.cn/versions/r2.4/api_docs/python/tf/keras/Model?hl=en#compile" target="_blank" rel="noopener">compile 函数文档</a>。</p>
+<p>optimizer 指明优化方法，该参数接受优化方法名，也接受优化方法的实例（<a href="https://tensorflow.google.cn/versions/r2.4/api_docs/python/tf/keras/optimizers" target="_blank" rel="noopener">tf.keras.optimizers</a>），adam 即使用梯度下降作为优化方法。</p>
+<p>loss 指明 LossFunction，同样接受损失函数名或损失函数实例（<a href="https://tensorflow.google.cn/versions/r2.4/api_docs/python/tf/keras/losses" target="_blank" rel="noopener">tf.keras.losses</a>），mse 即使用均方差作为损失函数。</p>
+<h2 id="3-训练模型"><a href="#3-训练模型" class="headerlink" title="3. 训练模型"></a>3. 训练模型</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 以 data.Education 和 data.Income 作为输入参数，训练模型 5000 轮</span></span><br><span class="line">history = model.fit(data.Education, data.Income, epochs=<span class="number">5000</span>)</span><br></pre></td></tr></table></figure>
+<p>详细可选参数移步官方文档：<a href="https://tensorflow.google.cn/versions/r2.4/api_docs/python/tf/keras/Model?hl=en#fit" target="_blank" rel="noopener">tf.keras.Model.fit</a></p>
+<p><img src="/2021/02/03/Tensorflow-02/5.png" alt="fit history"></p>
+<center>图 2-2 Fit history</center>
+
+<h1 id="四、模型预测"><a href="#四、模型预测" class="headerlink" title="四、模型预测"></a>四、模型预测</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用刚才训练好的模型对训练集进行预测</span></span><br><span class="line">pd = model.predict(data.Education)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 计算预测值与真实值之间的差距</span></span><br><span class="line">delta = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(data.Income.values)):</span><br><span class="line">    delta.append(data.Income.values[i] - pd[i])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 绘制差距图</span></span><br><span class="line">plt.scatter(list(range(<span class="number">0</span>, len(delta))), delta)</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/02/03/Tensorflow-02/6.png" alt="delta"></p>
+<center>图 2-2 Delta</center>
+
+<div class="spoiler collapsed"><div class="spoiler-title">点击查看本篇总结</div><div class="spoiler-content"><p>Tensorflow 线性回归核心步骤：</p>
+<ol>
+<li>创建序贯模型：<code>model = tf.keras.Sequential()</code></li>
+<li>为神经网络添加层：<code>model.add(tf.keras.layers.Dense(输出维数, input_shape=[特征数]))</code></li>
+<li>配置神经网络：<code>model.compile(optimizer=&#39;优化方法名&#39;, loss=&#39;损失函数名&#39;)</code></li>
+<li>训练神经网络：<code>model.fit(特征输入, 期望输出, epochs=训练轮次)</code></li>
+<li>使用训练好的模型进行预测：<code>model.predict(特征输入)</code></li>
+</ol>
+</div></div>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>沿途简记</category>
+      </categories>
+      <tags>
+        <tag>DeepLearning</tag>
+        <tag>Tensorflow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【翻译】一个成功的 Git 分支模型</title>
+    <url>/2020/01/11/a-successful-branching-model/</url>
+    <content><![CDATA[<blockquote>
+<p>在这篇文章中，我将向你们介绍一个开发模型，早在差不多一年前，我已经将这个模型应用于我的多个项目，而事实证明，这个模型是非常成功的。其实这篇文章我早就打算写了，只是一直没有时间，直到现在。在这篇文章中我将不会谈及任何项目细节，分支策略和发布管理才是本文的核心内容。</p>
+</blockquote>
+<p><img src="/2020/01/11/a-successful-branching-model/1.png" alt="Title"></p>
+<a id="more"></a>
+<hr>
+<blockquote>
+<p>原文地址：<a href="https://nvie.com/posts/a-successful-git-branching-model/spoiler" target="_blank" rel="noopener">https://nvie.com/posts/a-successful-git-branching-model/spoiler</a><br>原文作者：Vincent Driessen<br>全文翻译：Sunwish</p>
+</blockquote>
+<h2 id="为什么是-Git"><a href="#为什么是-Git" class="headerlink" title="为什么是 Git"></a>为什么是 Git</h2><p>如果去深入地探讨网络上关于 Git 优缺点的分析，以及 Git 与其他的中心化源代码控制系统的对比，你就可以发现，大家对此都持有自己的观点和看法。就我而言，作为一名开发者，相比其他所有的同类工具，我都更喜爱 Git。毫不过分地说，Git 彻底地改变了我们开发者对于合并和分支操作的看法和感受。我作为一名从传统 CVS/SVN 转到 Git 的开发者，可以说曾经的合并和分支操作总是让人觉得有点可怕（每当合并过程产生了冲突，总让人感到害怕），并且也是一个短期内使用频率很低的操作。</p>
+<p>但是来到 Git 这边，情况就完全不一样了。合并和分支操作作为 Git 当中简单轻松的操作，在开发者的日常工作流中往往是核心部分之一。这一点从两者的相关书籍中就可以看出，在 CVS/SVN 的书籍中，合并和分支往往在最后的章节（进阶部分）才抛头露面，而在几乎所有的 Git 书籍中，合并和分支则是在第三章（基础部分）就已经讨论过了。</p>
+<p>正是由于这样的简单性与重复性，分支与合并再也不是什么令人害怕的东西了，版本控制工具也成功地成为了合并与分支管理的最佳助手。</p>
+<p>讨论够了相关工具，下面就让我们开始进入开发模型的相关内容吧！我接下来介绍的开发模型，需要团队当中所有的开发人员共同遵循，以便使得软件管理可以进入正确的进程。</p>
+<h2 id="去中心化的中心化"><a href="#去中心化的中心化" class="headerlink" title="去中心化的中心化"></a>去中心化的中心化</h2><p>使用我们这一分支模型的存储库有一个共同的特点，那就是它们都有一个“真正”的中心存储库，但是要注意的是，这个存储库所谓的中心仅仅是我们假想的（Git 作为一个去中心化的版本控制系统，在技术层面上来说并不存在所谓的中心），而这个中心存储库，正是为我们 Git 使用者们所熟知的 origin 存储库。</p>
+<p><img src="/2020/01/11/a-successful-branching-model/2.png" alt="img"></p>
+<p>每一个开发者都围绕着 origin 存储库进行着 pull 和 push 操作，这显示出了 origin 存储库的中心性，但是除此之外，每个开发人员都可以从其它对等方拉取他们的更改来组成子团队，这在开发人员过早地将自己进行的工作推送到主分支上之前，与两个或更多的开发者共同完成一个较大的新功能时是很有用的。正如上图所示，这几个开发成员之间可以很自然地形成很小的子团队： Alice 和 Bob，Alice 和 David，以及 Clair 和 David。</p>
+<p>在技术层面上，这就好比 Alice 除了自己的存储库，还定义了一个名为 bob 的远程 Git，并且指向了 Bob 的存储库，反之亦然。</p>
+<h2 id="主要分支（The-main-branches）"><a href="#主要分支（The-main-branches）" class="headerlink" title="主要分支（The main branches）"></a>主要分支（The main branches）</h2><p>我所要介绍的开发模型，其核心是在许多现有模型的启发下诞生的。我们模型的中心存储库，具有两条主要分支，这两条分支的生命线贯穿了我们整个存储库诞生和消亡，他们分别是：</p>
+<ul>
+<li>master</li>
+<li>develop</li>
+</ul>
+<p><img src="/2020/01/11/a-successful-branching-model/3.png" alt="img"></p>
+<p>在 <strong>origin</strong> 存储库中的 <strong>master</strong> 分支应当是面向所有 Git 用户的，在它旁边的另一条分支我们称之为 <strong>develop</strong> 分支。</p>
+<p>在任何时候，<strong>origin/master</strong> 分支的 <strong>HEAD</strong>（最前端）所指向的源代码都应该处于可使用的、产品级的状态。</p>
+<p>而 <strong>origin/develop</strong> 分支的 <strong>HEAD</strong> 则应指向开发人员为下一次发布版所做更改的最新源代码。有些人也称这一分支为 “integration branch（集成分支）”，所有的夜间自动构建正是从这一分支构建而来。</p>
+<p>当 <strong>develop</strong> 分支中的代码逐渐完善，达到了足够稳定、可以准备发布的程度时，所有的修改就可以准备合并回 <strong>master</strong> 分支，打标签和发布版本号了。具体隐含在其中的内部细节将在后面谈及。</p>
+<p>正如你所看到的，每当所做的修改完成了一次向 <strong>master</strong> 分支的合并请求，也就意味着一个全新的版本被定义和发布了。因此，我们往往对这一合并有着非常严格的要求，以至于我们会去使用一个名为 Git hook 的脚本，每当我们执行了一次面向 <strong>master</strong> 的 commit，都去全自动地构建与测试我们的软件，并将其部署到产品服务器上。</p>
+<h2 id="支撑分支（Supporting-branches）"><a href="#支撑分支（Supporting-branches）" class="headerlink" title="支撑分支（Supporting branches）"></a>支撑分支（Supporting branches）</h2><p>紧挨着主要分支 <strong>master</strong> 和 <strong>develop</strong>，我们的开发模型引入了许多的支撑分支用于实现多个团队成员之间的平行开发、轻松地进行新功能的跟踪、产品发布版的准备以及协助快速修复线上产品的已知问题。不同于主要分支，这些支撑分支的生命周期都是很有限的，这就意味着当它们的使命完成后，其对应的分支就将被彻底地移除。</p>
+<p>我们经常使用的支撑分支有以下几种：</p>
+<ul>
+<li>Feature branches（新功能分支）</li>
+<li>Release branches（发布分支）</li>
+<li>Hotfix branches（热修复分支）</li>
+</ul>
+<p>这些不同类型的分支都有着属于自己的使命，并且都受着各自分支规则的严格约束，例如有哪些分支才能够成为它们的源分支，又有哪些分支才是它们执行合并的目标分支等。接下来我们就花上几分钟的时间，来具体讨论一下这些分支各自的意义和相关规则。</p>
+<p>另外提一点，其实在技术层面上来讲，并不存在什么“特殊”的分支，这些分支类型和标签仅仅是我们自己定义的，取决于我们自己想要如何使用它，在最原始的层面上来说，他们都只是普通的 Git 分支而已。</p>
+<h3 id="Feature-branches（新功能分支）"><a href="#Feature-branches（新功能分支）" class="headerlink" title="Feature branches（新功能分支）"></a>Feature branches（新功能分支）</h3><p>可能的源分支：<br>    <strong>develop</strong><br>严格指定的合并分支：<br>    <strong>develop</strong><br>分支命名规范：<br>    所有除了 <strong>master</strong>, <strong>develop</strong>, <strong>release-*</strong>, <strong>hotfix-*</strong> 的形式均可</p>
+<p>所有的 feature 分支（也有人称之为 topic branches，主题分支）都是用于开发下一个发布版的新功能，或是某个目标版本的新功能的，因为每当你开始了一个新功能的开发工作，这个功能究竟会在哪个版本当中发布，你或许并不能确定。一个 feature 分支在本质上其生命周期等同于这个功能的开发时长，但是最终并不一定会被合并到 <strong>develop</strong> 分支中（即成为下一个发布版本中的新特性），也可能由于测试的效果不理想而被直接抛弃。</p>
+<p>Feature 分支通常只存在于软件开发者们的版本库中，而不会出现在 origin 版本库中。</p>
+<p><img src="/2020/01/11/a-successful-branching-model/4.png" alt="img"></p>
+<h4 id="创建一个-feature-分支"><a href="#创建一个-feature-分支" class="headerlink" title="创建一个 feature 分支"></a>创建一个 feature 分支</h4><p>当我们要开始着手一个新功能的开发时，首先应当从 <strong>develop</strong> 分支拆出一个新的分支，作为我们新功能开发的 feature 分支。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git checkout -b myfeature develop</span><br><span class="line">Switched to a new branch &quot;myfeature&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="将开发完成的-feature-分支合并到-develop-分支中"><a href="#将开发完成的-feature-分支合并到-develop-分支中" class="headerlink" title="将开发完成的 feature 分支合并到 develop 分支中"></a>将开发完成的 feature 分支合并到 develop 分支中</h4><p>已经完成开发的新功能或许需要合并到 develop 分支中，成为下一个发布版本当的新功能之一：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git check out develop</span><br><span class="line">Switched to branch &apos;develop&apos;</span><br><span class="line">$ git merge --no-ff myfeature</span><br><span class="line">Updating ea1b82a..05e9557</span><br><span class="line">(Summary of changes)</span><br><span class="line">$ git branch -d myfeatrue</span><br><span class="line">Deleted branch myfeature (was 05e9557).</span><br><span class="line">$ git push origin develop</span><br></pre></td></tr></table></figure>
+<p>合并中的 —no—ff 标记可以强制为合并操作创建一个新的 commit 对象，将所有原来属于 feature 分支的 commit 记录打包进这个新的 commit 对象中，进而避免 Git 采用 fast-forward 方式进行分支合并，直接将 develop 指向 feature 造成原本属于 feature 分支上 commit 记录丢失（译注：也就是分不出哪些 commit 是原属于 feature 分支上的 commit 了），下面是采用 —no—ff 与 fast-forward 方式进行合并的对比图。</p>
+<p><img src="/2020/01/11/a-successful-branching-model/5.png" alt="img"></p>
+<p>在图中右边那种情况中，一旦完成合并，你将再也无法从 develop 的 Git 记录中分辨出哪些 commit 是来自 feature 分支中提交的修改和增加的新功能了，这意味着如果你想要找出这些 feature 的提交内容，你必须一条一条地在所有提交历史中去找到对应的提交记录。而在这种合并模式下，如果想要撤销整个新功能，那就够你头疼的了。如果你使用了 —no—ff 就可以完全避免这种合并，并且可以轻松地回退。</p>
+<p>当然，这样的话将会创建一些空的 commit 对象，但是其带来的益处将远远超过多创建几个 commit 付出的代价。</p>
+<h3 id="Release-branches（发布分支）"><a href="#Release-branches（发布分支）" class="headerlink" title="Release branches（发布分支）"></a>Release branches（发布分支）</h3><p>可能的源分支：<br>    <strong>develop</strong><br>严格指定的合并分支：<br>    <strong>develop</strong> 和 <strong>master</strong><br>分支命名规范：<br>    <strong>release-*</strong></p>
+<p>Release 分支用于为即将发布的新版本做发布前的一些准备工作，你可以在 release 分支中为新版本的发布做最后的检查，以确保所有微小的细节都是完整且正确的。此外，你也可以在 release 分支中最后修补一些小bug，以及准备发布版的一些元数据（例如版本号、构建日期等）。当这些工作全部完成后，原来的 <strong>develop</strong> 分支也就准备好接收下一轮大更新的 feature 提交了。</p>
+<p>从 <strong>develop</strong> 分支中拆分出一个 release 分支的合适时机在于，当开发已经（近乎完全）呈现出新版本所期待的状态时，至少新版本中所期望的全部功能应当完成了向 <strong>develop</strong> 分支的合并。当然，所有计划在未来（更后期）的版本中才发布的 feature 不应被合并，它们至少需要等到 develop 已经为马上到来的下一次更新分出用于发布准备的 release 分支后再请求合并。</p>
+<p>另一个标志是，当即将发布的新版本被分配好了版本号时，就可以成为 release 分支的开始，至少这个起始点不应出现在版本号被分配之前。因为在那之前， <strong>develop</strong> 分支虽然展现出了为 “下一次发布版” 所做出的更改，但其实并不清楚这个所谓的 “下一次发布版” 最终会是 0.3 还是 1.0，直到 release 分支启动，才能够完全确定。也就是说，版本号的决定应在 release 分支的开始时做出，并遵循项目自身的版本号规则。</p>
+<h4 id="创建一个-release-分支"><a href="#创建一个-release-分支" class="headerlink" title="创建一个 release 分支"></a>创建一个 release 分支</h4><p>Release 分支是从 <strong>develop</strong> 分支创建而来的。举个例子，产品当前的发布版本号是 1.1.5，并且接下来将有一次大的发布版更新。此时， <strong>develop</strong> 分支已经为 “下一次发布” 做好了准备，并且我们也决定好了下一个版本号是 1.2（而不是 1.1.6 或 2.0），此时，我们就可以开始创建分支，并根据新的版本号给出 release 分支的名称了：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git checkout -b release-1.2 develop</span><br><span class="line">Switched to a new branch &quot;release-1.2&quot;</span><br><span class="line">$ ./bump-version.sh 1.2</span><br><span class="line">Files modified successfully, version bumped to 1.2.</span><br><span class="line">$ git commit -a -m &quot;Bumped version number to 1.2&quot;</span><br><span class="line">[release-1.2 74d9424] Bumped version number to 1.2</span><br><span class="line">1 files changed, 1 insertions(+), 1 deletions(-)</span><br></pre></td></tr></table></figure>
+<p>在此，我们创建了一个新的分支并切换过去修改了版本号。这里的 <strong>bump-version.sh</strong> 是一个虚拟的shell脚本（fictional shell script），用于修改工作副本中的一些文件以反映新版本。（当然，你也可以手动去做相关的修改）然后我们就将新的版本号 commit 了。</p>
+<p>这个新的分支将会存在一小段时间，直到这个新版本被完全发布为止。在此期间，一些bug的修复工作就可以直接在这个 release 分支上进行了（而不是又返回 develop 分支去修复）。但是注意，这并不意味着你可以在这个 release 分支上去写新的 feature，因为正如之前所讲的，feature 必须合并到 develop 分支上，因此如果在 release 分支中又有了其它新功能的想法，就忍一忍，把它们留到下一次发布吧。</p>
+<h4 id="完成-release-分支"><a href="#完成-release-分支" class="headerlink" title="完成 release 分支"></a>完成 release 分支</h4><p>当一个 release 分支已经达到了真正可以 release 的状态时，我们就要开展相关的工作了。首先要明确，我们的 release 分支要合并到 master 分支上（务必时刻牢记，每一个面向 master 的 commit 都代表着一个新版本的发布）。接下来，为向 master 发起的 commit 打上对应的 tag。最后，别忘了将 release 分支上做出的更改和变动合并回 <strong>develop</strong> 分支，以确保在以后的发布版中不会复现当前这个 release 分支上已经修复过的问题。</p>
+<p>前两步的 Git 操作如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">Switched to branche &apos;master&apos;</span><br><span class="line">$git merge --no--ff release-1.2</span><br><span class="line">Merge made by recursive</span><br><span class="line">(Summaru pf changes)</span><br><span class="line">$ git tag -a 1.2</span><br></pre></td></tr></table></figure>
+<p>至此新版本发布就完成了，并且留下了标签以为将来备查。</p>
+<blockquote>
+<p>校订：你也可以使用 -s 或 -u 标记对标签进行加密签名。</p>
+</blockquote>
+<p>为了将 release 分支上所做的所有修改保留到以后的版本中，我们还需要将 release 分支合并回 develop 分支：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git checkout develop</span><br><span class="line">Switched to branch &apos;develop&apos;</span><br><span class="line">$ git merge --no-ff release-1.2</span><br><span class="line">Merge made by recursive</span><br><span class="line">(Summary of changes)</span><br></pre></td></tr></table></figure>
+<p>上面的操作有可能会产生合并冲突，如果有的话那就处理一下然后提交就好了。</p>
+<p>至此，release 分支的使命就完成了，下面我们就可以将其移除：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git branch -d release-1.2</span><br><span class="line">Delete branch release-1.2 (was ff452fe)</span><br></pre></td></tr></table></figure>
+<h3 id="Hotfix-Branches（热修复分支）"><a href="#Hotfix-Branches（热修复分支）" class="headerlink" title="Hotfix Branches（热修复分支）"></a>Hotfix Branches（热修复分支）</h3><p>可能的源分支：<br>    <strong>master</strong><br>严格指定的合并分支：<br>    <strong>develop</strong> 和 <strong>master</strong><br>分支命名规范：<br>    <strong>hotfix-*</strong></p>
+<p>Hotfix 分支和 release 分支非常相像，它们都是为新版本发布而准备的分支，只不过 hotfix 分支并不是预先计划好的。当线上版本突然出现了某些非预期的问题，并且迫切需要得到修复时，就要启用 hotfix 分支了，而且 hotfix 分支的版本标识应当基于当前的 master 分支版本号。</p>
+<p><img src="/2020/01/11/a-successful-branching-model/6.png" alt="img"></p>
+<p>启用一条独立 hotfix 分支的好处在于，当一个开发者在准备线上产品的紧急修复时，完全不会影响到团队当中其它成员（例如在 develop 分支上开发新功能的成员）的工作。</p>
+<h4 id="创建一个-hotfix-分支"><a href="#创建一个-hotfix-分支" class="headerlink" title="创建一个 hotfix 分支"></a>创建一个 hotfix 分支</h4><p>Hotfix 分支应当从 master 分支而来。在此我们举一个具体的例子吧，比如说当前的线上版本号是 1.2，而此时这个线上发布版由于相关服务的漏洞而产生了很严重的问题，但是此时的 develop 分支上还在开发新的功能，并且也完全还没达到准备好可以发布的状态，此时我们就要从当前运行的 master 分支中拆出一条热修复分支，针对当前的线上版本来修复相关问题了：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git checkout -b hotfix-1.2.1 master</span><br><span class="line">Switched to a new branch &quot;hotfix-1.2.1&quot;</span><br><span class="line">$ ./bump-version.sh 1.2.1</span><br><span class="line">Files modified successfully, version bumped to 1.2.1</span><br><span class="line">$ git commit -a -m &quot;Bumped version number to 1.2.1&quot;</span><br><span class="line">[hotfix-1.2.1 41e61bb] Bumped version number to 1.2.1</span><br><span class="line">1 files changed, 1 insertions(+), 1 deletions(1)</span><br></pre></td></tr></table></figure>
+<p>创建 hotfix 分支后别忘了更新版本号！</p>
+<p>接下来就可以开展修复工作了，修复过程中有可能会提交一个或多个 commit。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$git commit -m &quot;Fixed server production problem&quot;</span><br><span class="line">[hotfix-1.2.1 abbe5d6] Fixed server production problem</span><br><span class="line">5 files changed, 32 insertions(+), 19 deletions(-)</span><br></pre></td></tr></table></figure>
+<h4 id="完成-hotfix-分支"><a href="#完成-hotfix-分支" class="headerlink" title="完成 hotfix 分支"></a>完成 hotfix 分支</h4><p>当 hotfix 分支的相关工作做的差不多了，就可以准备将修复结果合并回 <strong>master</strong> 分支了，但是可别忘了，这些修复也必须要合并到 <strong>develop</strong> 分支上！否则 <strong>develop</strong> 分支没有得到更新，下一个发布版本中又会出现相同的问题。这个过程其实和 release 分支的收尾工作是完全一致的。</p>
+<p>首先，我们先更新 <strong>master</strong> 分支并指定发布版本号。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$git checkout master</span><br><span class="line">Switched to branch &apos;master&apos;</span><br><span class="line">$ git merge --no-ff hotfix-1.2.1</span><br><span class="line">Merge made by recursive.</span><br><span class="line">(Summary of changes)</span><br><span class="line">$git tag -a 1.2.1</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>校订：你也可以使用 -s 或 -u 标记对标签进行加密签名。</p>
+</blockquote>
+<p>接下来，将修复的内容也合并到 <strong>develop</strong> 分支上：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git checkout develop</span><br><span class="line">Swiched to branch &apos;develop&apos;</span><br><span class="line">$ git merge --no--ff hotfix-1.2.1</span><br><span class="line">Merge made by resursive.</span><br><span class="line">(Summary of changes)</span><br></pre></td></tr></table></figure>
+<p>这里有一点需要特别注意，<strong>如果在 hotfix 分支完工的时刻存在 release 分支，那么你应该将修复合并到 release 分支中，而不是 develop 分支</strong>，因为 release 分支在完成的时候也会合并到 develop 分支上，因此直接 merge 到 release 上即可。（当然，如果热修复所针对的问题影响到了当下 develop 分支上的开发，没法等到 release 分支合并的那天，现在就得赶紧得到修复时，将 hotfix 分支直接合并回 develop 也是可以的。）</p>
+<p>最后，hotfix 分支就可以被移除了：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git branch -d hotfix-1.2.1</span><br><span class="line">Deleted branched hotfix-1.2.1 (was abbe5d6)</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>介绍完了这个分支模型，你会发现其实也没有什么令人称奇和大开眼界的地方，本文所讲述的模型在文章最开始的那张大图中有很清晰的展示，在大多数时候你参考那张图片就好了，它确实对我们的项目管理很有用，图示简洁优雅地阐述了这个分支模型，能够很好地帮助你的团队成员理解模型，并且在项目的分支管理和发布进程上达成一致的认识。</p>
+<p>下面是本文原文的一份高质量 PDF 版本，你可以把他下载下来挂到你家的墙上，这样就可以在有不清楚地方的时候很方便地瞄两眼了（误(<em>/ω＼</em>)）。</p>
+<p><strong>更新：</strong>如果有需要的话，可以来 <a href="http://github.com/downloads/nvie/gitflow/Git-branching-model-src.key.zip" target="_blank" rel="noopener">gitflow-model.src.key</a> 下载主图的源文件（Apple Keynote 格式）。</p>
+<p><a href="https://nvie.com/files/Git-branching-model.pdf" target="_blank" rel="noopener">附件：Git-branching-model.pdf</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
   </entry>
   <entry>
     <title>记一次 Windows 系统焦点光标的监控尝试</title>
@@ -2613,149 +2779,6 @@ v_y = -3P_{0y}(1-t)^2 + 3P_{1y}(1-t)^2 - 6P_{1y}t(1-t) + 6P_{2y}t(1-t) - 3P_{2y}
       </categories>
   </entry>
   <entry>
-    <title>【翻译】一个成功的 Git 分支模型</title>
-    <url>/2020/01/11/a-successful-branching-model/</url>
-    <content><![CDATA[<blockquote>
-<p>在这篇文章中，我将向你们介绍一个开发模型，早在差不多一年前，我已经将这个模型应用于我的多个项目，而事实证明，这个模型是非常成功的。其实这篇文章我早就打算写了，只是一直没有时间，直到现在。在这篇文章中我将不会谈及任何项目细节，分支策略和发布管理才是本文的核心内容。</p>
-</blockquote>
-<p><img src="/2020/01/11/a-successful-branching-model/1.png" alt="Title"></p>
-<a id="more"></a>
-<hr>
-<blockquote>
-<p>原文地址：<a href="https://nvie.com/posts/a-successful-git-branching-model/spoiler" target="_blank" rel="noopener">https://nvie.com/posts/a-successful-git-branching-model/spoiler</a><br>原文作者：Vincent Driessen<br>全文翻译：Sunwish</p>
-</blockquote>
-<h2 id="为什么是-Git"><a href="#为什么是-Git" class="headerlink" title="为什么是 Git"></a>为什么是 Git</h2><p>如果去深入地探讨网络上关于 Git 优缺点的分析，以及 Git 与其他的中心化源代码控制系统的对比，你就可以发现，大家对此都持有自己的观点和看法。就我而言，作为一名开发者，相比其他所有的同类工具，我都更喜爱 Git。毫不过分地说，Git 彻底地改变了我们开发者对于合并和分支操作的看法和感受。我作为一名从传统 CVS/SVN 转到 Git 的开发者，可以说曾经的合并和分支操作总是让人觉得有点可怕（每当合并过程产生了冲突，总让人感到害怕），并且也是一个短期内使用频率很低的操作。</p>
-<p>但是来到 Git 这边，情况就完全不一样了。合并和分支操作作为 Git 当中简单轻松的操作，在开发者的日常工作流中往往是核心部分之一。这一点从两者的相关书籍中就可以看出，在 CVS/SVN 的书籍中，合并和分支往往在最后的章节（进阶部分）才抛头露面，而在几乎所有的 Git 书籍中，合并和分支则是在第三章（基础部分）就已经讨论过了。</p>
-<p>正是由于这样的简单性与重复性，分支与合并再也不是什么令人害怕的东西了，版本控制工具也成功地成为了合并与分支管理的最佳助手。</p>
-<p>讨论够了相关工具，下面就让我们开始进入开发模型的相关内容吧！我接下来介绍的开发模型，需要团队当中所有的开发人员共同遵循，以便使得软件管理可以进入正确的进程。</p>
-<h2 id="去中心化的中心化"><a href="#去中心化的中心化" class="headerlink" title="去中心化的中心化"></a>去中心化的中心化</h2><p>使用我们这一分支模型的存储库有一个共同的特点，那就是它们都有一个“真正”的中心存储库，但是要注意的是，这个存储库所谓的中心仅仅是我们假想的（Git 作为一个去中心化的版本控制系统，在技术层面上来说并不存在所谓的中心），而这个中心存储库，正是为我们 Git 使用者们所熟知的 origin 存储库。</p>
-<p><img src="/2020/01/11/a-successful-branching-model/2.png" alt="img"></p>
-<p>每一个开发者都围绕着 origin 存储库进行着 pull 和 push 操作，这显示出了 origin 存储库的中心性，但是除此之外，每个开发人员都可以从其它对等方拉取他们的更改来组成子团队，这在开发人员过早地将自己进行的工作推送到主分支上之前，与两个或更多的开发者共同完成一个较大的新功能时是很有用的。正如上图所示，这几个开发成员之间可以很自然地形成很小的子团队： Alice 和 Bob，Alice 和 David，以及 Clair 和 David。</p>
-<p>在技术层面上，这就好比 Alice 除了自己的存储库，还定义了一个名为 bob 的远程 Git，并且指向了 Bob 的存储库，反之亦然。</p>
-<h2 id="主要分支（The-main-branches）"><a href="#主要分支（The-main-branches）" class="headerlink" title="主要分支（The main branches）"></a>主要分支（The main branches）</h2><p>我所要介绍的开发模型，其核心是在许多现有模型的启发下诞生的。我们模型的中心存储库，具有两条主要分支，这两条分支的生命线贯穿了我们整个存储库诞生和消亡，他们分别是：</p>
-<ul>
-<li>master</li>
-<li>develop</li>
-</ul>
-<p><img src="/2020/01/11/a-successful-branching-model/3.png" alt="img"></p>
-<p>在 <strong>origin</strong> 存储库中的 <strong>master</strong> 分支应当是面向所有 Git 用户的，在它旁边的另一条分支我们称之为 <strong>develop</strong> 分支。</p>
-<p>在任何时候，<strong>origin/master</strong> 分支的 <strong>HEAD</strong>（最前端）所指向的源代码都应该处于可使用的、产品级的状态。</p>
-<p>而 <strong>origin/develop</strong> 分支的 <strong>HEAD</strong> 则应指向开发人员为下一次发布版所做更改的最新源代码。有些人也称这一分支为 “integration branch（集成分支）”，所有的夜间自动构建正是从这一分支构建而来。</p>
-<p>当 <strong>develop</strong> 分支中的代码逐渐完善，达到了足够稳定、可以准备发布的程度时，所有的修改就可以准备合并回 <strong>master</strong> 分支，打标签和发布版本号了。具体隐含在其中的内部细节将在后面谈及。</p>
-<p>正如你所看到的，每当所做的修改完成了一次向 <strong>master</strong> 分支的合并请求，也就意味着一个全新的版本被定义和发布了。因此，我们往往对这一合并有着非常严格的要求，以至于我们会去使用一个名为 Git hook 的脚本，每当我们执行了一次面向 <strong>master</strong> 的 commit，都去全自动地构建与测试我们的软件，并将其部署到产品服务器上。</p>
-<h2 id="支撑分支（Supporting-branches）"><a href="#支撑分支（Supporting-branches）" class="headerlink" title="支撑分支（Supporting branches）"></a>支撑分支（Supporting branches）</h2><p>紧挨着主要分支 <strong>master</strong> 和 <strong>develop</strong>，我们的开发模型引入了许多的支撑分支用于实现多个团队成员之间的平行开发、轻松地进行新功能的跟踪、产品发布版的准备以及协助快速修复线上产品的已知问题。不同于主要分支，这些支撑分支的生命周期都是很有限的，这就意味着当它们的使命完成后，其对应的分支就将被彻底地移除。</p>
-<p>我们经常使用的支撑分支有以下几种：</p>
-<ul>
-<li>Feature branches（新功能分支）</li>
-<li>Release branches（发布分支）</li>
-<li>Hotfix branches（热修复分支）</li>
-</ul>
-<p>这些不同类型的分支都有着属于自己的使命，并且都受着各自分支规则的严格约束，例如有哪些分支才能够成为它们的源分支，又有哪些分支才是它们执行合并的目标分支等。接下来我们就花上几分钟的时间，来具体讨论一下这些分支各自的意义和相关规则。</p>
-<p>另外提一点，其实在技术层面上来讲，并不存在什么“特殊”的分支，这些分支类型和标签仅仅是我们自己定义的，取决于我们自己想要如何使用它，在最原始的层面上来说，他们都只是普通的 Git 分支而已。</p>
-<h3 id="Feature-branches（新功能分支）"><a href="#Feature-branches（新功能分支）" class="headerlink" title="Feature branches（新功能分支）"></a>Feature branches（新功能分支）</h3><p>可能的源分支：<br>    <strong>develop</strong><br>严格指定的合并分支：<br>    <strong>develop</strong><br>分支命名规范：<br>    所有除了 <strong>master</strong>, <strong>develop</strong>, <strong>release-*</strong>, <strong>hotfix-*</strong> 的形式均可</p>
-<p>所有的 feature 分支（也有人称之为 topic branches，主题分支）都是用于开发下一个发布版的新功能，或是某个目标版本的新功能的，因为每当你开始了一个新功能的开发工作，这个功能究竟会在哪个版本当中发布，你或许并不能确定。一个 feature 分支在本质上其生命周期等同于这个功能的开发时长，但是最终并不一定会被合并到 <strong>develop</strong> 分支中（即成为下一个发布版本中的新特性），也可能由于测试的效果不理想而被直接抛弃。</p>
-<p>Feature 分支通常只存在于软件开发者们的版本库中，而不会出现在 origin 版本库中。</p>
-<p><img src="/2020/01/11/a-successful-branching-model/4.png" alt="img"></p>
-<h4 id="创建一个-feature-分支"><a href="#创建一个-feature-分支" class="headerlink" title="创建一个 feature 分支"></a>创建一个 feature 分支</h4><p>当我们要开始着手一个新功能的开发时，首先应当从 <strong>develop</strong> 分支拆出一个新的分支，作为我们新功能开发的 feature 分支。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git checkout -b myfeature develop</span><br><span class="line">Switched to a new branch &quot;myfeature&quot;</span><br></pre></td></tr></table></figure>
-<h4 id="将开发完成的-feature-分支合并到-develop-分支中"><a href="#将开发完成的-feature-分支合并到-develop-分支中" class="headerlink" title="将开发完成的 feature 分支合并到 develop 分支中"></a>将开发完成的 feature 分支合并到 develop 分支中</h4><p>已经完成开发的新功能或许需要合并到 develop 分支中，成为下一个发布版本当的新功能之一：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git check out develop</span><br><span class="line">Switched to branch &apos;develop&apos;</span><br><span class="line">$ git merge --no-ff myfeature</span><br><span class="line">Updating ea1b82a..05e9557</span><br><span class="line">(Summary of changes)</span><br><span class="line">$ git branch -d myfeatrue</span><br><span class="line">Deleted branch myfeature (was 05e9557).</span><br><span class="line">$ git push origin develop</span><br></pre></td></tr></table></figure>
-<p>合并中的 —no—ff 标记可以强制为合并操作创建一个新的 commit 对象，将所有原来属于 feature 分支的 commit 记录打包进这个新的 commit 对象中，进而避免 Git 采用 fast-forward 方式进行分支合并，直接将 develop 指向 feature 造成原本属于 feature 分支上 commit 记录丢失（译注：也就是分不出哪些 commit 是原属于 feature 分支上的 commit 了），下面是采用 —no—ff 与 fast-forward 方式进行合并的对比图。</p>
-<p><img src="/2020/01/11/a-successful-branching-model/5.png" alt="img"></p>
-<p>在图中右边那种情况中，一旦完成合并，你将再也无法从 develop 的 Git 记录中分辨出哪些 commit 是来自 feature 分支中提交的修改和增加的新功能了，这意味着如果你想要找出这些 feature 的提交内容，你必须一条一条地在所有提交历史中去找到对应的提交记录。而在这种合并模式下，如果想要撤销整个新功能，那就够你头疼的了。如果你使用了 —no—ff 就可以完全避免这种合并，并且可以轻松地回退。</p>
-<p>当然，这样的话将会创建一些空的 commit 对象，但是其带来的益处将远远超过多创建几个 commit 付出的代价。</p>
-<h3 id="Release-branches（发布分支）"><a href="#Release-branches（发布分支）" class="headerlink" title="Release branches（发布分支）"></a>Release branches（发布分支）</h3><p>可能的源分支：<br>    <strong>develop</strong><br>严格指定的合并分支：<br>    <strong>develop</strong> 和 <strong>master</strong><br>分支命名规范：<br>    <strong>release-*</strong></p>
-<p>Release 分支用于为即将发布的新版本做发布前的一些准备工作，你可以在 release 分支中为新版本的发布做最后的检查，以确保所有微小的细节都是完整且正确的。此外，你也可以在 release 分支中最后修补一些小bug，以及准备发布版的一些元数据（例如版本号、构建日期等）。当这些工作全部完成后，原来的 <strong>develop</strong> 分支也就准备好接收下一轮大更新的 feature 提交了。</p>
-<p>从 <strong>develop</strong> 分支中拆分出一个 release 分支的合适时机在于，当开发已经（近乎完全）呈现出新版本所期待的状态时，至少新版本中所期望的全部功能应当完成了向 <strong>develop</strong> 分支的合并。当然，所有计划在未来（更后期）的版本中才发布的 feature 不应被合并，它们至少需要等到 develop 已经为马上到来的下一次更新分出用于发布准备的 release 分支后再请求合并。</p>
-<p>另一个标志是，当即将发布的新版本被分配好了版本号时，就可以成为 release 分支的开始，至少这个起始点不应出现在版本号被分配之前。因为在那之前， <strong>develop</strong> 分支虽然展现出了为 “下一次发布版” 所做出的更改，但其实并不清楚这个所谓的 “下一次发布版” 最终会是 0.3 还是 1.0，直到 release 分支启动，才能够完全确定。也就是说，版本号的决定应在 release 分支的开始时做出，并遵循项目自身的版本号规则。</p>
-<h4 id="创建一个-release-分支"><a href="#创建一个-release-分支" class="headerlink" title="创建一个 release 分支"></a>创建一个 release 分支</h4><p>Release 分支是从 <strong>develop</strong> 分支创建而来的。举个例子，产品当前的发布版本号是 1.1.5，并且接下来将有一次大的发布版更新。此时， <strong>develop</strong> 分支已经为 “下一次发布” 做好了准备，并且我们也决定好了下一个版本号是 1.2（而不是 1.1.6 或 2.0），此时，我们就可以开始创建分支，并根据新的版本号给出 release 分支的名称了：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git checkout -b release-1.2 develop</span><br><span class="line">Switched to a new branch &quot;release-1.2&quot;</span><br><span class="line">$ ./bump-version.sh 1.2</span><br><span class="line">Files modified successfully, version bumped to 1.2.</span><br><span class="line">$ git commit -a -m &quot;Bumped version number to 1.2&quot;</span><br><span class="line">[release-1.2 74d9424] Bumped version number to 1.2</span><br><span class="line">1 files changed, 1 insertions(+), 1 deletions(-)</span><br></pre></td></tr></table></figure>
-<p>在此，我们创建了一个新的分支并切换过去修改了版本号。这里的 <strong>bump-version.sh</strong> 是一个虚拟的shell脚本（fictional shell script），用于修改工作副本中的一些文件以反映新版本。（当然，你也可以手动去做相关的修改）然后我们就将新的版本号 commit 了。</p>
-<p>这个新的分支将会存在一小段时间，直到这个新版本被完全发布为止。在此期间，一些bug的修复工作就可以直接在这个 release 分支上进行了（而不是又返回 develop 分支去修复）。但是注意，这并不意味着你可以在这个 release 分支上去写新的 feature，因为正如之前所讲的，feature 必须合并到 develop 分支上，因此如果在 release 分支中又有了其它新功能的想法，就忍一忍，把它们留到下一次发布吧。</p>
-<h4 id="完成-release-分支"><a href="#完成-release-分支" class="headerlink" title="完成 release 分支"></a>完成 release 分支</h4><p>当一个 release 分支已经达到了真正可以 release 的状态时，我们就要开展相关的工作了。首先要明确，我们的 release 分支要合并到 master 分支上（务必时刻牢记，每一个面向 master 的 commit 都代表着一个新版本的发布）。接下来，为向 master 发起的 commit 打上对应的 tag。最后，别忘了将 release 分支上做出的更改和变动合并回 <strong>develop</strong> 分支，以确保在以后的发布版中不会复现当前这个 release 分支上已经修复过的问题。</p>
-<p>前两步的 Git 操作如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">Switched to branche &apos;master&apos;</span><br><span class="line">$git merge --no--ff release-1.2</span><br><span class="line">Merge made by recursive</span><br><span class="line">(Summaru pf changes)</span><br><span class="line">$ git tag -a 1.2</span><br></pre></td></tr></table></figure>
-<p>至此新版本发布就完成了，并且留下了标签以为将来备查。</p>
-<blockquote>
-<p>校订：你也可以使用 -s 或 -u 标记对标签进行加密签名。</p>
-</blockquote>
-<p>为了将 release 分支上所做的所有修改保留到以后的版本中，我们还需要将 release 分支合并回 develop 分支：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git checkout develop</span><br><span class="line">Switched to branch &apos;develop&apos;</span><br><span class="line">$ git merge --no-ff release-1.2</span><br><span class="line">Merge made by recursive</span><br><span class="line">(Summary of changes)</span><br></pre></td></tr></table></figure>
-<p>上面的操作有可能会产生合并冲突，如果有的话那就处理一下然后提交就好了。</p>
-<p>至此，release 分支的使命就完成了，下面我们就可以将其移除：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git branch -d release-1.2</span><br><span class="line">Delete branch release-1.2 (was ff452fe)</span><br></pre></td></tr></table></figure>
-<h3 id="Hotfix-Branches（热修复分支）"><a href="#Hotfix-Branches（热修复分支）" class="headerlink" title="Hotfix Branches（热修复分支）"></a>Hotfix Branches（热修复分支）</h3><p>可能的源分支：<br>    <strong>master</strong><br>严格指定的合并分支：<br>    <strong>develop</strong> 和 <strong>master</strong><br>分支命名规范：<br>    <strong>hotfix-*</strong></p>
-<p>Hotfix 分支和 release 分支非常相像，它们都是为新版本发布而准备的分支，只不过 hotfix 分支并不是预先计划好的。当线上版本突然出现了某些非预期的问题，并且迫切需要得到修复时，就要启用 hotfix 分支了，而且 hotfix 分支的版本标识应当基于当前的 master 分支版本号。</p>
-<p><img src="/2020/01/11/a-successful-branching-model/6.png" alt="img"></p>
-<p>启用一条独立 hotfix 分支的好处在于，当一个开发者在准备线上产品的紧急修复时，完全不会影响到团队当中其它成员（例如在 develop 分支上开发新功能的成员）的工作。</p>
-<h4 id="创建一个-hotfix-分支"><a href="#创建一个-hotfix-分支" class="headerlink" title="创建一个 hotfix 分支"></a>创建一个 hotfix 分支</h4><p>Hotfix 分支应当从 master 分支而来。在此我们举一个具体的例子吧，比如说当前的线上版本号是 1.2，而此时这个线上发布版由于相关服务的漏洞而产生了很严重的问题，但是此时的 develop 分支上还在开发新的功能，并且也完全还没达到准备好可以发布的状态，此时我们就要从当前运行的 master 分支中拆出一条热修复分支，针对当前的线上版本来修复相关问题了：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git checkout -b hotfix-1.2.1 master</span><br><span class="line">Switched to a new branch &quot;hotfix-1.2.1&quot;</span><br><span class="line">$ ./bump-version.sh 1.2.1</span><br><span class="line">Files modified successfully, version bumped to 1.2.1</span><br><span class="line">$ git commit -a -m &quot;Bumped version number to 1.2.1&quot;</span><br><span class="line">[hotfix-1.2.1 41e61bb] Bumped version number to 1.2.1</span><br><span class="line">1 files changed, 1 insertions(+), 1 deletions(1)</span><br></pre></td></tr></table></figure>
-<p>创建 hotfix 分支后别忘了更新版本号！</p>
-<p>接下来就可以开展修复工作了，修复过程中有可能会提交一个或多个 commit。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$git commit -m &quot;Fixed server production problem&quot;</span><br><span class="line">[hotfix-1.2.1 abbe5d6] Fixed server production problem</span><br><span class="line">5 files changed, 32 insertions(+), 19 deletions(-)</span><br></pre></td></tr></table></figure>
-<h4 id="完成-hotfix-分支"><a href="#完成-hotfix-分支" class="headerlink" title="完成 hotfix 分支"></a>完成 hotfix 分支</h4><p>当 hotfix 分支的相关工作做的差不多了，就可以准备将修复结果合并回 <strong>master</strong> 分支了，但是可别忘了，这些修复也必须要合并到 <strong>develop</strong> 分支上！否则 <strong>develop</strong> 分支没有得到更新，下一个发布版本中又会出现相同的问题。这个过程其实和 release 分支的收尾工作是完全一致的。</p>
-<p>首先，我们先更新 <strong>master</strong> 分支并指定发布版本号。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$git checkout master</span><br><span class="line">Switched to branch &apos;master&apos;</span><br><span class="line">$ git merge --no-ff hotfix-1.2.1</span><br><span class="line">Merge made by recursive.</span><br><span class="line">(Summary of changes)</span><br><span class="line">$git tag -a 1.2.1</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>校订：你也可以使用 -s 或 -u 标记对标签进行加密签名。</p>
-</blockquote>
-<p>接下来，将修复的内容也合并到 <strong>develop</strong> 分支上：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git checkout develop</span><br><span class="line">Swiched to branch &apos;develop&apos;</span><br><span class="line">$ git merge --no--ff hotfix-1.2.1</span><br><span class="line">Merge made by resursive.</span><br><span class="line">(Summary of changes)</span><br></pre></td></tr></table></figure>
-<p>这里有一点需要特别注意，<strong>如果在 hotfix 分支完工的时刻存在 release 分支，那么你应该将修复合并到 release 分支中，而不是 develop 分支</strong>，因为 release 分支在完成的时候也会合并到 develop 分支上，因此直接 merge 到 release 上即可。（当然，如果热修复所针对的问题影响到了当下 develop 分支上的开发，没法等到 release 分支合并的那天，现在就得赶紧得到修复时，将 hotfix 分支直接合并回 develop 也是可以的。）</p>
-<p>最后，hotfix 分支就可以被移除了：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git branch -d hotfix-1.2.1</span><br><span class="line">Deleted branched hotfix-1.2.1 (was abbe5d6)</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>介绍完了这个分支模型，你会发现其实也没有什么令人称奇和大开眼界的地方，本文所讲述的模型在文章最开始的那张大图中有很清晰的展示，在大多数时候你参考那张图片就好了，它确实对我们的项目管理很有用，图示简洁优雅地阐述了这个分支模型，能够很好地帮助你的团队成员理解模型，并且在项目的分支管理和发布进程上达成一致的认识。</p>
-<p>下面是本文原文的一份高质量 PDF 版本，你可以把他下载下来挂到你家的墙上，这样就可以在有不清楚地方的时候很方便地瞄两眼了（误(<em>/ω＼</em>)）。</p>
-<p><strong>更新：</strong>如果有需要的话，可以来 <a href="http://github.com/downloads/nvie/gitflow/Git-branching-model-src.key.zip" target="_blank" rel="noopener">gitflow-model.src.key</a> 下载主图的源文件（Apple Keynote 格式）。</p>
-<p><a href="https://nvie.com/files/Git-branching-model.pdf" target="_blank" rel="noopener">附件：Git-branching-model.pdf</a></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-  </entry>
-  <entry>
-    <title>Bcdedit 删除 Boot Menu 中的多余启动引导</title>
-    <url>/2019/08/27/bcdedit-clean-bootmenu/</url>
-    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
-<p>在过去一篇博文《<a href="https://houkaifa.com/2019/08/15/ubuntu-uninstall/" target="_blank" rel="noopener">如何科学卸载 Ubuntu？</a>》中曾提到 Ubuntu 启动引导的删除，其中先后通过 EasyUEFI 与 diskpart 工具删除了 Ubuntu 的启动引导条目以及 Ubuntu 的 EFI 分区，但是仍有可能出现启动引导的残留，最直接的表现就是在开机的时候依旧没有正常进入系统而是进入了 GRUB 界面。本文以清理 Ubuntu 启动引导残留为例，演示如何借助 Bcdedit 移除固件应用程序，进而彻底清理启动引导残留，同理亦可以移除多系统下不需要的启动引导。</p>
-</blockquote>
-<p><img src="/2019/08/27/bcdedit-clean-bootmenu/1.jpg" alt="Title"></p>
-<a id="more"></a>
-<hr>
-<h1 id="一、找到固件GUID"><a href="#一、找到固件GUID" class="headerlink" title="一、找到固件GUID"></a>一、找到固件GUID</h1><p>在 PowerShell 中输入命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Bcdedit /enum firmware</span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">固件启动管理器</span><br><span class="line">---------------------</span><br><span class="line">标识符                  &#123;fwbootmgr&#125;</span><br><span class="line">displayorder            &#123;8729d185-7270-11e7-bd79-850bbbb583d1&#125;</span><br><span class="line">                        &#123;bootmgr&#125;</span><br><span class="line">timeout                 1</span><br><span class="line"></span><br><span class="line">Windows 启动管理器</span><br><span class="line">--------------------</span><br><span class="line">标识符                  &#123;bootmgr&#125;</span><br><span class="line">device                  partition=\Device\HarddiskVolume1</span><br><span class="line">path                    \EFI\MICROSOFT\BOOT\BOOTMGFW.EFI</span><br><span class="line">description             Windows Boot Manager</span><br><span class="line">locale                  zh-CN</span><br><span class="line">inherit                 &#123;globalsettings&#125;</span><br><span class="line">flightsigning           Yes</span><br><span class="line">default                 &#123;current&#125;</span><br><span class="line">resumeobject            &#123;8729d17d-7270-11e7-bd79-850bbbb583d1&#125;</span><br><span class="line">displayorder            &#123;current&#125;</span><br><span class="line">toolsdisplayorder       &#123;memdiag&#125;</span><br><span class="line">timeout                 30</span><br><span class="line"></span><br><span class="line">固件应用程序(101fffff)</span><br><span class="line">-------------------------------</span><br><span class="line">标识符                  &#123;8729d185-7270-11e7-bd79-850bbbb583d1&#125;</span><br><span class="line">device                  partition=\Device\HarddiskVolume1</span><br><span class="line">path                    \EFI\UBUNTU\SHIMX64.EFI</span><br><span class="line">description             ubuntu</span><br></pre></td></tr></table></figure>
-<p>其中固件应用程序(101ffff)为我们要删除的 Ubuntu 启动引导：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">固件应用程序(101fffff)</span><br><span class="line">-------------------------------</span><br><span class="line">标识符                  &#123;8729d185-7270-11e7-bd79-850bbbb583d1&#125;</span><br><span class="line">device                  partition=\Device\HarddiskVolume1</span><br><span class="line">path                    \EFI\UBUNTU\SHIMX64.EFI</span><br><span class="line">description             ubuntu</span><br></pre></td></tr></table></figure>
-<p>记下其标识符：{8729d185-7270-11e7-bd79-850bbbb583d1}</p>
-<h1 id="二、删除对应固件条目"><a href="#二、删除对应固件条目" class="headerlink" title="二、删除对应固件条目"></a>二、删除对应固件条目</h1><p>1.通过 <strong>Bcdedit</strong> 保存一份电脑上现行的 bcd 文件副本：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Bcdedit /export savebcd</span><br></pre></td></tr></table></figure>
-<p>2.拷贝一份 savebcd 文件的副本用于协助 bcdedit 删除操作：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Copy savebcd newbcd</span><br></pre></td></tr></table></figure>
-<p>3.枚举系统BCD存储中的固件命名空间对象并将输出结果保存到文本文件：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Bcdedit /enum firmware &gt; enumfw.txt</span><br></pre></td></tr></table></figure>
-<p>4.使用记事本打开 enumfw.txt 文件，可以看到里面的内容与在 “一、找到固件GUID” 中是一致的，在输出的文本文件中找到要删除的 Ubuntu 启动引导对应的固件应用程序标识符：{8729d185-7270-11e7-bd79-850bbbb583d1}，复制备用。</p>
-<p>5.在任意位置创建一个文本文档 RemoveDups.txt</p>
-<p>6.使用记事本打开 RemoveDups.txt 并写入以下内容（其中GUID替换为你在上一步中复制的标标识符）：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Bcdedit /store newbcd /delete GUID</span><br></pre></td></tr></table></figure>
-<p>特别地，如果有多个要删除的固件应用程序的话，就将上面一行拷贝添加多行，例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Bcdedit /store newbcd /delete GUID1</span><br><span class="line">Bcdedit /store newbcd /delete GUID2</span><br><span class="line">Bcdedit /store newbcd /delete GUID3</span><br><span class="line">Bcdedit /store newbcd /delete GUID4</span><br></pre></td></tr></table></figure>
-<p><strong>注意：在EFI固件为本地设备初始化NVRAM条目的计算机上，如果需要，可以删除所有GUID条目。但不要删除的条目 {bootmgr}！</strong></p>
-<p>7.在 RemoveDups.txt 的最后一行写入以下命令，通过使用/clean选项删除导入操作中的所有NVRAM条目来导入新的BCD文件：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Bcdedit /import newbcd /clean</span><br></pre></td></tr></table></figure>
-<p>8.保存 RemoveDups.txt 文件，并将其重命名为 RemoveDups.cmd，使其成为命令行文件。</p>
-<p>9.将 RemoveDups.cmd 文件复制到 C:\Windows\system32 目录下，并在 PowerShell 中执行它：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">RemoveDups.cmd</span><br></pre></td></tr></table></figure>
-<p>10.重新启动系统。在重新启动期间，EFI固件将使用与连接到系统的设备对应的固件对象 GUID 重新初始化 NVRAM。进入系统后，可使用 bcdedit /enum firmware 命令进一步验证是否已删除所有需要删除的固件条目。</p>
-<p>参考文献：<a href="http://1t.click/SA8" target="_blank" rel="noopener">Remove Duplicate Firmware Objects in BCD and NVRAM</a></p>
-<p>扩展阅读：<a href="https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-vista/cc766450%28v%3dws.10%29" target="_blank" rel="noopener">Deploy to UEFI-based Computers</a></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>沿途简记</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何将 ASP.NET Core 项目部署到 Linux</title>
     <url>/2020/03/08/deploy-aspnetcore-app/</url>
     <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
@@ -2828,6 +2851,51 @@ v_y = -3P_{0y}(1-t)^2 + 3P_{1y}(1-t)^2 - 6P_{1y}t(1-t) + 6P_{2y}t(1-t) - 3P_{2y}
       </categories>
       <tags>
         <tag>ASP.NET</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Bcdedit 删除 Boot Menu 中的多余启动引导</title>
+    <url>/2019/08/27/bcdedit-clean-bootmenu/</url>
+    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>在过去一篇博文《<a href="https://houkaifa.com/2019/08/15/ubuntu-uninstall/" target="_blank" rel="noopener">如何科学卸载 Ubuntu？</a>》中曾提到 Ubuntu 启动引导的删除，其中先后通过 EasyUEFI 与 diskpart 工具删除了 Ubuntu 的启动引导条目以及 Ubuntu 的 EFI 分区，但是仍有可能出现启动引导的残留，最直接的表现就是在开机的时候依旧没有正常进入系统而是进入了 GRUB 界面。本文以清理 Ubuntu 启动引导残留为例，演示如何借助 Bcdedit 移除固件应用程序，进而彻底清理启动引导残留，同理亦可以移除多系统下不需要的启动引导。</p>
+</blockquote>
+<p><img src="/2019/08/27/bcdedit-clean-bootmenu/1.jpg" alt="Title"></p>
+<a id="more"></a>
+<hr>
+<h1 id="一、找到固件GUID"><a href="#一、找到固件GUID" class="headerlink" title="一、找到固件GUID"></a>一、找到固件GUID</h1><p>在 PowerShell 中输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Bcdedit /enum firmware</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">固件启动管理器</span><br><span class="line">---------------------</span><br><span class="line">标识符                  &#123;fwbootmgr&#125;</span><br><span class="line">displayorder            &#123;8729d185-7270-11e7-bd79-850bbbb583d1&#125;</span><br><span class="line">                        &#123;bootmgr&#125;</span><br><span class="line">timeout                 1</span><br><span class="line"></span><br><span class="line">Windows 启动管理器</span><br><span class="line">--------------------</span><br><span class="line">标识符                  &#123;bootmgr&#125;</span><br><span class="line">device                  partition=\Device\HarddiskVolume1</span><br><span class="line">path                    \EFI\MICROSOFT\BOOT\BOOTMGFW.EFI</span><br><span class="line">description             Windows Boot Manager</span><br><span class="line">locale                  zh-CN</span><br><span class="line">inherit                 &#123;globalsettings&#125;</span><br><span class="line">flightsigning           Yes</span><br><span class="line">default                 &#123;current&#125;</span><br><span class="line">resumeobject            &#123;8729d17d-7270-11e7-bd79-850bbbb583d1&#125;</span><br><span class="line">displayorder            &#123;current&#125;</span><br><span class="line">toolsdisplayorder       &#123;memdiag&#125;</span><br><span class="line">timeout                 30</span><br><span class="line"></span><br><span class="line">固件应用程序(101fffff)</span><br><span class="line">-------------------------------</span><br><span class="line">标识符                  &#123;8729d185-7270-11e7-bd79-850bbbb583d1&#125;</span><br><span class="line">device                  partition=\Device\HarddiskVolume1</span><br><span class="line">path                    \EFI\UBUNTU\SHIMX64.EFI</span><br><span class="line">description             ubuntu</span><br></pre></td></tr></table></figure>
+<p>其中固件应用程序(101ffff)为我们要删除的 Ubuntu 启动引导：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">固件应用程序(101fffff)</span><br><span class="line">-------------------------------</span><br><span class="line">标识符                  &#123;8729d185-7270-11e7-bd79-850bbbb583d1&#125;</span><br><span class="line">device                  partition=\Device\HarddiskVolume1</span><br><span class="line">path                    \EFI\UBUNTU\SHIMX64.EFI</span><br><span class="line">description             ubuntu</span><br></pre></td></tr></table></figure>
+<p>记下其标识符：{8729d185-7270-11e7-bd79-850bbbb583d1}</p>
+<h1 id="二、删除对应固件条目"><a href="#二、删除对应固件条目" class="headerlink" title="二、删除对应固件条目"></a>二、删除对应固件条目</h1><p>1.通过 <strong>Bcdedit</strong> 保存一份电脑上现行的 bcd 文件副本：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Bcdedit /export savebcd</span><br></pre></td></tr></table></figure>
+<p>2.拷贝一份 savebcd 文件的副本用于协助 bcdedit 删除操作：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Copy savebcd newbcd</span><br></pre></td></tr></table></figure>
+<p>3.枚举系统BCD存储中的固件命名空间对象并将输出结果保存到文本文件：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Bcdedit /enum firmware &gt; enumfw.txt</span><br></pre></td></tr></table></figure>
+<p>4.使用记事本打开 enumfw.txt 文件，可以看到里面的内容与在 “一、找到固件GUID” 中是一致的，在输出的文本文件中找到要删除的 Ubuntu 启动引导对应的固件应用程序标识符：{8729d185-7270-11e7-bd79-850bbbb583d1}，复制备用。</p>
+<p>5.在任意位置创建一个文本文档 RemoveDups.txt</p>
+<p>6.使用记事本打开 RemoveDups.txt 并写入以下内容（其中GUID替换为你在上一步中复制的标标识符）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Bcdedit /store newbcd /delete GUID</span><br></pre></td></tr></table></figure>
+<p>特别地，如果有多个要删除的固件应用程序的话，就将上面一行拷贝添加多行，例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Bcdedit /store newbcd /delete GUID1</span><br><span class="line">Bcdedit /store newbcd /delete GUID2</span><br><span class="line">Bcdedit /store newbcd /delete GUID3</span><br><span class="line">Bcdedit /store newbcd /delete GUID4</span><br></pre></td></tr></table></figure>
+<p><strong>注意：在EFI固件为本地设备初始化NVRAM条目的计算机上，如果需要，可以删除所有GUID条目。但不要删除的条目 {bootmgr}！</strong></p>
+<p>7.在 RemoveDups.txt 的最后一行写入以下命令，通过使用/clean选项删除导入操作中的所有NVRAM条目来导入新的BCD文件：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Bcdedit /import newbcd /clean</span><br></pre></td></tr></table></figure>
+<p>8.保存 RemoveDups.txt 文件，并将其重命名为 RemoveDups.cmd，使其成为命令行文件。</p>
+<p>9.将 RemoveDups.cmd 文件复制到 C:\Windows\system32 目录下，并在 PowerShell 中执行它：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">RemoveDups.cmd</span><br></pre></td></tr></table></figure>
+<p>10.重新启动系统。在重新启动期间，EFI固件将使用与连接到系统的设备对应的固件对象 GUID 重新初始化 NVRAM。进入系统后，可使用 bcdedit /enum firmware 命令进一步验证是否已删除所有需要删除的固件条目。</p>
+<p>参考文献：<a href="http://1t.click/SA8" target="_blank" rel="noopener">Remove Duplicate Firmware Objects in BCD and NVRAM</a></p>
+<p>扩展阅读：<a href="https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-vista/cc766450%28v%3dws.10%29" target="_blank" rel="noopener">Deploy to UEFI-based Computers</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>沿途简记</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -2936,6 +3004,27 @@ I_4=I_3∧I_2</script><h2 id="4-中值滤波"><a href="#4-中值滤波" class="h
       </tags>
   </entry>
   <entry>
+    <title>Sun的逆向之路（二）——FiF口语训练的刷分剖析</title>
+    <url>/2018/07/30/sun-s-reverse-2/</url>
+    <content><![CDATA[<p>&emsp;&emsp;闲来无事看了看FiF口语中一些Task的排行榜，翻着翻着意外发现了一个101分的榜首，按理来说满分才只有100分，因此猜想这个分数一定是被动过手脚的，于是来了兴致，从POST请求与APK反编译两个角度分别尝试破解FiF。</p>
+<hr>
+<h3 id="方案一：APK反编译"><a href="#方案一：APK反编译" class="headerlink" title="方案一：APK反编译"></a><strong>方案一：APK反编译</strong></h3><p>&emsp;&emsp;将FiF的apk文件拖入AndroidKiller，发现加载失败，于是拖入jadx，发现原来上了奇虎的加固壳，考虑到只是把玩娱乐，脱壳会大大增加复杂性，于是暂时放弃反编译的想法。</p>
+<h3 id="方案二：POST请求拦截"><a href="#方案二：POST请求拦截" class="headerlink" title="方案二：POST请求拦截"></a><strong>方案二：POST请求拦截</strong></h3><h3 id="emsp-0x01-配置Fiddler"><a href="#emsp-0x01-配置Fiddler" class="headerlink" title="&emsp;0x01 配置Fiddler"></a>&emsp;<strong>0x01 配置Fiddler</strong></h3><p>&emsp;&emsp;因为自从用了新电脑就没有抓过包了，因此还是要做一些配置的。Java Jdk和环境变量的配置工作在此掠过了，但考虑到这次Fiddler的配置过程还有点不同寻常，所以这里做一下记录。<br>&emsp;&emsp;运行Fiddler提示8888端口被占用了，询问是否随机取端口。考虑到不使用8888可能后面会造成一些不必要的麻烦，于是打开cmd输入netstat -ano|findstr “8888”，发现原来端口被PID为20348的应用占用了，打开任务管理器的详细信息选卡，发现是Matlab，于是结束进程。<br><a id="more"></a><br><img src="/2018/07/30/sun-s-reverse-2/1.jpg" alt="这里写图片描述"></p>
+<p>&emsp;&emsp;随后重启Fiddler，发现没有端口占用提示了。再次查看8888端口的状态，可以看到这个端口已经成功被Fiddler监听。接下来在手机浏览器访问“IP:8888”，安装Fiddler证书即可，IP可通过控制台ipconfig指令查看。至此环境配置结束。</p>
+<p><img src="/2018/07/30/sun-s-reverse-2/2.jpg" alt="这里写图片描述"></p>
+<h3 id="emsp-0x02-POST请求拦截"><a href="#emsp-0x02-POST请求拦截" class="headerlink" title="&emsp;0x02 POST请求拦截"></a>&emsp;<strong>0x02 POST请求拦截</strong></h3><p>&emsp;&emsp;手机端对应设置好HTTP代理后，打开FiF，发现Fiddler这边的请求很杂乱，这是因为电脑和手机上所有的网络请求都被显示了，于是配置过滤器，只显示抓取Host为m.oral.fifedu.com的请求，同时通过命令bpc:m.oral.fifedu.com来设置请求断点。随便进入一个Task，这里我进的是四级口语模拟题2的Task1。随便读两句。<br><img src="/2018/07/30/sun-s-reverse-2/3.png" alt="这里写图片描述"><br>&emsp;&emsp;随后提交，在Fiddler上可以看到请求已经被拦截下来了，<br><img src="/2018/07/30/sun-s-reverse-2/4.png" alt="这里写图片描述"><br>&emsp;&emsp;对应在右侧的WebForms中可以看到对应的jasonobject：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">  &#123;</span><br><span class="line">    &quot;recordPath&quot; : &quot;2811000026000000971\/cc253a5178c44088b736bcb9386f324e\/e7ba561752f34de683f6435e47ced8f6\/t\/0_0.mp3&quot;,</span><br><span class="line">    &quot;score&quot; : &quot;0&quot;,</span><br><span class="line">    &quot;ansDetail&quot; : &quot;word#0&quot;,</span><br><span class="line">    &quot;learn_time&quot; : &quot;2&quot;,</span><br><span class="line">    &quot;questionId&quot; : &quot;e7ba561752f34de683f6435e47ced8f6#0#0&quot;,</span><br><span class="line">    &quot;accuracy&quot; : &quot;0&quot;,</span><br><span class="line">    &quot;fluency&quot; : &quot;0&quot;,</span><br><span class="line">    &quot;complete&quot; : &quot;0&quot;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;显然score代表的就是分数，我们将其修改为101，在Fiddler中单击Run To Completion放行修改过的请求，手机端对应有了相应，提示挑战失败，但我们返回列表并刷新，发现实际上数据已经上传成功并在排行榜上显示了。至此FiF口语的刷分就顺利实现了。<br><img src="/2018/07/30/sun-s-reverse-2/5.jpg" alt="这里写图片描述"></p>
+<h3 id="emsp-0x03-小结"><a href="#emsp-0x03-小结" class="headerlink" title="&emsp;0x03 小结"></a>&emsp;<strong>0x03 小结</strong></h3><p>&emsp;&emsp;<strong>FiF口语虽然对应用加壳处理了，但是却忘记了对网络请求进行安全加固，导致了刷分的可行性。希望FiF口语官方对请求参数进行加密或组合加密，或利用sign值算法验证请求的合法性，尽快更新应用并修复此漏洞。</strong></p>
+<center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>逆向破解</category>
+      </categories>
+      <tags>
+        <tag>Fiddler</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Sun的逆向之路（一）——元气骑士的内购破解</title>
     <url>/2018/07/30/sun-s-reverse-1/</url>
     <content><![CDATA[<p>&emsp;&emsp;最近代码码多了于是打算翻翻有什么游戏可玩，无意之中翻到了之前玩的元气骑士，想到还有许多人物都没有解锁，但是又不想攒金币因为太慢了，况且还有一些角色是要RMB才能买的，通过PKiP发现无加固壳，于是一怒之下打算破解其内购。</p>
@@ -2958,27 +3047,6 @@ I_4=I_3∧I_2</script><h2 id="4-中值滤波"><a href="#4-中值滤波" class="h
       </categories>
       <tags>
         <tag>APK</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Sun的逆向之路（二）——FiF口语训练的刷分剖析</title>
-    <url>/2018/07/30/sun-s-reverse-2/</url>
-    <content><![CDATA[<p>&emsp;&emsp;闲来无事看了看FiF口语中一些Task的排行榜，翻着翻着意外发现了一个101分的榜首，按理来说满分才只有100分，因此猜想这个分数一定是被动过手脚的，于是来了兴致，从POST请求与APK反编译两个角度分别尝试破解FiF。</p>
-<hr>
-<h3 id="方案一：APK反编译"><a href="#方案一：APK反编译" class="headerlink" title="方案一：APK反编译"></a><strong>方案一：APK反编译</strong></h3><p>&emsp;&emsp;将FiF的apk文件拖入AndroidKiller，发现加载失败，于是拖入jadx，发现原来上了奇虎的加固壳，考虑到只是把玩娱乐，脱壳会大大增加复杂性，于是暂时放弃反编译的想法。</p>
-<h3 id="方案二：POST请求拦截"><a href="#方案二：POST请求拦截" class="headerlink" title="方案二：POST请求拦截"></a><strong>方案二：POST请求拦截</strong></h3><h3 id="emsp-0x01-配置Fiddler"><a href="#emsp-0x01-配置Fiddler" class="headerlink" title="&emsp;0x01 配置Fiddler"></a>&emsp;<strong>0x01 配置Fiddler</strong></h3><p>&emsp;&emsp;因为自从用了新电脑就没有抓过包了，因此还是要做一些配置的。Java Jdk和环境变量的配置工作在此掠过了，但考虑到这次Fiddler的配置过程还有点不同寻常，所以这里做一下记录。<br>&emsp;&emsp;运行Fiddler提示8888端口被占用了，询问是否随机取端口。考虑到不使用8888可能后面会造成一些不必要的麻烦，于是打开cmd输入netstat -ano|findstr “8888”，发现原来端口被PID为20348的应用占用了，打开任务管理器的详细信息选卡，发现是Matlab，于是结束进程。<br><a id="more"></a><br><img src="/2018/07/30/sun-s-reverse-2/1.jpg" alt="这里写图片描述"></p>
-<p>&emsp;&emsp;随后重启Fiddler，发现没有端口占用提示了。再次查看8888端口的状态，可以看到这个端口已经成功被Fiddler监听。接下来在手机浏览器访问“IP:8888”，安装Fiddler证书即可，IP可通过控制台ipconfig指令查看。至此环境配置结束。</p>
-<p><img src="/2018/07/30/sun-s-reverse-2/2.jpg" alt="这里写图片描述"></p>
-<h3 id="emsp-0x02-POST请求拦截"><a href="#emsp-0x02-POST请求拦截" class="headerlink" title="&emsp;0x02 POST请求拦截"></a>&emsp;<strong>0x02 POST请求拦截</strong></h3><p>&emsp;&emsp;手机端对应设置好HTTP代理后，打开FiF，发现Fiddler这边的请求很杂乱，这是因为电脑和手机上所有的网络请求都被显示了，于是配置过滤器，只显示抓取Host为m.oral.fifedu.com的请求，同时通过命令bpc:m.oral.fifedu.com来设置请求断点。随便进入一个Task，这里我进的是四级口语模拟题2的Task1。随便读两句。<br><img src="/2018/07/30/sun-s-reverse-2/3.png" alt="这里写图片描述"><br>&emsp;&emsp;随后提交，在Fiddler上可以看到请求已经被拦截下来了，<br><img src="/2018/07/30/sun-s-reverse-2/4.png" alt="这里写图片描述"><br>&emsp;&emsp;对应在右侧的WebForms中可以看到对应的jasonobject：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">  &#123;</span><br><span class="line">    &quot;recordPath&quot; : &quot;2811000026000000971\/cc253a5178c44088b736bcb9386f324e\/e7ba561752f34de683f6435e47ced8f6\/t\/0_0.mp3&quot;,</span><br><span class="line">    &quot;score&quot; : &quot;0&quot;,</span><br><span class="line">    &quot;ansDetail&quot; : &quot;word#0&quot;,</span><br><span class="line">    &quot;learn_time&quot; : &quot;2&quot;,</span><br><span class="line">    &quot;questionId&quot; : &quot;e7ba561752f34de683f6435e47ced8f6#0#0&quot;,</span><br><span class="line">    &quot;accuracy&quot; : &quot;0&quot;,</span><br><span class="line">    &quot;fluency&quot; : &quot;0&quot;,</span><br><span class="line">    &quot;complete&quot; : &quot;0&quot;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;显然score代表的就是分数，我们将其修改为101，在Fiddler中单击Run To Completion放行修改过的请求，手机端对应有了相应，提示挑战失败，但我们返回列表并刷新，发现实际上数据已经上传成功并在排行榜上显示了。至此FiF口语的刷分就顺利实现了。<br><img src="/2018/07/30/sun-s-reverse-2/5.jpg" alt="这里写图片描述"></p>
-<h3 id="emsp-0x03-小结"><a href="#emsp-0x03-小结" class="headerlink" title="&emsp;0x03 小结"></a>&emsp;<strong>0x03 小结</strong></h3><p>&emsp;&emsp;<strong>FiF口语虽然对应用加壳处理了，但是却忘记了对网络请求进行安全加固，导致了刷分的可行性。希望FiF口语官方对请求参数进行加密或组合加密，或利用sign值算法验证请求的合法性，尽快更新应用并修复此漏洞。</strong></p>
-<center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>逆向破解</category>
-      </categories>
-      <tags>
-        <tag>Fiddler</tag>
       </tags>
   </entry>
   <entry>
@@ -3185,66 +3253,6 @@ I_4=I_3∧I_2</script><h2 id="4-中值滤波"><a href="#4-中值滤波" class="h
       </tags>
   </entry>
   <entry>
-    <title>如何科学卸载 Ubuntu？</title>
-    <url>/2019/08/15/ubuntu-uninstall/</url>
-    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
-<p>本篇记录 Win10+Ubuntu 双系统下卸载 Ubuntu 的全步骤。由于磁盘空间告急，而且 Ubuntu 在近期内并没有使用需求，考虑到之前装的 Ubuntu 遇到的显卡驱动问题始终得不到解决，因此决定暂时将 Ubuntu 卸载以空出磁盘空间给 Win10 使用，下次需要 Ubuntu 时也方便重新安装，也期待下次安装时能够解决显卡驱动问题。</p>
-</blockquote>
-<p><img src="/2019/08/15/ubuntu-uninstall/1.jpg" alt="Title"></p>
-<a id="more"></a>
-<hr>
-<h1 id="一、删除Ubuntu启动引导-启动引导删不干净？戳我"><a href="#一、删除Ubuntu启动引导-启动引导删不干净？戳我" class="headerlink" title="一、删除Ubuntu启动引导 (启动引导删不干净？戳我)"></a>一、删除Ubuntu启动引导 (<a href="https://houkaifa.com/2019/08/27/bcdedit-clean-bootmenu/" target="_blank" rel="noopener">启动引导删不干净？戳我</a>)</h1><p>我的系统是 GTP+UEFI 的分区模式，因此选择 EasyUEFI 进行启动引导的删除。同时我的系统是 Win10 企业版，因此只能使用 EasyUEFI 的企业版进行操作。</p>
-<p>选中启动序列中的 ubuntu 项，并在右侧操作栏中找到并点击<strong>删除选中项</strong>按钮，即可完成 Ubuntu 启动引导的删除。</p>
-<blockquote>
-<p>如果没有做此步骤的话，可能在重启之后无法直接进入 Win10 系统，而是进入了 GRUB 引导界面，这时只要在 GRUB 中键入 exit 并回车即可进入 Win10。</p>
-</blockquote>
-<p><img src="/2019/08/15/ubuntu-uninstall/2.jpg" alt="Title"></p>
-<p><center>图1 在EasyUEFI中删除Ubuntu启动序列</center></p>
-<h1 id="二、删除Ubuntu相关分区"><a href="#二、删除Ubuntu相关分区" class="headerlink" title="二、删除Ubuntu相关分区"></a>二、删除Ubuntu相关分区</h1><h2 id="删除主分区"><a href="#删除主分区" class="headerlink" title="删除主分区"></a>删除主分区</h2><p>在 Win10 系统下，使用快捷键 Win+X 打开磁盘管理，在窗口中找到安装 Ubuntu 的磁盘，并找到当时安装 Ubuntu 时创建的磁盘分区。依次选中这些分区，执行右键删除卷即可。</p>
-<p><img src="/2019/08/15/ubuntu-uninstall/3.jpg" alt="1Title"></p>
-<p><center>图2 在磁盘管理中删除Ubuntu主分区</center></p>
-<h2 id="删除-EFI-分区"><a href="#删除-EFI-分区" class="headerlink" title="删除 EFI 分区"></a>删除 EFI 分区</h2><p>EFI 分区是无法直接删除的，在磁盘管理中右键 EFI 分区，删除卷的操作项是禁止态。这时就需要使用 diskpart 系统工具将 Ubuntu 的 EFI 分区转化为非 EFI 分区进而将其删除。下面我们来转换这个 EFI 分区。</p>
-<blockquote>
-<p>Win10 扩展卷的操作只有当未分配卷临靠于待分配卷的右侧才能执行，如下图所示，因为 114.52GB 的未分配卷与 F 盘之间隔了一个 488MB 的 Ubuntu EFI 分区，所以此时无法将 114.52GB 的磁盘空间分配给 F 盘，只能先将 EFI 分区删除。</p>
-</blockquote>
-<p><img src="/2019/08/15/ubuntu-uninstall/4.jpg" alt="Title"></p>
-<p><center>图3 EFI分区无法被直接删除</center><br>1.在 cmd 中打开 diskpart</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">diskpart</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/08/15/ubuntu-uninstall/5.jpg" alt="Title"></p>
-<p>2.列出计算机装配的磁盘</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">list disk</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/08/15/ubuntu-uninstall/6.jpg" alt="Title"></p>
-<p>3.选择装有 Ubuntu 系统的磁盘</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sel disk 0</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/08/15/ubuntu-uninstall/7.jpg" alt="Title"></p>
-<p>4.列出磁盘分区表</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">list partition</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/08/15/ubuntu-uninstall/8.jpg" alt="Title"></p>
-<p>5.选择准备要删除的 Ubuntu EFI 分区（一定要看准了，不要错选成 Windows 的 EFI 分区）</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sel partition 7</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/08/15/ubuntu-uninstall/9.jpg" alt="Title"></p>
-<p>6.设置分区id，复制下面的代码并回车，即可将选定分区转换为 FAT32 分区。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set id=ebd0a0a2-b9e5-4433-87c0-68b6b72699c7</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/08/15/ubuntu-uninstall/10.jpg" alt="Title"></p>
-<p>这时我们重新进磁盘管理，可以看到分区已经被我们设置为了 FAT32 分区，现在即可正常右键删除卷。最后再在 F 盘上右键选择扩展卷，即可将之前 Ubuntu 的空间全部回收至 Win10 主分区中。</p>
-<p><img src="/2019/08/15/ubuntu-uninstall/11.jpg" alt="Title"></p>
-<div class="spoiler collapsed"><div class="spoiler-title">点击查看本篇总结</div><div class="spoiler-content"><p>Ubuntu 卸载步骤小结（GTP+UEFI）：</p>
-<ol>
-<li>使用 EasyUEFI 删除 Ubuntu 启动引导；</li>
-<li>在磁盘管理中删除 Ubuntu 主分区；</li>
-<li>利用 diskpart 系统工具将 Ubuntu 的 EFI 分区转化为非 EFI 分区并删除；</li>
-<li>将原 Ubuntu 系统空间回收扩展至 Win10 主分区。</li>
-</ol>
-</div></div>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>沿途简记</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VSCode + xUnit 编写 C# 单元测试</title>
     <url>/2019/09/26/vscode-xunit-unittest/</url>
     <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
@@ -3319,6 +3327,66 @@ I_4=I_3∧I_2</script><h2 id="4-中值滤波"><a href="#4-中值滤波" class="h
         <tag>C#</tag>
         <tag>.net</tag>
         <tag>VSCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何科学卸载 Ubuntu？</title>
+    <url>/2019/08/15/ubuntu-uninstall/</url>
+    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>本篇记录 Win10+Ubuntu 双系统下卸载 Ubuntu 的全步骤。由于磁盘空间告急，而且 Ubuntu 在近期内并没有使用需求，考虑到之前装的 Ubuntu 遇到的显卡驱动问题始终得不到解决，因此决定暂时将 Ubuntu 卸载以空出磁盘空间给 Win10 使用，下次需要 Ubuntu 时也方便重新安装，也期待下次安装时能够解决显卡驱动问题。</p>
+</blockquote>
+<p><img src="/2019/08/15/ubuntu-uninstall/1.jpg" alt="Title"></p>
+<a id="more"></a>
+<hr>
+<h1 id="一、删除Ubuntu启动引导-启动引导删不干净？戳我"><a href="#一、删除Ubuntu启动引导-启动引导删不干净？戳我" class="headerlink" title="一、删除Ubuntu启动引导 (启动引导删不干净？戳我)"></a>一、删除Ubuntu启动引导 (<a href="https://houkaifa.com/2019/08/27/bcdedit-clean-bootmenu/" target="_blank" rel="noopener">启动引导删不干净？戳我</a>)</h1><p>我的系统是 GTP+UEFI 的分区模式，因此选择 EasyUEFI 进行启动引导的删除。同时我的系统是 Win10 企业版，因此只能使用 EasyUEFI 的企业版进行操作。</p>
+<p>选中启动序列中的 ubuntu 项，并在右侧操作栏中找到并点击<strong>删除选中项</strong>按钮，即可完成 Ubuntu 启动引导的删除。</p>
+<blockquote>
+<p>如果没有做此步骤的话，可能在重启之后无法直接进入 Win10 系统，而是进入了 GRUB 引导界面，这时只要在 GRUB 中键入 exit 并回车即可进入 Win10。</p>
+</blockquote>
+<p><img src="/2019/08/15/ubuntu-uninstall/2.jpg" alt="Title"></p>
+<p><center>图1 在EasyUEFI中删除Ubuntu启动序列</center></p>
+<h1 id="二、删除Ubuntu相关分区"><a href="#二、删除Ubuntu相关分区" class="headerlink" title="二、删除Ubuntu相关分区"></a>二、删除Ubuntu相关分区</h1><h2 id="删除主分区"><a href="#删除主分区" class="headerlink" title="删除主分区"></a>删除主分区</h2><p>在 Win10 系统下，使用快捷键 Win+X 打开磁盘管理，在窗口中找到安装 Ubuntu 的磁盘，并找到当时安装 Ubuntu 时创建的磁盘分区。依次选中这些分区，执行右键删除卷即可。</p>
+<p><img src="/2019/08/15/ubuntu-uninstall/3.jpg" alt="1Title"></p>
+<p><center>图2 在磁盘管理中删除Ubuntu主分区</center></p>
+<h2 id="删除-EFI-分区"><a href="#删除-EFI-分区" class="headerlink" title="删除 EFI 分区"></a>删除 EFI 分区</h2><p>EFI 分区是无法直接删除的，在磁盘管理中右键 EFI 分区，删除卷的操作项是禁止态。这时就需要使用 diskpart 系统工具将 Ubuntu 的 EFI 分区转化为非 EFI 分区进而将其删除。下面我们来转换这个 EFI 分区。</p>
+<blockquote>
+<p>Win10 扩展卷的操作只有当未分配卷临靠于待分配卷的右侧才能执行，如下图所示，因为 114.52GB 的未分配卷与 F 盘之间隔了一个 488MB 的 Ubuntu EFI 分区，所以此时无法将 114.52GB 的磁盘空间分配给 F 盘，只能先将 EFI 分区删除。</p>
+</blockquote>
+<p><img src="/2019/08/15/ubuntu-uninstall/4.jpg" alt="Title"></p>
+<p><center>图3 EFI分区无法被直接删除</center><br>1.在 cmd 中打开 diskpart</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">diskpart</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/08/15/ubuntu-uninstall/5.jpg" alt="Title"></p>
+<p>2.列出计算机装配的磁盘</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">list disk</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/08/15/ubuntu-uninstall/6.jpg" alt="Title"></p>
+<p>3.选择装有 Ubuntu 系统的磁盘</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sel disk 0</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/08/15/ubuntu-uninstall/7.jpg" alt="Title"></p>
+<p>4.列出磁盘分区表</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">list partition</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/08/15/ubuntu-uninstall/8.jpg" alt="Title"></p>
+<p>5.选择准备要删除的 Ubuntu EFI 分区（一定要看准了，不要错选成 Windows 的 EFI 分区）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sel partition 7</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/08/15/ubuntu-uninstall/9.jpg" alt="Title"></p>
+<p>6.设置分区id，复制下面的代码并回车，即可将选定分区转换为 FAT32 分区。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set id=ebd0a0a2-b9e5-4433-87c0-68b6b72699c7</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/08/15/ubuntu-uninstall/10.jpg" alt="Title"></p>
+<p>这时我们重新进磁盘管理，可以看到分区已经被我们设置为了 FAT32 分区，现在即可正常右键删除卷。最后再在 F 盘上右键选择扩展卷，即可将之前 Ubuntu 的空间全部回收至 Win10 主分区中。</p>
+<p><img src="/2019/08/15/ubuntu-uninstall/11.jpg" alt="Title"></p>
+<div class="spoiler collapsed"><div class="spoiler-title">点击查看本篇总结</div><div class="spoiler-content"><p>Ubuntu 卸载步骤小结（GTP+UEFI）：</p>
+<ol>
+<li>使用 EasyUEFI 删除 Ubuntu 启动引导；</li>
+<li>在磁盘管理中删除 Ubuntu 主分区；</li>
+<li>利用 diskpart 系统工具将 Ubuntu 的 EFI 分区转化为非 EFI 分区并删除；</li>
+<li>将原 Ubuntu 系统空间回收扩展至 Win10 主分区。</li>
+</ol>
+</div></div>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>沿途简记</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
