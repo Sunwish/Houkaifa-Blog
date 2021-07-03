@@ -557,7 +557,7 @@
 <h2 id="2-项目发布"><a href="#2-项目发布" class="headerlink" title="2. 项目发布"></a>2. 项目发布</h2><p>在解决方案资源管理器中右键你的项目，选择 <strong>发布</strong>，使用文件夹模式进行发布，找到发布生成的 publish 文件夹，将其中的内容通过 Xftp 或其他方式上传至服务器上对应的项目空目录中。</p>
 <p><img src="/2020/03/08/deploy-aspnetcore-app/3.png" alt="Title"></p>
 <h1 id="二、搭建-Net-Core-环境"><a href="#二、搭建-Net-Core-环境" class="headerlink" title="二、搭建 .Net Core 环境"></a>二、搭建 .Net Core 环境</h1><h2 id="1-注册-Microsoft-签名密钥"><a href="#1-注册-Microsoft-签名密钥" class="headerlink" title="1. 注册 Microsoft 签名密钥"></a>1. 注册 Microsoft 签名密钥</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -Uvh https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm</span><br></pre></td></tr></table></figure>
-<h2 id="2-安装-Net-SDK"><a href="#2-安装-Net-SDK" class="headerlink" title="2. 安装 .Net SDK"></a>2. 安装 .Net SDK</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>验证 yum</span><br><span class="line">sudo yum update</span><br><span class="line"><span class="meta">#</span>安装 .Net Core</span><br><span class="line">sudo yum install dotnet-sdk-3.1 -y</span><br></pre></td></tr></table></figure>
+<h2 id="2-安装-Net-SDK"><a href="#2-安装-Net-SDK" class="headerlink" title="2. 安装 .Net SDK"></a>2. 安装 .Net SDK</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">验证 yum</span></span><br><span class="line">sudo yum update</span><br><span class="line"><span class="meta">#</span><span class="bash">安装 .Net Core</span></span><br><span class="line">sudo yum install dotnet-sdk-3.1 -y</span><br></pre></td></tr></table></figure>
 <h2 id="3-验证安装结果"><a href="#3-验证安装结果" class="headerlink" title="3. 验证安装结果"></a>3. 验证安装结果</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet --version</span><br></pre></td></tr></table></figure>
 <p><img src="/2020/03/08/deploy-aspnetcore-app/2.png" alt="Title"></p>
 <h1 id="三、Nginx-安装与配置"><a href="#三、Nginx-安装与配置" class="headerlink" title="三、Nginx 安装与配置"></a>三、Nginx 安装与配置</h1><blockquote>
@@ -565,7 +565,7 @@
 </blockquote>
 <h2 id="1-安装-Nginx"><a href="#1-安装-Nginx" class="headerlink" title="1. 安装 Nginx"></a>1. 安装 Nginx</h2><p>点击链接 <a href="https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-12.noarch.rpm" target="_blank" rel="noopener">epel-release-7-12.noarch.rpm</a> 直接下载，</p>
 <p>或自己前往 <a href="https://dl.fedoraproject.org/pub/epel" target="_blank" rel="noopener">https://dl.fedoraproject.org/pub/epel</a> 下载需要的版本 epel 并上传到服务器，在存放 epel rpm 包的目录下依次使用以下命令完成安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装epel</span><br><span class="line">rpm -ivh epel-release-7-9.noarch.rpm</span><br><span class="line"><span class="meta">#</span> 安装nginx</span><br><span class="line">yum install nginx</span><br><span class="line"><span class="meta">#</span> 启动nginx</span><br><span class="line">systemctl start nginx</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装epel</span></span><br><span class="line">rpm -ivh epel-release-7-9.noarch.rpm</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装nginx</span></span><br><span class="line">yum install nginx</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动nginx</span></span><br><span class="line">systemctl start nginx</span><br></pre></td></tr></table></figure>
 <p>可使用下面的命令测试 Nginx 是否运行正常：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://127.0.0.1</span><br></pre></td></tr></table></figure>
 <h2 id="2-配置-Nginx"><a href="#2-配置-Nginx" class="headerlink" title="2. 配置 Nginx"></a>2. 配置 Nginx</h2><p>Nginx 的配置文件默认位置为 /etc/nginx/nginx.conf，根据自身需要完成配置，下面是我的配置参考：</p>
@@ -772,7 +772,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-count">49</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -880,7 +880,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -989,7 +991,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 105.9k 字</span>
+  <span class="post-count">博客全站共 106.5k 字</span>
 </div>
 
 <!--
