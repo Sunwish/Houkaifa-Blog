@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>理解 JavaScript 中的原型</title>
+    <url>/2021/09/27/Understand-Prototype-in-JavaScript/</url>
+    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>最近学习紧张，没那么多闲情逸致，就不做头图了。</p>
+</blockquote>
+<h1 id="从一个简单的对比建立直观的逻辑差异认识"><a href="#从一个简单的对比建立直观的逻辑差异认识" class="headerlink" title="从一个简单的对比建立直观的逻辑差异认识"></a>从一个简单的对比建立直观的逻辑差异认识</h1><p>为了理解 <code>prototype</code> 和 <code>__proto__</code>，首先看下面的 C# 例子。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">class1</span>&#123;</span><br><span class="line">    <span class="keyword">int</span> prop1 = <span class="number">123</span>;</span><br><span class="line">    class1()&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method1</span>(<span class="params"></span>)</span>&#123; Console.WriteLine(<span class="string">"Hello World!"</span>); &#125;</span><br><span class="line">&#125;</span><br><span class="line">class1 class1Instance = <span class="keyword">new</span> class1();</span><br></pre></td></tr></table></figure>
+<p>这段代码创建了一个类 <code>class1</code>，这个类有一个属性 <code>prop1 = 123</code>，有一个空的构造函数 <code>class1()</code>，还有一个输出 <code>Hello World!</code> 的方法 <code>method1</code>。在定义好类之后，通过 <code>new</code> 的方式创建了一个 <code>class1</code> 的实例 <code>class1Instance</code>，那么此时，这个实例就有了 <code>class1</code> 的属性、空构造方法和 <code>method1</code> 函数。</p>
+<p>这看上去是在说废话，但是下面这段 JS 代码的意义和上面的 C# 代码是一样的，通过过程对照可以清楚的看明白 JS 中的面向对象表述逻辑以及 __proto__、prototype 和原型链。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun1</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">fun1.prototype.prop1 = <span class="number">123</span>;</span><br><span class="line">fun1.prototype.method1 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">"Hello World!"</span>); &#125;;</span><br><span class="line"><span class="keyword">var</span> fun1Instance = <span class="keyword">new</span> fun1();</span><br></pre></td></tr></table></figure>
+<p>首先，定义了一个函数 <code>fun1()</code>，但是注意，实际上 <code>fun1()</code> 不只是函数，<strong>它更是构造函数</strong>。此时可能会疑惑，此时连类都没有，哪里凭空定义的一个构造函数？</p>
+<a id="more"></a>
+<p>再往下看，<code>fun1.prototype.prop1 = 123;</code> 定义了 <code>fun1</code> 原型中的一个属性 <code>prop1</code>，其值为 <code>123</code>。也就是说，我们的 <code>fun1</code> 在定义之后就有了一个<strong>原型（prototype）</strong>，而后的 <code>fun1.prototype.method1 = function() { console.log(&quot;Hello World!&quot;); };</code> 则进一步定义了这个原型除了属性 <code>prop1</code> 外还有一个方法 <code>method1</code>。</p>
+<p>而在完成原型的这两条定义后，紧接着我们对 <code>fun1</code> 进行了 <code>new</code> 操作，得到了 <code>fun1</code> 的一个实例 <code>fun1Instance</code>，这也是为什么说 <code>fun1</code> 是构造函数的原因了。</p>
+<p>在 C# 等面向对象语言中，我们的逻辑是先定义一个类，然后<strong>这个类拥有</strong>构造函数，属性和一些方法。而在 JS 中存在这样一种逻辑，我们是首先定义一个构造函数，然后藉由 <code>prototype</code> 这一属性，来<strong>丰富这个构造函数所能构造出来的实例</strong>。</p>
+<h1 id="具体看看-prototype-和-proto-是什么"><a href="#具体看看-prototype-和-proto-是什么" class="headerlink" title="具体看看 prototype 和 __proto__ 是什么"></a>具体看看 prototype 和 __proto__ 是什么</h1><p>上节的这个 <code>prototpye</code> 我们称之为原型（只有函数才有），原型拥有两个属性，一个是 <code>constructor</code>，一个是 <code>__proto__</code>。</p>
+<p>其中 <code>constructor</code> 顾名思义，就是构造函数，而这个构造函数将直接指回 <code>fun1</code>。这个不难理解，因为我们就是通过 <code>fun1</code> 的 <code>fun1.prototye</code> 来描绘原型，即是说这个原型就将由我们的 <code>fun1</code> 构造得出。</p>
+<p><img src="/2021/09/27/Understand-Prototype-in-JavaScript/image-20210927172441292.png" alt="image-20210927172441292"></p>
+<p>而 <code>__prop__</code> 被称为隐式原型，因为它也是一个原型，只不过它不只是函数才有的，并且承担了 JS 中继承特性的发挥重任。</p>
+<ul>
+<li><p>对于对象而言，其隐式原型所指向的是构造出该对象的构造函数的显示原型，如 <code>fun1Instance</code> 对象的 <code>__proto__</code> 就是 <code>fun1.prototype</code>。此处 <code>fun1Instance</code> 显然是从我们自己定义的原型构造得来的，因此上述结论很显然，而对于 JS 中的几种特殊的原生对象，如函数和数组，其默认的隐式原型就是由 JS 定义的内置原型，如所有函数的隐式原型是 <code>Function.prototype</code>，数组的隐式原型是 <code>Array.prototype</code>；</p>
+</li>
+<li><p>对于原型而言，其隐式原型将直接指向其所处原型链上的上一级原型。如 <code>fun1.prototype</code> 的隐式原型就是 <code>Object.prototype</code>。这是因为 <code>fun1</code> 是函数，函数在原型链的上一级就是 <code>Object</code>。类似的，数组的上一级也是 <code>Object</code>。也就是说本文所给例子的原型链长这样：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fun1.prototype ----&gt; Object.prototype ----&gt; null</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>而隐式原型之所以叫“隐式”，正是因为其在访问前面的原型链中原型的数据和方法时不需要显式地写出来。如 <code>fun1Instance</code> 是由 <code>fun1</code> 构造而来的，因此 <code>fun1Instance</code> 的隐式原型（<code>fun1Instance.__proto__</code>）是 <code>fun1.prototpye</code>，而 <code>fun1Instance</code> 要访问隐式原型的原型方法 <code>method1</code> 时并不需要这样写 <code>fun1Instance.__proto__.method1()</code>，而是直接写 <code>fun1Instance.method1()</code>即可。</p>
+<p>由于前面提到，原型的隐式原型直接指向其所处原型链上的上一级原型，也就是说隐式原型层层嵌套传递，藉由隐式原型的这种传递，且可以省略 <code>__proto__</code> 不写，我们就能够通过一个 <code>.</code> 运算符遍历到原型链上的所有下级原型数据和方法，实现了继承的效果。</p>
+<p>下面的代码块就展示证明了（注意 <code>===</code> 右侧），藉由隐式原型，通过 <code>fun1.</code> 就能遍历到原型链上的全部原型。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fun1.__proto__ === fun1.prototype</span><br><span class="line">fun1.__proto__.__proto__ === Function.prototype // 即 fun1.prototype.__proto__，原型的隐式原型</span><br><span class="line">fun1.__proto__.__proto__.__proto__ === Object.prototype</span><br><span class="line">fun1.__proto__.__proto__.__proto__.__proto__ === null</span><br></pre></td></tr></table></figure>
+<h1 id="做一个中场小结思考"><a href="#做一个中场小结思考" class="headerlink" title="做一个中场小结思考"></a>做一个中场小结思考</h1><p>经过上文梳理，我们可以明确：</p>
+<ul>
+<li>(显式)原型类似于其它面向对象语言中的类的概念，但 JS 中一切皆对象，即使是简单的定义一个函数，这个函数也有其“类”（原型），且这个函数就正是其对应原型的构造函数。在 JS 中通过属性 <code>prototype</code> 来刻画原型，且这个属性只有函数才有，因为只有函数（不考虑 <code>class</code> 关键字）作为构造函数才有构造出原型的能力；</li>
+<li>隐式原型即 <code>__prop__</code>，该属性的访问不需要显式地写出。与函数才有原型不同的是，一切对象都有隐式原型。隐式原型可以被想作是一个指针，(1) 实例的隐式原型就是指向其构造函数的原型，(2) 而原型的隐式原型则直接指向原型链的上一级原型，由 (1)(2) 结合即可实现本级到下级所有原型链的贯通，实现继承特性。</li>
+</ul>
+<p>思考如下代码，其为什么能输出元素 <code>2</code> 在数组 <code>arr</code> 中的下标？</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.indexOf(<span class="number">2</span>));</span><br></pre></td></tr></table></figure>
+<p>这是因为在 JS 中数组也是对象，那么 <code>arr</code> 即是数组的一个实例，<code>var arr = [1,2,3]</code> 其实只是 <code>var arr = new Array(1,2,3)</code> 的一个简洁写法。既然是实例就有其实例的隐式原型。数组实例的隐式原型即是数组的原型，即 <code>Array.prototype</code>，不难想到，JavaScript 在<code>Array.prototype</code> 中内置了 <code>indexOf()</code> 函数。因此在代码执行的过程中，实际执行的其实相当于 <code>arr.__proto__.indexOf(2)</code>。</p>
+<p>进一步地，设想我们定义了一个原型 <code>MyArray</code> 继承了 <code>Array</code>，那么我们的 <code>MyArray</code> 实例 <code>myArr</code> 将也可以使用 <code>indexOf()</code> 函数，因为 <code>myArr.__proto__</code> 指向原型 <code>MyArray.prototype</code>，虽然其中我们没有定义 <code>indexOf()</code>，但是程序将进一步向下搜索 <code>myArr.__proto__.__proto__</code>，即 <code>Array.prototype</code>，其中就有 <code>indexOf()</code> 的定义了。</p>
+<p>下面是一张非常棒的有助于进一步强化理解和梳理的可视化原型辅助理解图，可以注意到，只有函数有显式原型，且其原型的构造函数指回函数本身；实例的隐式原型即是其构造函数的原型，原型的隐式原型即是其原型链上的下一级原型，并最终指向 <code>null</code>。</p>
+<p><img src="/2021/09/27/Understand-Prototype-in-JavaScript/e83bca5f1d1e6bf359d1f75727968c11_r.jpg?source=1940ef5c" alt="preview"></p>
+<h2 id="怎么在实际中使用继承呢？"><a href="#怎么在实际中使用继承呢？" class="headerlink" title="怎么在实际中使用继承呢？"></a>怎么在实际中使用继承呢？</h2><p>我们已经知道了 JS 中的底层通过隐式原型实现了继承特性，而在前面的小结思考中，我们做出了定义了一个原型 <code>MyArray</code> 继承 <code>Array</code> 的假设，那么如何实际的实现这样的继承呢？其实明白了 JS 继承特性的底层原理（隐式原型的不断传递），也就不难想到通过设置 <code>__proto__</code> 来实现继承了。下面的代码就实现了 <code>Student</code> 对 <code>Person</code> 的继承，并通过 <code>Student</code> 实例来访问调用上一级 <code>Person</code> 的函数。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 通过直接定义函数来定义一个构造函数为空的 Person 原型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="comment">// 为 Person 原型添加 hello 方法</span></span><br><span class="line">Person.prototype.hello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">"Hello World!"</span>); &#125;;</span><br><span class="line"><span class="comment">// 通过直接定义函数来定义一个构造函数为空的 Student 原型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="comment">// 将 Student 函数的原型，即所有 Student 对象实例的隐式原型，指向 Person 的原型，完成继承关系的链接</span></span><br><span class="line">Student.prototype.__proto__ = Person.prototype;</span><br><span class="line"><span class="comment">// 实例化一个 Student 原型实例</span></span><br><span class="line"><span class="keyword">var</span> student = <span class="keyword">new</span> Student();</span><br><span class="line"><span class="comment">// 通过 Student 原型实例访问 Person 原型定义的函数</span></span><br><span class="line">student.hello();</span><br></pre></td></tr></table></figure>
+<p>不过，在没有 <code>new</code> 需求的时候，可以不必通过函数的方式，而是直接定义原型，像下面的代码所示，简洁可靠。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 直接创建一个含 hello 方法的原型 Person</span></span><br><span class="line"><span class="keyword">var</span> Person = &#123;</span><br><span class="line">    hello: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Hello World!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 创建一个 Student 原型，并将其隐式原型指向 Person</span></span><br><span class="line"><span class="keyword">var</span> Student = &#123;</span><br><span class="line">    __proto__: person</span><br><span class="line">&#125;</span><br><span class="line">studen.hello();</span><br></pre></td></tr></table></figure>
+<h1 id="使用-class-关键字"><a href="#使用-class-关键字" class="headerlink" title="使用 class 关键字"></a>使用 class 关键字</h1><p>最后，也可以直接使用 <code>class</code> 关键字创建一个“类”，并使用 <code>extends</code> 关键字实现“类”的继承。不过要注意，此类并非是真的类，仅仅是 JS 引入的语法糖而已，不过是将原型包装成了其它基于类的面向对象语言的样子，其本质依旧是原型。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    hello()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Hello World!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> student = <span class="keyword">new</span> Student();</span><br><span class="line">student.hello();</span><br></pre></td></tr></table></figure>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>沿途简记</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>导出镜像备份阿里ECS并在本地虚拟机中运行</title>
     <url>/2021/07/03/ECS-backup-run-in-vmware-workstation/</url>
     <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
@@ -823,8 +879,8 @@ v_y = -3P_{0y}(1-t)^2 + 3P_{1y}(1-t)^2 - 6P_{1y}t(1-t) + 6P_{2y}t(1-t) - 3P_{2y}
         <category>沿途简记</category>
       </categories>
       <tags>
-        <tag>Notifier</tag>
         <tag>C#</tag>
+        <tag>Notifier</tag>
         <tag>ServerChan</tag>
       </tags>
   </entry>
