@@ -162,6 +162,8 @@
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2021/02/19/rev2ex2.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/92/ac.png">
 <meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/86/ac.png">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/70/ac70.png">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/70/ac70-1.png">
 <meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/64/minpath.jpg">
 <meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/64/ac.png">
 <meta property="og:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/robot_maze.png">
@@ -175,7 +177,7 @@
 <meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/1289/ac1289-2.png">
 <meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/1289/ac1289-3.png">
 <meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/22/ac22.png">
-<meta property="og:updated_time" content="2021-10-13T04:09:41.969Z">
+<meta property="og:updated_time" content="2021-10-13T13:08:08.472Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 题解">
 <meta name="twitter:description" content="所有题目来源为力扣 题解为原创，仅为个人当前阶段能想到/能接受的解法，不一定是优解 🟢简单 🟠中等 🔴困难 ⚪未完成 ⚫未更新   链表🟠 92. 反转链表 II给你单链表的头指针 head 和两个整数 left 和 right ，其中 left &amp;lt;= right 。请你反转从位置 left 到位置 right 的链表节点，返回 反转后的链表 。 示例 1：  12输入：head">
@@ -494,7 +496,26 @@
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">Partition</span>(<span class="params">ListNode head, <span class="keyword">int</span> x</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">null</span> == head) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode p = head;</span><br><span class="line">        ListNode smallerList = <span class="keyword">new</span> ListNode(<span class="number">-1</span>, <span class="literal">null</span>);</span><br><span class="line">        ListNode bigList = <span class="keyword">new</span> ListNode(<span class="number">-1</span>, <span class="literal">null</span>);</span><br><span class="line">        ListNode smallerP = smallerList, bigP = bigList;</span><br><span class="line">        <span class="keyword">while</span>(p != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ListNode node = <span class="keyword">new</span> ListNode(p.val, <span class="literal">null</span>);</span><br><span class="line">            <span class="keyword">if</span>(p.val &lt; x) &#123; smallerP.next = node; smallerP = smallerP.next; &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123; bigP.next = node; bigP = bigP.next; &#125;</span><br><span class="line">            p = p.next;</span><br><span class="line">        &#125;</span><br><span class="line">        smallerP.next = bigList.next;</span><br><span class="line">        <span class="keyword">return</span> smallerList.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="/lcProblemSolved/86/ac.png" alt="ac"></p>
 <hr>
-<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h2 id="🟠-64-最小路径和"><a href="#🟠-64-最小路径和" class="headerlink" title="🟠 64. 最小路径和"></a>🟠 <a href="https://leetcode-cn.com/problems/minimum-path-sum/" target="_blank" rel="noopener">64. 最小路径和</a></h2><p>给定一个包含非负整数的 <code>*m* x *n*</code> 网格 <code>grid</code> ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。</p>
+<h1 id="动态规划-记忆化搜索"><a href="#动态规划-记忆化搜索" class="headerlink" title="动态规划 / 记忆化搜索"></a>动态规划 / 记忆化搜索</h1><h2 id="🟢-70-爬楼梯"><a href="#🟢-70-爬楼梯" class="headerlink" title="🟢 70. 爬楼梯"></a>🟢 <a href="https://leetcode-cn.com/problems/climbing-stairs/" target="_blank" rel="noopener">70. 爬楼梯</a></h2><p>假设你正在爬楼梯。需要 <em>n</em> 阶你才能到达楼顶。</p>
+<p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
+<p><strong>注意：</strong>给定 <em>n</em> 是一个正整数。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入： 2</span><br><span class="line">输出： 2</span><br><span class="line">解释： 有两种方法可以爬到楼顶。</span><br><span class="line">1.  1 阶 + 1 阶</span><br><span class="line">2.  2 阶</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入： 3</span><br><span class="line">输出： 3</span><br><span class="line">解释： 有三种方法可以爬到楼顶。</span><br><span class="line">1.  1 阶 + 1 阶 + 1 阶</span><br><span class="line">2.  1 阶 + 2 阶</span><br><span class="line">3.  2 阶 + 1 阶</span><br></pre></td></tr></table></figure>
+<h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><p>首先很容易想到回溯遍历，每种状态都 DFS 往下找走一步和走两步的情况，直到 <code>n</code> 耗尽，就不重不漏地找到了所有路径。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        res = <span class="number">0</span>;</span><br><span class="line">        climb(n);</span><br><span class="line">        <span class="keyword">return</span> res;        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">climb</span><span class="params">(<span class="keyword">int</span> leftN)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(leftN &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            res++; <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        climb(leftN - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span>(leftN &gt; <span class="number">1</span>) climb(leftN - <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不过稍微测试一个大一点的用例，比如输入 <code>42</code>，执行结果就超时了，因此我们需要思考一下进行优化。</p>
+<p>虽然挺久没有做到记忆化搜索的题了，但是很幸运，当提交用例超时的那一瞬间，瞬间就触电般地想到了借助记忆化搜索对该 DFS 剪枝便能完美解决此题。遂改之：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    HashMap&lt;Integer, Integer&gt; waysForN;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        res = <span class="number">0</span>;</span><br><span class="line">        waysForN = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        climb(n);</span><br><span class="line">        <span class="keyword">return</span> waysForN.getOrDefault(n, -<span class="number">1</span>);        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">climb</span><span class="params">(<span class="keyword">int</span> leftN)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(leftN &lt;= <span class="number">0</span>) &#123; res++; <span class="keyword">return</span>; &#125;</span><br><span class="line">        <span class="keyword">int</span> mem = waysForN.getOrDefault(leftN, -<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span>(mem != -<span class="number">1</span>)&#123; res += mem; <span class="keyword">return</span>; &#125;</span><br><span class="line">        <span class="keyword">int</span> oriRes = res;</span><br><span class="line">        climb(leftN - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span>(leftN &gt; <span class="number">1</span>) climb(leftN - <span class="number">2</span>);</span><br><span class="line">        waysForN.put(leftN, res - oriRes);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用记忆化搜索改进后，从超时到 0ms，顺利 AC 了。</p>
+<p><img src="/lcProblemSolved/70/ac70.png" alt="ac"></p>
+<p><strong>虽然 AC 了，但是想到既然能用记忆化搜索，那不如顺带再用动态规划解一遍吧，就当复习一下动态规划了。</strong></p>
+<p>不难定义状态 <code>dp[i]</code> 表示走 <code>i</code> 阶楼梯的情况数，那么同样不难想到， <code>dp[i]</code> 可由 <code>dp[i-1]</code> 和 <code>dp[i-2]</code> 转移得来，因为第 <code>i</code> 阶楼梯可由 <code>i-1</code> 阶楼梯走一步到达，也可由 <code>i-2</code> 阶楼梯走两步到达。故有转移方程 <code>dp[i] = dp[i-1] + dp[i-2]</code>。同时初始状态显然为 <code>dp[0] = dp[1] = 1</code>。</p>
+<p>同样 AC 的动态规划解法完整代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        dp[<span class="number">0</span>] = dp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) dp[i] = dp[i-<span class="number">1</span>] + dp[i-<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/lcProblemSolved/70/ac70-1.png" alt="ac"></p>
+<h2 id="🟠-64-最小路径和"><a href="#🟠-64-最小路径和" class="headerlink" title="🟠 64. 最小路径和"></a>🟠 <a href="https://leetcode-cn.com/problems/minimum-path-sum/" target="_blank" rel="noopener">64. 最小路径和</a></h2><p>给定一个包含非负整数的 <code>*m* x *n*</code> 网格 <code>grid</code> ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。</p>
 <p><strong>说明：</strong>每次只能向下或者向右移动一步。</p>
 <p><strong>示例 1：</strong></p>
 <p><img src="/lcProblemSolved/64/minpath.jpg" alt="img"></p>
@@ -506,7 +527,7 @@
 <li><code>1 &lt;= m, n &lt;= 200</code></li>
 <li><code>0 &lt;= grid[i][j] &lt;= 100</code></li>
 </ul>
-<h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><ul>
+<h3 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h3><ul>
 <li>状态定义：<code>dp[i,j]</code> 表示移动到 <code>(i,j)</code> 处的最小代价。</li>
 <li>状态转移：<ul>
 <li>若 <code>i == 0</code> 且 <code>j &gt; 0</code>，则 <code>dp[i,j] = dp[i,j-1] + grid[i][j]</code>，因为只能从左侧转移来；</li>
@@ -533,7 +554,7 @@
 <li><code>1 &lt;= m, n &lt;= 100</code></li>
 <li><code>obstacleGrid[i][j]</code> 为 <code>0</code> 或 <code>1</code></li>
 </ul>
-<h3 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h3><ul>
+<h3 id="题解-4"><a href="#题解-4" class="headerlink" title="题解"></a>题解</h3><ul>
 <li><p>状态定义：<code>dp[i,j]</code> 代表移动到 <code>(i,j)</code> 的路径数，且 <code>obstacleGrid[i,j] = 1</code> 的地方 <code>dp[i,j]</code> 必为 0。</p>
 </li>
 <li><p>状态转移：</p>
@@ -560,7 +581,7 @@
 <li><code>1 &lt;= m, n &lt;= 100</code></li>
 <li>题目数据保证答案小于等于 <code>2 * 109</code></li>
 </ul>
-<h3 id="题解-4"><a href="#题解-4" class="headerlink" title="题解"></a>题解</h3><ul>
+<h3 id="题解-5"><a href="#题解-5" class="headerlink" title="题解"></a>题解</h3><ul>
 <li>状态定义：<code>dp[i,j]</code> 代表移动到 <code>(i,j)</code> 的路径数，且显然当 <code>i == 0</code> 或 <code>j == 0</code> 时，路径数量为一条。</li>
 <li>状态转移：当 <code>i &gt; 0</code> 且 <code>j &gt; 0</code> 时，<code>dp[i,j] = dp[i-1,j] + dp[i,j-1]</code>，即从左来的路径数与从上来的路径数之和。</li>
 </ul>
@@ -580,7 +601,7 @@
 <li><code>triangle[i].length == triangle[i - 1].length + 1</code></li>
 <li><code>-104 &lt;= triangle[i][j] &lt;= 104</code></li>
 </ul>
-<h3 id="题解-5"><a href="#题解-5" class="headerlink" title="题解"></a>题解</h3><ul>
+<h3 id="题解-6"><a href="#题解-6" class="headerlink" title="题解"></a>题解</h3><ul>
 <li>状态定义：<code>dp[Two2OneDemensional(i,j)]</code> 表示移动到位置 <code>(i,j)</code> 的最小路径和，且显然初始条件为 <code>dp[0] = triangle[0][0]</code>，表示顶点到自己的最短路径和即为自己本身。</li>
 <li>状态转移：由题意“每一步只能移动到下一行中相邻的结点上”可知，<code>dp[k]</code> 可由上方节点转移来，也可能由左上方节点转移来。不过特别地，最右侧节点只可能由左上方转移来，因为其没有正上方节点；同理最左侧节点只可能由上方转移来，因为其不存在左上方的节点。</li>
 </ul>
@@ -603,7 +624,7 @@
 <li><code>1 &lt;= n &lt;= 100</code></li>
 <li><code>-100 &lt;= matrix[i][j] &lt;= 100</code></li>
 </ul>
-<h3 id="题解-6"><a href="#题解-6" class="headerlink" title="题解"></a>题解</h3><ul>
+<h3 id="题解-7"><a href="#题解-7" class="headerlink" title="题解"></a>题解</h3><ul>
 <li>状态定义：<code>dp[i][j]</code> 表示移动到位置 <code>(i,j)</code> 的最小路径和，且显然初始条件为 <code>dp[0][:] = matrix[0][:]</code>，表示第一行各节点到自己的最短路径和即为自己本身。</li>
 <li>状态转移：由题意可知，<code>dp[k]</code> 可由上方、左上方或右上方节点转移来。不过特别地，最右侧节点只可能由上方或左上方转移来，因为其没有右上方节点；同理最左侧节点只可能由上方或右上方转移来，因为其不存在左上方的节点。</li>
 </ul>
@@ -624,7 +645,7 @@
 <li><code>1 &lt;= arr.length == arr[i].length &lt;= 200</code></li>
 <li><code>-99 &lt;= arr[i][j] &lt;= 99</code></li>
 </ul>
-<h3 id="题解-7"><a href="#题解-7" class="headerlink" title="题解"></a>题解</h3><p>这题非常适合 DP 练习。首先可以依照正常 DP 思路解之：</p>
+<h3 id="题解-8"><a href="#题解-8" class="headerlink" title="题解"></a>题解</h3><p>这题非常适合 DP 练习。首先可以依照正常 DP 思路解之：</p>
 <ul>
 <li>状态定义：<code>dp[i][j]</code> 表示移动到位置 <code>(i,j)</code> 的最小路径和，且显然初始条件为 <code>dp[0][:] = matrix[0][:]</code>，表示第一行各节点到自己的最短路径和即为自己本身。</li>
 <li>状态转移：由题意可知，<code>dp[k]</code> 可由上行除了正上方之的任意节点转移来，因此选择上层除正上方外的最小的那个 DP 节点进行转移即可。</li>
@@ -654,7 +675,7 @@
 <ul>
 <li><code>1 &lt;= n &lt;= 8</code></li>
 </ul>
-<h3 id="题解-8"><a href="#题解-8" class="headerlink" title="题解"></a>题解</h3><p>使用回溯遍历的方式，不断对当前状态追加可能的括号。</p>
+<h3 id="题解-9"><a href="#题解-9" class="headerlink" title="题解"></a>题解</h3><p>使用回溯遍历的方式，不断对当前状态追加可能的括号。</p>
 <ul>
 <li>初始时左右括号余量均为 <code>n</code>；</li>
 <li>当左括号有余量时，可以加入左括号；</li>
@@ -905,7 +926,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#链表"><span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-92-反转链表-II"><span class="nav-text">🟠 92. 反转链表 II</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-86-分隔链表"><span class="nav-text">🟠 86. 分隔链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-1"><span class="nav-text">题解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划"><span class="nav-text">动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-64-最小路径和"><span class="nav-text">🟠 64. 最小路径和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-2"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-63-不同路径-II"><span class="nav-text">🟠 63. 不同路径 II</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-3"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-62-不同路径"><span class="nav-text">🟠 62. 不同路径</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-4"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-120-三角形最小路径和"><span class="nav-text">🟠 120. 三角形最小路径和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-5"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-931-下降路径最小和"><span class="nav-text">🟠 931. 下降路径最小和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-6"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔴-1289-下降路径最小和-II"><span class="nav-text">🔴 1289. 下降路径最小和 II</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-7"><span class="nav-text">题解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回溯遍历"><span class="nav-text">回溯遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-22-括号生成"><span class="nav-text">🟠 22. 括号生成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-8"><span class="nav-text">题解</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#链表"><span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-92-反转链表-II"><span class="nav-text">🟠 92. 反转链表 II</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-86-分隔链表"><span class="nav-text">🟠 86. 分隔链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-1"><span class="nav-text">题解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划-记忆化搜索"><span class="nav-text">动态规划 / 记忆化搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#🟢-70-爬楼梯"><span class="nav-text">🟢 70. 爬楼梯</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-2"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-64-最小路径和"><span class="nav-text">🟠 64. 最小路径和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-3"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-63-不同路径-II"><span class="nav-text">🟠 63. 不同路径 II</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-4"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-62-不同路径"><span class="nav-text">🟠 62. 不同路径</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-5"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-120-三角形最小路径和"><span class="nav-text">🟠 120. 三角形最小路径和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-6"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-931-下降路径最小和"><span class="nav-text">🟠 931. 下降路径最小和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-7"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔴-1289-下降路径最小和-II"><span class="nav-text">🔴 1289. 下降路径最小和 II</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-8"><span class="nav-text">题解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回溯遍历"><span class="nav-text">回溯遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-22-括号生成"><span class="nav-text">🟠 22. 括号生成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-9"><span class="nav-text">题解</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
