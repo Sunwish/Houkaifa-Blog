@@ -961,8 +961,8 @@ v_y = -3P_{0y}(1-t)^2 + 3P_{1y}(1-t)^2 - 6P_{1y}t(1-t) + 6P_{2y}t(1-t) - 3P_{2y}
         <category>沿途简记</category>
       </categories>
       <tags>
-        <tag>Notifier</tag>
         <tag>C#</tag>
+        <tag>Notifier</tag>
         <tag>ServerChan</tag>
       </tags>
   </entry>
