@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+<!--<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>-->
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "bf6ac372"
+    });
+  daovoice('update');
+  </script>
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+<!--<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>-->
+<!--<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">-->
+<script src="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/themes/black/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="概述 昨天 Anduin 在直播时讨论了一个相当有意思的话题，即在客户端和服务端均处于离线状态，且双端之间没有任何数据交换的情况之下，如何实现客户端对服务端的临时授权。其实类似的授权机制在生活中就有案例，比如我手机上的Steam令牌应用自登录以来就从来没连上网过，但是令牌中的动态密码却能够正确地完成电脑端Steam的身份认证，不过这里电脑端的Steam还是连接了网络进行验证的。本文来尝试探讨一种双">
+<meta name="keywords" content="Authorization,Thinking">
+<meta property="og:type" content="article">
+<meta property="og:title" content="趣谈双端离线状态下的授权认证实现">
+<meta property="og:url" content="http://Sunwish.coding.me/2021/05/25/Thinking-of-double-end-offline-authorization-verification/index.html">
+<meta property="og:site_name" content="猴开发 | 博客">
+<meta property="og:description" content="概述 昨天 Anduin 在直播时讨论了一个相当有意思的话题，即在客户端和服务端均处于离线状态，且双端之间没有任何数据交换的情况之下，如何实现客户端对服务端的临时授权。其实类似的授权机制在生活中就有案例，比如我手机上的Steam令牌应用自登录以来就从来没连上网过，但是令牌中的动态密码却能够正确地完成电脑端Steam的身份认证，不过这里电脑端的Steam还是连接了网络进行验证的。本文来尝试探讨一种双">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunwish.coding.me/2021/05/25/Thinking-of-double-end-offline-authorization-verification/1.png">
+<meta property="og:image" content="http://sunwish.coding.me/2021/05/25/Thinking-of-double-end-offline-authorization-verification/2.png">
+<meta property="og:image" content="http://sunwish.coding.me/2021/05/25/Thinking-of-double-end-offline-authorization-verification/3.png">
+<meta property="og:image" content="http://sunwish.coding.me/2021/05/25/Thinking-of-double-end-offline-authorization-verification/4.png">
+<meta property="og:image" content="http://sunwish.coding.me/2021/05/25/Thinking-of-double-end-offline-authorization-verification/5.png">
+<meta property="og:image" content="http://sunwish.coding.me/2021/05/25/Thinking-of-double-end-offline-authorization-verification/6.png">
+<meta property="og:image" content="http://sunwish.coding.me/2021/05/25/Thinking-of-double-end-offline-authorization-verification/7.png">
+<meta property="og:image" content="http://sunwish.coding.me/2021/05/25/Thinking-of-double-end-offline-authorization-verification/8.png">
+<meta property="og:image" content="http://sunwish.coding.me/2021/05/25/Thinking-of-double-end-offline-authorization-verification/9.png">
+<meta property="og:image" content="http://sunwish.coding.me/2021/05/25/Thinking-of-double-end-offline-authorization-verification/10.png">
+<meta property="og:image" content="http://sunwish.coding.me/2021/05/25/Thinking-of-double-end-offline-authorization-verification/11.png">
+<meta property="og:updated_time" content="2022-08-02T02:07:22.186Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="趣谈双端离线状态下的授权认证实现">
+<meta name="twitter:description" content="概述 昨天 Anduin 在直播时讨论了一个相当有意思的话题，即在客户端和服务端均处于离线状态，且双端之间没有任何数据交换的情况之下，如何实现客户端对服务端的临时授权。其实类似的授权机制在生活中就有案例，比如我手机上的Steam令牌应用自登录以来就从来没连上网过，但是令牌中的动态密码却能够正确地完成电脑端Steam的身份认证，不过这里电脑端的Steam还是连接了网络进行验证的。本文来尝试探讨一种双">
+<meta name="twitter:image" content="http://sunwish.coding.me/2021/05/25/Thinking-of-double-end-offline-authorization-verification/1.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://Sunwish.coding.me/2021/05/25/Thinking-of-double-end-offline-authorization-verification/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>趣谈双端离线状态下的授权认证实现 | 猴开发 | 博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">猴开发 | 博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+
+    
+      
+        <h1 class="site-subtitle" itemprop="description">积极思考  活跃创造</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-札记">
+    <a href="/series/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-每日一题">
+    <a href="/dailyProblem/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-calendar-check-o"></i> <br />每日一题</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+          <div id="music" style="width: 100%; height: 110px; margin-top: -15px; margin-bottom: 5px;">
+           <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2851637030&auto=0&height=90"></iframe>
+          </div>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/Sunwish" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2021/05/25/Thinking-of-double-end-offline-authorization-verification/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴开发 | 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">趣谈双端离线状态下的授权认证实现
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+          
+          <span class="post-meta-author-icon">
+            <i class="fa fa-user-o"></i>
+          </span>
+	  
+	  
+	  
+	  <span class="post-meta-author-text">作者 Sunwish</span>
+	  <span class="post-meta-divider">|</span>
+          
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-05-25 13:53:46" itemprop="dateCreated datePublished" datetime="2021-05-25T13:53:46+08:00">2021-05-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-08-02 10:07:22" itemprop="dateModified" datetime="2022-08-02T10:07:22+08:00">2022-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/沿途简记/" itemprop="url" rel="index"><span itemprop="name">沿途简记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/05/25/Thinking-of-double-end-offline-authorization-verification/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/05/25/Thinking-of-double-end-offline-authorization-verification/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2021/05/25/Thinking-of-double-end-offline-authorization-verification/" class="leancloud_visitors" data-flag-title="趣谈双端离线状态下的授权认证实现">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>昨天 Anduin 在直播时讨论了一个相当有意思的话题，即在客户端和服务端均处于离线状态，且双端之间没有任何数据交换的情况之下，如何实现客户端对服务端的临时授权。其实类似的授权机制在生活中就有案例，比如我手机上的Steam令牌应用自登录以来就从来没连上网过，但是令牌中的动态密码却能够正确地完成电脑端Steam的身份认证，不过这里电脑端的Steam还是连接了网络进行验证的。本文来尝试探讨一种双端均处于离线状态场景的临时认证办法。因为没有查阅相关资料做参考，因此本文最终的系统不一定足够完美。</p>
+</blockquote>
+<p><img src="/2021/05/25/Thinking-of-double-end-offline-authorization-verification/1.png" alt="Title"></p>
+<a id="more"></a>
+<hr>
+<h1 id="一、情景导入"><a href="#一、情景导入" class="headerlink" title="一、情景导入"></a>一、情景导入</h1><p>假设一天周末小明出去浪了，而小明的好基友小黑在没有提前打招呼的情况下突然来小明家玩儿，当小黑到了小明的家门口敲门时却发现，小明家里此刻并没有人，于是小黑打电话给小明说，“小明小明你人呢，我到你家门口了，速来击剑🤺！”</p>
+<p><img src="/2021/05/25/Thinking-of-double-end-offline-authorization-verification/2.png" alt="Title"></p>
+<p>可是小明现在还在外面浪所以并不能很快地赶回家里和小黑击剑，只能先让小黑在外面晾几个小时。因为小明家里的门锁是电子的密码门锁，于是小黑想让小明把密码告诉他，让自己进去等小明，可是小明知道把自家门锁的密码告诉别人这件事实在是太危险了，尽管是告诉自己的好基友小黑也不是那么地靠谱。那么有没有什么办法能够改造一下小明家的门锁，让小黑能够临时进去一下，同时又不泄漏小明家的密码呢？</p>
+<p><img src="/2021/05/25/Thinking-of-double-end-offline-authorization-verification/3.png" alt="Title"></p>
+<p>如果小明把密码直接告诉给小黑肯定是不安全的，就算后续可以回家修改密码也会让家人非常不方便。其实如果小明家里的锁是智能锁的话问题就很简单，小明直接在手机APP上远程开锁即可，又或者可以尝试在手机APP上生成一个临时密码，这个临时密码存储在服务器上，锁端只需要在验证的时候通过连接服务器进行密码校验即可。但是问题在于小明家的门锁是智障锁，压根没有网络功能，也就无法远程开锁，也不存在连接服务器验证新密码这回事。</p>
+<p>那么如何才能让小明在远端生成一个临时密码，同时在锁端完全离线的状况下识别出这个密码，实现小明对小黑的临时的授权呢？</p>
+<h1 id="二、从简单的动态密码说起"><a href="#二、从简单的动态密码说起" class="headerlink" title="二、从简单的动态密码说起"></a>二、从简单的动态密码说起</h1><p>其实一通分析下来很容易发现，这个问题的核心就是需要锁密码能够动态变化，达到一个临时开锁的目的。既然是要使得密码动态起来，那么一个很容易想到的办法就是将密码规则设置为动态的。比如根据时间来确定门锁的密码，使得每一天的门锁密码都不一样：</p>
+<script type="math/tex; mode=display">
+f(y,m,d)=43y+8848m+6666d</script><p>例如今天是2021年5月25日，那么今天的密码经过函数 $f$ 计算就是297793，锁在验证的时候首先计算出297793这个值，然后将其与开门者输入的密码相比较，如果匹配则开门。在这一策略下，小明可以很放心地把这个密码告诉小黑，因为这个密码只能解锁今天的门锁，等到明天，门锁根据函数计算出来的正确密码就变成了304459，这时再用297793就无法打开门锁了。</p>
+<p><img src="/2021/05/25/Thinking-of-double-end-offline-authorization-verification/4.png" alt="Title"></p>
+<p>如果要有更好的动态性，只需要向锁函数引入更精细的时间量即可，如使用下式就能够使得每分钟的门锁密码都不一样：</p>
+<script type="math/tex; mode=display">
+f(y,m,d,h,min)=c_1y+c_2m+c_3+c_4h+c_5min</script><p>这样将密码函数写死在锁里的做法确实可以实现锁端离线状态下对小黑的临时授权，只要小明记得密码函数，他就可以通过计算得到锁端的当前密码是多少，锁因为只使用了时间进行计算因此也不必联网。但是这么做会有两个很明显的缺陷：</p>
+<ol>
+<li>锁函数是容易被破解的。一旦锁函数被破解，那么全世界的人都能够随时计算出小明家今天的密码从而破门而入强行击剑了；</li>
+<li>密码的计算很不方便。如果是分钟精度，那么小明每次需要临时密码时都得掏出纸笔计算一波。</li>
+</ol>
+<h2 id="2-1-关于缺陷一"><a href="#2-1-关于缺陷一" class="headerlink" title="2.1 关于缺陷一"></a>2.1 关于缺陷一</h2><p>第一个缺陷很显然，只要小黑厚着脸皮多向小明要几次密码，经过数据分析就容易得出每天密码的生成规律，进而推出锁函数，就算使用更加复杂的非线性函数，只要最终的密码与时间这种量直接相关，同样总有被破解的一天。</p>
+<p><img src="/2021/05/25/Thinking-of-double-end-offline-authorization-verification/5.png" alt="Title"></p>
+<p>但其实只要对函数计算出来的密码进行进一步的处理，如哈希处理，再进行有损截取，就很难被复原了，比如：</p>
+<script type="math/tex; mode=display">
+password = GetDeterministicHashCode(f(y,m,d,h,min))\%1000000</script><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 该函数名在后文中简记作 Hash</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">GetDeterministicHashCode</span>(<span class="params"><span class="keyword">string</span> str</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unchecked</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> hash1 = (<span class="number">5381</span> &lt;&lt; <span class="number">16</span>) + <span class="number">5381</span>;</span><br><span class="line">        <span class="keyword">int</span> hash2 = hash1;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.Length; i += <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            hash1 = ((hash1 &lt;&lt; <span class="number">5</span>) + hash1) ^ str[i];</span><br><span class="line">            <span class="keyword">if</span> (i == str.Length - <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            hash2 = ((hash2 &lt;&lt; <span class="number">5</span>) + hash2) ^ str[i + <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> hash1 + (hash2 * <span class="number">1566083941</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/05/25/Thinking-of-double-end-offline-authorization-verification/6.png" alt="Title"></p>
+<p>经过哈希函数一处理，如何计算 $f(y,m,d,h,min)$ 其实已经不要紧了，因此我们可以直接将年月日时分的文本信息作为动态量，如我现在写博文的时间18点34分的密码就为</p>
+<script type="math/tex; mode=display">
+password = Hash(20215251834)\%1000000 = 895870</script><p>但是，实际上哈希函数也并不是什么稀奇的函数，所以单纯对当前时间做哈希同样很容易被猜到，进而被小黑破解，因此我们可以将哈希参数复杂化一些，如混上一些静态字段：</p>
+<script type="math/tex; mode=display">
+password = Hash(DateTime+"Sunwish")\%1000000</script><p>这样一来，尽管小黑猜到了锁函数使用的是哈希码截断，也猜到了哈希参数使用了动态的时间来实现密码的变化，但是只要猜不到参数中混入了“Sunwish”这个字段，小黑就无法复现认证码。</p>
+<p><img src="/2021/05/25/Thinking-of-double-end-offline-authorization-verification/7.png" alt="Title"></p>
+<p>至此第一个问题，“锁函数是容易被破解的”就算基本解决了。</p>
+<h2 id="2-2-关于缺陷二"><a href="#2-2-关于缺陷二" class="headerlink" title="2.2 关于缺陷二"></a>2.2 关于缺陷二</h2><p>对于第二个问题，即“密码的计算很不方便”，在经过第一个问题的解决之后，密码计算变得更加不方便了，现在几乎就不可能被手算出来。</p>
+<p>好在这个算法是我们自己设计的，因此只需要开发相应的APP，在需要使用临时密码的时候打开 APP 查看即可，而这个 APP 只需要负责计算 $Hash(DateTime+”Sunwish”)\%1000000$ 的值并显示出来。这样，小明只需要打开 APP，然后将此时的密码告诉小黑就能让小黑打开房门，同时因为临时密码是变动的，因此小黑之后再使用这个密码是无法打开门锁的，保证了门锁的安全性。</p>
+<p><img src="/2021/05/25/Thinking-of-double-end-offline-authorization-verification/8.png" alt="Title"></p>
+<p>这样一来看似问题解决了，<strong>但要命的是，这个多出来的 APP 又引发了新的更严重的安全隐患。</strong></p>
+<p>虽然小黑拿到的密码只能够临时使用，同时就算小黑拿到了很多的密码也难以解出密码的规律了，但是一个很严重的问题就是，现在门锁的可靠性完全依赖于小明的手机了，任何人只要进入了小明的手机，就能够随意查看小明家门的密码，更严重的是，如果小明使用的手机是安卓系统，那么小黑只需要偷偷从小明手机上把 apk 拷到自己手机上，小黑就能神不知鬼不觉地随时在自己手机上查看小明家门的密码，这肯定是不能被小明容忍的。</p>
+<h1 id="三、APP与锁的解耦"><a href="#三、APP与锁的解耦" class="headerlink" title="三、APP与锁的解耦"></a>三、APP与锁的解耦</h1><p>哦豁，既要使用 APP 来查看临时密码，又不能让别人在 APP 里看到临时密码，咋办？</p>
+<h2 id="3-1-密码锁"><a href="#3-1-密码锁" class="headerlink" title="3.1 密码锁"></a>3.1 密码锁</h2><p>一个非常符合直觉的方法是给密码加密码，即需要输入正确的应用密码才能够查看门锁的临时密码。这个办法看似能够缓解缺陷二，因为小黑就算拿到了小明的手机，没有 APP 的查看密码就无法进入门锁密码的查看页，也就拿不到当前的门锁密码。</p>
+<p>但其实这个方法仍有缺陷，小黑可以通过一些手段搞到小明的 APP 文件，然后对应用程序进行逆向工程拿到应用密码，甚至可以直接暴破小明的 APP，跳过应用的密码页，因此简单的密码锁并不是很靠谱。</p>
+<p><img src="/2021/05/25/Thinking-of-double-end-offline-authorization-verification/9.png" alt="Title"></p>
+<h2 id="3-1-隐式密码"><a href="#3-1-隐式密码" class="headerlink" title="3.1 隐式密码"></a>3.1 隐式密码</h2><p>另一个更精妙的保护设计是不使用显式的密码锁，而是将哈希混淆字段作为应用密码，同门锁的加密函数相耦合，使得应用密码输入成为不可绕过（不可被暴破）的门锁密码生成过程之一，同时完全避免了密码输入正确与否的回显提示，使企图的 APP 破解工作雪上加霜。耦合后的锁函数就变成了</p>
+<script type="math/tex; mode=display">
+password = Hash(DateTime+AppPsw)\%1000000</script><p>其中 AppPsw 是由 APP 使用者来输入的，只有在输入了正确的混淆字段“Sunwish”，才能生成正确的、能被锁端接受的认证码（因为锁端 AppPsw 字段是固定的“Sunwish”，且双端运行的锁函数是一致的，因此只要参数一致双端就能生成相同的认证码实现验证，不需要网络），同时如果 AppPsw 输入错误，应用也不会报错，而是会按照错误的哈希参数生成错误的认证码，但破解者小黑是无法得知其是否正确的，在小黑的视角看来，无论输入什么内容总是能够生成一个认证码，但是生成的认证码却无法解锁门锁，让人摸不着头脑，这使得破解变得更加不可能，因为 APP 上密码正确与否的评判标准都已经不存在了。</p>
+<p><img src="/2021/05/25/Thinking-of-double-end-offline-authorization-verification/10.png" alt="Title"></p>
+<p>不过还没结束，这个系统仍然存在一些隐患。由于 APP 端所谓的“密码”就是锁端哈希参数的混淆字段，而此时混淆字段是被明文写在锁端的，因此只要小黑身手不凡，还是能够通过拆解小明家的锁，从硬件电路层面破解芯片中存储的内容，即从硬件角度破解出锁中的“Sunwish”字段，然后再偷来小明的APP，输入“Sunwish”就可以正确地生成门锁密码。</p>
+<p>因此，锁端附加字段最好要做 MD5 加密处理：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> <span class="title">GetMD5</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Use input string to calculate MD5 hash</span></span><br><span class="line">    <span class="keyword">using</span> (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">byte</span>[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);</span><br><span class="line">        <span class="keyword">byte</span>[] hashBytes = md5.ComputeHash(inputBytes);</span><br><span class="line">        <span class="comment">// Convert the byte array to hexadecimal string</span></span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; hashBytes.Length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            sb.Append(hashBytes[i].ToString(<span class="string">"X2"</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.ToString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同时在 APP 端也要对称地将 AppPsw 做加密操作，即临时密码计算函数变为</p>
+<script type="math/tex; mode=display">
+password = Hash(DateTime+MD5(AppPsw))\%1000000</script><p>以“Sunwish”为例，经过加密后存储使用，小黑只能从门锁中破解出：</p>
+<script type="math/tex; mode=display">
+1BE859CD2B258B2187E49B98F1A30201</script><p>这对于小黑来说几乎不可能逆向出原密码，也就仍然无法使用小明的 APP，此时唯一的密钥“Sunwish”只有小明知道，并且只会在小明使用 APP 输入时短暂地存在于内存中，一旦生成认证码密钥就将无影无踪，只有输入了这个正确的答案才能生成正确的，能与锁端达成共识的认证码打开门锁。</p>
+<h1 id="四、升级门锁辣！"><a href="#四、升级门锁辣！" class="headerlink" title="四、升级门锁辣！"></a>四、升级门锁辣！</h1><p>可以注意到整个过程中，门锁与APP均始终处于离线状态，且门锁和APP之间不存在任何数据交换，小明在 APP 中生成的认证码只有临时可用，且只有小明才能使用 APP 生成正确的认证码，其它任何人都无法从 APP 获取有效的认证码，APP 破解也因为没有密码正确与否的评判依据而举步维艰，安全性基本得到了保证，整个系统中唯一的密钥就是存在小明脑子里的“Sunwish”字段。至此，我们就解决了小明小黑的双端离线授权问题。</p>
+<p>最后我们处理一些细节问题，并实现认证码5分钟内有效的逻辑，并将这个系统封装一下。</p>
+<h2 id="4-1-公共部分"><a href="#4-1-公共部分" class="headerlink" title="4.1 公共部分"></a>4.1 公共部分</h2><p>其中一个问题是 <code>int GetDeterministicHashCode(string)</code> 函数的返回整数有可能是负数，同时经过 $\%1000000$ 运算后的数值位数并不是固定的，因此我们封装一个认证码生成函数，利用哈希参数生成固定位数的正值认证码（其中 <code>VALICODE_LENGTH</code> 是全局常量，指明认证码的长度）：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">GetDeterministicValidationCode</span>(<span class="params"><span class="keyword">string</span> str</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// 生成正值认证码，位数取值范围为 [1, VALICODE_LENGTH]</span></span><br><span class="line">    <span class="keyword">int</span> valiCode = Math.Abs(GetDeterministicHashCode(str) % (<span class="keyword">int</span>)Math.Pow(<span class="number">10</span>, VALICODE_LENGTH));</span><br><span class="line">	<span class="comment">// 认证码位数处理成固定 VALICODE_LENGTH 位，低位补零</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; VALICODE_LENGTH - valiCode.ToString().Length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        valiCode *= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> valiCode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是动态参数——时间文本的封装</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> <span class="title">GetDateAttach</span>(<span class="params">DateTime dateTime</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">string</span> dateAttach =</span><br><span class="line">        dateTime.Year.ToString() +</span><br><span class="line">        dateTime.Month.ToString() +</span><br><span class="line">        dateTime.Day.ToString() +</span><br><span class="line">        dateTime.Hour.ToString() +</span><br><span class="line">        dateTime.Minute.ToString();</span><br><span class="line">    <span class="keyword">return</span> dateAttach;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-2-APP-端"><a href="#4-2-APP-端" class="headerlink" title="4.2 APP 端"></a>4.2 APP 端</h2><p>生成临时认证码：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Generate</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 输入隐式密码</span></span><br><span class="line">    Console.Write(<span class="string">"Input password to generate a tempory offline validation code: "</span>);</span><br><span class="line">    <span class="keyword">string</span> psw = Console.ReadLine().Trim();</span><br><span class="line">	<span class="comment">// 对输入的密码做一次MD5加密</span></span><br><span class="line">    <span class="keyword">string</span> psw_md5 = GetMD5(psw);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 取动态参数，即时间</span></span><br><span class="line">    <span class="keyword">string</span> dateAttach = GetDateAttach(DateTime.Now);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 混淆时间和一次加密后的密码进行认证码生成</span></span><br><span class="line">    <span class="keyword">int</span> validationCode = GetDeterministicValidationCode(psw_md5 + dateAttach);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 输出5分钟内有效的临时认证码（APP端只管生成认证码，多长时间有效的判定逻辑在锁端）</span></span><br><span class="line">    Console.WriteLine(<span class="string">$"Validation code: <span class="subst">&#123;validationCode&#125;</span> (Valide in 5 minites)"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-3-门锁端"><a href="#4-3-门锁端" class="headerlink" title="4.3 门锁端"></a>4.3 门锁端</h2><p>定义好预先存储在门锁里的已经经过一次加密过的隐式密码：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">string</span> psw_md5 = <span class="string">"1BE859CD2B258B2187E49B98F1A30201"</span>;</span><br></pre></td></tr></table></figure>
+<p>对认证码进行有效性验证：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Check</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// 输入待验证的认证码</span></span><br><span class="line">    Console.Write(<span class="string">"Please input validation code: "</span>);</span><br><span class="line">    <span class="keyword">string</span> validationCode = Console.ReadLine().Trim();</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 计算包含当前时刻的过去5分钟有效认证码，共5条</span></span><br><span class="line">    List&lt;<span class="keyword">string</span>&gt; validList = <span class="keyword">new</span> List&lt;<span class="keyword">string</span>&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">		<span class="comment">// 过去5分钟的五条动态参数</span></span><br><span class="line">        DateTime dateAttach = DateTime.Now - TimeSpan.FromMinutes(i);</span><br><span class="line">		<span class="comment">// 5个动态参数计算出的五条认证码</span></span><br><span class="line">        validList.Add(GetDeterministicValidationCode(psw_md5 + GetDateAttach(dateAttach)).ToString());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 只要输入的认证码同五条有效认证码的任意一个匹配，则认证通过</span></span><br><span class="line">    <span class="keyword">if</span>(validList.IndexOf(validationCode) != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">"Code is valid."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">"Code is invalid"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-3-效果演示"><a href="#4-3-效果演示" class="headerlink" title="4.3 效果演示"></a>4.3 效果演示</h2><p><img src="/2021/05/25/Thinking-of-double-end-offline-authorization-verification/11.png" alt="Title"></p>
+<div class="spoiler collapsed"><div class="spoiler-title">点击查看本篇总结</div><div class="spoiler-content"></div></div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果你觉得文章内容对你有帮助，可以打赏支持一下哦！<br/></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Sunwish 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        ﻿
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Authorization/" rel="tag"><i class="fa fa-tag"></i> Authorization</a>
+          
+            <a href="/tags/Thinking/" rel="tag"><i class="fa fa-tag"></i> Thinking</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/" rel="next" title="末流科班一战上岸中科大软院初试复试经验总结">
+                <i class="fa fa-chevron-left"></i> 末流科班一战上岸中科大软院初试复试经验总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/07/03/ECS-backup-run-in-vmware-workstation/" rel="prev" title="导出镜像备份阿里ECS并在本地虚拟机中运行">
+                导出镜像备份阿里ECS并在本地虚拟机中运行 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+
+    <div class="sidebar-inner">
+      
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sunwish</p>
+              <p class="site-description motion-element" itemprop="description">个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sunwish.houkaifa.com/" title="Sunwish" target="_blank">Sunwish</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alterful.com/" title="Alterful" target="_blank">Alterful</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://easecurve.houkaifa.com/" title="Easecurve" target="_blank">Easecurve</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+          
+            
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、情景导入"><span class="nav-text">一、情景导入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、从简单的动态密码说起"><span class="nav-text">二、从简单的动态密码说起</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-关于缺陷一"><span class="nav-text">2.1 关于缺陷一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-关于缺陷二"><span class="nav-text">2.2 关于缺陷二</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、APP与锁的解耦"><span class="nav-text">三、APP与锁的解耦</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-密码锁"><span class="nav-text">3.1 密码锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-隐式密码"><span class="nav-text">3.1 隐式密码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、升级门锁辣！"><span class="nav-text">四、升级门锁辣！</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-公共部分"><span class="nav-text">4.1 公共部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-APP-端"><span class="nav-text">4.2 APP 端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-门锁端"><span class="nav-text">4.3 门锁端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-效果演示"><span class="nav-text">4.3 效果演示</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+          
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sunwish</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 108.4k 字</span>
+</div>
+
+<!--
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+-->
+<span class="post-meta-divider">|</span>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count"><a href="http://beian.miit.gov.cn/" target="_blank">赣ICP备2022001064号-2</a></span>
+</div>
+
+
+<div>
+    <span id="busuanzi_container_site_uv"><i class="fa fa-user"></i> 本站访客<span id="busuanzi_value_site_uv"></span>人次</span>
+    <span class="post-meta-divider">|</span>
+    <span class="site-pv"><i class="fa fa-eye"></i> 总阅读量: <span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+    <!--
+    <span class="post-meta-divider">|</span>
+    <span class="site-uv"><i class="fa fa-user"></i> 访问人数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+    -->
+</div>
+<script src="./js/src/pvuvfix.js"></script>
+
+
+
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65941008";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <!--<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>-->
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sa3sYJwnqEBnYDpS7VFT70ya-gzGzoHsz',
+        appKey: 'TPHHBKrFtoGkcocnjqN78Fue',
+        placeholder: 'ヾﾉ≧∀≦)o 文章看完啦，别吝啬你的观点哦',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: true
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 15694#<app_id>,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
+

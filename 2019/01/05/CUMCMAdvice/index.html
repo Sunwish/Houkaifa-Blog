@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+<!--<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>-->
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "bf6ac372"
+    });
+  daovoice('update');
+  </script>
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+<!--<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>-->
+<!--<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">-->
+<script src="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/themes/black/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="概述 对数学建模分工、初期准备、相关资源的总结与建议。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对数学建模分工、初期准备、相关资源的总结与建议">
+<meta property="og:url" content="http://Sunwish.coding.me/2019/01/05/CUMCMAdvice/index.html">
+<meta property="og:site_name" content="猴开发 | 博客">
+<meta property="og:description" content="概述 对数学建模分工、初期准备、相关资源的总结与建议。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunwish.coding.me/2019/01/05/CUMCMAdvice/1.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/01/05/CUMCMAdvice/2.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/01/05/CUMCMAdvice/3.jpg">
+<meta property="og:updated_time" content="2022-08-02T02:07:22.021Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对数学建模分工、初期准备、相关资源的总结与建议">
+<meta name="twitter:description" content="概述 对数学建模分工、初期准备、相关资源的总结与建议。">
+<meta name="twitter:image" content="http://sunwish.coding.me/2019/01/05/CUMCMAdvice/1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://Sunwish.coding.me/2019/01/05/CUMCMAdvice/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>对数学建模分工、初期准备、相关资源的总结与建议 | 猴开发 | 博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">猴开发 | 博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+
+    
+      
+        <h1 class="site-subtitle" itemprop="description">积极思考  活跃创造</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-札记">
+    <a href="/series/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-每日一题">
+    <a href="/dailyProblem/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-calendar-check-o"></i> <br />每日一题</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+          <div id="music" style="width: 100%; height: 110px; margin-top: -15px; margin-bottom: 5px;">
+           <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2851637030&auto=0&height=90"></iframe>
+          </div>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/Sunwish" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/01/05/CUMCMAdvice/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴开发 | 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">对数学建模分工、初期准备、相关资源的总结与建议
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+          
+          <span class="post-meta-author-icon">
+            <i class="fa fa-user-o"></i>
+          </span>
+	  
+	  
+          
+	  <span class="post-meta-author-text">作者 Sunwish</span>
+	  <span class="post-meta-divider">|</span>
+          
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-05 12:57:43" itemprop="dateCreated datePublished" datetime="2019-01-05T12:57:43+08:00">2019-01-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-08-02 10:07:22" itemprop="dateModified" datetime="2022-08-02T10:07:22+08:00">2022-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/沿途简记/" itemprop="url" rel="index"><span itemprop="name">沿途简记</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/沿途简记/数学建模/" itemprop="url" rel="index"><span itemprop="name">数学建模</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/05/CUMCMAdvice/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/01/05/CUMCMAdvice/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/01/05/CUMCMAdvice/" class="leancloud_visitors" data-flag-title="对数学建模分工、初期准备、相关资源的总结与建议">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h1><blockquote>
+<p>对数学建模分工、初期准备、相关资源的总结与建议。</p>
+</blockquote>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/2019/01/05/CUMCMAdvice/1.jpg" alt="Title"></h2><a id="more"></a>
+<h1 id="零、分工概述"><a href="#零、分工概述" class="headerlink" title="零、分工概述"></a>零、分工概述</h1><p>数学建模竞赛一队人数不超过三人，一般为三人合适，国赛一般在每年九月份举行，为期三天，时间紧张，合适的分工是至关重要的。</p>
+<p>编程+建模+写作，是标准分工，但这样分工并不代表着负责编程的同学就不管建模，负责建模的同学就不管写作了，这是因为在比赛的过程中三人的任务涉及到交接，因此分工在数模比赛中是相对的，并不是绝对的，个人认为比较好的情况是：</p>
+<ul>
+<li>负责编程工作的同学熟练编程，掌握建模，了解写作；</li>
+<li>负责建模工作的同学熟练建模，掌握写作，了解编程；</li>
+<li>负责写作工作的同学熟练写作，掌握建模，了解编程。</li>
+</ul>
+<p>个人觉得这样的分工比较合理的原因在于：</p>
+<ul>
+<li>编程与建模的交互相对紧密，编程同学要确保能够理解模型，进而才能实现模型，建模同学也可以给编程工作提供一些建议。</li>
+<li>建模与写作的交互相对紧密，建模同学要确保写出来的论文正确表述了你建立的模型，如果不行可以介入修改，再由写作同学整理语言风格。</li>
+</ul>
+<p><img src="/2019/01/05/CUMCMAdvice/2.jpg" alt="Title"></p>
+<h2 id="其中建模是数学建模的核心，负责编程、建模、写作的同学都要学习"><a href="#其中建模是数学建模的核心，负责编程、建模、写作的同学都要学习" class="headerlink" title="其中建模是数学建模的核心，负责编程、建模、写作的同学都要学习"></a>其中建模是数学建模的核心，负责编程、建模、写作的同学都要学习</h2><p>虽然建模由一位队员主要负责，但每个队员对基本的、常用的、常见的模型都要有了解，不然容易出现建模的同学模型建出来了，编程的同学不能理解，导致无法算出结果，或是写作的同学不能理解，不能很好的将模型在论文中体现出来，甚至出现模型的表述错误的情况，这些问题在短短三天的比赛时间内都是致命的。</p>
+<p>对于基本的模型与方法，一般都会在暑假期间集中大家在一起学习，这里就不说了。关于建模的书籍，广泛推荐的是司守奎老师的《数学建模算法与应用》以及姜起源老师的《模型与算法》。</p>
+<h2 id="编程是数学建模评奖的核心，负责编程的同学要注重模型的实现"><a href="#编程是数学建模评奖的核心，负责编程的同学要注重模型的实现" class="headerlink" title="编程是数学建模评奖的核心，负责编程的同学要注重模型的实现"></a>编程是数学建模评奖的核心，负责编程的同学要注重模型的实现</h2><p>负责编程的同学也叫负责计算，是负责模型的实现与最终结果的输出，在初期的准备过程中，不仅要理解所学习的模型，更要尝试动手实现，实现的过程也是对编程的熟悉与练习，一个好的结果对评奖很重要，如果模型建立的很好，但由于编程的疏忽导致计算结果异常、偏差过大，甚至算不出结果，那参赛的效果也是大打折扣的。</p>
+<h2 id="写作是数学建模参赛的核心，负责写作的同学多看历年优秀论文"><a href="#写作是数学建模参赛的核心，负责写作的同学多看历年优秀论文" class="headerlink" title="写作是数学建模参赛的核心，负责写作的同学多看历年优秀论文"></a>写作是数学建模参赛的核心，负责写作的同学多看历年优秀论文</h2><p>数模竞赛最终提交就是一篇论文(如果有需要则附支撑材料)，论文就是卷面，就是评委组审阅的主体。为了熟悉数模论文的套路，最快最直接的方式就是大量阅读往年优秀论文，学习他们的写作手法，并在实践练习中模仿。<br>我认为一篇好的论文要做到以下几点:</p>
+<ul>
+<li>论文结构清晰，有条有理（通过斟酌论文目录来搭建明确的写作框架）</li>
+<li>避免严重的口语化（通过阅读优秀论文来确立合适的语言风格）</li>
+<li>文字阐述与数学公式相错排布，尽量做到图文表并茂（写作练习中注重排版与视觉效果，关于图片有机会再说）</li>
+<li>摘要很重要，摘要很重要，摘要很重要，摘要是对全文的总结，要言简意赅，不要有任何的废话</li>
+</ul>
+<p><img src="/2019/01/05/CUMCMAdvice/3.jpg" alt="Title"></p>
+<h1 id="一、关于编程"><a href="#一、关于编程" class="headerlink" title="一、关于编程"></a>一、关于编程</h1><h2 id="编程语言的选择"><a href="#编程语言的选择" class="headerlink" title="编程语言的选择"></a>编程语言的选择</h2><p>编程语言建议首选Matlab，也可以选择Python。</p>
+<p>选择Matlab的原因主要在于，Matlab作为一门解释型语言、非过程化语言、交互式语言，具有<strong>简单易学易操作易上手</strong>的特性，对硬件的适应性也远超于前三代计算机语言（机器语言、汇编语言、高级语言），同时Matlab一直以其强大的运算效率（矩阵运算）、便捷的代码、丰富的轮子而占为科学计算领域的首选语言，在数模竞赛时间紧张的情况之下，选用Matlab可以说是再合适不过了。</p>
+<p>Python作为近几年来大火的语言，也被广泛认为是解释型语言，易学易上手，也有良好的国内生态，因此选用Python也是可以的。负责编程的队员至少熟练掌握其中一个。</p>
+<p>这里提供Matlab我在使用的版本，Matlab2017a下载及破解：<a href="https://www.jb51.net/softjc/543170.html" target="_blank" rel="noopener">点我呀点我呀你有本事点我呀</a></p>
+<h2 id="如何练习"><a href="#如何练习" class="headerlink" title="如何练习"></a>如何练习</h2><p>如果你之前没有接触过Matlab和Python，那么首先需要入门Matlab或者Python，可以通过以下途径快速地入门一门编程语言：</p>
+<ul>
+<li>了解这门语言的基本信息（语言的应用场景、是何种类型的编程语言、是否为弱类型语言、平台要求、…）</li>
+<li>学习这门语言的基本语法和代码规范（如何定义变量、如何定义函数、如何如何写注释、…）</li>
+<li>掌握这门语言的基本交互（如何输入、如何输出、如何引入外部文件、如何引入库…）</li>
+<li>掌握三大流程结构在这门语言中的实现方法（顺序、选择、循环）</li>
+</ul>
+<p>入门一门编程语言之后，为了巩固学习与进一步学习，同时提高自己对模型的实现能力，最好的方式就是勤动手，将平时所学的模型和算法用这门语言进行编码实现，例如启发式优化算法中的遗传算法、模拟退化算法，评价类问题中的主成分分析法、熵权法等，如果能够将这些模型和算法在平时自己实现一遍的话，那么比赛期间所建立的模型，对你来说也就应该没有问题了。如果自己不能实现，那么可以在百度寻找别人实现的代码，看懂别人怎么写，再自己实现。</p>
+<h1 id="二、关于建模"><a href="#二、关于建模" class="headerlink" title="二、关于建模"></a>二、关于建模</h1><p>数学建模比赛的本科组赛题大体可以分为离散型与连续型这两种，进一步可以细分为<strong>评价类问题、优化类问题、预测类问题</strong>，每一类问题都有其适合的基础工具和数据处理方法可以辅助你们的模型，或与你们的模型相结合来解决问题。例如在评价类的问题中常常使用到：<strong>主成分分析法、TOPSIS分析法、层次分析法、模糊综合评价法、熵权法、数据包络分析、灰色关联等</strong>，这些都是负责建模的同学需要去了解和掌握的，对模型的建立、充实和实现有很大的帮助。因此负责建模的队员可以去针对自己队伍擅长、适合的题目（离散型或连续型），来针对性地学习这些辅助模型与方法。</p>
+<p>但注意，这些方法只能作为模型实现的一部分或是模型的辅助，不能通过拼凑这些方法来建立你们的模型，例如<strong>建立基于灰色关联的灰色预测模型</strong>，又如<strong>基于主成分分析与层次分析的评价模型</strong>，这样的模型不是好模型，因为这些都只是基础的数据处理方法和数据分析办法，不能作为解决题目问题的最终模型。</p>
+<h1 id="三、关于写作"><a href="#三、关于写作" class="headerlink" title="三、关于写作"></a>三、关于写作</h1><p>数模论文的基本格式一般是这样的：首先是标题，然后是摘要与关键词，接下来是问题重述，下面是模型假设与符号规定，之后就是你们对问题的具体分析以及你们模型的建立和结果，最后列出参考文献与程序代码。</p>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>论文的标题要避免口语化，尽量简明扼要，并突出自己的模型和方法，例如：基于XXX模型的XXX问题（研究）</p>
+<h2 id="摘要与关键词"><a href="#摘要与关键词" class="headerlink" title="摘要与关键词"></a>摘要与关键词</h2><p>前面有说到，摘要非常重要，摘要是全文的总述，要包含对问题的分析、体现你们的思考过程、模型建立的过程，不要有任何的废话，也不要写的太短（例如本文的概述），也不要太长（摘要+关键词不能超过一页）。<br>关键词可以包含你们模型的求解算法、模型的实现原理。</p>
+<h2 id="问题重述"><a href="#问题重述" class="headerlink" title="问题重述"></a>问题重述</h2><p>按照你们的理解，重新描述一遍题目的内容、需求、你们的思考过程、初步的想法。</p>
+<h2 id="模型假设与符号规定"><a href="#模型假设与符号规定" class="headerlink" title="模型假设与符号规定"></a>模型假设与符号规定</h2><p>模型假设是对理想情况的预设，例如在2015年的A题太阳影子定位模型中可以做出如下假设：</p>
+<ul>
+<li>假设太阳光为平行光，没有折射</li>
+<li>假设海拔高度可以忽略</li>
+<li>…</li>
+</ul>
+<p>符号规定一般以表格的形式呈现，其中列出的符号常常是全文通用的一般性符号，在符号规定中列出的符号，于正文中第一次出现的时候还要做进一步的解释，例如在符号规定中规定了密度（<script type="math/tex">\rho_s</script>）、质量(<script type="math/tex">M_s</script>)和体积(<script type="math/tex">V_s</script>)符号，那么在正文中第一次出现计算密度的公式时，要再次解释这几个符号的具体含义，例如：</p>
+<hr>
+<p>…</p>
+<script type="math/tex; mode=display">
+\rho_s=\frac{M_s}{V_s}</script><p>其中<script type="math/tex">\rho_s</script>表示<script type="math/tex">Sun</script>的密度，<script type="math/tex">M_s</script>表示<script type="math/tex">Sun</script>的质量，<script type="math/tex">V_s</script>表示<script type="math/tex">Sun</script>的体积。<br>…</p>
+<hr>
+<h2 id="问题的分析以及你们的模型"><a href="#问题的分析以及你们的模型" class="headerlink" title="问题的分析以及你们的模型"></a>问题的分析以及你们的模型</h2><p>这一部分可以根据需要自己进行结构的调整，这里例举2015年国赛A题一篇优秀论文的对应结构：</p>
+<hr>
+<p><strong>标题</strong><br><strong>摘要与关键词</strong><br><strong>一、问题重述</strong><br><strong>二、问题分析</strong><br><strong>三、模型假设与符号约定</strong><br><strong>四、模型的建立与求解</strong><br><strong>（一）问题一的模型建立与求解</strong><br><strong>1.1问题1模型的建立</strong><br><strong>1.2对xxx情况的具体分析</strong><br><strong>1.3问题1模型的求解</strong><br><strong>（二）问题二的模型建立与求解</strong><br><strong>2.1问题2模型的建立</strong><br><strong>2.2问题2模型的求解</strong><br>…<br><strong>五、模型的改进与评价</strong><br><strong>六、参考文献</strong><br><strong>七、附录</strong></p>
+<hr>
+<p>写作的平台首选Word，次选WPS，如对自己队伍有较高的版面效果要求则可以学习LaTex文学编程，其优点在于渲染出的数学公式和数学符号非常的漂亮，但上手是有一定门槛的。<br>在写论文的过程中，使用Word、WPS排版的时候，要合理使用<strong>样式</strong>功能，最好选择一篇你们队伍认为好看的论文制作相应的论文模板，提前准备好整体架构、文字样式，让你们的论文更清晰更美观，同时也为正式的比赛节省时间。</p>
+<p>下面给出LaTex的一些资源：</p>
+<p><a href="http://pan.baidu.com/s/1jHfUzWy" target="_blank" rel="noopener">TeXliv 2015 离线安装包 (2cj2)</a></p>
+<p><a href="http://texstudio.sourceforge.net/" target="_blank" rel="noopener">LaTex 编辑器 (TeXstudio)：</a></p>
+<p><a href="http://www.mohu.org/info/symbols/symbols.htm" target="_blank" rel="noopener">常用数学符号的 LaTeX 表示方法：</a></p>
+<p><a href="http://detexify.kirelabs.org/classify.html" target="_blank" rel="noopener">手写识别转 LaTex 符号：</a></p>
+<h1 id="四、其他资源"><a href="#四、其他资源" class="headerlink" title="四、其他资源"></a>四、其他资源</h1><p><a href="https://bbs.pinggu.org/" target="_blank" rel="noopener">数据获取渠道：经管之家</a></p>
+<p><a href="http://www.drcnet.com.cn/www/int/" target="_blank" rel="noopener">数据获取渠道：国研网</a></p>
+<p><a href="http://epub.cnki.net/" target="_blank" rel="noopener">论文参考渠道：中国知网</a></p>
+<center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果你觉得文章内容对你有帮助，可以打赏支持一下哦！<br/></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Sunwish 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        ﻿
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/15/faceDetact/" rel="next" title="基于HSV肤色提取与连通区域过滤的人脸定位算法（Matlab）">
+                <i class="fa fa-chevron-left"></i> 基于HSV肤色提取与连通区域过滤的人脸定位算法（Matlab）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/31/ADB-CrossLuckyCity/" rel="prev" title="如何叉着腰喝着茶穿越福城？">
+                如何叉着腰喝着茶穿越福城？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+
+    <div class="sidebar-inner">
+      
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sunwish</p>
+              <p class="site-description motion-element" itemprop="description">个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sunwish.houkaifa.com/" title="Sunwish" target="_blank">Sunwish</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alterful.com/" title="Alterful" target="_blank">Alterful</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://easecurve.houkaifa.com/" title="Easecurve" target="_blank">Easecurve</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+          
+            
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#零、分工概述"><span class="nav-text">零、分工概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#其中建模是数学建模的核心，负责编程、建模、写作的同学都要学习"><span class="nav-text">其中建模是数学建模的核心，负责编程、建模、写作的同学都要学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程是数学建模评奖的核心，负责编程的同学要注重模型的实现"><span class="nav-text">编程是数学建模评奖的核心，负责编程的同学要注重模型的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写作是数学建模参赛的核心，负责写作的同学多看历年优秀论文"><span class="nav-text">写作是数学建模参赛的核心，负责写作的同学多看历年优秀论文</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、关于编程"><span class="nav-text">一、关于编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编程语言的选择"><span class="nav-text">编程语言的选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何练习"><span class="nav-text">如何练习</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、关于建模"><span class="nav-text">二、关于建模</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、关于写作"><span class="nav-text">三、关于写作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标题"><span class="nav-text">标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要与关键词"><span class="nav-text">摘要与关键词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题重述"><span class="nav-text">问题重述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型假设与符号规定"><span class="nav-text">模型假设与符号规定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题的分析以及你们的模型"><span class="nav-text">问题的分析以及你们的模型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、其他资源"><span class="nav-text">四、其他资源</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+          
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sunwish</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 108.4k 字</span>
+</div>
+
+<!--
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+-->
+<span class="post-meta-divider">|</span>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count"><a href="http://beian.miit.gov.cn/" target="_blank">赣ICP备2022001064号-2</a></span>
+</div>
+
+
+<div>
+    <span id="busuanzi_container_site_uv"><i class="fa fa-user"></i> 本站访客<span id="busuanzi_value_site_uv"></span>人次</span>
+    <span class="post-meta-divider">|</span>
+    <span class="site-pv"><i class="fa fa-eye"></i> 总阅读量: <span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+    <!--
+    <span class="post-meta-divider">|</span>
+    <span class="site-uv"><i class="fa fa-user"></i> 访问人数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+    -->
+</div>
+<script src="./js/src/pvuvfix.js"></script>
+
+
+
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65941008";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <!--<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>-->
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sa3sYJwnqEBnYDpS7VFT70ya-gzGzoHsz',
+        appKey: 'TPHHBKrFtoGkcocnjqN78Fue',
+        placeholder: 'ヾﾉ≧∀≦)o 文章看完啦，别吝啬你的观点哦',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: true
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 15694#<app_id>,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
+

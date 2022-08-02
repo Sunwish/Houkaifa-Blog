@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+<!--<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>-->
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "bf6ac372"
+    });
+  daovoice('update');
+  </script>
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+<!--<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>-->
+<!--<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">-->
+<script src="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/themes/black/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="一、 函数参数传递机制的基本理论&amp;emsp;&amp;emsp;函数参数传递机制问题在本质上是调用函数（过程）和被调用函数（过程）在调用发生时进行通信的方法问题。基本的参数传递机制有两种：值传递和引用传递。以下讨论称调用其他函数的函数为主调函数，被调用的函数为被调函数。 &amp;emsp;&amp;emsp;值传递（passl-by-value）过程中，被调函数的形式参数作为被调函数的局部变量处理，即在堆栈中开辟了内存">
+<meta name="keywords" content="CPP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ 值传递和引用传递深入探究">
+<meta property="og:url" content="http://Sunwish.coding.me/2018/11/08/C-ConveyMode/index.html">
+<meta property="og:site_name" content="猴开发 | 博客">
+<meta property="og:description" content="一、 函数参数传递机制的基本理论&amp;emsp;&amp;emsp;函数参数传递机制问题在本质上是调用函数（过程）和被调用函数（过程）在调用发生时进行通信的方法问题。基本的参数传递机制有两种：值传递和引用传递。以下讨论称调用其他函数的函数为主调函数，被调用的函数为被调函数。 &amp;emsp;&amp;emsp;值传递（passl-by-value）过程中，被调函数的形式参数作为被调函数的局部变量处理，即在堆栈中开辟了内存">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-08-02T02:07:22.019Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ 值传递和引用传递深入探究">
+<meta name="twitter:description" content="一、 函数参数传递机制的基本理论&amp;emsp;&amp;emsp;函数参数传递机制问题在本质上是调用函数（过程）和被调用函数（过程）在调用发生时进行通信的方法问题。基本的参数传递机制有两种：值传递和引用传递。以下讨论称调用其他函数的函数为主调函数，被调用的函数为被调函数。 &amp;emsp;&amp;emsp;值传递（passl-by-value）过程中，被调函数的形式参数作为被调函数的局部变量处理，即在堆栈中开辟了内存">
+
+
+
+
+
+
+  <link rel="canonical" href="http://Sunwish.coding.me/2018/11/08/C-ConveyMode/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>C++ 值传递和引用传递深入探究 | 猴开发 | 博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">猴开发 | 博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+
+    
+      
+        <h1 class="site-subtitle" itemprop="description">积极思考  活跃创造</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-札记">
+    <a href="/series/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-每日一题">
+    <a href="/dailyProblem/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-calendar-check-o"></i> <br />每日一题</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+          <div id="music" style="width: 100%; height: 110px; margin-top: -15px; margin-bottom: 5px;">
+           <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2851637030&auto=0&height=90"></iframe>
+          </div>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/Sunwish" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/11/08/C-ConveyMode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴开发 | 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">C++ 值传递和引用传递深入探究
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+          
+          <span class="post-meta-author-icon">
+            <i class="fa fa-user-o"></i>
+          </span>
+	  
+	  
+	  
+	  <span class="post-meta-author-text">作者 cocohufei</span>
+	  <span class="post-meta-divider">|</span>
+          
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-08 16:09:18" itemprop="dateCreated datePublished" datetime="2018-11-08T16:09:18+08:00">2018-11-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-08-02 10:07:22" itemprop="dateModified" datetime="2022-08-02T10:07:22+08:00">2022-08-02</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/08/C-ConveyMode/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/11/08/C-ConveyMode/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/11/08/C-ConveyMode/" class="leancloud_visitors" data-flag-title="C++ 值传递和引用传递深入探究">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一、-函数参数传递机制的基本理论"><a href="#一、-函数参数传递机制的基本理论" class="headerlink" title="一、 函数参数传递机制的基本理论"></a><strong>一、 函数参数传递机制的基本理论</strong></h3><p>&emsp;&emsp;函数参数传递机制问题在本质上是调用函数（过程）和被调用函数（过程）在调用发生时进行通信的方法问题。基本的参数传递机制有两种：值传递和引用传递。以下讨论称调用其他函数的函数为主调函数，被调用的函数为被调函数。</p>
+<p>&emsp;&emsp;<strong>值传递（passl-by-value）</strong>过程中，被调函数的形式参数作为被调函数的局部变量处理，即在堆栈中开辟了内存空间以存放由主调函数放进来的实参的值，从而成为了实参的一个副本。值传递的特点是被调函数对形式参数的任何操作都是作为局部变量进行，不会影响主调函数的实参变量的值。</p>
+<p>&emsp;&emsp;<strong>引用传递(pass-by-reference)过程中</strong>，被调函数的形式参数虽然也作为局部变量在堆栈中开辟了内存空间，但是这时存放的是由主调函数放进来的实参变量的地址。被调函数对形参的任何操作都被处理成间接寻址，即通过堆栈中存放的地址访问主调函数中的实参变量。正因为如此，被调函数对形参做的任何操作都影响了主调函数中的实参变量。</p>
+<h3 id="二、-C-中的函数参数传递机制"><a href="#二、-C-中的函数参数传递机制" class="headerlink" title="二、 C 中的函数参数传递机制"></a><strong>二、 C 中的函数参数传递机制</strong></h3><p>&emsp;&emsp;在 C 语言中，值传递是唯一可用的参数传递机制。但是据笔者所知，由于受指针变量作为函数参数的影响，有许多朋友还认为这种情况是引用传递。这是错误的。请看下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">int swap(int *x, int *y)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">int temp;</span><br><span class="line"></span><br><span class="line">temp = *x; *x = *y; *y = temp;</span><br><span class="line"></span><br><span class="line">return temp;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">int a = 1, b = 2;</span><br><span class="line"></span><br><span class="line">int *p1 = &amp;a;</span><br><span class="line"></span><br><span class="line">int *p2 = &amp;b;</span><br><span class="line"></span><br><span class="line">swap(p1, p2)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;函数 swap 以两个指针变量作为参数，当 main() 调用 swap 时，是以值传递的方式将指针变量 p1、p2 的值（也就是变量 a、b 的地址）放在了 swap 在堆栈中为形式参数 x、y 开辟的内存单元中。</p>
+<a id="more"></a>
+<p>&emsp;&emsp;<strong>这里我们可以得到以下几点：</strong></p>
+<p>　　1． 进程的堆栈存储区是主调函数和被调函数进行通信的主要区域。</p>
+<p>　　2． C语言中参数是从右向左进栈的。</p>
+<p>　　3． 被调函数使用的堆栈区域结构为：</p>
+<p>　　　　局部变量（如temp）</p>
+<p>　　　　返回地址</p>
+<p>　　　　函数参数</p>
+<p>　　　　低地址</p>
+<p>　　　　高地址</p>
+<p>　　4． 由主调函数在调用后清理堆栈。</p>
+<p>　　5． 函数的返回值一般是放在寄存器中的。</p>
+<p>&emsp;&emsp;<strong>这里尚需补充说明几点：一是参数进栈的方式</strong>。对于内部类型，由于编译器知道各类型变量使用的内存大小故直接使用 push 指令；对于自定义的类型（如 structure），采用从源地址向目的（堆栈区）地址进行字节传送的方式入栈。<strong>二是函数返回值为什么一般放在寄存器中</strong>，这主要是为了支持中断；如果放在堆栈中有可能因为中断而被覆盖。<strong>三是函数的返回值如果很大</strong>，则从堆栈向存放返回值的地址单元（由主调函数在调用前将此地址压栈提供给被调函数）进行字节传送，以达到返回的目的。对于第二和第三点，《Thinking in C++》一书在 第10章 有比较好的阐述。四是一个显而易见的结论，如果在被调函数中返回局部变量的地址是毫无意义的；因为局部变量存于堆栈中，调用结束后堆栈将被清理，这些地址就变得无效了。</p>
+<h3 id="三、-C-中的函数参数传递机制"><a href="#三、-C-中的函数参数传递机制" class="headerlink" title="三、 C++中的函数参数传递机制"></a><strong>三、 C++中的函数参数传递机制</strong></h3><p>&emsp;&emsp;众所周知，在C++中调用函数时有三种参数传递方式：</p>
+<p> （1）传值调用；</p>
+<p> （2）传址调用（传指针）；</p>
+<p> （3）引用传递；</p>
+<p>&emsp;&emsp;实际上，还有一种参数传递方式，就是全局变量传递方式。这里的“全局”变量并不见得就是真正的全局的，所有代码都可以直接访问的，只要这个变量的作用域足够这两个函数访问就可以了，比如一个类中的两个成员函数可以使用一个成员变量实现参数传递，或者使用 static 关键字定义，或者使用 namespace 进行限制等，而这里的成员变量在这种意义上就可以称作是“全局”变量（暂时还没有其它比“全局”更好的词来描述）。当然，可以使用一个类外的真正的全局变量来实现参数传递，但有时并没有必要，从工程上讲，作用域越小越好。这种方式有什么优点呢？</p>
+<p>&emsp;&emsp;效率高！</p>
+<p>&emsp;&emsp;的确，这种效率是所有参数传递方式中效率最高的，比前面三种方式都要高，无论在什么情况下。但这种方式有一个致命的弱点，那就是对多线程的支持不好，如果两个进程同时调用同一个函数，而通过全局变量进行传递参数，该函数就不能够总是得到想要的结果。</p>
+<p><strong>下面再分别讨论上面三种函数传递方式。</strong></p>
+<h4 id="1-功能上"><a href="#1-功能上" class="headerlink" title="1. 功能上"></a>1. 功能上</h4><p>&emsp;&emsp;按值传递在传递的时候，实参被复制了一份，然后在函数体内使用，<strong>函数体内修改参数变量时修改的是实参的一份拷贝</strong>，而实参本身是没有改变的，所以如果想在调用的函数中修改实参的值，使用值传递是不能达到目的的，这时只能使用引用或指针传递。例如，要实现两个数值交换。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void swap(int a  int b) </span><br><span class="line"></span><br><span class="line"> void main()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">     int a=1  b=2 </span><br><span class="line"></span><br><span class="line">     swap(a b) </span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;这样，在 main() 函数中的 a, b 值实际上并没有交换，如果想要交换只能使用指针传递或引用传递，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void swap(int pa  int pb)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;或</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void swap(int&amp;  ra  int&amp;  rb)</span><br></pre></td></tr></table></figure>
+<h4 id="2-传递效率上"><a href="#2-传递效率上" class="headerlink" title="2. 传递效率上"></a>2. 传递效率上</h4><p>&emsp;&emsp;<strong>这里所说传递效率，是说调用被调函数的代码将实参传递到被调函数体内的过程</strong>，正如上面代码中，这个过程就是函数 main() 中的 a, b 传递到函数 swap() 中的过程。这个效率不能一概而论。对于内建的 int, char, short, long, float等4字节或以下的数据类型而言，实际上传递时也只需要传递 1－4 个字节，而使用指针传递时在32位cpu中传递的是32位的指针，4 个字节，都是一条指令，这种情况下值传递和指针传递的效率是一样的，而传递double long, long等8字节的数据时，在 32 位 CPU 中，其传值效率比传递指针要慢，因为8个字节需要2次取完。而在 64 位的 CPU 上，传值和传址的效率是一样的。再说引用传递，这个要看编译器具体实现，引用传递最显然的实现方式是使用指针，这种情况下与指针的效率是一样的，而有些情况下编译器是可以优化的，采用直接寻址的方式，这种情况下，效率比传值调用和传址调用都要快，与上面说的采用全局变量方式传递的效率相当。</p>
+<p>&emsp;&emsp;再说自定义的数据类型，class  struct 定义的数据类型。这些数据类型在进行传值调用时生成临时对象会执行构造函数，而且当临时对象销毁时会执行析构函数，如果构造函数和析构函数执行的任务比较多，或者传递的对象尺寸比较大，那么传值调用的消耗就比较大。这种情况下，采用传址调用和采用传引用调用的效率大多数下相当，正如上面所说，某些情况下引用传递可能被优化，总体效率稍高于传址调用。</p>
+<h4 id="3-执行效率上"><a href="#3-执行效率上" class="headerlink" title="3. 执行效率上"></a>3. 执行效率上</h4><p>&emsp;&emsp;<strong>这里所说的执行效率，是指在被调用的函数体内执行时的效率</strong>。因为传值调用时，当值被传到函数体内，临时对象生成以后，所有的执行任务都是通过直接寻址的方式执行的，而指针和大多数情况下的引用则是以间接寻址的方式执行的，所以实际的执行效率会比传值调用要低。如果函数体内对参数传过来的变量进行操作比较频繁，执行总次数又多的情况下，传址调用和大多数情况下的引用参数传递会造成比较明显的执行效率损失。</p>
+<p>&emsp;&emsp;综合 2、3 两种情况，具体的执行效率要结合实际情况，通过比较传递过程的资源消耗和执行函数体消耗之和来选择哪种情况比较合适。<strong>而就引用传递和指针传递的效率上比，引用传递的效率始终不低于指针传递，所以从这种意义上讲，在 C++ 中进行参数传递时优先使用引用传递而不是指针</strong>。</p>
+<h4 id="4-类型安全上"><a href="#4-类型安全上" class="headerlink" title="4. 类型安全上"></a>4. 类型安全上</h4><p>&emsp;&emsp;值传递与引用传递在参数传递过程中都执行强类型检查，而指针传递的类型检查较弱，特别地，如果参数被声明为 void ，那么它基本上没有类型检查，只要是指针，编译器就认为是合法的，所以这给bug的产生制造了机会，使程序的健壮性稍差，如果没有必要，就使用值传递和引用传递，最好不用指针传递，更好地利用编译器的类型检查，使得我们有更少的出错机会，以增加代码的健壮性。</p>
+<p>&emsp;&emsp;<strong>这里有个特殊情况，就是对于多态的情况</strong>，如果形参是父类，而实参是子类，在进行值传递的时候，临时对象构造时只会构造父类的部分，是一个纯粹的父类对象，而不会构造子类的任何特有的部分，因为办有虚的析构函数，而没有虚的构造函数，这一点是要注意的。如果想在被调函数中通过调用虚函数获得一些子类特有的行为，这是不能实现的。</p>
+<h4 id="5-参数检查上"><a href="#5-参数检查上" class="headerlink" title="5. 参数检查上"></a>5. 参数检查上</h4><p>&emsp;&emsp;一个健壮的函数，总会对传递来的参数进行参数检查，保证输入数据的合法性，以防止对数据的破坏并且更好地控制程序按期望的方向运行，在这种情况下使用值传递比使用指针传递要安全得多，因为你不可能传一个不存在的值给值参数或引用参数，而使用指针就可能，很可能传来的是一个非法的地址（没有初始化，指向已经delete掉的对象的指针等）。所以使用值传递和引用传递会使你的代码更健壮，具体是使用引用还是使用，<strong>最简单的一个原则就是看传递的是不是内建的数据类型，对内建的数据类型优先使用值传递，而对于自定义的数据类型，特别是传递较大的对象，那么请使用引用传递。</strong></p>
+<h4 id="6-灵活性上"><a href="#6-灵活性上" class="headerlink" title="6. 灵活性上"></a>6. 灵活性上</h4><p>&emsp;&emsp;无疑，指针是最灵活的，因为指针除了可以像值传递和引用传递那样传递一个特定类型的对象外，还可以传递空指针，不传递任何对象。指针的这种优点使它大有用武之地，比如标准库里的 time() 函数，你可以传递一个指针给它，把时间值填到指定的地址，你也可以传递一个空指针而只要返回值。</p>
+<h3 id="四、共有技术"><a href="#四、共有技术" class="headerlink" title="四、共有技术"></a><strong>四、共有技术</strong></h3><p>&emsp;&emsp;以上讨论了四种参数传递方式的优缺点，下面再讨论一下在参数传递过程中一些共同的有用的技术。</p>
+<h4 id="1-const-关键字"><a href="#1-const-关键字" class="headerlink" title="1. const 关键字"></a>1. const 关键字</h4><p>&emsp;&emsp;当你的参数是作为输入参数时，你总不希望你的输入参数被修改，否则有可能产生逻辑错误，这时可以在声明函数时在参数前加上 const 关键字，防止在实现时意外修改函数输入，对于使用你的代码的程序员也可以告诉他们这个参数是输入，而不加 const 关键字的参数也可能是输出。例如 strlen，你可以这样声明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int strlen(char str)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;功能上肯定没有什么问题，但是你想告诉使用该函数的人，参数 str 是一个输入参数，它指向的数据是不能被修改的，这也是他们期望的，总不会有人希望在请人给他数钱的时候，里面有张 100 的变成 10 块的了，或者真钞变成假钞了，他们希望有一个保证，说该函数不会破坏你的任何数据，声明按如下方式便可让他们放心：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int strlen(const char str)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;可不可以给 str 本身也加一个限制呢，如果把地址改了数得的结果不就错了吗？总得给人点儿自由吧，只要它帮你数钱就行了，何必介意他怎么数呢？只要不破坏你的钱就 ok 了，如果给 str 一个限制，就会出现问题了，按照上面的声明，可以这样实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">int strlen(const char str)</span><br><span class="line"></span><br><span class="line"> &#123;</span><br><span class="line">	int cnt </span><br><span class="line"></span><br><span class="line">	if( !str) return 0 </span><br><span class="line"></span><br><span class="line">      cnt = 0 </span><br><span class="line"></span><br><span class="line">      while( (str++) )&#123;</span><br><span class="line"></span><br><span class="line">         ++cnt </span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     return cnt </span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;可是，如果你硬要把声明改成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int strlen(const char const str)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;上面的函数肯定就运行不了了，只能改用其它的实现方式，但这个不是太有必要。只要我们保护好我们的钱就行了，如果它数不对，下次我次不让它数，再换个人就是了。</p>
+<p>&emsp;&emsp;对于成员函数，如果我们要显示给客户代码说某个成员函数不会修改该对象的值，只会读取某些内容，也可以在该函数声明中加一个 const.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class    person</span><br><span class="line"></span><br><span class="line">&#123;......</span><br><span class="line"></span><br><span class="line">  public:</span><br><span class="line"></span><br><span class="line">    unsigned char age( void ) const   // 看到const就放心了，这个函数肯定不会修改m_age</span><br><span class="line"></span><br><span class="line">  private:</span><br><span class="line"></span><br><span class="line">    unsigned char m_age    // 我认为这个类型已经足够长了，如果觉得不改可以改为unsigned long</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-默认值"><a href="#2-默认值" class="headerlink" title="2. 默认值"></a>2. 默认值</h4><p>&emsp;&emsp;个人认为给参数添加一个默认值是一个很方便的特性，非常好用，这样你就可以定义一个具有好几个参数的函数，然后给那些不常用的参数一些默认值，客户代码如果认为那些默认值正是他们想要的，调用函数时只需要填一些必要的实参就行了，非常方便，这样就省去了重载好几个函数的麻烦。可是我不明白 C# 为什么把这个特性给去掉了，可能是为了安全，这样就要求每次调用函数时都要显示地给函数赋实参。所以要注意，这可是个双刃剑，如果想用使刀的招跟对手武斗，很可能伤到自己。</p>
+<h4 id="3-参数顺序"><a href="#3-参数顺序" class="headerlink" title="3. 参数顺序"></a>3. 参数顺序</h4><p>&emsp;&emsp;当同个函数名有不同参数时，如果有相同的参数尽量要把参数放在同一位置上，以方便客户端代码。</p>
+<p>&emsp;&emsp;C++ 中经常使用的是常量引用，如将 swap2 改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Swap2(const int&amp; x; const int&amp; y)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;这时将不能在函数中修改引用地址所指向的内容，具体来说，x 和 y 将不能出现在”＝”的左边。</p>
+<p>原文地址：<a href="http://blog.csdn.net/cocohufei/article/details/6143476" target="_blank" rel="noopener">http://blog.csdn.net/cocohufei/article/details/6143476</a></p>
+<center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果你觉得文章内容对你有帮助，可以打赏支持一下哦！<br/></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Sunwish 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        ﻿
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CPP/" rel="tag"><i class="fa fa-tag"></i> CPP</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/05/Robot-Nao-03/" rel="next" title="【Nao-03】 Naoqi APIs 架构概览 & Hello World！">
+                <i class="fa fa-chevron-left"></i> 【Nao-03】 Naoqi APIs 架构概览 & Hello World！
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/08/Robot-Nao-04/" rel="prev" title="【Nao-04】 Naoqi Framework & Broker & Proxy & Modules">
+                【Nao-04】 Naoqi Framework & Broker & Proxy & Modules <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+
+    <div class="sidebar-inner">
+      
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sunwish</p>
+              <p class="site-description motion-element" itemprop="description">个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sunwish.houkaifa.com/" title="Sunwish" target="_blank">Sunwish</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alterful.com/" title="Alterful" target="_blank">Alterful</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://easecurve.houkaifa.com/" title="Easecurve" target="_blank">Easecurve</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+          
+            
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、-函数参数传递机制的基本理论"><span class="nav-text">一、 函数参数传递机制的基本理论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、-C-中的函数参数传递机制"><span class="nav-text">二、 C 中的函数参数传递机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、-C-中的函数参数传递机制"><span class="nav-text">三、 C++中的函数参数传递机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-功能上"><span class="nav-text">1. 功能上</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-传递效率上"><span class="nav-text">2. 传递效率上</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-执行效率上"><span class="nav-text">3. 执行效率上</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-类型安全上"><span class="nav-text">4. 类型安全上</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-参数检查上"><span class="nav-text">5. 参数检查上</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-灵活性上"><span class="nav-text">6. 灵活性上</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、共有技术"><span class="nav-text">四、共有技术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-const-关键字"><span class="nav-text">1. const 关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-默认值"><span class="nav-text">2. 默认值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-参数顺序"><span class="nav-text">3. 参数顺序</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+          
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sunwish</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 108.4k 字</span>
+</div>
+
+<!--
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+-->
+<span class="post-meta-divider">|</span>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count"><a href="http://beian.miit.gov.cn/" target="_blank">赣ICP备2022001064号-2</a></span>
+</div>
+
+
+<div>
+    <span id="busuanzi_container_site_uv"><i class="fa fa-user"></i> 本站访客<span id="busuanzi_value_site_uv"></span>人次</span>
+    <span class="post-meta-divider">|</span>
+    <span class="site-pv"><i class="fa fa-eye"></i> 总阅读量: <span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+    <!--
+    <span class="post-meta-divider">|</span>
+    <span class="site-uv"><i class="fa fa-user"></i> 访问人数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+    -->
+</div>
+<script src="./js/src/pvuvfix.js"></script>
+
+
+
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65941008";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <!--<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>-->
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sa3sYJwnqEBnYDpS7VFT70ya-gzGzoHsz',
+        appKey: 'TPHHBKrFtoGkcocnjqN78Fue',
+        placeholder: 'ヾﾉ≧∀≦)o 文章看完啦，别吝啬你的观点哦',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: true
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 15694#<app_id>,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
+

@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+<!--<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>-->
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "bf6ac372"
+    });
+  daovoice('update');
+  </script>
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+<!--<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>-->
+<!--<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">-->
+<script src="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/themes/black/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="为了进一步学习的需要，这周一准备装上 win10+ubuntu 双系统，但中途出现了各种问题，经反复重装、网上找资料前前后后三天，终于成功安装。虽然之前已在虚拟机中装过了 Kali Linux 和 Ubuntu，但原生体验非常差，因此打算安装双系统。一方面沉浸感更强，体验更好，另一方面，凑一方面。本篇记录了安装流程，以及安装过程中遇到的问题和解决办法。    环境: win10 (GPT + U">
+<meta name="keywords" content="Ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记一次艰难的 Ubuntu 双系统安装过程及问题的解决">
+<meta property="og:url" content="http://Sunwish.coding.me/2018/12/08/ubuntuInstall/index.html">
+<meta property="og:site_name" content="猴开发 | 博客">
+<meta property="og:description" content="为了进一步学习的需要，这周一准备装上 win10+ubuntu 双系统，但中途出现了各种问题，经反复重装、网上找资料前前后后三天，终于成功安装。虽然之前已在虚拟机中装过了 Kali Linux 和 Ubuntu，但原生体验非常差，因此打算安装双系统。一方面沉浸感更强，体验更好，另一方面，凑一方面。本篇记录了安装流程，以及安装过程中遇到的问题和解决办法。    环境: win10 (GPT + U">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/0.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/a.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/b.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/1.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/2.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/3.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/4.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/5.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/6.png">
+<meta property="og:updated_time" content="2022-08-02T02:07:22.251Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记一次艰难的 Ubuntu 双系统安装过程及问题的解决">
+<meta name="twitter:description" content="为了进一步学习的需要，这周一准备装上 win10+ubuntu 双系统，但中途出现了各种问题，经反复重装、网上找资料前前后后三天，终于成功安装。虽然之前已在虚拟机中装过了 Kali Linux 和 Ubuntu，但原生体验非常差，因此打算安装双系统。一方面沉浸感更强，体验更好，另一方面，凑一方面。本篇记录了安装流程，以及安装过程中遇到的问题和解决办法。    环境: win10 (GPT + U">
+<meta name="twitter:image" content="http://sunwish.coding.me/2018/12/08/ubuntuInstall/0.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://Sunwish.coding.me/2018/12/08/ubuntuInstall/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>记一次艰难的 Ubuntu 双系统安装过程及问题的解决 | 猴开发 | 博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">猴开发 | 博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+
+    
+      
+        <h1 class="site-subtitle" itemprop="description">积极思考  活跃创造</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-札记">
+    <a href="/series/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-每日一题">
+    <a href="/dailyProblem/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-calendar-check-o"></i> <br />每日一题</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+          <div id="music" style="width: 100%; height: 110px; margin-top: -15px; margin-bottom: 5px;">
+           <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2851637030&auto=0&height=90"></iframe>
+          </div>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/Sunwish" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/12/08/ubuntuInstall/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴开发 | 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">记一次艰难的 Ubuntu 双系统安装过程及问题的解决
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+          
+          <span class="post-meta-author-icon">
+            <i class="fa fa-user-o"></i>
+          </span>
+	  
+	  
+          
+	  <span class="post-meta-author-text">作者 Sunwish</span>
+	  <span class="post-meta-divider">|</span>
+          
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-08 06:51:29" itemprop="dateCreated datePublished" datetime="2018-12-08T06:51:29+08:00">2018-12-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-08-02 10:07:22" itemprop="dateModified" datetime="2022-08-02T10:07:22+08:00">2022-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/沿途简记/" itemprop="url" rel="index"><span itemprop="name">沿途简记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/08/ubuntuInstall/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/12/08/ubuntuInstall/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/12/08/ubuntuInstall/" class="leancloud_visitors" data-flag-title="记一次艰难的 Ubuntu 双系统安装过程及问题的解决">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>为了进一步学习的需要，这周一准备装上 win10+ubuntu 双系统，但中途出现了各种问题，经反复重装、网上找资料前前后后三天，终于成功安装。虽然之前已在虚拟机中装过了 Kali Linux 和 Ubuntu，但原生体验非常差，因此打算安装双系统。一方面沉浸感更强，体验更好，另一方面，凑一方面。<br>本篇记录了安装流程，以及安装过程中遇到的问题和解决办法。</p>
+</blockquote>
+<p><img src="/2018/12/08/ubuntuInstall/0.jpg" alt=""></p>
+<hr>
+<h2 id="环境-win10-GPT-UEFI"><a href="#环境-win10-GPT-UEFI" class="headerlink" title="环境: win10 (GPT + UEFI)"></a>环境: win10 (GPT + UEFI)</h2><hr>
+<h2 id="Part-I-准备工作"><a href="#Part-I-准备工作" class="headerlink" title="Part I 准备工作"></a>Part I 准备工作</h2><h3 id="一、制作-U-盘启动盘"><a href="#一、制作-U-盘启动盘" class="headerlink" title="一、制作 U 盘启动盘"></a>一、制作 U 盘启动盘</h3><p>&emsp;&emsp;首先准备 U 盘一个，并下载好你要安装的 Ubuntu 系统镜像文件，在此用官方推荐的 <strong>Rufus</strong> 工具制作 U 盘启动盘。<br>&emsp;&emsp;电脑插上 U 盘之后，Rufus 就会自动检测并给出默认的配置信息，其中磁盘分区模式选择 GPT，目标系统类型为 UEFI（近两年的新电脑一般都是 GPT + UEFI，当然不排除你的电脑是 MBR + LEGACY，如果是的话就对应选择好，参考对应文章安装）</p>
+<a id="more"></a>
+<blockquote>
+<p>注：下图是我已经制作好了 U 盘启动盘后的 Rufus 界面截图，因此分区类型和目标系统类型是灰色的，开始按钮也是禁止状态，由此也可以看出，我制作的 U 盘是 GPT 分区类型，系统类型为 UEFI。</p>
+</blockquote>
+<p><img src="/2018/12/08/ubuntuInstall/a.jpg" alt=""></p>
+<p><strong>切记提前备份 U 盘数据，制作启动盘 U 盘原数据将被全部抹除</strong></p>
+<p>开始后会接连弹出好几个警告，一路默认是就好。等待一小会进度条跑满后就制作完成，可以关闭 Refus 了。</p>
+<h3 id="二、磁盘空间分配"><a href="#二、磁盘空间分配" class="headerlink" title="二、磁盘空间分配"></a>二、磁盘空间分配</h3><p>&emsp;&emsp;下面为 Ubuntu 系统分配磁盘空间。</p>
+<p>&emsp;&emsp;win+x 打开磁盘管理工具，可以看到已有的磁盘信息，选择你想要提取空间的磁盘右键-&gt;压缩卷，设置好你想压缩的大小后点确定。压缩完成后可以看到电脑上多出了一块未分配磁盘，这里我是从机械硬盘分了 120G 出来，这样就完成分配了。<br>&emsp;&emsp;这里分完之后就不要动其他了，后续在安装时我们再做具体的分区。</p>
+<blockquote>
+<p>注：下图是我已经安装好了双系统之后回到 win 截的图，所以有很多盘并且没有分出来的空卷，你电脑上应该只有 C/D/E/F 这些盘，压缩出来的卷叫做“未分配”。</p>
+</blockquote>
+<p><img src="/2018/12/08/ubuntuInstall/b.jpg" alt=""></p>
+<h3 id="三、BIOS-设置"><a href="#三、BIOS-设置" class="headerlink" title="三、BIOS 设置"></a>三、BIOS 设置</h3><p>&emsp;&emsp;插上之前制作好的 U 盘，下面我们重启电脑，在出现电脑品牌 Logo时按 F2 进入 BIOS 界面（一般是 F2，如果不是的话就试试其他 F 键，还有些电脑是 Delete 键），主要做以下两点设置：</p>
+<ol>
+<li><p><strong>设置第一启动项为你的 U 盘</strong></p>
+<blockquote>
+<p>当然你可以参考网上其他 U 盘启动方法，这里我们在 BIOS 的 Boot 页面，找到 Boot Opition，将你的 U 盘调整到第一项即可。  </p>
+</blockquote>
+</li>
+<li><p><strong>关闭 Secure Boot 选项</strong></p>
+<blockquote>
+<p>在 BIOS 页面的 Advance 页面，找到 Secure Boot，修改为 Disable 即可，不同机器 Secure Boot 所在的页面或许有所区别，找找就好了。这一步关闭安全启动是为了 Ubuntu 系统能正常写入磁盘。  </p>
+</blockquote>
+</li>
+</ol>
+<p>&emsp;&emsp;上面两点完成后就可以保存并重启了，下面进入安装工作。</p>
+<hr>
+<h2 id="Part-II-安装工作"><a href="#Part-II-安装工作" class="headerlink" title="Part II 安装工作"></a>Part II 安装工作</h2><p>&emsp;&emsp;完成上述工作后，正常情况下重启你将进入 Ubuntu 的引导界面，第一项是体验而不安装，第二项是安装 Ubuntu，第三项是 OEM 安装，选第一或第二项都行，这里我们直接选 <strong>Install Ubuntu</strong> 进入安装界面。<br>&emsp;&emsp;前面都是常规的安装流程，可以不连接 wifi，第三方库也不用安装，关键在分区部分，网上已经有大量关于 Ubuntu 分区的介绍和建议，因此这里给出我自己的分配仅做参考：</p>
+<ul>
+<li>EFI - 逻辑分区 - 512MB</li>
+<li>SWAP (交换空间) - 主分区 - 8G</li>
+<li>/home - 主分区 - 30G</li>
+<li>/usr - 主分区 - 75G</li>
+<li>/ - 主分区 - 8G</li>
+</ul>
+<blockquote>
+<p>完成分区后，下方的安装启动引导启的设备 <strong>务必选择 EFI 分区对应的设备！</strong>  </p>
+</blockquote>
+<p><img src="/2018/12/08/ubuntuInstall/1.png" alt=""></p>
+<p>&emsp;&emsp;多看两眼确认后，点击现在安装，之后地点默认 Shanghai 就行了，设置好用户名和密码，下面就是等待完成安装了。完成安装会让你重启，拔掉 U 盘后重启即可。这时注意，我们还要进一次 BIOS，主要做以下两件事：</p>
+<ol>
+<li><p><strong>将第一启动项设置回之前的</strong></p>
+<blockquote>
+<p>你不调回来也行，不过还是建议在工作完成后将设置复位。  </p>
+</blockquote>
+</li>
+<li><p><strong>系统启动顺序选择 Ubuntu</strong></p>
+<blockquote>
+<p>这里你的 BIOS 中可能没有这一项设置，并且重启没有出现 grub 界面直接进入了 win 系统，那么请参考网上其他文章进行 UEFI 启动引导。  </p>
+</blockquote>
+</li>
+</ol>
+<p>&emsp;&emsp;如果至此你能正常进入系统，且系统环境一切正常的话，那么恭喜你，顺利完成了 win + ubuntu 双系统安装，下面可以参考 Part IIII 中的推荐文章进行系统美化及进一步配置了；<br>若不然，下文列出了我在安装过程中所遇到的问题及解决办法，供参考。</p>
+<hr>
+<h2 id="Part-III-中途问题"><a href="#Part-III-中途问题" class="headerlink" title="Part III 中途问题"></a>Part III 中途问题</h2><h3 id="一、INFO-task-xxxxxx-634-blocked-for-more-than-120-seconds"><a href="#一、INFO-task-xxxxxx-634-blocked-for-more-than-120-seconds" class="headerlink" title="一、INFO: task xxxxxx: 634 blocked for more than 120 seconds."></a>一、INFO: task xxxxxx: 634 blocked for more than 120 seconds.</h3><p><img src="/2018/12/08/ubuntuInstall/2.png" alt=""></p>
+<p>&emsp;&emsp;装完系统后，点击现在重启，直接卡住不动了，于是按电源键强制关机再开，卡在纯色暗紫屏，再重启及之后，都是如图所示的状态，错误信息大体是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO: task xxxxxx: 634 blocked for more than 120 seconds.</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;网上找了很多文章和帖子，比较一致的观点是：</p>
+<blockquote>
+<p>默认情况下， Linux会最多使用40%的可用内存作为文件系统缓存。当超过这个阈值后，文件系统会把将缓存中的内存全部写入磁盘， 导致后续的IO请求都是同步的。将缓存写入磁盘时，有一个默认120秒的超时时间。 出现上面的问题的原因是IO子系统的处理速度不够快，不能在120秒将缓存中的数据全部写入磁盘。IO系统响应缓慢，导致越来越多的请求堆积，最终系统内存全部被占用，导致系统失去响应。</p>
+</blockquote>
+<p><strong>解决办法：</strong></p>
+<h4 id="STEP-1-进入-shell"><a href="#STEP-1-进入-shell" class="headerlink" title="STEP 1. 进入 shell"></a>STEP 1. 进入 shell</h4><ol>
+<li><p>重启系统，按住 shift 键，来到 grub 界面</p>
+</li>
+<li><p>选择 <strong>ubuntu 高级选项</strong>，高亮移动到 <strong>recovery mode</strong> 那项</p>
+</li>
+<li><p>将 linux 那行的 ro 修改为 rw，即可写</p>
+<blockquote>
+<p>若以 ro 进入系统，文件系统将只是可读状态，无法修改内容<br><img src="/2018/12/08/ubuntuInstall/3.png" alt=""></p>
+</blockquote>
+</li>
+<li><p>之后 Ctrl + X 或 F10 引导进入如下界面。<br><img src="/2018/12/08/ubuntuInstall/4.png" alt=""></p>
+</li>
+</ol>
+<p>移至 <strong>root Drop to root shell prompt</strong> 那一行后按 Tab 键使光标移到 ok，然后回车即以 root 用户进入 ubuntu 系统，在窗口最下面即可输入命令。</p>
+<h4 id="STEP-2-临时修改-ratio，缩小文件系统缓存大小："><a href="#STEP-2-临时修改-ratio，缩小文件系统缓存大小：" class="headerlink" title="STEP 2. 临时修改 ratio，缩小文件系统缓存大小："></a>STEP 2. 临时修改 ratio，缩小文件系统缓存大小：</h4><ol>
+<li>在 shell 终端输入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -a | grep dirty</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="/2018/12/08/ubuntuInstall/5.png" alt=""></p>
+<blockquote>
+<p>可以看到当前的设置为： vm.dirty_background_ratio = 10，vm.dirty_ratio = 20，并导致了我们遇到的错误。</p>
+</blockquote>
+<ol>
+<li>输入下面两条命令将值修改为 10 和 5。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./sbin/sysctl -w vm.dirty_ratio=10  </span><br><span class="line">./sbin/sysctl -w vm.dirty_background_ratio=5  `</span><br></pre></td></tr></table></figure>
+<ol>
+<li>改完后 ctrl+d 继续正常启动</li>
+</ol>
+<h4 id="STEP-3-永久修改"><a href="#STEP-3-永久修改" class="headerlink" title="STEP 3. 永久修改"></a>STEP 3. 永久修改</h4><p>&emsp;&emsp;终于进系统了，不过这是 recovery mode，并且刚才的修改只是临时操作，重启后还是会出现相同的问题。<br>为了一劳永逸，下面修改内核配置，以后就可以正常进系统了。</p>
+<ol>
+<li>Ctrl + Alt + T 打开终端</li>
+<li>cd 进入 /etc 目录</li>
+<li>sudo 编辑 <strong>sysctl.conf</strong> 文件</li>
+<li><p>在最后添加下面代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vm.dirty_background_ratio = 5</span><br><span class="line">vm.dirty_ratio = 10</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保存后重启系统，不再出现此错误了。</p>
+</li>
+</ol>
+<h3 id="二、问题一成功跑过了，紧接着又是卡logo问题："><a href="#二、问题一成功跑过了，紧接着又是卡logo问题：" class="headerlink" title="二、问题一成功跑过了，紧接着又是卡logo问题："></a>二、问题一成功跑过了，紧接着又是卡logo问题：</h3><p><img src="/2018/12/08/ubuntuInstall/6.png" alt=""></p>
+<p>原因：</p>
+<blockquote>
+<p>一般是显卡驱动原因。  </p>
+</blockquote>
+<p>&emsp;&emsp;解决过程：</p>
+<ol>
+<li><p>开机，在选择系统时，光标选中Ubuntu然后按下键盘的E键进入编辑模式，选择对Ubuntu进行编辑，找到“linux”，在本段的最后面加上 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acpi_osi=linux nomodeset</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>附其他代码（显卡品牌）：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">acpi_osi=linux nomodeset (NVIDIA)   </span><br><span class="line">acpi_osi=linux i915.modeset=1 (Intel)   </span><br><span class="line">acpi_osi=linux xforcevesa (AMD)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接着按F10保存并启动，就可以进入系统了。  </p>
+</li>
+<li>但是，这样有一个缺点，每次开始的时候都要重复以上操作，非常浪费时间。所在在进入Ubuntu之后，找到/boot/grub/grub.cfg 打开文件，找到刚刚修改的内容，加上相同的代码，保存就可以了。  </li>
+</ol>
+<h3 id="三、紧接着分辨率问题（只有800-600这一项分辨率选择）"><a href="#三、紧接着分辨率问题（只有800-600这一项分辨率选择）" class="headerlink" title="三、紧接着分辨率问题（只有800*600这一项分辨率选择）"></a>三、紧接着分辨率问题（只有800*600这一项分辨率选择）</h3><p>&emsp;&emsp;按正常来说，设置当中应该可以设置分辨率，但是发现只有 800x600 的选项，按照网上说的终端敲 xrandr 查看信息，发现直接失败了，应该是显卡驱动的问题。做到这一步已经比较不耐烦了，不想再折腾，因此找到一个简单粗暴的解决方法：</p>
+<ol>
+<li>sudo 编辑 _etc_default/grub</li>
+<li>找到 GRUB_GFXMODE=800x600</li>
+<li>修改为你想要的分辨率</li>
+<li><strong>去掉前面的注释符号“#”</strong><blockquote>
+<p>自己之前因为没注意到前面有个注释符，做完之后分辨率还是老样子，于是又折腾了好久，之后才发现，去掉后完美解决，我晕。  </p>
+</blockquote>
+</li>
+<li><p>立即更新:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub sudo update-grub</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启，问题解决。</p>
+</li>
+</ol>
+<h3 id="四、接着是登录界面循环进不了系统"><a href="#四、接着是登录界面循环进不了系统" class="headerlink" title="四、接着是登录界面循环进不了系统"></a>四、接着是登录界面循环进不了系统</h3><p>&emsp;&emsp;这个问题直接重装显卡驱动就好，包括开机黑屏也是这样操作，参考博客（注意提前准备好.run驱动文件）：</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/ssmixi/article/details/73483795" target="_blank" rel="noopener">https://blog.csdn.net/ssmixi/article/details/73483795</a>  </p>
+</blockquote>
+<h3 id="五、后续（升级问题）"><a href="#五、后续（升级问题）" class="headerlink" title="五、后续（升级问题）"></a>五、后续（升级问题）</h3><p>&emsp;&emsp;由于前期装 Ubuntu18.04 一直装不上（就是问题一的情况，当时没找到解决办法，摊手），后续就改装 Ubuntu 16.04 了，最终装完之后还是想升级到 18.04，可是当系统提示升级，自己同意升级后系统却报内部错误，升级不了，我滴个乖乖，怕不是要我再重装个 18.04？<br>还好还好，在捣鼓了一番之后发现，打开软件更新，会自动检测并让你更新核心组件，更新完成之后重启，便可以正常升级系统了。<br>&emsp;&emsp;经过几个小时的漫长等待，系统升级完成，没有遇到任何错误，至此，w+b双系统安装工作，终于告一段落，撒花。</p>
+<h3 id="六、番外篇"><a href="#六、番外篇" class="headerlink" title="六、番外篇"></a>六、番外篇</h3><p>&emsp;&emsp;不知是何种神秘力量所致，1050 Ti 的显卡装完后发现显示掉帧严重，拖动窗口、浏览网页画面也有撕裂问题，并且所有的动画效果都消失了（如最小化窗口没有缩放效果而是直接消失，自动隐藏侧边也没有移入移出效果而是直接显示直接消失），极度影响使用体验，网上也没找到相关问题，尤其是动画效果问题好像压根没人问，是大家都没遇到这个问题，还是说压根就不在乎，我也不清楚，但本人一向对交互体验要求非常高，而这个问题目前还没解决，应该也是由显卡驱动导致的，因此有时间的话会卸掉目前的 nvidia 410，降一级驱动试试水，解决之后再来更新。</p>
+<hr>
+<h2 id="Part-IIII-参考文章及推荐阅读"><a href="#Part-IIII-参考文章及推荐阅读" class="headerlink" title="Part IIII 参考文章及推荐阅读"></a>Part IIII 参考文章及推荐阅读</h2><h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ul>
+<li><a href="http://www.cnblogs.com/wshenjin/p/7093505.html" target="_blank" rel="noopener">Linux系统出现hung_task_timeout_secs和blocked for more than 120 seconds的解决方法</a></li>
+<li><a href="https://blog.csdn.net/u012160436/article/details/48182009" target="_blank" rel="noopener">ubuntu14.04.2在grub界面中以单用户模式进入系统</a></li>
+<li><a href="https://blog.csdn.net/electrocrazy/article/details/79377214" target="_blank" rel="noopener">linux 出错 “INFO: task xxxxxx: 634 blocked for more than 120 seconds.”的3种解决方案</a></li>
+<li><a href="https://blog.csdn.net/ssmixi/article/details/73483795" target="_blank" rel="noopener">Ubuntu 16.04 用户登录界面死循环问题的解决</a></li>
+<li><a href="https://www.jianshu.com/p/764edaff301e" target="_blank" rel="noopener">Ubuntu16.04+Cuda8.0+Theano深度学习环境搭建一</a></li>
+</ul>
+<h3 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h3><ul>
+<li><a href="http://www.cnblogs.com/lishanlei/p/9090404.html" target="_blank" rel="noopener">Ubuntu18.04美化主题(mac主题)</a></li>
+<li><a href="http://www.cnblogs.com/howdop/p/5398781.html" target="_blank" rel="noopener">Ubuntu常用软件合集</a></li>
+</ul>
+<h3 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h3><ul>
+<li><a href="https://houkaifa.com/2019/08/15/ubuntu-uninstall/" target="_blank" rel="noopener">如何科学卸载 Ubuntu？</a></li>
+<li><a href="https://houkaifa.com/2019/08/27/bcdedit-clean-bootmenu/" target="_blank" rel="noopener">Bcdedit 删除 Boot Menu 中的多余启动引导</a></li>
+</ul>
+<center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果你觉得文章内容对你有帮助，可以打赏支持一下哦！<br/></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Sunwish 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        ﻿
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Ubuntu/" rel="tag"><i class="fa fa-tag"></i> Ubuntu</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/27/CUMCM-PITY/" rel="next" title="遗憾！">
+                <i class="fa fa-chevron-left"></i> 遗憾！
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/15/faceDetact/" rel="prev" title="基于HSV肤色提取与连通区域过滤的人脸定位算法（Matlab）">
+                基于HSV肤色提取与连通区域过滤的人脸定位算法（Matlab） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+
+    <div class="sidebar-inner">
+      
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sunwish</p>
+              <p class="site-description motion-element" itemprop="description">个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sunwish.houkaifa.com/" title="Sunwish" target="_blank">Sunwish</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alterful.com/" title="Alterful" target="_blank">Alterful</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://easecurve.houkaifa.com/" title="Easecurve" target="_blank">Easecurve</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+          
+            
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境-win10-GPT-UEFI"><span class="nav-text">环境: win10 (GPT + UEFI)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-I-准备工作"><span class="nav-text">Part I 准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、制作-U-盘启动盘"><span class="nav-text">一、制作 U 盘启动盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、磁盘空间分配"><span class="nav-text">二、磁盘空间分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、BIOS-设置"><span class="nav-text">三、BIOS 设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-II-安装工作"><span class="nav-text">Part II 安装工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-III-中途问题"><span class="nav-text">Part III 中途问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、INFO-task-xxxxxx-634-blocked-for-more-than-120-seconds"><span class="nav-text">一、INFO: task xxxxxx: 634 blocked for more than 120 seconds.</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#STEP-1-进入-shell"><span class="nav-text">STEP 1. 进入 shell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#STEP-2-临时修改-ratio，缩小文件系统缓存大小："><span class="nav-text">STEP 2. 临时修改 ratio，缩小文件系统缓存大小：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#STEP-3-永久修改"><span class="nav-text">STEP 3. 永久修改</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、问题一成功跑过了，紧接着又是卡logo问题："><span class="nav-text">二、问题一成功跑过了，紧接着又是卡logo问题：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、紧接着分辨率问题（只有800-600这一项分辨率选择）"><span class="nav-text">三、紧接着分辨率问题（只有800*600这一项分辨率选择）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、接着是登录界面循环进不了系统"><span class="nav-text">四、接着是登录界面循环进不了系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、后续（升级问题）"><span class="nav-text">五、后续（升级问题）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、番外篇"><span class="nav-text">六、番外篇</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-IIII-参考文章及推荐阅读"><span class="nav-text">Part IIII 参考文章及推荐阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文章"><span class="nav-text">参考文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推荐阅读"><span class="nav-text">推荐阅读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关阅读"><span class="nav-text">相关阅读</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+          
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sunwish</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 108.4k 字</span>
+</div>
+
+<!--
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+-->
+<span class="post-meta-divider">|</span>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count"><a href="http://beian.miit.gov.cn/" target="_blank">赣ICP备2022001064号-2</a></span>
+</div>
+
+
+<div>
+    <span id="busuanzi_container_site_uv"><i class="fa fa-user"></i> 本站访客<span id="busuanzi_value_site_uv"></span>人次</span>
+    <span class="post-meta-divider">|</span>
+    <span class="site-pv"><i class="fa fa-eye"></i> 总阅读量: <span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+    <!--
+    <span class="post-meta-divider">|</span>
+    <span class="site-uv"><i class="fa fa-user"></i> 访问人数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+    -->
+</div>
+<script src="./js/src/pvuvfix.js"></script>
+
+
+
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65941008";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <!--<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>-->
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sa3sYJwnqEBnYDpS7VFT70ya-gzGzoHsz',
+        appKey: 'TPHHBKrFtoGkcocnjqN78Fue',
+        placeholder: 'ヾﾉ≧∀≦)o 文章看完啦，别吝啬你的观点哦',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: true
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 15694#<app_id>,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
+

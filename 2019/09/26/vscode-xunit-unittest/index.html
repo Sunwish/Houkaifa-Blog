@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+<!--<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>-->
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "bf6ac372"
+    });
+  daovoice('update');
+  </script>
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+<!--<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>-->
+<!--<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">-->
+<script src="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/themes/black/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="概述 什么是单元测试？为什么要写单元测试？如何写一个单元测试？实话实说，写单元测试是一件挺麻烦的事情，却又是你在软件开发的成长路上难以回避的一个问题。我个人在以前也并不喜欢单元测试，不过现在我的态度有所改观了。如果本文所写的内容可以让你理解单元测试的重要性，并且说服你在今后也开始尝试编写单元测试的话，那么这篇博文就是成功的。">
+<meta name="keywords" content="C#,.net,VSCode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VSCode + xUnit 编写 C# 单元测试">
+<meta property="og:url" content="http://Sunwish.coding.me/2019/09/26/vscode-xunit-unittest/index.html">
+<meta property="og:site_name" content="猴开发 | 博客">
+<meta property="og:description" content="概述 什么是单元测试？为什么要写单元测试？如何写一个单元测试？实话实说，写单元测试是一件挺麻烦的事情，却又是你在软件开发的成长路上难以回避的一个问题。我个人在以前也并不喜欢单元测试，不过现在我的态度有所改观了。如果本文所写的内容可以让你理解单元测试的重要性，并且说服你在今后也开始尝试编写单元测试的话，那么这篇博文就是成功的。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunwish.coding.me/2019/09/26/vscode-xunit-unittest/1.jpg">
+<meta property="og:updated_time" content="2022-08-02T02:07:22.253Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VSCode + xUnit 编写 C# 单元测试">
+<meta name="twitter:description" content="概述 什么是单元测试？为什么要写单元测试？如何写一个单元测试？实话实说，写单元测试是一件挺麻烦的事情，却又是你在软件开发的成长路上难以回避的一个问题。我个人在以前也并不喜欢单元测试，不过现在我的态度有所改观了。如果本文所写的内容可以让你理解单元测试的重要性，并且说服你在今后也开始尝试编写单元测试的话，那么这篇博文就是成功的。">
+<meta name="twitter:image" content="http://sunwish.coding.me/2019/09/26/vscode-xunit-unittest/1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://Sunwish.coding.me/2019/09/26/vscode-xunit-unittest/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>VSCode + xUnit 编写 C# 单元测试 | 猴开发 | 博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">猴开发 | 博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+
+    
+      
+        <h1 class="site-subtitle" itemprop="description">积极思考  活跃创造</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-札记">
+    <a href="/series/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-每日一题">
+    <a href="/dailyProblem/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-calendar-check-o"></i> <br />每日一题</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+          <div id="music" style="width: 100%; height: 110px; margin-top: -15px; margin-bottom: 5px;">
+           <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2851637030&auto=0&height=90"></iframe>
+          </div>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/Sunwish" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/09/26/vscode-xunit-unittest/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴开发 | 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">VSCode + xUnit 编写 C# 单元测试
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+          
+          <span class="post-meta-author-icon">
+            <i class="fa fa-user-o"></i>
+          </span>
+	  
+	  
+	  
+	  <span class="post-meta-author-text">作者 Sunwish</span>
+	  <span class="post-meta-divider">|</span>
+          
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-26 23:59:06" itemprop="dateCreated datePublished" datetime="2019-09-26T23:59:06+08:00">2019-09-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-08-02 10:07:22" itemprop="dateModified" datetime="2022-08-02T10:07:22+08:00">2022-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/沿途简记/" itemprop="url" rel="index"><span itemprop="name">沿途简记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/26/vscode-xunit-unittest/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/09/26/vscode-xunit-unittest/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/09/26/vscode-xunit-unittest/" class="leancloud_visitors" data-flag-title="VSCode + xUnit 编写 C# 单元测试">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>什么是单元测试？为什么要写单元测试？如何写一个单元测试？实话实说，写单元测试是一件挺麻烦的事情，却又是你在软件开发的成长路上难以回避的一个问题。我个人在以前也并不喜欢单元测试，不过现在我的态度有所改观了。如果本文所写的内容可以让你理解单元测试的重要性，并且说服你在今后也开始尝试编写单元测试的话，那么这篇博文就是成功的。</p>
+</blockquote>
+<p><img src="/2019/09/26/vscode-xunit-unittest/1.jpg" alt="Title"></p>
+<a id="more"></a>
+<hr>
+<h1 id="一、什么是单元测试？"><a href="#一、什么是单元测试？" class="headerlink" title="一、什么是单元测试？"></a>一、什么是单元测试？</h1><blockquote>
+<p>Having automated tests is a great way to ensure a software application does what its authors intend it to do. There are multiple types of tests for software applications. These include integration tests, web tests, load tests, and others. <strong>Unit tests</strong> test individual software components and methods. Unit tests should only test code within the developer’s control. They should not test infrastructure concerns. Infrastructure concerns include databases, file systems, and network resources.</p>
+</blockquote>
+<p>以上是微软在官方文档《<a href="https://docs.microsoft.com/zh-cn/dotnet/core/testing/" target="_blank" rel="noopener">.NET Core 和 .NET Standard 中的单元测试</a>》中对单元测试给出的描述。其中提到，单元测试用于测试个人软件组件或方法，单元测试仅应测试开发人员控件内的代码，它们不应测试基础结构问题。 基础结构问题包括数据库、文件系统和网络资源。也就是说单元测试的被测目标必须足够的“独立”，进而测试代码也应足够简洁。</p>
+<p>按我的理解来说，单元测试就是一项验证一个类或方法是否能够正常执行并得到正确结果的测试工作，其中的类或方法就是被测试的单元。看完这些，你可能还是不能够清晰地理解单元测试，不过不要紧，在后面的分析中，相信单元测试的形象将会在你的脑海中逐渐清晰。</p>
+<h1 id="二、为什么要写单元测试？"><a href="#二、为什么要写单元测试？" class="headerlink" title="二、为什么要写单元测试？"></a>二、为什么要写单元测试？</h1><p>实话实说，写单元测试是一件挺麻烦的事情，我个人在以前也并不喜欢单元测试，不过现在我的态度有所改观了。如果我之后写的内容可以让你理解单元测试的重要性，并且说服你在今后也开始尝试单元测试，那么这一小节就是成功的。</p>
+<p>首先，在实际的开发过程中施行单元测试是一项非常有意义的事情，它既可以保证我们程序的健壮性，也可以在很大程度上帮助我们写出更稳定、低耦合的代码，进而在维护期保护了应用程序迭代更新的安全性与需求变动时的可拓展性。这是因为，一个优秀完备的单元测试往往能够覆盖类和方法的各种边界条件，进而在源头处破灭了许多bug诞生的梦想，由此各个单元都能够稳定正确地执行，整个程序的健壮性便得到了保障。</p>
+<p>考虑一个简单的例子，你正在写一个求整型数组中最大元素的方法，下面是其实现代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">namespace MyAlgorithm</span><br><span class="line">&#123;</span><br><span class="line">    public  class ArrayService</span><br><span class="line">    &#123;</span><br><span class="line">        public static int MaxItemValue(int[] arr)</span><br><span class="line">        &#123;</span><br><span class="line">            var maxValue = arr[0];</span><br><span class="line">            foreach(var item in arr)</span><br><span class="line">            &#123;</span><br><span class="line">                if(item&gt;maxValue)	maxValue = item;</span><br><span class="line">            &#125;</span><br><span class="line">            return maxValue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通常，如果你直接着手实现的细节而开始写代码的话，你将难免忘记考虑一些边界条件，而程序在各种环境运行的过程中，情况往往丰富多变，这就导致所写出的程序往往在调试期间可以“正确运行”，可是一旦投入使用，各种灵异错误就接踵而来。上面的代码段作为一个错误的例子，相信你不难看出是有明显的问题的。在通常的输入下，它可以正常的执行，可是如果输入的数组为空呢？那就糟糕了，你绝对不想看到编译器给你抛出一堆鲜红的Errors，更不希望让用户看到错误警告。可是当你养成写单元测试的习惯时，你就会自然地为测试单元有意地设计各种看似“不合理”的输入，而一旦你的代码通过了严苛而险恶的单元测试，恭喜你，这个可靠的单元可以被你贴上”合格”的标签放心地使用了。</p>
+<p>于此同时，单元测试帮助代码更稳定、低耦合是由于，一个与其它单元耦合度高又内部复杂的类或方法，我们几乎无法为其写出一个简明可行的单元测试，这就显示地要求开发者对当前过分复杂的“单元”进行拆分与解耦，以便为其书写单元测试，这也就促使程序变得更加模块化，更具可读性了。这对于一直想要写出更加优秀代码的你来讲简直是太棒了，不是吗？</p>
+<p>由此可以发现，单元测试其实就是为组成我们程序的一个个小单元，可以是类或方法或是其它的组件，单独编写测试用例，以保证它们的正确性与可靠性。这既是单元测试的进一步阐述，也是你为什么要写单元测试的原因。</p>
+<h1 id="三、如何创建单元测试？"><a href="#三、如何创建单元测试？" class="headerlink" title="三、如何创建单元测试？"></a>三、如何创建单元测试？</h1><p>了解了单元测试及其必要性，下面就来看一看如何写一个单元测试吧。在不同的编辑器或集成开发环境中为代码编写单元测试的方法不尽相同，本节中将演示如何在 VSCode 中使用 xUnit 为 C# 项目编写一个简单的单元测试。这一节演示将分为四个部分：创建项目、编写一个示例类、为示例类创建单元测试类，以及在单元测试类中为示例类的一个成员函数编写单元测试代码。</p>
+<p>在演示中，我们将创建一个用于数字计算的 NumberCacluation 类，并实现该类的一个整数求和函数 add()，最后为该类创建单元测试类并为其成员函数 add() 编写单元测试代码。如果你使用的是 Visual Studio，那么网上也有很多针对 VS 的单元测试编写指导，在此就不多提了。下面就让我们开始吧！</p>
+<h2 id="1-创建项目"><a href="#1-创建项目" class="headerlink" title="1.创建项目"></a>1.创建项目</h2><ol>
+<li><p>在 VSCode 中打开一个文件夹，本例中新建并打开文件夹 MyProject。</p>
+</li>
+<li><p>打开终端，执行 <code>dotnet new sln</code> 来新建一个解决方案，此时你在 MyProject 文件夹中将得到一个 MyProject.sln 解决方案文件。</p>
+</li>
+<li><p>在 MyProject 文件夹下新建一个目录 MyMath，作为我们的数学计算类库文件夹。</p>
+</li>
+<li><p>在终端中进入 MyMath 目录，执行 <code>dotnet new classlib</code> 来对此类库文件夹进行初始化，你将在 MyMath 文件夹中得到 MyMath.csproj 与一个默认的 cs 文件 Class1.cs，在此我们将其改名为 NumberCalculation.cs，其代码结构如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line"></span><br><span class="line">namespace MyMath.Number</span><br><span class="line">&#123;</span><br><span class="line">    public class NumberCalculation</span><br><span class="line">    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后，在终端中回到 MyProject 目录，执行 <code>dotnet sln add .\MyMath\MyMath.csproj</code> 来将 MyMath 添加到解决方案当中。至此，我们就完成了项目的创建。</p>
+</li>
+</ol>
+<h2 id="2-编写示例类"><a href="#2-编写示例类" class="headerlink" title="2.编写示例类"></a>2.编写示例类</h2><p>打开 MyMath 目录下的 NumberCalculation.cs 文件，下面我们为其编写一个静态函数，用于求解两个整数求和计算的结果，实现代码非常简单，下面是完整的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line"></span><br><span class="line">namespace MyMath.Number</span><br><span class="line">&#123;</span><br><span class="line">    public class NumberCalculation</span><br><span class="line">    &#123;</span><br><span class="line">        public static int add(int a, int b)</span><br><span class="line">        &#123;</span><br><span class="line">            return a + b;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-创建单元测试"><a href="#3-创建单元测试" class="headerlink" title="3.创建单元测试"></a>3.创建单元测试</h2><ol>
+<li><p>我们先在终端 MyProject 目录下新建一个文件夹：MyMath.Tests，这个文件夹中用于存放 MyMath 的相关单元测试文件。</p>
+</li>
+<li><p>在终端中进入 MyMath.Tests 目录，执行 <code>dotnet new xunit</code> 来初始化 xunit，此命令会创建将 xUnit 用作测试库的测试项目。你将得到 MyMath.csproj 和 一个默认的单元测试类 UnitTest1.cs，我们将其改名为 MyMath.Tests.Number.cs，代码结构如下（记得为其手动添加 NumberCalculation 的命名空间引用<code>using MyMath.Number;</code>）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using Xunit;</span><br><span class="line"></span><br><span class="line">namespace MyMath.Tests.Number</span><br><span class="line">&#123;</span><br><span class="line">    public class UnitTest1</span><br><span class="line">    &#123;</span><br><span class="line">        [Fact]</span><br><span class="line">        public void Test1()</span><br><span class="line">        &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在终端 MyMath.Tests 目录下执行 <code>dotnet add reference ..\MyMath\MyMath.csproj</code> 来将 MyMath 引入到我们的单元测试项目中来。</p>
+</li>
+<li><p>最后在终端中回到 MyProject 目录，执行 <code>dotnet sln add .\MyMath.Tests\MyMath.Tests.csproj</code> 来将 MyMath.Tests 添加到解决方案中。至此，我们完成了 MyMath 类单元测试的创建与一些初始设置。</p>
+</li>
+</ol>
+<h2 id="4-编写单元测试"><a href="#4-编写单元测试" class="headerlink" title="4. 编写单元测试"></a>4. 编写单元测试</h2><p>打开 MyMath.Tests 目录下的 UnitTest1.cs 文件，编写如下四个测试用例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using Xunit;</span><br><span class="line">using MyMath.Number;</span><br><span class="line">namespace MyMath.Tests.Number</span><br><span class="line">&#123;</span><br><span class="line">    public class UnitTest1</span><br><span class="line">    &#123;</span><br><span class="line">        [Fact]</span><br><span class="line">        public void Test1()</span><br><span class="line">        &#123;</span><br><span class="line">            Assert.True(NumberCalculation.add(0,2)==2, &quot;0 + 2 Should be 2&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        [Fact]</span><br><span class="line">        public void Test2()</span><br><span class="line">        &#123;</span><br><span class="line">            Assert.True(NumberCalculation.add(1,2)==3, &quot;1 + 2 Should be 3&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        [Fact]</span><br><span class="line">        public void Test3()</span><br><span class="line">        &#123;</span><br><span class="line">            Assert.True(NumberCalculation.add(-1,2)==1, &quot;-1 + 2 Should be 1&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        [Fact]</span><br><span class="line">        public void Test4()</span><br><span class="line">        &#123;</span><br><span class="line">            Assert.True(NumberCalculation.add(-1,-2)==-3, &quot;-1 + -2 Should be -3&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样，我们就完成了 add() 方法的简单单元测试示例。其中 <code>[Fact]</code> 标记指明下面的方法为测试方法，<code>Assert.True()</code> 函数中的第一项参数为实际值，其预期值为 <code>True</code>，当实际值与预期值一致时，该测试就可以通过，否则该测试不能通过，并将在终端中将参数二作为错误信息输出显示。</p>
+<p>最后，在终端中 MyMath.Tests 文件夹下执行 <code>dotnet test</code> 即可运行单元测试。显然，我们之前编写的函数是可以正确计算所给用例的加法的，因此终端输出了如下信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">PS C:\...\MyProject&gt; dotnet test</span><br><span class="line">已开始生成，请等待...</span><br><span class="line">Skipping running test for project C:\...\MyProject\MyMath\MyMath.csproj. To run tests with dotnet test add &quot;&lt;IsTestProject&gt;true&lt;IsTestProject&gt;&quot; property to project file.</span><br><span class="line">完成的生成。</span><br><span class="line"></span><br><span class="line">C:\...\MyProject\MyMath.Tests\bin\Debug\netcoreapp2.2\MyMath.Tests.dll 的测试运行(.NETCoreApp,Version=v2.2)</span><br><span class="line">Microsoft (R) 测试执行命令行工具版本 15.9.0</span><br><span class="line">版权所有 (C) Microsoft Corporation。保留所有权利。</span><br><span class="line"></span><br><span class="line">正在启动测试执行，请稍候...</span><br><span class="line"></span><br><span class="line">总测试: 4。已通过: 4。失败: 0。已跳过: 0。</span><br><span class="line">测试运行成功。</span><br><span class="line">测试执行时间: 2.4093 秒</span><br></pre></td></tr></table></figure>
+<p>如果我们的 add() 方法编写有误，例如将 <code>return a + b;</code> 错误地修改为 <code>return b;</code>，再次执行 <code>dotnet test</code> 将得到如下信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">PS C:\...\MyProject&gt; dotnet test</span><br><span class="line">已开始生成，请等待...</span><br><span class="line">Skipping running test for project C:\...\MyProject\MyMath\MyMath.csproj. To run tests with dotnet test add &quot;&lt;IsTestProject&gt;true&lt;IsTestProject&gt;&quot; property to project file.</span><br><span class="line">完成的生成。</span><br><span class="line"></span><br><span class="line">C:\...\MyProject\MyMath.Tests\bin\Debug\netcoreapp2.2\MyMath.Tests.dll 的测试运行(.NETCoreApp,Version=v2.2)</span><br><span class="line">Microsoft (R) 测试执行命令行工具版本 15.9.0</span><br><span class="line">版权所有 (C) Microsoft Corporation。保留所有权利。</span><br><span class="line"></span><br><span class="line">正在启动测试执行，请稍候...</span><br><span class="line">[xUnit.net 00:00:01.04]     MyMath.Tests.Number.UnitTest1.Test4 [FAIL]</span><br><span class="line">[xUnit.net 00:00:01.07]     MyMath.Tests.Number.UnitTest1.Test2 [FAIL]</span><br><span class="line">[xUnit.net 00:00:01.07]     MyMath.Tests.Number.UnitTest1.Test3 [FAIL]</span><br><span class="line">MyMath.Tests.Number.UnitTest1.Test4 个失败</span><br><span class="line">错误消息:</span><br><span class="line"> -1 + -2 Should be -3</span><br><span class="line">Expected: True</span><br><span class="line">Actual:   False</span><br><span class="line">堆栈跟踪:</span><br><span class="line">   at MyMath.Tests.Number.UnitTest1.Test4() in C:\...\MyProject\MyMath.Tests\UnitTest1.cs:line 26</span><br><span class="line">MyMath.Tests.Number.UnitTest1.Test2 个失败</span><br><span class="line">错误消息:</span><br><span class="line"> 1 + 2 Should be 3</span><br><span class="line">Expected: True</span><br><span class="line">Actual:   False</span><br><span class="line">堆栈跟踪:</span><br><span class="line">   at MyMath.Tests.Number.UnitTest1.Test2() in C:\...\MyProject\MyMath.Tests\UnitTest1.cs:line 16</span><br><span class="line">MyMath.Tests.Number.UnitTest1.Test3 个失败</span><br><span class="line">错误消息:</span><br><span class="line"> -1 + 2 Should be 1</span><br><span class="line">Expected: True</span><br><span class="line">Actual:   False</span><br><span class="line">堆栈跟踪:</span><br><span class="line">   at MyMath.Tests.Number.UnitTest1.Test3() in C:\...\MyProject\MyMath.Tests\UnitTest1.cs:line 21</span><br><span class="line"></span><br><span class="line">总测试: 4。已通过: 1。失败: 3。已跳过: 0。</span><br><span class="line">测试运行失败。</span><br><span class="line">测试执行时间: 2.4545 秒</span><br></pre></td></tr></table></figure>
+<p>可以看到，终端中明确输出了未通过测试的用例及其错误信息，这将帮助你很快地定位并修复相关错误。</p>
+<h1 id="四、优化你的单元测试"><a href="#四、优化你的单元测试" class="headerlink" title="四、优化你的单元测试"></a>四、优化你的单元测试</h1><p>写出一个单元测试不是一件难事，但是写出一个好的单元测试也不是一件容易的事。就上一小结 <strong>编写单元测试</strong> 中给出的测试代码就是极度糟糕的代码的典范。为了使用 xUnit 写出基本还不错的测试代码，你需要了解 <a href="https://xunit.net/" target="_blank" rel="noopener">xUnit</a> 的一些其它属性。例如 <code>[Theory]</code> 表示执行相同的代码，但是使用不同的输入参数用来测试，并使用 <code>[InlineData]</code> 来指定这些参数的输入值。</p>
+<p>由此改进后的单元测试代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class UnitTest1</span><br><span class="line">    &#123;</span><br><span class="line">        [Theory]</span><br><span class="line">        [InlineData(0,2,2)]</span><br><span class="line">        [InlineData(1,2,3)]</span><br><span class="line">        [InlineData(-1,2,1)]</span><br><span class="line">        [InlineData(-1,-2,-3)]</span><br><span class="line">        public void Test1(int a, int b, int excepted)</span><br><span class="line">        &#123;</span><br><span class="line">            Assert.True(NumberCalculation.add(a,b)==excepted, $&quot;&#123;a&#125; + &#123;b&#125; Should be &#123;excepted&#125;&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>同时，为了确保单元测试的正确性与轻便性，应当选取尽可能少且具有代表性的参数作为测试用例，否则过多的测试用例不仅有可能被人为地赋予错误期望造成单元测试失效（例如不小心将 [InlineData(-1,-2,-3)] 的期望输出写成了 3），也将增加每一次单元测试的时间开销。</p>
+<p>针对 .NET Core 和 .NET Standard 单元测试的最佳做法与工程实施规范，微软在其官方文档中给出了详尽的说明，这些条款在单元测试的编写中具有很好的指导意义，可以帮助你写出更具规范与更易读的单元测试：<a href="https://docs.microsoft.com/zh-cn/dotnet/core/testing/unit-testing-best-practices" target="_blank" rel="noopener">《.NET Core 和 .NET Standard 单元测试最佳做法》</a>。</p>
+<h1 id="五、参考文章"><a href="#五、参考文章" class="headerlink" title="五、参考文章"></a>五、参考文章</h1><ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/core/testing/" target="_blank" rel="noopener">.NET Core 和 .NET Standard 中的单元测试</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/core/testing/unit-testing-with-dotnet-test" target="_blank" rel="noopener">使用 dotnet test 和 xUnit 在 .NET Core 中进行 C# 单元测试</a></li>
+<li><a href="https://deviq.com/explicit-dependencies-principle/" target="_blank" rel="noopener">The Explicit Dependencies Principle states</a></li>
+</ul>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果你觉得文章内容对你有帮助，可以打赏支持一下哦！<br/></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Sunwish 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        ﻿
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C#</a>
+          
+            <a href="/tags/net/" rel="tag"><i class="fa fa-tag"></i> .net</a>
+          
+            <a href="/tags/VSCode/" rel="tag"><i class="fa fa-tag"></i> VSCode</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/27/bcdedit-clean-bootmenu/" rel="next" title="Bcdedit 删除 Boot Menu 中的多余启动引导">
+                <i class="fa fa-chevron-left"></i> Bcdedit 删除 Boot Menu 中的多余启动引导
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/28/donot-use-public-protected/" rel="prev" title="让你的数据成员远离 public/protected！">
+                让你的数据成员远离 public/protected！ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+
+    <div class="sidebar-inner">
+      
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sunwish</p>
+              <p class="site-description motion-element" itemprop="description">个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sunwish.houkaifa.com/" title="Sunwish" target="_blank">Sunwish</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alterful.com/" title="Alterful" target="_blank">Alterful</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://easecurve.houkaifa.com/" title="Easecurve" target="_blank">Easecurve</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+          
+            
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、什么是单元测试？"><span class="nav-text">一、什么是单元测试？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、为什么要写单元测试？"><span class="nav-text">二、为什么要写单元测试？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、如何创建单元测试？"><span class="nav-text">三、如何创建单元测试？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-创建项目"><span class="nav-text">1.创建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-编写示例类"><span class="nav-text">2.编写示例类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-创建单元测试"><span class="nav-text">3.创建单元测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-编写单元测试"><span class="nav-text">4. 编写单元测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、优化你的单元测试"><span class="nav-text">四、优化你的单元测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、参考文章"><span class="nav-text">五、参考文章</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+          
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sunwish</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 108.4k 字</span>
+</div>
+
+<!--
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+-->
+<span class="post-meta-divider">|</span>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count"><a href="http://beian.miit.gov.cn/" target="_blank">赣ICP备2022001064号-2</a></span>
+</div>
+
+
+<div>
+    <span id="busuanzi_container_site_uv"><i class="fa fa-user"></i> 本站访客<span id="busuanzi_value_site_uv"></span>人次</span>
+    <span class="post-meta-divider">|</span>
+    <span class="site-pv"><i class="fa fa-eye"></i> 总阅读量: <span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+    <!--
+    <span class="post-meta-divider">|</span>
+    <span class="site-uv"><i class="fa fa-user"></i> 访问人数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+    -->
+</div>
+<script src="./js/src/pvuvfix.js"></script>
+
+
+
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65941008";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <!--<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>-->
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sa3sYJwnqEBnYDpS7VFT70ya-gzGzoHsz',
+        appKey: 'TPHHBKrFtoGkcocnjqN78Fue',
+        placeholder: 'ヾﾉ≧∀≦)o 文章看完啦，别吝啬你的观点哦',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: true
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 15694#<app_id>,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
+

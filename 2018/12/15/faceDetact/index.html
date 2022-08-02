@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+<!--<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>-->
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "bf6ac372"
+    });
+  daovoice('update');
+  </script>
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+<!--<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>-->
+<!--<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">-->
+<script src="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/themes/black/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="概述 本篇记录了利用基于HSV颜色模型的肤色提取与连通区域过滤实现图片的人脸定位，附带知识的介绍略烦多，附带Matlab相关程序代码。   （开幕雷击：本文只是鄙人几年前接触数学建模初期时关于人脸识别题目的一些碎片记录，最终整合起来的效果并不好，不具备实际可用性，因此不要对本文模型效果抱有太大期待。此外几点补充说明见文末。） 一、预备知识图像预处理 1.1 灰度化　在RGB模型中，如果R=G=B时">
+<meta name="keywords" content="Algorithm,Matlab">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于HSV肤色提取与连通区域过滤的人脸定位算法（Matlab）">
+<meta property="og:url" content="http://Sunwish.coding.me/2018/12/15/faceDetact/index.html">
+<meta property="og:site_name" content="猴开发 | 博客">
+<meta property="og:description" content="概述 本篇记录了利用基于HSV颜色模型的肤色提取与连通区域过滤实现图片的人脸定位，附带知识的介绍略烦多，附带Matlab相关程序代码。   （开幕雷击：本文只是鄙人几年前接触数学建模初期时关于人脸识别题目的一些碎片记录，最终整合起来的效果并不好，不具备实际可用性，因此不要对本文模型效果抱有太大期待。此外几点补充说明见文末。） 一、预备知识图像预处理 1.1 灰度化　在RGB模型中，如果R=G=B时">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/1.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/2.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/3.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/4.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/5.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/6.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/8.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/9.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/10.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/11.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/12.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/13.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/14.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/15.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/16.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/17.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/21.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/18.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/20.png">
+<meta property="og:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/19.png">
+<meta property="og:updated_time" content="2022-08-02T02:07:22.232Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于HSV肤色提取与连通区域过滤的人脸定位算法（Matlab）">
+<meta name="twitter:description" content="概述 本篇记录了利用基于HSV颜色模型的肤色提取与连通区域过滤实现图片的人脸定位，附带知识的介绍略烦多，附带Matlab相关程序代码。   （开幕雷击：本文只是鄙人几年前接触数学建模初期时关于人脸识别题目的一些碎片记录，最终整合起来的效果并不好，不具备实际可用性，因此不要对本文模型效果抱有太大期待。此外几点补充说明见文末。） 一、预备知识图像预处理 1.1 灰度化　在RGB模型中，如果R=G=B时">
+<meta name="twitter:image" content="http://sunwish.coding.me/2018/12/15/faceDetact/1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://Sunwish.coding.me/2018/12/15/faceDetact/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>基于HSV肤色提取与连通区域过滤的人脸定位算法（Matlab） | 猴开发 | 博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">猴开发 | 博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+
+    
+      
+        <h1 class="site-subtitle" itemprop="description">积极思考  活跃创造</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-札记">
+    <a href="/series/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-每日一题">
+    <a href="/dailyProblem/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-calendar-check-o"></i> <br />每日一题</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+          <div id="music" style="width: 100%; height: 110px; margin-top: -15px; margin-bottom: 5px;">
+           <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2851637030&auto=0&height=90"></iframe>
+          </div>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/Sunwish" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/12/15/faceDetact/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴开发 | 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">基于HSV肤色提取与连通区域过滤的人脸定位算法（Matlab）
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+          
+          <span class="post-meta-author-icon">
+            <i class="fa fa-user-o"></i>
+          </span>
+	  
+	  
+          
+	  <span class="post-meta-author-text">作者 Sunwish</span>
+	  <span class="post-meta-divider">|</span>
+          
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-15 22:13:15" itemprop="dateCreated datePublished" datetime="2018-12-15T22:13:15+08:00">2018-12-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-08-02 10:07:22" itemprop="dateModified" datetime="2022-08-02T10:07:22+08:00">2022-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/沿途简记/" itemprop="url" rel="index"><span itemprop="name">沿途简记</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/沿途简记/数学建模/" itemprop="url" rel="index"><span itemprop="name">数学建模</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/15/faceDetact/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/12/15/faceDetact/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/12/15/faceDetact/" class="leancloud_visitors" data-flag-title="基于HSV肤色提取与连通区域过滤的人脸定位算法（Matlab）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>本篇记录了利用基于HSV颜色模型的肤色提取与连通区域过滤实现图片的人脸定位，附带知识的介绍略烦多，附带Matlab相关程序代码。</p>
+</blockquote>
+<hr>
+<p>（开幕雷击：本文只是鄙人几年前接触数学建模初期时关于人脸识别题目的一些碎片记录，最终整合起来的效果并不好，不具备实际可用性，因此不要对本文模型效果抱有太大期待。此外几点补充说明见文末。）</p>
+<h1 id="一、预备知识"><a href="#一、预备知识" class="headerlink" title="一、预备知识"></a>一、预备知识</h1><h2 id="图像预处理"><a href="#图像预处理" class="headerlink" title="图像预处理"></a>图像预处理</h2><ul>
+<li><strong>1.1 灰度化</strong><br>　在RGB模型中，如果R=G=B时，则彩色表示一种灰度颜色，其中R=G=B的值叫灰度值，因此，灰度图像每个像素只需一个字节存放灰度值（又称强度值、亮度值），灰度范围为0-255。一般有分量法 最大值法平均值法加权平均法四种方法对彩色图像进行灰度化。<br>$Matlab:$</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">I = imread(<span class="string">'img.jpg'</span>);</span><br><span class="line">I2 = rgb2gray(I);</span><br><span class="line">subpolt(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>),imshow(I),title(<span class="string">'原图'</span>);</span><br><span class="line">subpolt(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>),imshow(I2),title(<span class="string">'灰度化'</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/12/15/faceDetact/1.jpg" alt="图像的灰度化"></p>
+<a id="more"></a>
+<ul>
+<li><strong>1.2 锐化滤波</strong><br>　应用锐化可以快速聚焦模糊边缘，提高图像中某一部位的清晰度或者焦距程度，使图像特定区域的色彩更加<br>鲜明。<br>$Matlab:$</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">I = imread(<span class="string">'img.jpg'</span>);</span><br><span class="line">I2 = double(rgb2gray(I));</span><br><span class="line">H = [<span class="number">0</span> <span class="number">1</span> <span class="number">0</span>,<span class="number">1</span> <span class="number">-41</span>,<span class="number">0</span> <span class="number">1</span> <span class="number">0</span>];</span><br><span class="line">J = conv2(I2,H,<span class="string">'same'</span>);</span><br><span class="line">K = I2-J;</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>),imshow(rgb2gray(I)),title(<span class="string">'原图灰度化'</span>);</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>),imshow(K,[]),title(<span class="string">'锐化滤波'</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/12/15/faceDetact/2.jpg" alt="锐化滤波"></p>
+<ul>
+<li><strong>1.3 中值滤波</strong><br>　中值滤波法是一种非线性平滑技术，它将每一像素点的灰度值设置为该点某邻域窗口内的所有像素点灰度值的中值。<br>　中值滤波是基于排序统计理论的一种能有效抑制噪声的非线性信号处理技术，中值滤波的基本原理是把数字图像或数字序列中一点的值用该点的一个邻域中各点值的中值代替，让周围的像素值接近的真实值，从而消除孤立的噪声点。<br>$Matlab:$</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">I = imread(<span class="string">'img.jpg'</span>);</span><br><span class="line">I2 = medfilt2(rgb2gray(I),[<span class="number">9</span> <span class="number">9</span>]); 	<span class="comment">%9×9中值滤波</span></span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>),imshow(rgb2gray(I)),title(<span class="string">'原图灰度化'</span>);</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>),imshow(I2,[]),title(<span class="string">'9×9中值滤波'</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/12/15/faceDetact/3.jpg" alt="中值滤波"></p>
+<ul>
+<li><strong>1.4 二值化</strong><br>　图像的二值化，就是将图像上的像素点的灰度值设置为0或255，也就是将整个图像呈现出明显的只有黑和白的视觉效果。<br>$Matlab:$</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">I = imread(<span class="string">'img.jpg'</span>);</span><br><span class="line">I2 = rgb2gray(I);	<span class="comment">%灰度化</span></span><br><span class="line">thresh = graythresh(I2);     <span class="comment">%从原图确定二值化阈值；</span></span><br><span class="line">I3 = im2bw(I2,thresh);	<span class="comment">%二值化</span></span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>),imshow(I2),title(<span class="string">'原图灰度化'</span>);</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>),imshow(I3),title(<span class="string">'二值化'</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/12/15/faceDetact/4.jpg" alt="二值化"></p>
+<ul>
+<li><strong>1.5 形态学操作（腐蚀、膨胀、开操作、闭操作）</strong><br><a href="https://blog.csdn.net/Fishmemory/article/details/53113746?locationNum=6&amp;fps=1" target="_blank" rel="noopener">点我学习详细原理</a></li>
+</ul>
+<h2 id="几种颜色模型"><a href="#几种颜色模型" class="headerlink" title="几种颜色模型"></a>几种颜色模型</h2><ul>
+<li><strong>2.1 RGB模型</strong><br>　最典型、最常用的面向硬件设备的彩色模型是三基色模型，即RGB模型。电视、摄像机和彩色扫描仪都是根据RGB模型工作的。RGB颜色模型建立在笛卡尔坐标系统里，其中三个坐标轴分别代表R、G、B，如图1所示，RGB模型是一个立方体，原点对应黑色，离原点最远的顶点对应白色。RGB是加色，是基于光的叠加的，红光加绿光加蓝光等于白光。应用于显示器这样的设备。<br><img src="/2018/12/15/faceDetact/5.png" alt="RGB模型"><br>　RGB颜色空间的主要缺点是不直观，从R、G、B的值中很难知道该值所代表颜色的认知属性，因此RGB颜色空间不符合人对颜色的感知心理。另外，RGB颜色空间是最不均匀的颜色空间之一，两种颜色之间的知觉差异不能采用该颜色空间中两个颜色点之间的距离来表示。</li>
+<li><strong>2.2 YCrCb模型</strong><br>YCbCr模型中，Y是指亮度分量，Cb指蓝色色度分量，而Cr指红色色度分量。人的肉眼对视频的Y分量更敏感，因此在通过对色度分量进行子采样来减少色度分量后，肉眼将察觉不到的图像质量的变化。YCbCr模型常用与肤色检测中。<br>RGB转换YCbCr公式：<script type="math/tex; mode=display">Y=0.299R+0.587G+0.114B</script><script type="math/tex; mode=display">Cb=0.564(B-Y)</script><script type="math/tex; mode=display">Cr=0.713(R-Y)</script> YCbCr转换RGB公式：<script type="math/tex; mode=display">R=Y+1.402Cr</script><script type="math/tex; mode=display">G=Y-0.344Cb-0.714Cr</script><script type="math/tex; mode=display">B=Y+1.772Cb</script></li>
+<li><strong>2.3 HSV模型</strong><br>　HSV模型比HSI模型更与人类对颜色的感知接近。H代表色调，S代表饱和度，V代表亮度值。HSV模型的坐标系统可以是圆柱坐标系统，但一般用六棱锥来表示，如图3所示，与HSI模型比较相似。可以通过比较HSI、HSV与RGB空间的转换公式，来比较HSI与HSV的区别。<br>　<img src="/2018/12/15/faceDetact/6.jpg" alt="HSV模型"><br>　RGB空间转换HSV空间：<br>\begin{equation}<br>F=\left{<br>\begin{array}{rcl}<br>\arccos{\frac{(R-G)+(R-B)}{2\sqrt{(R-G)^2+(R-B)(G-B)}}} &amp; &amp; {B \leq G}\<br>2\pi-\arccos{\frac{(R-G)+(R-B)}{2\sqrt{(R-G)^2+(R-B)(G-B)}}} &amp; &amp; {B &gt; G}\<br>\end{array} \right.<br>\end{equation}</li>
+</ul>
+<p>\begin{equation}<br>S=\frac{\max(R,G,B)-\min(R,G,B)}{\max(R,G,B)}<br>\end{equation}</p>
+<p>\begin{equation}<br>V=\frac{\max(R,G,B)}{255}<br>\end{equation}</p>
+<h2 id="连通区域"><a href="#连通区域" class="headerlink" title="连通区域"></a>连通区域</h2><p>在图像中，最小的单位是像素，每个像素周围有8个邻接像素，常见的邻接关系有2种：4邻接与8邻接。4邻接一共4个点，即上下左右，如下左图所示。8邻接的点一共有8个，包括了对角线位置的点，如下右图所示。<br><img src="/2018/12/15/faceDetact/8.jpg" alt="连通区域"><br>如果像素点A与B邻接，我们称A与B连通，于是我们不加证明的有如下的结论：<br>　<br>如果A与B连通，B与C连通，则A与C连通。</p>
+<p>在视觉上看来，彼此连通的点形成了一个区域，而不连通的点形成了不同的区域。这样的一个所有的点彼此连通点构成的集合，我们称为一个连通区域。<br>　<br>下面这符图中，如果考虑4邻接，则有3个连通区域；如果考虑8邻接，则有2个连通区域。（注：图像是被放大的效果，图像正方形实际只有4个像素）。<br><img src="/2018/12/15/faceDetact/9.png" alt="连通区域"></p>
+<hr>
+<h1 id="二、图像人脸粗提取"><a href="#二、图像人脸粗提取" class="headerlink" title="二、图像人脸粗提取"></a>二、图像人脸粗提取</h1><h2 id="1-HSV空间的肤色分割"><a href="#1-HSV空间的肤色分割" class="headerlink" title="1) HSV空间的肤色分割"></a>1) HSV空间的肤色分割</h2><p>彩色图像在RGB空间中描述,三基色不仅代表颜色，还代表了亮度，由于周围环境光照的改变。进行处理时，先把图像在RGB空间转换成HSV空间，在HSV空间进行阈值分割。<br>设:</p>
+<script type="math/tex; mode=display">I=I\{R,G,B\}</script><p>是一幅彩色人脸图像点阵，经过HSV肤色分割得到分割图</p>
+<script type="math/tex; mode=display">I_2=I\{H,S,V\}</script><p><img src="/2018/12/15/faceDetact/10.png" alt="HSV肤色分割"></p>
+<p>$Matlab: skin.m$<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 根据当前点的Cb Cr值判断是否为肤色  </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">result</span> = <span class="title">skin</span><span class="params">(Y,Cb,Cr)</span>  </span></span><br><span class="line"><span class="comment">% 参数  </span></span><br><span class="line">a = <span class="number">25.39</span>;  </span><br><span class="line">b = <span class="number">14.03</span>;  </span><br><span class="line">ecx = <span class="number">1.60</span>;  </span><br><span class="line">ecy = <span class="number">2.41</span>;  </span><br><span class="line">sita = <span class="number">2.53</span>;  </span><br><span class="line">cx = <span class="number">109.38</span>;  </span><br><span class="line">cy = <span class="number">152.02</span>;  </span><br><span class="line">xishu = [cos(sita) sin(sita);-sin(sita) cos(sita)];  </span><br><span class="line"><span class="comment">% 如果亮度大于230，则将长短轴同时扩大为原来的1.1倍  </span></span><br><span class="line"><span class="keyword">if</span>(Y &gt; <span class="number">230</span>)  </span><br><span class="line">    a = <span class="number">1.1</span>*a;  </span><br><span class="line">    b = <span class="number">1.1</span>*b;  </span><br><span class="line"><span class="keyword">end</span>  </span><br><span class="line"><span class="comment">% 根据公式进行计算  </span></span><br><span class="line">Cb = double(Cb);  </span><br><span class="line">Cr = double(Cr);  </span><br><span class="line">t = [(Cb-cx);(Cr-cy)];  </span><br><span class="line">temp = xishu*t;  </span><br><span class="line">value = (temp(<span class="number">1</span>) - ecx)^<span class="number">2</span>/a^<span class="number">2</span> + (temp(<span class="number">2</span>) - ecy)^<span class="number">2</span>/b^<span class="number">2</span>;  </span><br><span class="line"><span class="comment">% 大于1则不是肤色，返回0；否则为肤色，返回1  </span></span><br><span class="line"><span class="keyword">if</span> value &gt; <span class="number">1</span>  </span><br><span class="line">    result = <span class="number">0</span>;  </span><br><span class="line"><span class="keyword">else</span>  </span><br><span class="line">    result = <span class="number">1</span>;  </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2-边缘强化"><a href="#2-边缘强化" class="headerlink" title="2) 边缘强化"></a>2) 边缘强化</h2><p>在彩色测试图的R、G、B通道中,人脸肤色的像素多数集中在B通道,而且B通道含的背景像素最少,所以单选择在B通道进行边缘强化处理.<br>彩色人脸图像点阵$I$的$B$通道：</p>
+<script type="math/tex; mode=display">I_1=I\{0,0,B\}</script><p>用一种高频增强算子</p>
+<script type="math/tex; mode=display">H=\left[
+\begin{array}{ccc}
+0&-1&0\\
+-1&2&-1\\
+0&-1&0
+\end{array}
+\right]</script><p>与$B$通道分量$I_1$进行卷积锐化出边界图$I_3$<br><img src="/2018/12/15/faceDetact/11.png" alt="边缘强化"><br>用锐化后的边界图$I_3$和HSV肤色分割图$I_2$逻辑上相与得到边缘强化图$I_4$。</p>
+<script type="math/tex; mode=display">
+I_4=I_3∧I_2</script><h2 id="4-中值滤波"><a href="#4-中值滤波" class="headerlink" title="4)中值滤波"></a>4)中值滤波</h2><p>中值滤波能够快速滤除一些细小的、零散的区域，对边缘强化图$I_4$进行中值滤波处理能够清除图中细碎的背景得到$I_5$。<br><img src="/2018/12/15/faceDetact/12.png" alt="中值滤波"></p>
+<h1 id="三、连通区初步过滤条件"><a href="#三、连通区初步过滤条件" class="headerlink" title="三、连通区初步过滤条件"></a>三、连通区初步过滤条件</h1><p>连通区的相关介绍和连通区的提起在上文已经有所介绍，下图是提取连通区的效果：<br><img src="/2018/12/15/faceDetact/13.png" alt="连通区"><br>脸区域形状上大体与椭圆相似，而中值滤波后的边缘强化图中除了人脸的椭圆区域外，还有一些其它形状的区域，这些其它的形状基本上是非人脸区域。这些区域基本可以分为三角区域、矩形区域、细长的和弯曲的区域和面积相对较小的区域等4种。<br>针对这4种区域，分别采用面积密度、长宽比、致密度和面积滤波等4种几何形状特征的方法进行背景清除。</p>
+<h2 id="1-面积密度"><a href="#1-面积密度" class="headerlink" title="1) 面积密度"></a>1) 面积密度</h2><p>区域的面积与其最小外接矩形的面积的比值：<br>\begin{equation}<br>M=\frac{area(i)}{A<em>{MER}^{(i)}}<br>\end{equation}<br>当区域为矩形时，比值(M)最大为1；当区域为圆形区域时，比值为$\frac{\pi}{4}$；当区域为细长的、弯曲的物体时，比例变小。<br>当选取比值(M)= 0.4时，即可除去细长弯曲的区域和细长倾斜的区域。其中<br>\begin{equation}<br>area(i)=\sum</em>{x=1}^{row}\sum<em>{y=1}^{col}l(x,y)<br>\end{equation}<br>\begin{equation}<br>A</em>{MER}=(low_i-top_i)(right_i-left_i)<br>\end{equation}<br>对于二值图而言，1表示物体，0表示背景，面积就是统计每一个连通区域$L(x,y)= 1$的个数。</p>
+<h2 id="2-长宽比"><a href="#2-长宽比" class="headerlink" title="2) 长宽比"></a>2) 长宽比</h2><p>利用区域最小外接矩形长和宽的比例清除一些不符合正常的人脸比例的区域。<br>\begin{equation}<br>N=\frac{low_i-top_i}{right_i-left_i}<br>\end{equation}</p>
+<h2 id="3-致密度"><a href="#3-致密度" class="headerlink" title="3) 致密度"></a>3) 致密度</h2><p>利用致密度可以除去一些近似矩形和三角形的区域,保留与人脸椭圆有相似性的区域。<br>\begin{equation}<br>N=\frac{c_i^2}{area_i}<br>\end{equation}<br>通过实验资料，r设定阈值小于4或大于16就可以滤除一些矩形和三角区域。</p>
+<h2 id="4-面积滤波"><a href="#4-面积滤波" class="headerlink" title="4) 面积滤波"></a>4) 面积滤波</h2><p>采用相对重要性滤波的方法来滤除较小的面积区域。用肤色最大的面积与整幅图的面积相比，然后设定一个阈值(R)，当面积比小于某个值,就把某些面积较小的区域滤除。<br>\begin{equation}<br>S=row \times col<br>\end{equation}<br>\begin{equation}<br>R=\frac{Max(area)}{S}<br>\end{equation}<br>根据测试资料，将阈值R设为0.1，当R≥10%时，把面积小于95的区域滤除；当R≤10%时，把面积小于70的区域滤除。<br>连通区提取效果：<br><img src="/2018/12/15/faceDetact/14.png" alt="连通区提取"><br>应用粗过滤条件后的人脸区域定位效果如图：<br><img src="/2018/12/15/faceDetact/15.png" alt="粗过滤"></p>
+<p>$Matab: facedetection.m$<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">facedetection</span><span class="params">(img_name)</span>  </span></span><br><span class="line"><span class="comment">% 读取RGB图像  </span></span><br><span class="line">I = imread(img_name);  </span><br><span class="line"><span class="comment">% 转换为灰度图像  </span></span><br><span class="line">gray = rgb2gray(I);  </span><br><span class="line"><span class="comment">% 将图像转化为YCbCr颜色空间  </span></span><br><span class="line">YCbCr = rgb2ycbcr(I);  </span><br><span class="line"><span class="comment">% 获得图像宽度和高度  </span></span><br><span class="line">heigth = <span class="built_in">size</span>(gray,<span class="number">1</span>);  </span><br><span class="line">width = <span class="built_in">size</span>(gray,<span class="number">2</span>);  </span><br><span class="line"><span class="comment">% 根据肤色模型将图像二值化  </span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:heigth  </span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:width  </span><br><span class="line">        Y = YCbCr(<span class="built_in">i</span>,<span class="built_in">j</span>,<span class="number">1</span>);  </span><br><span class="line">        Cb = YCbCr(<span class="built_in">i</span>,<span class="built_in">j</span>,<span class="number">2</span>);  </span><br><span class="line">        Cr = YCbCr(<span class="built_in">i</span>,<span class="built_in">j</span>,<span class="number">3</span>);  </span><br><span class="line">        <span class="keyword">if</span>(Y &lt; <span class="number">80</span>)  </span><br><span class="line">            gray(<span class="built_in">i</span>,<span class="built_in">j</span>) = <span class="number">0</span>;  </span><br><span class="line">        <span class="keyword">else</span>  </span><br><span class="line">            <span class="keyword">if</span>(skin(Y,Cb,Cr) == <span class="number">1</span>)  </span><br><span class="line">                gray(<span class="built_in">i</span>,<span class="built_in">j</span>) = <span class="number">255</span>;  </span><br><span class="line">            <span class="keyword">else</span>  </span><br><span class="line">                gray(<span class="built_in">i</span>,<span class="built_in">j</span>) = <span class="number">0</span>;  </span><br><span class="line">            <span class="keyword">end</span>  </span><br><span class="line">        <span class="keyword">end</span>  </span><br><span class="line">    <span class="keyword">end</span>  </span><br><span class="line"><span class="keyword">end</span>  </span><br><span class="line"><span class="comment">% 二值图像形态学处理  </span></span><br><span class="line">SE=strel(<span class="string">'arbitrary'</span>,<span class="built_in">eye</span>(<span class="number">5</span>));    </span><br><span class="line"><span class="comment">%gray = bwmorph(gray,'erode');  </span></span><br><span class="line"><span class="comment">% imopen先腐蚀再膨胀  </span></span><br><span class="line">gray = imopen(gray,SE);  </span><br><span class="line"><span class="comment">% imclose先膨胀再腐蚀  </span></span><br><span class="line"><span class="comment">%gray = imclose(gray,SE);  </span></span><br><span class="line">imshow(gray);  </span><br><span class="line"><span class="comment">% 取出图片中所有包含白色区域的最小矩形  </span></span><br><span class="line">[L,num] = bwlabel(gray,<span class="number">8</span>);  </span><br><span class="line">STATS = regionprops(L,<span class="string">'BoundingBox'</span>);  </span><br><span class="line"><span class="comment">% 存放经过筛选以后得到的所有矩形块  </span></span><br><span class="line">n = <span class="number">1</span>;  </span><br><span class="line">result = <span class="built_in">zeros</span>(n,<span class="number">4</span>);  </span><br><span class="line">figure,imshow(I);  </span><br><span class="line">hold on;  </span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:num  </span><br><span class="line">    box = STATS(<span class="built_in">i</span>).BoundingBox;  </span><br><span class="line">    x = box(<span class="number">1</span>);    <span class="comment">%矩形坐标x  </span></span><br><span class="line">    y = box(<span class="number">2</span>);    <span class="comment">%矩形坐标y  </span></span><br><span class="line">    w = box(<span class="number">3</span>);    <span class="comment">%矩形宽度w  </span></span><br><span class="line">    h = box(<span class="number">4</span>);    <span class="comment">%矩形高度h  </span></span><br><span class="line">    <span class="comment">% 宽度和高度的比例  </span></span><br><span class="line">    ratio = h/w;  </span><br><span class="line">    ux = uint8(x);  </span><br><span class="line">    uy = uint8(y);  </span><br><span class="line">    <span class="keyword">if</span> ux &gt; <span class="number">1</span>  </span><br><span class="line">        ux = ux - <span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">end</span>  </span><br><span class="line">    <span class="keyword">if</span> uy &gt; <span class="number">1</span>  </span><br><span class="line">        uy = uy - <span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">end</span>  </span><br><span class="line">    <span class="comment">% 可能是人脸区域的矩形应满足以下条件：  </span></span><br><span class="line">    <span class="comment">%   1、高度和宽度必须都大于20，且矩形面积大于400  </span></span><br><span class="line">    <span class="comment">%   2、高度和宽度比率应该在范围（0.6,2）内  </span></span><br><span class="line">    <span class="comment">%   3、函数findeye返回值为1  </span></span><br><span class="line">    <span class="keyword">if</span> w &lt; <span class="number">20</span> || h &lt; <span class="number">20</span> || w*h &lt; <span class="number">400</span>  </span><br><span class="line">        <span class="keyword">continue</span>  </span><br><span class="line">    <span class="keyword">elseif</span> ratio &lt; <span class="number">2</span> &amp;&amp; ratio &gt; <span class="number">0.6</span> &amp;&amp; findeye(gray,ux,uy,w,h) == <span class="number">1</span>  </span><br><span class="line">        <span class="comment">% 记录可能为人脸的矩形区域  </span></span><br><span class="line">        result(n,:) = [ux uy w h];  </span><br><span class="line">        n = n+<span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">end</span>  </span><br><span class="line"><span class="keyword">end</span>  </span><br><span class="line"><span class="comment">% 对可能是人脸的区域进行标记  </span></span><br><span class="line"><span class="keyword">if</span>  <span class="built_in">size</span>(result,<span class="number">1</span>) == <span class="number">1</span> &amp;&amp; result(<span class="number">1</span>,<span class="number">1</span>) &gt; <span class="number">0</span>  </span><br><span class="line">    rectangle(<span class="string">'Position'</span>,[result(<span class="number">1</span>,<span class="number">1</span>),result(<span class="number">1</span>,<span class="number">2</span>),result(<span class="number">1</span>,<span class="number">3</span>),result(<span class="number">1</span>,<span class="number">4</span>)],<span class="string">'EdgeColor'</span>,<span class="string">'r'</span>);  </span><br><span class="line"><span class="keyword">else</span>  </span><br><span class="line">    <span class="comment">% 如果满足条件的矩形区域大于1则再根据其他信息进行筛选  </span></span><br><span class="line">    <span class="keyword">for</span> m = <span class="number">1</span>:<span class="built_in">size</span>(result,<span class="number">1</span>)  </span><br><span class="line">        m1 = result(m,<span class="number">1</span>);  </span><br><span class="line">        m2 = result(m,<span class="number">2</span>);  </span><br><span class="line">        m3 = result(m,<span class="number">3</span>);  </span><br><span class="line">        m4 = result(m,<span class="number">4</span>);  </span><br><span class="line">        <span class="comment">% 标记最终的人脸区域  </span></span><br><span class="line">        <span class="keyword">if</span> m1 + m3 &lt; width &amp;&amp; m2 + m4 &lt; heigth  </span><br><span class="line">            rectangle(<span class="string">'Position'</span>,[m1,m2,m3,m4],<span class="string">'EdgeColor'</span>,<span class="string">'r'</span>);  </span><br><span class="line">        <span class="keyword">end</span>  </span><br><span class="line">    <span class="keyword">end</span>  </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="四、连通区深度过滤"><a href="#四、连通区深度过滤" class="headerlink" title="四、连通区深度过滤"></a>四、连通区深度过滤</h1><p>对于上图可以看出，经过上述的背景消除算法滤除背景时，发现中间人物的手部区域与脸部特征近似，使用简单的粗过滤方法可能难以过滤完全。容易出现将手部误认定为脸部的可能，为了消除手部的干扰，在此定位结果的基础上采用几何匹配算法，将找不到眼睛的区域进行过滤，这样便可消除手部的影响，从而精确的将人脸定位。</p>
+<ul>
+<li><strong>基于几何匹配算法的眼部搜索</strong></li>
+</ul>
+<ol>
+<li>将一对连通区从图像区域中提取出来(设为X和Y)</li>
+<li>规定X在Y的左边；X与Y连线倾角在$[-\frac{\pi}{4},\frac{\pi}{4}]$之间</li>
+<li>设评价函数为$E$，计算它们作为一对眼睛的评价函数$E$，如果$E$超过一定的阈值, 那么认为这一对连通区所框选的对象很可能是一对眼睛。<br>定义评价函数：<br>\begin{equation}<br>E=exp{-4.8[0.4(S_1-S_2)^2+0.2(S_1+S_2-1)^2+0.2(\theta_1-\theta)^2+0.2(\theta_2-\theta)^2]}<br>\end{equation}<br>类似的，可以探索嘴部的评价函数，最终有三个连通区提取到了眼嘴特征，定位如下：<br><img src="/2018/12/15/faceDetact/16.png" alt="嘴眼"><br>不难得到经过深度过滤后的人脸定位结果：<br><img src="/2018/12/15/faceDetact/17.png" alt="结果"></li>
+</ol>
+<p>$Matlab: findeye.m$<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 判断二值图像中是否含有可能是眼睛的块  </span></span><br><span class="line"><span class="comment">%   bImage----二值图像  </span></span><br><span class="line"><span class="comment">%   x---------矩形左上角顶点X坐标  </span></span><br><span class="line"><span class="comment">%   y---------矩形左上角顶点Y坐标  </span></span><br><span class="line"><span class="comment">%   w---------矩形宽度  </span></span><br><span class="line"><span class="comment">%   h---------矩形长度  </span></span><br><span class="line"><span class="comment">% 如果有则返回值eye等于1，否则为0  </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eye</span> = <span class="title">findeye</span><span class="params">(bImage,x,y,w,h)</span>  </span></span><br><span class="line"><span class="comment">% 根据矩形相关属性得到二值图像中矩形区域中的数据  </span></span><br><span class="line"><span class="comment">% 存放矩形区域二值图像信息  </span></span><br><span class="line">part = <span class="built_in">zeros</span>(h,w);  </span><br><span class="line"><span class="comment">% 二值化  </span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = y:(y+h)  </span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = x:(x+w)  </span><br><span class="line">        <span class="keyword">if</span> bImage(<span class="built_in">i</span>,<span class="built_in">j</span>) == <span class="number">0</span>  </span><br><span class="line">            part(<span class="built_in">i</span>-y+<span class="number">1</span>,<span class="built_in">j</span>-x+<span class="number">1</span>) = <span class="number">255</span>;  </span><br><span class="line">        <span class="keyword">else</span>  </span><br><span class="line">            part(<span class="built_in">i</span>-y+<span class="number">1</span>,<span class="built_in">j</span>-x+<span class="number">1</span>) = <span class="number">0</span>;  </span><br><span class="line">        <span class="keyword">end</span>  </span><br><span class="line">    <span class="keyword">end</span>  </span><br><span class="line"><span class="keyword">end</span>  </span><br><span class="line">[L,num] = bwlabel(part,<span class="number">8</span>);  </span><br><span class="line"><span class="comment">% 如果区域中有两个以上的矩形则认为有眼睛  </span></span><br><span class="line"><span class="keyword">if</span> num &lt; <span class="number">2</span>  </span><br><span class="line">    <span class="built_in">eye</span> = <span class="number">0</span>;  </span><br><span class="line"><span class="keyword">else</span>  </span><br><span class="line">    <span class="built_in">eye</span> = <span class="number">1</span>;  </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="五、参考文章"><a href="#五、参考文章" class="headerlink" title="五、参考文章"></a>五、参考文章</h1><p>[1] <a href="https://blog.csdn.net/Fishmemory/article/details/53113746?locationNum=6&amp;fps=1" target="_blank" rel="noopener">形态学-腐蚀、膨胀、开操作、闭操作</a><br>[2] <a href="https://blog.csdn.net/u012507022/article/details/51523385" target="_blank" rel="noopener">图像处理中常用的彩色模型</a><br>[3] <a href="https://blog.csdn.net/cooelf/article/details/26581539" target="_blank" rel="noopener">OpenCV：二值图像连通区域分析与标记算法实现</a></p>
+<h1 id="六、深入阅读"><a href="#六、深入阅读" class="headerlink" title="六、深入阅读"></a>六、深入阅读</h1><p>[1] 张朝阳,潘保昌,郑胜林,彭绍湖. 基于消除背景的人脸定位方法. 广东工业大学学报.24（2）：91-106,2007<br>[2] 倪健,董强,管国栋. 基于几何特征的人脸定位算法的改进.《微计算机信息》(测 控 自 动 化).22（5-1）：241-242，2006</p>
+<h1 id="七、2021-05-26-补充说明"><a href="#七、2021-05-26-补充说明" class="headerlink" title="七、2021.05.26 补充说明"></a>七、2021.05.26 补充说明</h1><p>对于评论区中反馈的问题此处统一作补充说明，本文只是鄙人几年前<strong>接触数学建模初期时</strong>关于人脸识别题目快餐化学习后的一些碎片记录，<strong>最终整合起来的效果并不好，因此==不要对本文模型效果抱有太大期待==</strong>。</p>
+<ol>
+<li>本文HSV在肤色分割中起到辅助分割的作用，肤色分割由Cb、Cr和Hue共同完成，若去除hue条件则例图会出现错误识别（见下图）。该模型关于肤色和背景环境色的鲁棒性均较差，本例中的人物图片肤色正、环境色干扰小，故均能正确框选人脸，但换用其它图片不能保证可用性。<br><img src="/2018/12/15/faceDetact/21.png" alt=""></li>
+<li>本文眼睛识别是基于连通区配对的，与HSV、YCbCr均无关，识别效果不好，在本模型中仅起到辅助筛选，并不能够很可靠地定位眼睛，有眼睛的部分不一定能正确地标注，一些没有眼睛的区域也可能被错误的标记为有眼睛，因此只能辅助性地筛掉一些无人脸区域，筛除成功率并不高。<br><img src="/2018/12/15/faceDetact/18.png" alt=""></li>
+<li>本文文中代码不全，我将把完整代码和示例图片打包上传百度网盘，有需要的朋友请在文末自取。模型入口函数为<code>main_findFace(&#39;imgName&#39;, 0.5)</code>，参数一为图片相对路径，参数二为图片缩放比例。附件图片较大，为了更好的识别效果和速度请合理设置缩放运行。<br><img src="/2018/12/15/faceDetact/20.png" alt=""><br><img src="/2018/12/15/faceDetact/19.png" alt=""></li>
+<li>本文不再更新，不再回复评论。</li>
+</ol>
+<p><strong>Matlab代码及测试图片打包：</strong></p>
+<p>链接: <a href="https://pan.baidu.com/s/1m8_cPKAyBaMGtCzjA7cFUQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1m8_cPKAyBaMGtCzjA7cFUQ</a></p>
+<p>提取码: 2naa</p>
+<center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果你觉得文章内容对你有帮助，可以打赏支持一下哦！<br/></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Sunwish 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        ﻿
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Algorithm/" rel="tag"><i class="fa fa-tag"></i> Algorithm</a>
+          
+            <a href="/tags/Matlab/" rel="tag"><i class="fa fa-tag"></i> Matlab</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/08/ubuntuInstall/" rel="next" title="记一次艰难的 Ubuntu 双系统安装过程及问题的解决">
+                <i class="fa fa-chevron-left"></i> 记一次艰难的 Ubuntu 双系统安装过程及问题的解决
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/05/CUMCMAdvice/" rel="prev" title="对数学建模分工、初期准备、相关资源的总结与建议">
+                对数学建模分工、初期准备、相关资源的总结与建议 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+
+    <div class="sidebar-inner">
+      
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sunwish</p>
+              <p class="site-description motion-element" itemprop="description">个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sunwish.houkaifa.com/" title="Sunwish" target="_blank">Sunwish</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alterful.com/" title="Alterful" target="_blank">Alterful</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://easecurve.houkaifa.com/" title="Easecurve" target="_blank">Easecurve</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+          
+            
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、预备知识"><span class="nav-text">一、预备知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#图像预处理"><span class="nav-text">图像预处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几种颜色模型"><span class="nav-text">几种颜色模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连通区域"><span class="nav-text">连通区域</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、图像人脸粗提取"><span class="nav-text">二、图像人脸粗提取</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-HSV空间的肤色分割"><span class="nav-text">1) HSV空间的肤色分割</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-边缘强化"><span class="nav-text">2) 边缘强化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-中值滤波"><span class="nav-text">4)中值滤波</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、连通区初步过滤条件"><span class="nav-text">三、连通区初步过滤条件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-面积密度"><span class="nav-text">1) 面积密度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-长宽比"><span class="nav-text">2) 长宽比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-致密度"><span class="nav-text">3) 致密度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-面积滤波"><span class="nav-text">4) 面积滤波</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、连通区深度过滤"><span class="nav-text">四、连通区深度过滤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、参考文章"><span class="nav-text">五、参考文章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、深入阅读"><span class="nav-text">六、深入阅读</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七、2021-05-26-补充说明"><span class="nav-text">七、2021.05.26 补充说明</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+          
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sunwish</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 108.4k 字</span>
+</div>
+
+<!--
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+-->
+<span class="post-meta-divider">|</span>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count"><a href="http://beian.miit.gov.cn/" target="_blank">赣ICP备2022001064号-2</a></span>
+</div>
+
+
+<div>
+    <span id="busuanzi_container_site_uv"><i class="fa fa-user"></i> 本站访客<span id="busuanzi_value_site_uv"></span>人次</span>
+    <span class="post-meta-divider">|</span>
+    <span class="site-pv"><i class="fa fa-eye"></i> 总阅读量: <span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+    <!--
+    <span class="post-meta-divider">|</span>
+    <span class="site-uv"><i class="fa fa-user"></i> 访问人数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+    -->
+</div>
+<script src="./js/src/pvuvfix.js"></script>
+
+
+
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65941008";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <!--<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>-->
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sa3sYJwnqEBnYDpS7VFT70ya-gzGzoHsz',
+        appKey: 'TPHHBKrFtoGkcocnjqN78Fue',
+        placeholder: 'ヾﾉ≧∀≦)o 文章看完啦，别吝啬你的观点哦',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: true
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 15694#<app_id>,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
+

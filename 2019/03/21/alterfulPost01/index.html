@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+<!--<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>-->
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "bf6ac372"
+    });
+  daovoice('update');
+  </script>
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+<!--<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>-->
+<!--<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">-->
+<script src="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/themes/black/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="概述 很难想象，一款曾经从未受我重视的，以为是可有可无、小众而不起眼的PC端效率工具，在今天竟已悄然融入了我的日常生活，成为了我电脑当中使用频率最高的软件之一，甚至成为了我电脑使用过程中无法割舍的一部分，以至于在我已经切身使用了一年多的时间后，再让我谈起这款软件，依旧难掩喜悦与激动之情。独乐乐不如众乐乐，在这里，我特别将这款效率工具推荐给广大朋友们，希望与你共享键盘增强带来的乐趣。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Alterful：开启效率次元门！">
+<meta property="og:url" content="http://Sunwish.coding.me/2019/03/21/alterfulPost01/index.html">
+<meta property="og:site_name" content="猴开发 | 博客">
+<meta property="og:description" content="概述 很难想象，一款曾经从未受我重视的，以为是可有可无、小众而不起眼的PC端效率工具，在今天竟已悄然融入了我的日常生活，成为了我电脑当中使用频率最高的软件之一，甚至成为了我电脑使用过程中无法割舍的一部分，以至于在我已经切身使用了一年多的时间后，再让我谈起这款软件，依旧难掩喜悦与激动之情。独乐乐不如众乐乐，在这里，我特别将这款效率工具推荐给广大朋友们，希望与你共享键盘增强带来的乐趣。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/21/alterfulPost01/1.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/21/alterfulPost01/1x.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/21/alterfulPost01/2.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/21/alterfulPost01/3.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/21/alterfulPost01/4.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/21/alterfulPost01/7.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/21/alterfulPost01/8.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/21/alterfulPost01/5.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2019/03/21/alterfulPost01/6.gif">
+<meta property="og:updated_time" content="2022-08-02T02:07:22.228Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Alterful：开启效率次元门！">
+<meta name="twitter:description" content="概述 很难想象，一款曾经从未受我重视的，以为是可有可无、小众而不起眼的PC端效率工具，在今天竟已悄然融入了我的日常生活，成为了我电脑当中使用频率最高的软件之一，甚至成为了我电脑使用过程中无法割舍的一部分，以至于在我已经切身使用了一年多的时间后，再让我谈起这款软件，依旧难掩喜悦与激动之情。独乐乐不如众乐乐，在这里，我特别将这款效率工具推荐给广大朋友们，希望与你共享键盘增强带来的乐趣。">
+<meta name="twitter:image" content="http://sunwish.coding.me/2019/03/21/alterfulPost01/1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://Sunwish.coding.me/2019/03/21/alterfulPost01/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Alterful：开启效率次元门！ | 猴开发 | 博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">猴开发 | 博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+
+    
+      
+        <h1 class="site-subtitle" itemprop="description">积极思考  活跃创造</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-札记">
+    <a href="/series/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-每日一题">
+    <a href="/dailyProblem/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-calendar-check-o"></i> <br />每日一题</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+          <div id="music" style="width: 100%; height: 110px; margin-top: -15px; margin-bottom: 5px;">
+           <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2851637030&auto=0&height=90"></iframe>
+          </div>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/Sunwish" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/03/21/alterfulPost01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴开发 | 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Alterful：开启效率次元门！
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+          
+          <span class="post-meta-author-icon">
+            <i class="fa fa-user-o"></i>
+          </span>
+	  
+	  
+	  
+	  <span class="post-meta-author-text">作者 Sunwish</span>
+	  <span class="post-meta-divider">|</span>
+          
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-21 20:15:26" itemprop="dateCreated datePublished" datetime="2019-03-21T20:15:26+08:00">2019-03-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-08-02 10:07:22" itemprop="dateModified" datetime="2022-08-02T10:07:22+08:00">2022-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/个人项目/" itemprop="url" rel="index"><span itemprop="name">个人项目</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/21/alterfulPost01/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/03/21/alterfulPost01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/21/alterfulPost01/" class="leancloud_visitors" data-flag-title="Alterful：开启效率次元门！">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
+<p>很难想象，一款曾经从未受我重视的，以为是可有可无、小众而不起眼的PC端效率工具，在今天竟已悄然融入了我的日常生活，成为了我电脑当中使用频率最高的软件之一，甚至成为了我电脑使用过程中无法割舍的一部分，以至于在我已经切身使用了一年多的时间后，再让我谈起这款软件，依旧难掩喜悦与激动之情。独乐乐不如众乐乐，在这里，我特别将这款效率工具推荐给广大朋友们，希望与你共享键盘增强带来的乐趣。</p>
+</blockquote>
+<p><img src="/2019/03/21/alterfulPost01/1.jpg" alt="Title"></p>
+<a id="more"></a>
+<hr>
+<h3 id="一、小众的烦恼，小众的软件"><a href="#一、小众的烦恼，小众的软件" class="headerlink" title="一、小众的烦恼，小众的软件"></a><strong>一、小众的烦恼，小众的软件</strong></h3><p>嘿，说实话，其实我完全可以直切主题的，我可以直接说 Alterful 这款软件是干嘛干嘛的，怎么样怎么样，但是接下来我并不会这样写。</p>
+<p>这是因为如果我直接介绍这个软件有什么功能，应该怎么使用的话，相信我，我有十足的把握认为你会打心眼里觉得这个软件对你而言毫无意义：“这玩意有啥用？”、“shenmegui”…</p>
+<p>况且，目前为止大多数人都对效率类软件并不重视，就像我第一次接触这类软件时一样，而直到当我真正用上了 Alterful，才发现键盘增强为我带来的效率提升有多大。所以我希望以循序渐进的方式，让你能够逐渐接受这类工具而不觉得突兀，并开始尝试 Alterful 的使用。</p>
+<p><strong>为此，我强烈建议你先看看本文第四节（<a href="/2019/03/21/alterfulPost01/#%E5%9B%9B%E3%80%81Alterful%EF%BC%8C%E4%B8%8D%E6%AD%A2%E8%BF%99%E4%BA%9B">Alterful，不止这些</a>）的内容，在那一节里我放了一些 Alterful 独有的优秀功能的动态演示图，如卡片式截图、常引用搜索等。相信我，在直观了解了它的一些功能之后再回来，你会更有兴趣继续阅读。</strong></p>
+<p>不知你发现到了没有，在低头族丛生的今天，作为使用电脑多于使用手机的你，已经逐渐成为了这个时代的“小众”。</p>
+<p>而作为这个小众的一员，我相信有不少的PC用户都在过去的时间里有过一些类似的经历：</p>
+<ul>
+<li><p>想要打开一个软件，却因为没有保留桌面图标，忘记了安装路径而在此电脑中寻找花费了很多时间；</p>
+</li>
+<li><p>电脑因故障重装了系统，很多桌面图标都不见了，又得不耐烦的一个个找到、发送到桌面快捷方式；</p>
+</li>
+<li><p>随着学习的需要，安装的软件越来越多，桌面上的图标也越来越多，美美的壁纸被挡得没法看，无奈；</p>
+</li>
+<li><p>总是想要专注于眼前的工作，却时常在难以避免的桌面与软件的频繁切换中出戏；</p>
+</li>
+<li><p>遇到外文翻译不方便/站点搜索有点麻烦/找文件太繁琐/想要截图或取色还非得上QQ/…</p>
+</li>
+</ul>
+<p>如果我没有猜错的话，我所提及的这几点，在大多数时候你可能并没有过多的留意和察觉，但是不可否认的是，这些问题总是在我们使用电脑的过程当中时不时地冒出来，或多或少地在默默影响着我们的体验。</p>
+<p>如果你曾有过这些困惑，或者现在就正经历着这些坎坷的话，那么恭喜你，继续阅读，我将在下面逐步向你介绍 Alterful 这款软件，它不仅仅是一个效率工具，更是一个非常有趣的解决方案，能够让你摆脱所有类似的不快；</p>
+<p>可是如果你从未遇到这些问题，不过在将来的学习工作中很有可能需要比较多地使用电脑的话，那么我也非常希望你能够继续阅读下去，因为下面的内容很有可能帮助你在一开始就绕过这些在未来可能困扰你的问题，让你从一开始就可以以更加优雅愉快地方式，使用你的电脑来工作和学习。</p>
+<p><img src="/2019/03/21/alterfulPost01/1x.jpg" alt="Title"></p>
+<h3 id="二、你的键盘，真的饱和了吗？"><a href="#二、你的键盘，真的饱和了吗？" class="headerlink" title="二、你的键盘，真的饱和了吗？"></a><strong>二、你的键盘，真的饱和了吗？</strong></h3><p>说到键盘，我们最容易联想到的就是打字和快捷键了。打字作为一种常规的输入操作，也是当下键盘的最基本功能。</p>
+<p>而键盘饱和度，指的就是在这一基础功能上，所拓展出的更多键盘功能，将键盘利用率提升的程度。快捷键就是键盘的原生拓展功能。原本繁琐耗时的许多鼠标操作都可以用键盘上的Ctrl、Shift、Alt等功能键与其它键位进行组合，来快速而精准地实现。</p>
+<p>例如我们熟知的一些快捷键：</p>
+<ul>
+<li><p>Win + D = 在桌面与窗口间切换</p>
+</li>
+<li><p>Win + M = 切换到桌面</p>
+</li>
+<li><p>Win + E = 打开资源管理器</p>
+</li>
+<li><p>Alt + Tab = 多任务视图</p>
+</li>
+<li><p>Alt + Shift = 切换输入语言</p>
+</li>
+<li><p>Ctrl + C/V = 复制/粘贴</p>
+</li>
+<li><p>…</p>
+</li>
+</ul>
+<p>还有一些你可能并不熟悉但是却骚气十足的快捷键，例如：</p>
+<ul>
+<li><p>Shift + 小键盘1 = 光标跳至本行最后</p>
+</li>
+<li><p>Ctrl + Win + D = 切换到新建桌面 (Win10系统)</p>
+</li>
+<li><p>Ctrl + Win + ←/→ = 左右切换桌面 (Win10系统)</p>
+</li>
+<li><p>右键压缩包 + E = 解压文件</p>
+</li>
+<li><p>…</p>
+</li>
+</ul>
+<p>可以说，你的键盘利用越完全，你的键盘饱和度也就越高，而对应的，你的日常工作效率也要比其他人要高出许多，这一点相信熟练使用键盘快捷键的朋友们都是深有体会的。</p>
+<p>同样，在我们身边也能够发现这样的规律。看一个使用电脑快捷键熟练的人操作电脑，远比看一个复制文件都要右键、复制的人操作电脑要舒畅太多，而为我们提供这一便利的，就是系统级的键盘增强——快捷键。</p>
+<p>但是既然有了快捷键，我又为何对 Alterful 这一第三方的键盘增强工具情有独钟呢？答案很简单，如果说快捷键以常数级地提升了键盘的利用率的话，那么 Alterful 就是指数级地放大了这一利用率，它向你打开了通往高效操作的新大门——效率次元门。</p>
+<p>而无论你是否熟悉与熟练各式各样的快捷键，甚至即使在此之前你连一个快捷键都不知道，你也不必担心自己能否驾驭这一神奇的键盘增强工具，来提升你的工作效率。</p>
+<p>因为打开这一效率次元门，你需要的仅仅只有一个快捷键——Alt + A。只要花费少量的时间沉下心继续阅读，你也可以一步到位，让你的键盘达到新的饱和。</p>
+<h3 id="三、Alt-A-Everything"><a href="#三、Alt-A-Everything" class="headerlink" title="三、Alt + A = Everything"></a><strong>三、Alt + A = Everything</strong></h3><p>试想，给你一个快捷键，你能实现什么？</p>
+<p>切换到桌面？打开一个软件？删除一个文件？还是复制粘贴？不不不，复制粘贴也不行了，因为它需要两个快捷键。</p>
+<p>然而在 Alterful 的帮助下，你只需要记忆一个快捷键，就可以实现：</p>
+<ul>
+<li><p>快而准地打开任意你想要打开的软件、文件、文件夹；</p>
+</li>
+<li><p>快速定位到任意你想要的软件、文件的根目录；</p>
+</li>
+<li><p>用电脑上已安装的任意浏览器访问你想访问的网页；</p>
+</li>
+<li><p>一步到位地自动打开浏览器并自动在你想要的站点搜索显示你想搜索的内容；</p>
+</li>
+<li><p>一步到位地创建并打开一个临时记事本/任意文件；</p>
+</li>
+<li><p>打开画图/计算器/任务管理器/注册表/…</p>
+</li>
+<li><p>不用打开其它软件，快捷取色、卡片式截图；</p>
+</li>
+<li><p>在电脑任意窗口任意位置，选中英文/日文/法文等各国语言文本，自动显示翻译结果；</p>
+</li>
+<li><p>…</p>
+</li>
+</ul>
+<p>如果你觉得这一切不可思议的话，不用怀疑，这就是 Alterful 为你带来的全方位的键盘增强。你的键盘将不再只是用来打字了，而是指哪打哪，更好地协助你充分地利用你的电脑，极致地提升你的使用效率，并且在你没有意识的情况下，为你节约了大量的重复劳动时间，为你带来了键盘增强的乐趣。</p>
+<p><strong>我该从哪开始？</strong></p>
+<p>得益于 Alterful 的指令与可嵌套特性，这一无主界面的微型键盘增强工具的功能丰富而多彩，而面对这么多的功能，新手用户应该从何入手呢？</p>
+<p>我想说最好的方法就是翻阅官方文档了，你正在阅读的这篇文章只是引起你对键盘增强工具的注意和兴趣，而官方的使用文档短小精悍，为你提供了详尽的功能说明与循序渐进式的上手引导。</p>
+<p>整个文档分为入门篇与进阶篇，想要全面了解 Alterful 的朋友可以在官网找到软件的下载与帮助文档：<a href="https://alterful.com/" target="_blank" rel="noopener">Alterful | 键盘增强</a>。</p>
+<p>在这里，我仅简单介绍一下如何使用 Alterful 最基础的功能——快速启动，其它有趣的功能大家可以自己探索与发现。</p>
+<hr>
+<ul>
+<li>Step1. 在安装并至少运行过一次 Alterful 的电脑上，右键任意文件（可以是桌面的快捷方式、文件、文件夹等），选择“添加为 Alterful 启动项”</li>
+</ul>
+<p><img src="/2019/03/21/alterfulPost01/2.jpg" alt="添加为Alterful启动项"></p>
+<ul>
+<li>Step2. 在出现的添加启动项窗口中设置启动名，默认是你所右键文件的文件名</li>
+</ul>
+<p><img src="/2019/03/21/alterfulPost01/3.jpg" alt="设置启动名"></p>
+<ul>
+<li>Step3. 按下快捷键 Alt + A，键入启动名的前几个字母，Alterful 会为你自动补全，这时按下回车就可以打开对应的软件/文件/文件夹了，开始享受 Alterful 为你带来的键盘增强之快速启动吧！</li>
+</ul>
+<p><img src="/2019/03/21/alterfulPost01/4.gif" alt="自动补全启动名"></p>
+<blockquote>
+<p>如果你觉得你的桌面很乱的话，想要清理一下你的桌面，那么你就可以很好地利用一下这一功能，将你的软件和常用的文件夹们设置为 Alterful 启动项吧，之后就可以把你的桌面清空并通过 Alt + A 来快速启动了，不需要退回桌面寻找软件，不仅美观便利，而且充满极客感。</p>
+</blockquote>
+<hr>
+<h3 id="四、Alterful，不止这些"><a href="#四、Alterful，不止这些" class="headerlink" title="四、Alterful，不止这些"></a><strong>四、Alterful，不止这些</strong></h3><p>Alteful 作为键盘增强工具，能为你带来的改变远不止这些。</p>
+<p>就以上面例举的简单的快速启动功能为例，它还有诸如多项启动、参数启动、常引用启动等衍生功能，以及双击 Alt 键开启的全局划词翻译，这些功能更为强大，茶余饭后花费一些小时间学习并熟练使用这些功能，Alterful 为你带来的效率次元门才算真正打开，你也将真正享受到键盘增强为你带来的乐趣和快感。</p>
+<p><strong>Alterful 经典功能：</strong></p>
+<p><strong>1. 所见即所得，右键 + 左键拖拽 = 卡片式截图</strong><br><img src="/2019/03/21/alterfulPost01/7.gif" alt="卡片式截图"></p>
+<p><strong>2. 所打即所搜，进阶篇之常引用搜索</strong><br><img src="/2019/03/21/alterfulPost01/8.gif" alt="常引用搜索"></p>
+<p><strong>3. 所想即所记，宏指令创建临时文件</strong></p>
+<p><img src="/2019/03/21/alterfulPost01/5.gif" alt="宏指令创建临时文本"></p>
+<p><strong>4. 所划即所懂，双击 Alt 开/关全局划词翻译</strong></p>
+<p><img src="/2019/03/21/alterfulPost01/6.gif" alt="全局划词翻译"></p>
+<p><strong>5. ….</strong></p>
+<h3 id="五、相关链接"><a href="#五、相关链接" class="headerlink" title="五、相关链接"></a><strong>五、相关链接</strong></h3><ol>
+<li><a href="https://alterful.com/" target="_blank" rel="noopener">Alterful - 官方网站</a></li>
+<li><a href="https://www.kancloud.cn/sunwish/alterful/468904" target="_blank" rel="noopener">Alterful - 使用文档</a></li>
+<li><a href="https://www.kancloud.cn/sunwish/alterful/690564" target="_blank" rel="noopener">Alterful - 使用技巧</a></li>
+<li><a href="https://www.kancloud.cn/sunwish/alterful/894211" target="_blank" rel="noopener">Alterful - 更新历史</a></li>
+<li><a href="https://jq.qq.com/?_wv=1027&amp;k=5JIkL4A" target="_blank" rel="noopener">Alterful - 用户交流群</a></li>
+<li><a href="https://www.kancloud.cn/sunwish/alterful/937091" target="_blank" rel="noopener">实用快捷键精选</a></li>
+</ol>
+<center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果你觉得文章内容对你有帮助，可以打赏支持一下哦！<br/></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Sunwish 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        ﻿
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/05/DeepLearning-03/" rel="next" title="深度学习（三）实战：动手实现猫图识别">
+                <i class="fa fa-chevron-left"></i> 深度学习（三）实战：动手实现猫图识别
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/23/DeepLearning-04/" rel="prev" title="深度学习（四）浅层神经网络及其向量化">
+                深度学习（四）浅层神经网络及其向量化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+
+    <div class="sidebar-inner">
+      
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sunwish</p>
+              <p class="site-description motion-element" itemprop="description">个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sunwish.houkaifa.com/" title="Sunwish" target="_blank">Sunwish</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alterful.com/" title="Alterful" target="_blank">Alterful</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://easecurve.houkaifa.com/" title="Easecurve" target="_blank">Easecurve</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+          
+            
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、小众的烦恼，小众的软件"><span class="nav-text">一、小众的烦恼，小众的软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、你的键盘，真的饱和了吗？"><span class="nav-text">二、你的键盘，真的饱和了吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、Alt-A-Everything"><span class="nav-text">三、Alt + A = Everything</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、Alterful，不止这些"><span class="nav-text">四、Alterful，不止这些</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、相关链接"><span class="nav-text">五、相关链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+          
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sunwish</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 108.4k 字</span>
+</div>
+
+<!--
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+-->
+<span class="post-meta-divider">|</span>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count"><a href="http://beian.miit.gov.cn/" target="_blank">赣ICP备2022001064号-2</a></span>
+</div>
+
+
+<div>
+    <span id="busuanzi_container_site_uv"><i class="fa fa-user"></i> 本站访客<span id="busuanzi_value_site_uv"></span>人次</span>
+    <span class="post-meta-divider">|</span>
+    <span class="site-pv"><i class="fa fa-eye"></i> 总阅读量: <span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+    <!--
+    <span class="post-meta-divider">|</span>
+    <span class="site-uv"><i class="fa fa-user"></i> 访问人数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+    -->
+</div>
+<script src="./js/src/pvuvfix.js"></script>
+
+
+
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65941008";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <!--<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>-->
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sa3sYJwnqEBnYDpS7VFT70ya-gzGzoHsz',
+        appKey: 'TPHHBKrFtoGkcocnjqN78Fue',
+        placeholder: 'ヾﾉ≧∀≦)o 文章看完啦，别吝啬你的观点哦',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: true
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 15694#<app_id>,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
+

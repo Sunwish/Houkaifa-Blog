@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+<!--<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>-->
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "bf6ac372"
+    });
+  daovoice('update');
+  </script>
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+<!--<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>-->
+<!--<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">-->
+<script src="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/themes/black/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="概述 本篇记录了我作为一名末流双非科班学生，一战备考中国科学技术大学软件学院并成功上岸的经验总结。我将在本文中详尽地回忆自四月以来我初试复习的各科规划、时间管理、学习方法、以及复试内容的问答回忆。需要说明的是，本文内容具有很强的主观性，是我个人复习过程的梳理和总结，故文中内容及所给的一切建议请自行斟酌，选择性吸收，切勿盲目照搬。">
+<meta name="keywords" content="Experience">
+<meta property="og:type" content="article">
+<meta property="og:title" content="末流科班一战上岸中科大软院初试复试经验总结">
+<meta property="og:url" content="http://Sunwish.coding.me/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/index.html">
+<meta property="og:site_name" content="猴开发 | 博客">
+<meta property="og:description" content="概述 本篇记录了我作为一名末流双非科班学生，一战备考中国科学技术大学软件学院并成功上岸的经验总结。我将在本文中详尽地回忆自四月以来我初试复习的各科规划、时间管理、学习方法、以及复试内容的问答回忆。需要说明的是，本文内容具有很强的主观性，是我个人复习过程的梳理和总结，故文中内容及所给的一切建议请自行斟酌，选择性吸收，切勿盲目照搬。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunwish.coding.me/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/1.png">
+<meta property="og:image" content="http://sunwish.coding.me/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/6.png">
+<meta property="og:image" content="http://sunwish.coding.me/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/2.png">
+<meta property="og:image" content="http://sunwish.coding.me/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/3.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/4.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/5.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/8.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/7.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/9.png">
+<meta property="og:image" content="http://sunwish.coding.me/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/13.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/11.png">
+<meta property="og:image" content="http://sunwish.coding.me/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/10.png">
+<meta property="og:image" content="http://sunwish.coding.me/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/12.png">
+<meta property="og:updated_time" content="2022-08-02T02:07:22.107Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="末流科班一战上岸中科大软院初试复试经验总结">
+<meta name="twitter:description" content="概述 本篇记录了我作为一名末流双非科班学生，一战备考中国科学技术大学软件学院并成功上岸的经验总结。我将在本文中详尽地回忆自四月以来我初试复习的各科规划、时间管理、学习方法、以及复试内容的问答回忆。需要说明的是，本文内容具有很强的主观性，是我个人复习过程的梳理和总结，故文中内容及所给的一切建议请自行斟酌，选择性吸收，切勿盲目照搬。">
+<meta name="twitter:image" content="http://sunwish.coding.me/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/1.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://Sunwish.coding.me/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>末流科班一战上岸中科大软院初试复试经验总结 | 猴开发 | 博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">猴开发 | 博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+
+    
+      
+        <h1 class="site-subtitle" itemprop="description">积极思考  活跃创造</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-札记">
+    <a href="/series/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-每日一题">
+    <a href="/dailyProblem/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-calendar-check-o"></i> <br />每日一题</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+          <div id="music" style="width: 100%; height: 110px; margin-top: -15px; margin-bottom: 5px;">
+           <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2851637030&auto=0&height=90"></iframe>
+          </div>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/Sunwish" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴开发 | 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">末流科班一战上岸中科大软院初试复试经验总结
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+          
+          <span class="post-meta-author-icon">
+            <i class="fa fa-user-o"></i>
+          </span>
+	  
+	  
+	  
+	  <span class="post-meta-author-text">作者 Sunwish</span>
+	  <span class="post-meta-divider">|</span>
+          
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-03-27 17:28:43" itemprop="dateCreated datePublished" datetime="2021-03-27T17:28:43+08:00">2021-03-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-08-02 10:07:22" itemprop="dateModified" datetime="2022-08-02T10:07:22+08:00">2022-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验心得/" itemprop="url" rel="index"><span itemprop="name">经验心得</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/" class="leancloud_visitors" data-flag-title="末流科班一战上岸中科大软院初试复试经验总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>本篇记录了我作为一名末流双非科班学生，一战备考中国科学技术大学软件学院并成功上岸的经验总结。我将在本文中详尽地回忆自四月以来我初试复习的各科规划、时间管理、学习方法、以及复试内容的问答回忆。需要说明的是，本文内容具有很强的主观性，是我个人复习过程的梳理和总结，故文中内容及所给的一切建议请自行斟酌，选择性吸收，切勿盲目照搬。</p>
+</blockquote>
+<p><img src="/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/1.png" alt="Title"></p>
+<a id="more"></a>
+<hr>
+<h1 id="一、综述"><a href="#一、综述" class="headerlink" title="一、综述"></a>一、综述</h1><p>首先声明：相对来说，我的初试分数不高，区区410分在21科软400+400+的奇观年中只能瑟瑟发抖，本文也仅仅是我个人一年以来复习经验的回忆录，文中所有的学习方法和复习建议均带有强烈的主观性，如需参考，请读者充分发挥主观能动性，择适吸收，对于与你观点冲突的观点，请以你自己的观点为准，你就是对的。</p>
+<p>在这篇总结中，我会侧重于规划思路的记录。主要原因是，简单地陈述每个时间段用了什么书、做了什么事这种经验帖网上有很多了，我自己也是看着这些经验帖一路走过来的，因此我更想侧重一些不一样的角度来分享，比如思路方面、策略方面的分享，希望能给到今后考研的小伙伴们，或者说是为如何去计划考研感到迷茫的朋友们一些小小的帮助吧。当然，我的相关具体复习时间和参考用书也是会穿插提到的。</p>
+<p>同时对于22想报考科软的朋友们，结合今年的形式我也有几点建议：</p>
+<ul>
+<li><strong>不能接受初试以390分为基础目标的，谨慎报考</strong>。22可能有一批21高分考生因为复试都没进又没走调剂，心系科软不甘淘汰而再来一年与你们同台竞争。也会有一些预测22爆冷来抄底的，相信他们也会做好22依旧温暖的心理准备来复习。</li>
+<li><strong>本科非计算机相关专业的跨考生，谨慎报考</strong>。科软历来不歧视跨考生，甚至有“跨考天堂”的美称，但今年情况有变，机试难度陡升，有很多代码题，对跨考生确实很不友好，22机试形势如何就是未知数了，故若决定跨考科软，可做好相应准备。</li>
+<li><strong>不能接受数二英二调剂的考生，谨慎报考</strong>。需要明确科软初试考数二英二，而其他院校大多已经是考数一英一了，故若没进复试或复试被刷，那么能调剂的外校选择是不如11的，虽然有校内调剂机会，但是今年校内先研调剂是优先数一英一，若11收完仍不够，22才有顺补的机会。</li>
+</ul>
+<p><img src="/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/6.png" alt="Title"></p>
+<center><b>图1 多少高分hxd的血泪堆出来的数据</b></center>
+
+<p><img src="/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/2.png" alt="Title"></p>
+<center><b>图2 初试成绩</b></center>
+
+<h2 id="1-整体规划"><a href="#1-整体规划" class="headerlink" title="1. 整体规划"></a>1. 整体规划</h2><p>总的来说，我是采取循序渐进的策略，或者说增量复习的思路吧，也就是从高数开始，逐步引入各科复习。</p>
+<p>大约在四月初的时候，我确定了要考研并开始着手了解行情、收集资料，四月中旬初步开始着手复习。远观，在四月、五月、六月整整三个月期间，我只进行了数学复习，并在六月底开始408复习，八月初开始英语复习，九月初开始政治复习；近看，四月中到五月中是高数复习，五月中后才引入线代复习，408也是同理，从数据结构单科开始，逐步引入计组、操作系统和计网的复习。</p>
+<center><b>表1 个人渐进表</b></center>
+
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>大致时期</th>
+<th>在习科目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>四月中~五月中</td>
+<td>高数</td>
+</tr>
+<tr>
+<td>五月中~七月中</td>
+<td>高数、线代</td>
+</tr>
+<tr>
+<td>六月中~七月初</td>
+<td>高数、线代、数据结构</td>
+</tr>
+<tr>
+<td>七月初~八月初</td>
+<td>高数、线代、数据结构、计组</td>
+</tr>
+<tr>
+<td>八月初~八月中</td>
+<td>高数、线代、数据结构、计组、计网、英语</td>
+</tr>
+<tr>
+<td>八月中~九月初</td>
+<td>高数、线代、数据结构、计组、计网、英语、操作系统</td>
+</tr>
+<tr>
+<td>九月初~十二月</td>
+<td>高数、线代、数据结构、计组、计网、英语、操作系统、政治</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>这样做最大的好处是不会一下开始多门新课的学习造成太大的压力，能更容易地进入备考状态，每门课都能拥有属于自己的独立渡入期，毕竟不是每个人都能够一下平衡和接受那么多课程的任务和负担，也不是每一个人都可以一开始就在一天中高效吸收多门科目的知识。这样做的第二个好处是能够更好地打好数学及专业课基础，由于前期只有数学复习任务，你可以有足够的专心和沉浸来学习和理解数学中繁多的知识点，这不论是心理上还是实践上都能够更好地让人接受。</p>
+<p>对大部分人来说，考研的备战过程会是一场马拉松，想要取得好的成绩，我以为时间上的付出是必不可少的。因此，如果选择要考研，那么最好尽早下定决心，拖得越晚开始只会使得自己的后期时间紧张，尤其是考408的话，一定要尽早复习，408工科最难专业课的“美誉”不是白瞎的。</p>
+<h2 id="2-复习形式"><a href="#2-复习形式" class="headerlink" title="2. 复习形式"></a>2. 复习形式</h2><p>复习形式指的是复习过程中，选择纸质学习还是无纸化学习。此两者各有优劣，宜按照个人情况理性选择。</p>
+<p>纸质学习的优点之一在于能够容易地静心复习，在控制好手机的前提下能够杜绝各种信息的干扰。优点之二在于纸质书更有仪式感，翻阅起来也更加方便和快捷。但关键缺点在于纸质笔记想要记地合理与美观（指看上去整洁清爽）并不容易，同时难于整理和调整。也不排除有人屏幕一看久就眼睛疼等问题。</p>
+<p>无纸化学习最大的优点在于对资料、笔记的整理非常友好，你可以轻松无代价地在平板上调整、扩充你的笔记和框架，同时不需要携带一堆沉重的书，物理负担几乎没有。这点在后面的笔记分享中你可以感受得到。但关键缺点在于你容易被平板上的其它娱乐诱惑，导致复习前生产力，复习后爱奇艺。。</p>
+<p>我个人选择的是无纸化学习，而克服缺点的办法也十分简单粗暴：我不会允许自己在自己的平板上下载任何与考研复习无关的应用。在整个考研期间，我的平板上没有优酷、爱奇艺和任何游戏及娱乐APP，并且关闭了一切不必要应用推送，只保留了日历和提醒事项推送。因此我的建议是，<strong>如果选择了无纸化复习，那么请尽量使你的平板在考研复习的这一年里成为纯粹的电子笔记本和网课播放器。</strong>当你习惯于无纸化学习，我认为在某些方面的效率上是能够吊打纸质学习的。</p>
+<h1 id="二、各科规划"><a href="#二、各科规划" class="headerlink" title="二、各科规划"></a>二、各科规划</h1><p>下面将按照各科目起始复习时间的顺序线性展开我个人的各科复习规划，分阶段包括课程选择、参考书目等方面。</p>
+<h2 id="1-数学（二）"><a href="#1-数学（二）" class="headerlink" title="1. 数学（二）"></a>1. 数学（二）</h2><h3 id="1-1-高等数学"><a href="#1-1-高等数学" class="headerlink" title="1.1 高等数学"></a>1.1 高等数学</h3><p>在我个人看来，框架学习法是考研高数学习的有效方法，高数复习的核心问题和关键难点在于<strong>知识点的理解</strong>和题目<strong>所考知识点的识别</strong>这两个方面上，其中知识点的理解是知识框架的搭建过程，而所考知识点的识别则是由题目到知识框架的映射过程。打个不恰当的比方，知识框架的搭建就是二叉排序树建树的过程，而所考知识点的识别就是排序树的查找过程。所有所谓的解题技巧也都应基于这两点才有其意义，因此高数几轮的复习也可以依此各有侧重。我的数学分数并不高，但是复习过程中也有一些个人的心得希望能对各位有所启发。</p>
+<h4 id="关于网课和资料"><a href="#关于网课和资料" class="headerlink" title="关于网课和资料"></a>关于网课和资料</h4><p>首先是网课和资料的选择。当下热门的考研高数老师有很多，如张宇、汤家凤等，每一名老师都有自己不同的授课风格。建议在网上初步了解几名老师，之后试听一节或两节课来确定最适合自己的、自己听上去最舒服的那位老师，毕竟接下来你可是要跟着他学完整个高数基础的。关于资料的选择，个人建议一轮网课跟谁就配套谁的讲义，例如我跟的是张宇老师，那么我就配套张宇的《基础30讲》。</p>
+<p>至于习题集？很多人在一轮阶段就开始做习题集、刷1800，个人认为大可不必。原因有二：第一，私以为一轮刷题的目的是验证知识点的理解是否到位以及加深对知识点的记忆。其中，验证理解到位根本不必大量的题目，只需几道经典题即可测出你是否理解了这个知识点，一般讲义对应章节的例题和习题正是此知识点的经典题，<strong>宜重点掌握例题</strong>，而知识点的记忆通过在复习的前期刷大量题来巩固是低效的，因为在后续的学习中本来就还要回过头来再巩固的，因此与其初期在一个章节做大量题花费时间，再往后学新的知识时又被遗忘，不如达到理解熟悉的目的就立马继续向前推进。这与英语单词的记忆有异曲同工之妙，背十个单词时，每个单词背10分钟花费100分钟过一遍的效果远不及同样100分钟每个单词只背1分钟过10遍的效果。故我认为可以尽可能详细但快速地过一轮，对所有知识点将要学习的章节有一个全面认识，然后进行强化学习。而且后续二轮再配全书和习题集，三轮要二刷全书和题集，后面还有历年真题套卷和分题型二刷，最后还要做不少模拟卷，我认为总体下来题量是完全够的。当然，你想要在一轮多就做点题也是没问题的，<strong>我并不反对多做题</strong>。</p>
+<h4 id="一轮复习"><a href="#一轮复习" class="headerlink" title="一轮复习"></a>一轮复习</h4><p>前面提到高数复习重在知识点的理解和题目考察知识点的识别上，私以为一轮复习的重点就在于<strong>知识点的理解</strong>，这是一切一切的基础。在这个阶段建议以网课主导复习，因为老师的循循善诱能够很好帮助你达到知识点理解的目的。此外，在看网课的过程中记录笔记<strong>相当有必要</strong>，知识点是散落在书中各处的，而建立笔记你便可以随时方便地回顾知识体系、知识重点和关键点。</p>
+<p><img src="/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/3.jpg" alt="Title"></p>
+<center><b>图3 我的一轮笔记</b></center>
+
+<p>那么题目是否要刷？答案是肯定的，<strong>且一定要做题</strong>，否则是在浪费时间。但又不应本末倒置，看完几节网课后自己看一遍书，将例题和课后习题完成即可，不必刷太多。此阶段中每次刷题前都请在心里让自己明确自己此时刷题的目的：增强对知识点的熟悉和理解。</p>
+<p><strong>一轮复习花费一至两个多月都是可接受的</strong>，具体时间规划还应依据开始复习的时间确定，如我四月底开始复习不算早了，我大概花了一个月过完一轮，若三月初就开始复习，则大可复习地更详尽，多思考回味，一共花上两个月的时间，但也不宜耗时过久。</p>
+<p>那么一轮应该复习到怎样的程度算是合格呢？我的看法是，对照无具体细节的知识框架图，框架中的每一个点在脑子里能回忆起这里面大概讲了些什么东西，有哪些重要的概念即可。打个比方，看着数列极限这个框架点，只要能够回忆起数列极限是什么、数列极限有哪些性质、有哪些求数列极限的基本方法（单调有界准则、先设后证）就行了。</p>
+<h4 id="二轮复习"><a href="#二轮复习" class="headerlink" title="二轮复习"></a>二轮复习</h4><p>二轮复习是强化复习阶段，主要任务在于深化对知识的理解，并进一步巩固对知识体系的印象，为下一个阶段”所考知识点的识别”奠定基础。在一轮复习完成后，花两天时间过一遍讲义、自己笔记和框架作为放松，就可以进入二轮复习了。二轮复习是否要看网课这点不同的人观点不一，有人认为跟着一个老师的网课就应该从基础班到强化班到冲刺班一跟到底。我认为数学比较薄弱的同学是可以这样的，不过，我个人过完一轮后没有感到十分地吃力，<strong>因此我在二轮中选择以自己啃书为主</strong>，当你看不下去时再看一会儿网课视频以供消遣或辅助理解。之所以这么说是因为我秉持”师父领进门，修行看个人”的学习观点，自己动脑思考学习的效果我认为要胜于看网课被动接受的效果。既然一轮已经学完了，对每个知识点也有了了解和一定的理解，那么为何不尝试自己思考学习呢？</p>
+<p>此阶段可以以两本书进行复习，一本全书类复习书，如我使用的李王复习全书，一本习题集，如我使用的660题。其中复习全书作为核心复习书，复习的过程就是带着脑子啃全书的过程，而至于题目，与一轮一样，仍然是<strong>宜重点掌握例题</strong>，章节习题作为知识掌握的验收题，而习题集如660题则是作为补充资料。对于掌握不好的知识点，如例题做的很费劲，章节习题效果又不好的点，应该在好好重新研读全书知识讲解或者去看对应网课辅助理解，重做例题的前提下，进一步补充习题集中的题目以确保自己真的掌握了，而不只是记住了全书上的那几道题的答案而已。而对于掌握的好，但觉得题量还不够的地方，也可以用习题集做题量补充。</p>
+<p><strong>在二轮中的错题就要注意标记了</strong>，在书上圈起来即可，这个目的是为了三轮二刷全书和题集时能够有明确的重点，同时这也是我不建议一轮时标错题的原因，会很影响后面更重要环节的标记。而如果你是平板复习，那我建议你不仅要标记错题，而且要进行错题整理和归纳，并不定期刷错题，详情见后面的错题管理分享。</p>
+<p>因为是自己啃书，并且还要做习题集，题量上也大了不少，故<strong>大概可花费两个多月左右</strong>，当然这个时间不是死的只是一个参考。啃全书的过程中也要注意记笔记，并且此时的<strong>笔记可重新来做</strong>，一轮时做的笔记可以放一边了，后续的笔记都可以在二轮笔记的基础上做补充。<strong>二轮应比一轮更加重视笔记的整理，注意做抽象笔记</strong>，即有些已经理解了点和方法就不必再展开写，回看笔记时在脑子里快速回忆一遍未展开的点和方法是什么内容即可，这也有助于锻炼知识回溯能力。</p>
+<p><img src="/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/4.jpg" alt="Title"></p>
+<center><b>图4 我的二轮笔记（由一轮的两页精缩到了一页）</b></center>
+
+<p>那么二轮应该复习到怎样的程度算是合格呢？我的看法是，在一个空白文档中，或者拿一张白纸，可以<strong>自己列出所有章节的框架图，并填充框架细节</strong>即可。这个默写的框架图应当尽可能接近于或与你自己做的框架笔记是一致的，以保证你对自己框架的熟悉程度，在后面的复习中，这个存储在你脑子里的框架将在此基础上不断完善和扩充，并成为你解题的重要工具。</p>
+<h4 id="三轮复习"><a href="#三轮复习" class="headerlink" title="三轮复习"></a>三轮复习</h4><p>三轮仍是强化复习，主要任务是二刷全书、习题集以及你的二轮中的错题。<strong>花费时间大概一个月左右</strong>。复习方法与二轮一致，但笔记不必重做，只需对框架笔记做必要的增补和调整即可，且复习应有侧重，二轮中的薄弱章节要着重复习，复习的很好的章节可快速过一遍，我对待题目的优先级为<strong>例题&gt;=二轮中的错题&gt;其它题目</strong>。</p>
+<p><strong>此阶段我更加注意的是做题策略，尝试强化框架映射的意识了</strong>。拿到题的第一任务应该是思考这题是哪章的题目？然后回忆对应章节的知识框架，然后将此题与知识框架进行比对，找到此题归属的具体的框架点。如果在脑中找到了对应的框架点，那么就成功完成了一次题目到知识框架的映射过程。例如拿到一题求极限，那么应当首先明确这是一道函数极限题，然后回忆函数极限的框架，明确函数极限可有等价代换、无穷小比阶、洛必达法则、泰勒展开等化简方法和解题办法，那么只要题不超纲，这些方法中的一个或某些个组合就一定能够解出这题，这样解题思路和方向就都有了。</p>
+<p>如果没能找到，那么说明你对自己知识框架的印象还不够深，可能有些点忘记了，如忘了无穷小比阶这个极限化简工具，或者框架不够完善，如之前一直就不知道无穷小比阶还能用来化简极限，那么就应复习对应框架或对框架进行相应的补充，使题考知识点可以与框架实现完美映射。</p>
+<h4 id="真题模拟"><a href="#真题模拟" class="headerlink" title="真题模拟"></a>真题模拟</h4><p>三轮结束后整理和回顾一下自己的全部笔记就可以进入真题模拟阶段了。</p>
+<p>我于十月初开始真题模拟。在开始真题模拟时你的框架应该足够完善了，也就是三轮的复习后应该能够相对完整地回忆起高数每章节的框架和重点知识点，知道自己的薄弱点，并且对于解题思路是怎么来的也有了自己的理解。真题模拟的目的就是将第三轮中训练的解题思路在真题中按照真实考试时间段<strong>掐表落实</strong>，对于框架的不完善等问题，同三轮一样进行补充调整。</p>
+<p><strong>真题模拟按照一天至两天一套的速度推进即可</strong>，对于做得较好的年份，当天能够吸收的，就一天一套，对于做的较差的则单独花一天吸收，即两天一套。做到后面时，很多题目都能够下意识知道应该如何处理并完成处理，达到了知行合一的境界，那么就不必想框架，而对于一下不知道如何操作的题，框架的重要性就体现出来了，只要你在前面的框架体系搭建的足够完美，那么这道不知如何操作的题一定能够映射到框架中的一个位置，只需按照对应框架点中的办法去处理即可推进解题。可以说，下意识知道怎么做相当于Cache命中了，而一下想不到如何做就需要”访存“了，你的大脑就是内存，而这个访存访的也就是你的知识框架，虽然速度慢一点，但只要你的知识框架足够完整，就一定能从中调取出相应的解题方法。</p>
+<p><strong>此外，我建议真题要刷两遍</strong>，第一遍以套卷形式进行实考模拟，严格按照考试时间进行考试。历年真题刷完一遍并总结吸收后进行真题二刷，二刷不再按套卷刷，而是分题型刷（李永乐的历年真题解析一书中有历年真题的分题型训练），主要目的一是明确自己真题是否吃透了，二是进一步熟悉真题风格，熟悉各种题型在历年的真题中是怎样的形式、角度和考法来考的，同时还是对各题型知识点和框架的进一步深化。</p>
+<p><strong>最后，真题建议留两套用作最后考前一周的全真模拟。</strong></p>
+<h4 id="关于模拟卷"><a href="#关于模拟卷" class="headerlink" title="关于模拟卷"></a>关于模拟卷</h4><p>进入模拟卷有一个前提，即吃透了真题，也就是历年真题中的每一道题你都搞懂了，都能映射到框架上了，随便拿一题都能很快的找到解题方向了。如果真题吃的不透，过早开始模拟效果可能要打折扣的。我在十一月底才开始做模拟卷，<strong>和真题模拟一样一至两天一套推进</strong>。</p>
+<p>至于模拟卷的选择，我个人使用的是李林六、四套卷和李永乐六套卷，其中李永乐没时间做了，且大题看着没有考研题内味，便只做了选填部分。</p>
+<h4 id="关于错题"><a href="#关于错题" class="headerlink" title="关于错题"></a>关于错题</h4><p>一轮复习可以不做错题记录，因为错题可能过多，且此阶段知识点都不够了解，错题不太能代表什么。</p>
+<p>二轮复习请务必收集错题（可在Anki中收集），二轮错题高亮了你知识点的薄弱处，至少要标记错题，以供三轮复习参考。</p>
+<p>三轮复习请务必收集错题（可在Anki中收集），三轮错题高亮了你知识框架的漏洞，错题必须在知识框架上有所反映，强化错误知识点的相关框架熟悉度。</p>
+<p>真题错题请务必做错题本，且<strong>建议单开一本错题本</strong>，要记录清楚错题原因，是思路错误还是框架漏洞，思路错误则就具体问题进行纠正，框架漏洞则继续补框架。</p>
+<p>模拟题错题请务必做错题本，可以紧跟在真题错题集后面做，也可以单开。私以为模拟卷训练的目的是查漏补缺、保持考前做套卷的手感，以及各种知识点的反复记忆激活，<strong>题目本身意义已经不大，此阶段的错题甚至不必记录题目</strong>，只需记录错的知识点就足够了，这样考前看错题集时可以直接回顾知识点，不必看累赘的题目。</p>
+<p><img src="/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/5.jpg" alt="Title"></p>
+<center><b>图5 我的真题错题本及书签</b></center>
+
+<p><img src="/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/8.jpg" alt="Title"></p>
+<center><b>图6 我的模拟卷错题本，不记录题目只记录错题知识点</b></center>
+
+<h4 id="其它类型笔记"><a href="#其它类型笔记" class="headerlink" title="其它类型笔记"></a>其它类型笔记</h4><p>除了常规的笔记本和错题集外，我个人在复习过程中还有制作其它一些类型的记录本，如《迷惑行为大赏&amp;踩坑记录》记录了所有令自己都感到迷惑的操作和错误，如求函数间断点时将分子分母同为零的因式消去了，又如求隐函数极值时将偏导给解出来了，实则令人迷惑。我也有制作《速查手册》，将我个人认为重要的以及总是记不清的公式汇总<em>（数学中所有要背的公式如泰勒展开、等价代换、积分公式、形心弧长公式等等等等，务必要做到熟稔于心、倒背如流！）</em>，方便随时查阅巩固。以及《各章漏洞框架》，将第三轮及后面真题中发现的各章的漏洞单独形成框架，即各章的漏洞框架。各位也可依照个人需要创新不同类型的笔记集，而笔记的创建和维护在平板上是极为容易和方便的，这也是无纸化学习最大的优点。</p>
+<h3 id="1-2-线性代数"><a href="#1-2-线性代数" class="headerlink" title="1.2 线性代数"></a>1.2 线性代数</h3><p>线代复习可说的不多，我单推李永乐，就我个人亲身感受来看，<strong>使用李永乐线代讲义并配一本补充习题集如660题，足够线代科目的全程复习</strong>。</p>
+<h4 id="一轮复习-1"><a href="#一轮复习-1" class="headerlink" title="一轮复习"></a>一轮复习</h4><p>一轮复习可直接看李永乐线代网课强化班，今年没出可看去年的。当然，你若时间非常充足，想先看基础班再看强化班也不是不可。复习策略大体同高数，学完章节网课看线代讲义对应内容并完成例题和习题，侧重亦与高数一样，<strong>宜重点掌握例题</strong>，一轮错题自行决定要不要记录。</p>
+<h4 id="后续复习"><a href="#后续复习" class="headerlink" title="后续复习"></a>后续复习</h4><p>一轮结束后，二轮整体思路亦同高数，应以自己啃书为主，二轮的错题需要进行整理，至少需要标记。复习书目仍是一轮时的线代辅导讲义和自行选择的习题集。不仅是二轮，后续不管你想搞几轮，进入真题模拟阶段前反复n刷线代讲义和习题集就完事了，至于何时进入真题模拟阶段，应以高数复习进度决定，待高数几轮复习完成后，同高数一起进入真题套卷模拟。错题等细节问题全部参考上面高数相关内容。</p>
+<h2 id="2-专业课（408）"><a href="#2-专业课（408）" class="headerlink" title="2. 专业课（408）"></a>2. 专业课（408）</h2><p>专业课不考408的可以跳过这部分了。</p>
+<p>话说在前面，若你有幸考408，那我劝你尽早起步，408在计算机考研专业课中应属最难的，而且越来越多院校改考408，这个问题的情况大家都开始意识到了。不仅跨考，就算是科班复习也绝不会轻松。408中数据结构、计算机组成原理、操作系统和计算机网络四门科目，不仅对知识本身的理解和掌握提出了很高的要求，并且内容繁杂，考的细致入微，近来真题中还出现了几门科目的知识揉在一道题中考的情况，对知识全面性和贯通性都有比较高的要求。这里引王道的真言：408复习的奥秘在于反复多遍。</p>
+<h3 id="2-1-第一阶段"><a href="#2-1-第一阶段" class="headerlink" title="2.1 第一阶段"></a>2.1 第一阶段</h3><p>按照增量复习的总体策略，你应当先选一门课程作为408复习的起始课程，我是从数据结构开始的复习，复习策略还是与高数基本一致（由此可以看出，我的各科复习策略其实是大同小异的，确定基础策略后在实际中结合具体科目特点再行调整，你可完全不按照我的办法，而是多看几篇经验帖确定自己的策略和思路来形成你的计划），也是一轮网课主导，二轮啃书主导。</p>
+<p>408复习的主流参考书是王道和天勤，一般情况下选择一个入坑即可。我个人推荐王道，虽然天勤据说是更加通俗，对跨考更加友好，我有看了几眼，貌似也确实如此，但我想王道也不至于那么难，许多重要的基础概念也是有较为详细的讲解的，并且王道官方在B站上有完全免费的408配套网课，因此我更推荐选择王道。若跨考生王道复习有困难，建议就困难点去翻阅科班教材。若困难太多，可尝试改换天勤参考书。</p>
+<p><strong>408四门的一轮均按照网课-&gt;王道书-&gt;章后习题推进即可</strong>，没有太多好说的。至于整体时间的分配上，每科一个月的时间我认为是充足的，复习顺利的话其实一科两三周就够了，并且应采取流水线复习策略为佳，这样4门全过完一轮只需两个半月左右，且在第4门过完一轮的时候，第1、2门已经差不多过完二轮了。这样的流水线复习策略经我实践认为十分适合408的复习，能够做到全程各科反复多遍，复习时间分配均匀且不会因为长时间复习一门专业课而枯燥。</p>
+<p>另外值得注意的是，408第一轮可以选择只做选择题，或者说重点做选择题，大题可以每章节挑几道题做做看。这样做的原因是，一轮主要要搞懂408中繁多的知识和概念，这个负担已经很重了，再去做大题的话会耗费大量的时间，我个人对于408的观点是，一轮尽量速战速决，通过反复多轮来进行巩固深化。</p>
+<p>408二轮就不必看完整二刷网课了，直接啃王道单科书即可。特别地，对于掌握薄弱的章节可以回去反复看对应网课视频，因为王道视频的分p是十分友好的，对于不熟悉的知识你能够轻松定位到具体某个p的视频。</p>
+<p><em>PS：有一点计组复习中的小提示，如果计组定点数浮点数那部分内容的复习很吃力的话，建议直接跳过去，那部分内容确实很劝退，但在历年在真题中每年所占的分值并不多，后面的存储器中央处理器和IO等才是重点，不应被这一小块搞崩了心态，因此可以把后面的全都学完了，再来补学。甚至在考前一个来月的时候专门突击一下搞定也可。</em></p>
+<h3 id="2-2-第二阶段"><a href="#2-2-第二阶段" class="headerlink" title="2.2 第二阶段"></a>2.2 第二阶段</h3><p>11月之前，你大可以能刷几遍王道就刷几遍，深入贯彻反复多遍方针（前提你得认真在过，走马观花那是浪费时间）。但10月底11月初就要开始进行真题训练了。真题训练同数学一样，严格按照考试时间段进行掐表训练，并确定自己的做题顺序。2009~2020一共12套真题，再扣下两套做最后模拟，也就剩下10套了，可两天一套，第一天训练并初步总结，第二天吸收昨天卷子的错题和知识点，并做好错题点笔记，觉得容易的一天能吸收完的就一天一套。</p>
+<p><strong>这个阶段的错题可单开一本错题知识点记录本</strong>，错题要记录或标记，但错题知识点建议另记，分不分科目无所谓，我是四门全混在一起记，因为我觉得408一家亲，知识点本身就杂乱，不必分的那么清楚。</p>
+<p><strong>同高数，真题建议留两套用作最后考前一周的全真模拟。</strong></p>
+<p><img src="/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/7.jpg" alt="Title"></p>
+<center><b>图7 真题错题点记录节选</b></center>
+
+<p>真题阶段结束后就进入就可以刷模拟卷了，我是11月中下旬开始做408模拟题。这里我使用王道的《核心考点及模拟题》，书中包含核心考点和8套模拟题。在真题阶段结束和模拟题阶段开始前，专业课时间段可以花上几天的时间放松一下，所谓放松也就是看核心考点，因为之前已经过了好几轮了，所以单纯看看考点可以说是很放松了，同时又能达到总体极速再复习一遍的目的。按照我的经验，此时将408的4门核心考点全部过一遍只需要两至三天的时间。后续模拟题的做法完全同真题，错题也同真题一样处理。</p>
+<p>最后的考前冲刺复习可以围绕【错题点记录本】、【Anki错题】和【核心考点】为中心。</p>
+<h2 id="3-英语（二）"><a href="#3-英语（二）" class="headerlink" title="3. 英语（二）"></a>3. 英语（二）</h2><p>关于英语复习我没有太多好说的，主要因为我的英语是野路子，高中三年没听过几节英语课，没背过几个单词，书都是崭新的，平均110 120分左右，到了大学里也没怎么听过英语课，完全裸考四级512分。考研英语82（好像科软初试英语高于80分者还可直接免修研究生公共英语）我也只能算是复习了，仅此而已，事实上我连考研大纲词汇都没背完，只背了大概一半左右吧，题目也只做了往年的真题，大小作文背的模板，网课只听了刘晓燕的翻译课，刘老师讲的还是不错的。还有完型网课，我听了两节说了一堆技巧和策略感觉一言难尽，还不如我上来直接干来的稳。不过该课程历年以来好评如潮，大家其实还是可以听一下。最后考研英语完型填空错两个，阅读错两个，七选五错一个，客观题丢7分，另外我估计小作文扣3分，大作文扣5分（考完回想起来我大作文第一句就有低级语法错误…），翻译扣3分，刚好82。介于这种情况，英语复习我就不多说了，只希望大家好好复习，以我为戒。</p>
+<p>不过除了具体的复习内容，我还是有两点可以分享的，第一点就是后期真题模拟的做题顺序，个人推荐主流策略：即大作文-&gt;小作文-&gt;新题型-&gt;阅读-&gt;翻译-&gt;完型的顺序，你也可以按照自己的顺序，但是英语后期套卷阶段时<strong>请一定要确定一个做题顺序</strong>，这是保证你考场上做题手感的一个前提，当前，其他科目如数学专业课也最好确定一个做题顺序。</p>
+<p>第二点就是阅读真题的重要性。英语得阅读者得天下，而私以为阅读最佳题源就是历年的真题，只要命题组不换届，那么英语阅读题的命题思路将不会大变，因此我的英语阅读在整个复习期间只刷了真题阅读，每天刷一两篇，或者隔几天刷一套都行，真题中要做到除了人名和生僻的专业词汇外，所有单词要背下来，不能出现生词。此外，<strong>英语二选手我强烈建议优先刷英语一阅读</strong>，因为英二只有大概四级上下浮动的难度，而英一估计有六级左右难度，前期把英一阅读刷两遍适应难度，再做英二阅读会轻松得多。我把英一英二历年阅读整整刷了3遍，不要吐槽第二遍第三遍答案都记住了还怎么刷之类的话，英语阅读刷的是解题思路，解题思路！解题思路！我在三刷的时候每篇阅读仍要花费至少10分钟左右的时间才能做完。因为尽管你已经记得题目的答案了，但你务必要再走一遍思考线，这才是英语阅读多刷的意义：把握命题组的命题思路。</p>
+<p>英语阅读九月前后开始刷时间都足够，其他的像完型、翻译、新题型、大小作文我就不多说了，自己都没有什么复习章法，大家可看其他人的经验分享。</p>
+<p><strong>同高数，真题建议留两套用作最后考前一周的全真模拟。</strong></p>
+<h2 id="4-政治"><a href="#4-政治" class="headerlink" title="4. 政治"></a>4. 政治</h2><p>政治在我看来是研究生入学考试中收益投入比最高的一门科目了。有一句戏言，全国考研政治的考生只有肖秀荣一人，其它所有考生不过是抄肖的答案，看谁抄的好抄的多罢了。亲身经历一年后只想说，肖老yyds！</p>
+<p>考研政治很玄学，有的人只是考前背了肖4和肖8就考了70+，有的人却复习了好几个月最后才不过60几分，因此我的建议是七八九月份均可以开始政治复习，<strong>但不宜过早复习</strong>。如想相对较早复习，如七月八月开始复习，那么看先刘涛老师的基础班作为消遣，再看强化班，边刷1000题即可。如复习地较晚或者不想花太多时间在政治上，那么也至少十月前开始复习，也看刘涛老师的课，只看强化课，且只需看马哲部分，1000题能做多少算多少，做到肖8到货前，等肖8肖4到了刷肖8肖4即可。</p>
+<p>对了，考研政治的复习书（厚厚的那种）私以为是无必要的，只需要一本题集和肖4肖8即可，且考研政治中<strong>选择题的重要性远远大于简答题</strong>。考研政治选择题主要靠刷1000题和肖8肖4的知识积累感觉积累，且有许多帽子题没有技巧，就是靠背，因此注意留心网上的各科帽子题总结、史纲时间轴等，可以关注b站空卡学姐的相关更新（我去年的政治相关资料几乎都是来自空卡的总结，总结的非常好），政治复习不要在资料信息上吃了亏。</p>
+<p>考研政治大题并不是说不重要，而是相比之下只要好好背了肖，那么大家拉不开多大的差距。大题以肖4为准，如不放心，肖8的大题也可看看，如看肖8的话建议重点放在大题的答题的格式和答题话术上，了解政治大题的答案是长什么样的，自己大概后面应该是要什么风格去答题。此外注意，肖8一到就马上开始刷选择题，一天一套，掐表计时明确自己的做题时长，之后每天反复刷肖8，直到肖4到货。<strong>肖4一到请当天立马开始背肖4大题</strong>！肖4到货时一般时间已经临近考试，时间非常紧张，你背的越早，背的越熟，考场上你就越能从容答题，能够答得更好。要知道，考研第一场考的就是政治，请认真对待，不要在第一场就崩了心态，因此肖4到了不要留着不舍得看，马上开始背。但背肖4不是说选择题就不做了，<strong>选择题的重要性远远大于简答题是大前提</strong>，因此选择题仍然每天刷1~2套，范围也是肖4肖8选择题。</p>
+<p>此外政治大题的背诵应注意技巧，个人总结有两点技巧：</p>
+<ul>
+<li><p>其一，建议以关键词为导向背诵，首先把一题的答案熟读几遍，然后按自己的理解圈出关键词，然后背诵的时候关键词重读，后续缩略到关键词背诵，达到只要<strong>在草稿纸上写出关键词，就能串词背出完整答案</strong>的程度，注意，是要能够由关键词串回答案，而不是仅仅背几个关键词就完事了。</p>
+</li>
+<li><p>其二，要将问题抽象化再背，应将答案与抽象问题建立联系，而不要与具体问题建立联系，使得答题思路受限。如去年肖4第二套的一题：<code>为什么说大力提升自主创新能力，尽快突破关键核心技术，”这是关系我国发展全局的重大问题，也是形成以国内大循环为主题的关键“？</code>不要记这么长的题干，应直接抽象为四个字”科技创新”，而后按照关键词法背诵此题答案，并将答案与”科技创新“建立联系，但凡考试中遇到”科技创新“话题的题目，就可以在草稿纸上直接默写当时背的关键词，而后选取展开可以切题的关键词直接串出答案。</p>
+</li>
+</ul>
+<p><img src="/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/9.png" alt="Title"></p>
+<center><b>图8 抽象题干及关键词抽离</b></center>
+
+<p>以上图为例，第二问的题干被我抽象为了”高质量发展“，并抽离出了红字关键词，并在背熟后进一步浓缩成了右侧紫色关键词”十四五、阶条格、矛新重开“，并确保由精简关键词能够倒推串联背出完整的答案。这样一来考试中只要问到高质量发展的内容，便可以快速在纸上写好关键词，得到答题的框架，并有条有理地完成作答。</p>
+<p>按这种方法，考前一周左右肖4应该背的很熟了，此时大题可以采取展开复习法，即将所有诸如”科技创新“、”高质量发展“这样的抽象问题列在草稿纸上，然后逐一按关键词默写展开框架，并在脑中串联出完整答案，能够达到这个状态，政治大题可不必多虑矣。</p>
+<p>列框架这个环节就不要管字写得怎么样了，框架应能尽可能迅速地列出。我考研政治选择题拉跨了，对完答案直接<strong>痛失选择18分，最终却仍拿到73分</strong>，大题得分情况可想而知了，如果不是选择题滑铁卢的话，今年80分都是有希望的。</p>
+<p>最后，考研政治大题除了马原之外，其它都应能写多少写多少，能写满答题卡最好，当然切题答是前提。</p>
+<p><img src="/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/13.jpg" alt="Title"></p>
+<center><b>图9 抽象问题及框架冲刺复习法（草稿纸上只写抽象问题，框架均为默写，且要能对着框架关键词串出完整回答）</b></center>
+
+<h1 id="三、时间管理"><a href="#三、时间管理" class="headerlink" title="三、时间管理"></a>三、时间管理</h1><p>本节主要想来分享一下我在考研复习期间，不同阶段中每天的复习时间是如何管理和分配的。</p>
+<h2 id="1-总体策略"><a href="#1-总体策略" class="headerlink" title="1. 总体策略"></a>1. 总体策略</h2><p>首先明确一件事情，我在复习过程中不强调每天复习几小时，只关注当天任务是否完成。规划是自变量，复习时间的分配根据规划的调整而调整。</p>
+<ul>
+<li>总的来说，我会在开始一门课程的复习时首先估算完成一轮复习的时间，并且提出一个Deadline；</li>
+<li>然后计算大概每隔几天要到一个什么样进度，如复习到哪里才能在Deadline前完成这个规划；</li>
+<li>接下来我会在这个”每隔几天“中领出第一个”几天“并制定较为具体的任务，如明天、后天、大后天这三天过完复习全书第一章；</li>
+<li>再进一步将全书第一章划分三天的复习内容；</li>
+<li>最后，对最近的一天即”明天“设置具体的内容计划，在日历应用中分配具体的时间。</li>
+</ul>
+<p>可以看到，这是一个远景低纬度加载，近景高模渲染的时间规划模型。这样做的好处是如果我明天的任务没有按期完成，那么我的远景规划不受到任何影响，只需将未完成任务调和进后两天的任务中即可调整补救。再不济也只需融入下一个”几天“整体协调来最大程度淡化计划未完成对整个规划的影响。</p>
+<h2 id="2-规划方法"><a href="#2-规划方法" class="headerlink" title="2. 规划方法"></a>2. 规划方法</h2><p>确定了规划的策略，那么如何更好地看到自己的计划呢？</p>
+<p>如果你是苹果用户，那么我强推系统自带的日历，在日历中你可以轻松地创建事件规划，并对其进行时间段分配、颜色分类、添加提醒、备注等。我一般在每天晚上睡觉前进行明天的详细规划，也就是上一小节中的最后一点。并为每个事件添加提前5分钟或提前15分钟的提醒来起到督促作用。我之所以能够回忆起自己复习的各阶段时间和任务，主要也是得益于日历规划能使我回溯到考研复习的任意一天，看到过去的每天我都做了些什么。这样一来，不仅第二天的任务得到了明确，同时也能够随时回顾自己之前都做了些什么，并且如果有几天放松了，那么在日历的周视图中会产生大片的空白，还会产生一定的负罪感，起到警醒作用，emmm。。。</p>
+<p>如果是纸质复习选手，没有平板，且手机也不是iOS，那么安卓一定也有类似的日历APP，大家可自行了解一下。</p>
+<p><img src="/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/11.png" alt="Title"></p>
+<center><b>图10 日历周视图</b></center>
+
+<p><img src="/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/10.png" alt="Title"></p>
+<center><b>图11 日历月视图</b></center>
+
+<h2 id="3-各阶段时间安排参考"><a href="#3-各阶段时间安排参考" class="headerlink" title="3. 各阶段时间安排参考"></a>3. 各阶段时间安排参考</h2><p>我个人按照综述中自己的渐进表，各阶段是这样安排的，仅供思路参考，请勿不思照搬。</p>
+<h3 id="数学阶段（个人六月中旬前）"><a href="#数学阶段（个人六月中旬前）" class="headerlink" title="数学阶段（个人六月中旬前）"></a>数学阶段（个人六月中旬前）</h3><p>在只有高数复习的阶段，白天进行网课学习，晚上自己对照讲义复习巩固。</p>
+<p>在高数和线代并行阶段，早上进行高数网课学习，下午自己对照讲义复习巩固，晚上看线代网课及讲义。</p>
+<p>在线代一轮结束后，线代不再看视频了，白天也不再复习线代，只在每天晚上固定划两个小时刷讲义和660题。</p>
+<h3 id="数学专业课阶段（个人八月前）"><a href="#数学专业课阶段（个人八月前）" class="headerlink" title="数学专业课阶段（个人八月前）"></a>数学专业课阶段（个人八月前）</h3><p>此时数学一轮已经结束，无需看视频，每天上午固定啃高数复习全书，下午固定专业课。</p>
+<p>只有一门专业课时，如我是先复习DS的，那么下午DS独占。DS和CCP两门专业课时，两门均分下午时间。DS+CCP+CN时，一天DS和CCP均分下午，一天CN独占下午，同理四门并发时，一天DS和CCP独占，一天CN和OS独占。</p>
+<p>此阶段也开始压榨线代时间，因为高数和专业课的重要性和难度都远大于线代，故晚上线代只给一个半小时左右时间刷讲义，其余时间分给当天的专业课回顾和660题，当然一般会将专业课回顾安排在晚上第一批，因为下午刚刚复习完专业课，可做过渡衔接。</p>
+<h3 id="数学专业课英语阶段（个人九月前）"><a href="#数学专业课英语阶段（个人九月前）" class="headerlink" title="数学专业课英语阶段（个人九月前）"></a>数学专业课英语阶段（个人九月前）</h3><p>此阶段同之前差不太多，主要在于晚上进一步压榨线代时间，在晚上再塞一个英语复习，不过占时间也不多，两篇阅读做+改+吸收差不多一个小时，只要晚上提早一点开始，晚上推迟一些结束就行了。</p>
+<h3 id="再往后的阶段"><a href="#再往后的阶段" class="headerlink" title="再往后的阶段"></a>再往后的阶段</h3><p>后面高数和线代讲义因该都已经刷了好几遍了，不用再花那么大块时间，故高数和线代都放在上午处理，但还是高数占大部分时间。晚上线代时间就换成政治了。再往后进入真题和模拟卷阶段规划就更简单了，早上固定是数学套题模拟或吸收，下午固定是408套卷模拟和吸收，偶尔几天专业课休息，换成英语套题模拟，晚上固定是英语和政治复习，如此持续直到考前一周，将之前保留的几套没做的真题拿出来做全天的真题模拟（即早上考数学，下午考专业课或英语）。</p>
+<p>当然，以上安排仅为理想安排，实际上会根据每天的复习情况对第二天的计划做调整，比如我有段时间荒废了，专业课任务紧张，晚上会主要排给专业课，具体情况具体安排，这里只是给出我的各阶段安排思路，仅供参考。</p>
+<p>此外，当计划严重没有执行好时，如我有多次（三四次）连续一个星期、两个星期放纵了完全没复习，那么<strong>回来复习时应及时调整整体计划</strong>，即重新走一遍3.1节中的步骤，确保你的复习进度仍处于可控状态内。</p>
+<h1 id="四、错题管理"><a href="#四、错题管理" class="headerlink" title="四、错题管理"></a>四、错题管理</h1><p>前面写太多了，这里不想写了。就分享一个我做错题收集和复习的 iPad 应用——Anki（无穷图标的那个）。</p>
+<p><strong>虽然前面我没有提到，但不管是数学专业课还是政治，二轮之后错题都是要常刷的</strong>。这个时间不固定，自己什么时候有空或者想刷就安排刷，但一定要刷，不要把错题放一边吃灰白记了。我一般下午专业课任务复习完有时间多就刷刷专业课错题，晚上线代任务复习完有时间多就刷刷线代和高数错题。Anki这个应用会自动给你推之前记录的错题，并且复习过的错题隔一段时间会回滚到待刷队列中达到反复复习的目的，并且软件中可以添加标签分类，并勾选只显示哪些科目的错题。</p>
+<p>但是，记得把 Anki 的通知权限给关了，你肯定不希望它成天在你复习时跳出来提醒打扰你复习，这个做错题时间最好由你自己在日历中来动态规划。</p>
+<p><img src="/2021/03/27/Postgraduate-Entrance-Examination-Experience-Sharing/12.png" alt="Title"></p>
+<center><b>图12 Anki 错题管理</b></center>
+
+<h1 id="五、复试回忆"><a href="#五、复试回忆" class="headerlink" title="五、复试回忆"></a>五、复试回忆</h1><h2 id="英语问题："><a href="#英语问题：" class="headerlink" title="英语问题："></a>英语问题：</h2><p>英语面有些意外，正常是要自我介绍的，但我上来老师没有让我自我介绍，直接就问我问题了：</p>
+<ol>
+<li>你为什么选择USTC？（因为当时满脑子都是自我介绍，所以第一个问题我就懵了没听清，还烦请老师再说了一遍，老师笑了我一下，重复说了一遍我才确认问题）</li>
+<li>C/S 和 B/S 架构之间有什么区别？</li>
+</ol>
+<h2 id="专业问题："><a href="#专业问题：" class="headerlink" title="专业问题："></a>专业问题：</h2><ol>
+<li><p><strong>老师：</strong>你们软件工程这门课讲了什么？</p>
+<p><strong>我：</strong>讲了软件的生命周期：问题定义、可行性分析、需求分析、总体设计、详细设计、编码和单元测试以及软件维护。还讲了软件的开发过程，比如瀑布模型、快速原型模型、螺旋模型、增量模型等。还讲了软件测试的一些内容。</p>
+</li>
+<li><p><strong>老师：</strong>那我问问你，需求分析阶段是做什么了，都分析了什么需求？</p>
+<p><strong>我：</strong>总的来说有显式需求、隐式需求、用户需求，显式需求就是功能需求，就是这个软件有没有按照客户的需要在做规定的动作，隐式需求有性能需求、可靠性需求等，用户需求就包含了显式和隐式需求。</p>
+</li>
+<li><p><strong>老师：</strong>你们学校有没有开软件工程实践方面的课程内容？</p>
+<p><strong>我：</strong>没有。（问完之后老师还又重复了确认了几遍这个问题，我都是说确实没有。。现在想想这个回答真的很蠢，其实完全可以把自己的课程设计或者生产实习之类的说上去的。。）</p>
+<p><strong>老师：</strong>好吧，那你自己有没有参加过相关的实践，或者说涉及团队合作方面的比赛，如果有你在其中做了什么工作？</p>
+<p><strong>我：</strong>参加了数学建模竞赛，在比赛中负责算法的编程实现、辅助建模以及论文中的数据可视化工作。</p>
+<p><strong>老师：</strong>在比赛中你是用什么语言呢？</p>
+<p><strong>我：</strong>Matlab。</p>
+</li>
+<li><p><strong>老师：</strong>好，你是软件工程专业的学生，那本科期间一定学了不少编程语言吧，请问你都学过哪些语言？</p>
+<p><strong>我：</strong>C、C++、Java，此外我平时会做一些自己的小项目，一般使用 C#。</p>
+</li>
+<li><p><strong>老师：</strong>这么多编程语言，你觉得编程语言都有哪几类，可不可以分一下类？没事你可以先想一想再回答。</p>
+<p><strong>我：</strong>（思考片刻）解释型语言，还有非解释型（这里脑子短路了准确说应该是编译型语言），非解释语言就是需要编译过后才能够运行，大体上可以分成这两类吧。</p>
+</li>
+<li><p><strong>老师：</strong>那强类型语言和弱类型语言你是否有了解？</p>
+<p><strong>我：</strong>有的，我的理解是，强类型语言应该是类型确定的，一个变量的类型在编译期间就能够被确定，弱类型语言可以有类型不确定的变量。（这个地方其实我说的并不太对，虽然确实有了解，但是一时没想起来就随口说了。。）</p>
+<p><strong>老师：</strong>那你能不能据此对编程语言分一下类，哪些是强类型语言，哪些是弱类型？</p>
+<p><strong>我</strong>：C 应该属于强类型语言吧，弱类型语言比如有 JavaScript。</p>
+<p><strong>老师：</strong>也不是那么严谨，C 也不好说是强类型吧，C 可以做强制类型转换的。</p>
+</li>
+<li><p><strong>老师：</strong>我们日常生活中都是使用十进制，但在计算机中总是使用二进制、八进制、十六进制，请你说一下这些进制在什么时候用到，为什么。</p>
+<p><strong>我：</strong>二进制主要是计算机底层使用，因为在计算机中使用硬件实现双稳态的电路比较方便。十六进制的话主要是用于地址表示，比如在汇编中会使用十六进制，因为计算机中的地址可能非常长，如果用二进制的话可读性很差，而使用十六进制就会比较短，可读性较好。八进制我不了解，不清楚什么时候用到。</p>
+</li>
+<li><p><strong>老师：</strong>计算机中的程序和文本文件都是二进制，它们有什么区别吗？</p>
+<p><strong>我：</strong>程序是编译后代码以二进制存储，而文本文件存储的是 ASCII 码。</p>
+<p><strong>老师：</strong>那他们都是二进制，有什么区别？</p>
+<p><strong>我：</strong>虽然最终在计算机中都是二进制表示，但是它们编码的意义不同，文本文件的二进制是 ASCII 码编码。</p>
+</li>
+<li><p><strong>老师：</strong>输入输出函数 printf 和 scanf，其中 scanf 需要传地址，而 printf 却不需要，为什么？</p>
+<p><strong>我：</strong>我想想（沉默思考了十几秒）</p>
+<p><strong>老师提示：</strong>想想一般什么情况下会要传指针？</p>
+<p><strong>我：</strong>哦对，scanf 因为读入数据需要写入内存，所以需要地址来进行内存修改，而 printf 不需要改变数据，因此只需要传递要输出变量的值就行了。</p>
+<p><strong>老师：</strong>那也就是值传递和指针传递嘛。</p>
+</li>
+<li><p><strong>老师：</strong>看你408的分数应该准备了很久吧，我问你一个操作系统的问题，操作系统中临界区有什么需要注意的？</p>
+<p><strong>我：</strong>临界区在同一时刻只能有一个进程访问，不能多个进程同时访问。</p>
+<p><strong>老师：</strong>你说的是对的，那我再问一下你计算机网络，计算机网络中的 CSMA/CD 协议，多台计算机接入一根总线，同一时刻只有一台主机能够发送数据对吧，那么这个总线也是一个临界区，他和操作系统中的临界区有什么区别呢？</p>
+<p><strong>我：</strong>操作系统的临界区是通过上锁来保证，上锁是原子操作，通过锁可以知道此时有没有进程在访问，而 CSMA/CD 中需要检测信道。</p>
+<p><strong>老师：</strong>这个我知道，但是我想问的就是这个有什么区别，为什么 CSMA/CD 就不能像操作系统一样上锁？</p>
+<p>（之后我想继续回答刚说几个字但是被老师打断了，计时器响了时间到了，然后面试就结束了，整个过程差不多18分钟吧，不到20分钟）</p>
+</li>
+</ol>
+<p>此外还穿插问了一些其他问题，比如我在本科期间有没有做过班干，寝室里有多少人，室友现在都做什么，考上研究生之后有什么打算之类的，差不多就是这些。总的来说只要放松心态，老师们还是很亲切的，至少面我的老师们是这样，问题方面也不会特意刁难，只要尽量多的把自己会的说出来就行。比如第一个问题软工学了什么，只说生命周期和开发过程两个大点不如把这两个点展开一些说，既能体现自己知道细节，同时也能拖延更多的时间，只要不要展得太细了就行。毕竟面试就那么些时间，你不抓紧你会的问题这个机会多答的话，剩下的时间就可能有更多你不会的问题压向你。最后感觉想要引导老师还是挺难的，在面试的过程中我多次提到自己有项目平时会做项目，但老师好像并不感兴趣完全没问。。</p>
+<h1 id="六、结语"><a href="#六、结语" class="headerlink" title="六、结语"></a>六、结语</h1><p>以上就是我个人一年以来的备考经验分享。因为自己也是看着学长学姐们的经验一步一步摸索过来的，因此也想留下些什么，希望这份总结能够对你有帮助，祝你复习顺利，成功上岸！</p>
+<div class="spoiler collapsed"><div class="spoiler-title">点击查看保留内容</div><div class="spoiler-content"><p>毫无保留 (・∀・(・∀・(・∀・*) </p>
+</div></div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果你觉得文章内容对你有帮助，可以打赏支持一下哦！<br/></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Sunwish 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        ﻿
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Experience/" rel="tag"><i class="fa fa-tag"></i> Experience</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/02/03/Tensorflow-02/" rel="next" title="Tensorflow 2.3 入门与实战笔记 02 —— 线性回归与梯度下降">
+                <i class="fa fa-chevron-left"></i> Tensorflow 2.3 入门与实战笔记 02 —— 线性回归与梯度下降
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/05/25/Thinking-of-double-end-offline-authorization-verification/" rel="prev" title="趣谈双端离线状态下的授权认证实现">
+                趣谈双端离线状态下的授权认证实现 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+
+    <div class="sidebar-inner">
+      
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sunwish</p>
+              <p class="site-description motion-element" itemprop="description">个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sunwish.houkaifa.com/" title="Sunwish" target="_blank">Sunwish</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alterful.com/" title="Alterful" target="_blank">Alterful</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://easecurve.houkaifa.com/" title="Easecurve" target="_blank">Easecurve</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+          
+            
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、综述"><span class="nav-text">一、综述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-整体规划"><span class="nav-text">1. 整体规划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-复习形式"><span class="nav-text">2. 复习形式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、各科规划"><span class="nav-text">二、各科规划</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-数学（二）"><span class="nav-text">1. 数学（二）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-高等数学"><span class="nav-text">1.1 高等数学</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于网课和资料"><span class="nav-text">关于网课和资料</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一轮复习"><span class="nav-text">一轮复习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二轮复习"><span class="nav-text">二轮复习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三轮复习"><span class="nav-text">三轮复习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#真题模拟"><span class="nav-text">真题模拟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于模拟卷"><span class="nav-text">关于模拟卷</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于错题"><span class="nav-text">关于错题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其它类型笔记"><span class="nav-text">其它类型笔记</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-线性代数"><span class="nav-text">1.2 线性代数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一轮复习-1"><span class="nav-text">一轮复习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后续复习"><span class="nav-text">后续复习</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-专业课（408）"><span class="nav-text">2. 专业课（408）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-第一阶段"><span class="nav-text">2.1 第一阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-第二阶段"><span class="nav-text">2.2 第二阶段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-英语（二）"><span class="nav-text">3. 英语（二）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-政治"><span class="nav-text">4. 政治</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、时间管理"><span class="nav-text">三、时间管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-总体策略"><span class="nav-text">1. 总体策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-规划方法"><span class="nav-text">2. 规划方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-各阶段时间安排参考"><span class="nav-text">3. 各阶段时间安排参考</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数学阶段（个人六月中旬前）"><span class="nav-text">数学阶段（个人六月中旬前）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学专业课阶段（个人八月前）"><span class="nav-text">数学专业课阶段（个人八月前）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学专业课英语阶段（个人九月前）"><span class="nav-text">数学专业课英语阶段（个人九月前）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#再往后的阶段"><span class="nav-text">再往后的阶段</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、错题管理"><span class="nav-text">四、错题管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、复试回忆"><span class="nav-text">五、复试回忆</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#英语问题："><span class="nav-text">英语问题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#专业问题："><span class="nav-text">专业问题：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、结语"><span class="nav-text">六、结语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+          
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sunwish</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 108.4k 字</span>
+</div>
+
+<!--
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+-->
+<span class="post-meta-divider">|</span>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count"><a href="http://beian.miit.gov.cn/" target="_blank">赣ICP备2022001064号-2</a></span>
+</div>
+
+
+<div>
+    <span id="busuanzi_container_site_uv"><i class="fa fa-user"></i> 本站访客<span id="busuanzi_value_site_uv"></span>人次</span>
+    <span class="post-meta-divider">|</span>
+    <span class="site-pv"><i class="fa fa-eye"></i> 总阅读量: <span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+    <!--
+    <span class="post-meta-divider">|</span>
+    <span class="site-uv"><i class="fa fa-user"></i> 访问人数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+    -->
+</div>
+<script src="./js/src/pvuvfix.js"></script>
+
+
+
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65941008";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <!--<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>-->
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sa3sYJwnqEBnYDpS7VFT70ya-gzGzoHsz',
+        appKey: 'TPHHBKrFtoGkcocnjqN78Fue',
+        placeholder: 'ヾﾉ≧∀≦)o 文章看完啦，别吝啬你的观点哦',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: true
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 15694#<app_id>,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
+

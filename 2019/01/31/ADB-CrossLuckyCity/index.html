@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+<!--<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>-->
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "bf6ac372"
+    });
+  daovoice('update');
+  </script>
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+<!--<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>-->
+<!--<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">-->
+<script src="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/themes/black/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="概述 春节快到了，于是新版QQ多了福袋这么个玩意儿，获取福袋的方法很简单就是玩小游戏。当然这篇文章不是记录如何刷福袋的(雾)，而是穿越福城这个小游戏和微信跳一跳很相似，但又有不同之处，所以身为爱折腾人士怎么可能放过此游戏？像这种游戏看着它玩远比你自己玩有意思多了。">
+<meta name="keywords" content="ADB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何叉着腰喝着茶穿越福城？">
+<meta property="og:url" content="http://Sunwish.coding.me/2019/01/31/ADB-CrossLuckyCity/index.html">
+<meta property="og:site_name" content="猴开发 | 博客">
+<meta property="og:description" content="概述 春节快到了，于是新版QQ多了福袋这么个玩意儿，获取福袋的方法很简单就是玩小游戏。当然这篇文章不是记录如何刷福袋的(雾)，而是穿越福城这个小游戏和微信跳一跳很相似，但又有不同之处，所以身为爱折腾人士怎么可能放过此游戏？像这种游戏看着它玩远比你自己玩有意思多了。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunwish.coding.me/2019/01/31/ADB-CrossLuckyCity/1.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/01/31/ADB-CrossLuckyCity/2.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/01/31/ADB-CrossLuckyCity/3.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/01/31/ADB-CrossLuckyCity/11.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/01/31/ADB-CrossLuckyCity/4.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/01/31/ADB-CrossLuckyCity/10.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/01/31/ADB-CrossLuckyCity/12.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/01/31/ADB-CrossLuckyCity/5.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/01/31/ADB-CrossLuckyCity/6.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/01/31/ADB-CrossLuckyCity/7.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2019/01/31/ADB-CrossLuckyCity/8.jpg">
+<meta property="og:image" content="http://m.qpic.cn/psb?/V13O1BPC29uJSy/8FBuCeY7YhImH8ShmlrtsaigGh5KgS33mI3tN3iLxV8!/b/dFIBAAAAAAAA&bo=0AAhAQAAAAACl0M!&rf=viewer_4">
+<meta property="og:updated_time" content="2022-08-02T02:07:21.999Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何叉着腰喝着茶穿越福城？">
+<meta name="twitter:description" content="概述 春节快到了，于是新版QQ多了福袋这么个玩意儿，获取福袋的方法很简单就是玩小游戏。当然这篇文章不是记录如何刷福袋的(雾)，而是穿越福城这个小游戏和微信跳一跳很相似，但又有不同之处，所以身为爱折腾人士怎么可能放过此游戏？像这种游戏看着它玩远比你自己玩有意思多了。">
+<meta name="twitter:image" content="http://sunwish.coding.me/2019/01/31/ADB-CrossLuckyCity/1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://Sunwish.coding.me/2019/01/31/ADB-CrossLuckyCity/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>如何叉着腰喝着茶穿越福城？ | 猴开发 | 博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">猴开发 | 博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+
+    
+      
+        <h1 class="site-subtitle" itemprop="description">积极思考  活跃创造</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-札记">
+    <a href="/series/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-每日一题">
+    <a href="/dailyProblem/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-calendar-check-o"></i> <br />每日一题</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+          <div id="music" style="width: 100%; height: 110px; margin-top: -15px; margin-bottom: 5px;">
+           <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2851637030&auto=0&height=90"></iframe>
+          </div>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/Sunwish" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2019/01/31/ADB-CrossLuckyCity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴开发 | 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">如何叉着腰喝着茶穿越福城？
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+          
+          <span class="post-meta-author-icon">
+            <i class="fa fa-user-o"></i>
+          </span>
+	  
+	  
+          
+	  <span class="post-meta-author-text">作者 Sunwish</span>
+	  <span class="post-meta-divider">|</span>
+          
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-31 12:17:50" itemprop="dateCreated datePublished" datetime="2019-01-31T12:17:50+08:00">2019-01-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-08-02 10:07:21" itemprop="dateModified" datetime="2022-08-02T10:07:21+08:00">2022-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/沿途简记/" itemprop="url" rel="index"><span itemprop="name">沿途简记</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/沿途简记/数学建模/" itemprop="url" rel="index"><span itemprop="name">数学建模</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/31/ADB-CrossLuckyCity/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/01/31/ADB-CrossLuckyCity/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/01/31/ADB-CrossLuckyCity/" class="leancloud_visitors" data-flag-title="如何叉着腰喝着茶穿越福城？">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
+<p>春节快到了，于是新版QQ多了福袋这么个玩意儿，获取福袋的方法很简单就是玩小游戏。当然这篇文章不是记录如何刷福袋的(雾)，而是穿越福城这个小游戏和微信跳一跳很相似，但又有不同之处，所以身为爱折腾人士怎么可能放过此游戏？像这种游戏看着它玩远比你自己玩有意思多了。</p>
+</blockquote>
+<p><img src="/2019/01/31/ADB-CrossLuckyCity/1.jpg" alt="Title"></p>
+<a id="more"></a>
+<hr>
+<h3 id="一、游戏分析"><a href="#一、游戏分析" class="headerlink" title="一、游戏分析"></a><strong>一、游戏分析</strong></h3><h4 id="1-游戏玩法"><a href="#1-游戏玩法" class="headerlink" title="1.游戏玩法"></a>1.游戏玩法</h4><p>游戏玩法很简单，和微信跳一跳完全没区别，只要按住屏幕，小企鹅前面就会伸出一根梯子，按的时间越长梯子也越长，放开之后梯子就会向下一个格子下落，落到越靠近方块中心得分越高。如果梯子的长度没有达到下一层，或者是超过了下一层，那么不得分，并且游戏判定结束。</p>
+<h4 id="2-得分机制"><a href="#2-得分机制" class="headerlink" title="2.得分机制"></a>2.得分机制</h4><p>按住屏幕一定时间后放开，使得梯子落下后边缘尽可能靠近中心，最外层得一分，中间层得两分，中心块得三分，各层之间用颜色来区分。</p>
+<p><img src="/2019/01/31/ADB-CrossLuckyCity/2.jpg" alt="Title"></p>
+<p>特别的，如果连续拿到中心块的话，所得分数将是上一次得分累计加三分，即用$k$代表连续拿到中心块的次数，那么第$k$次所获得的分数$C_k$可以表示为：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+C_k=3k (k=1,2,...)
+\end{equation}</script><p>这一机制也就使得，短时间内获得高分的需求将不是尽可能多的击中中心块，而是尽可能多的连击中心块。</p>
+<h3 id="二、机机交互"><a href="#二、机机交互" class="headerlink" title="二、机机交互"></a><strong>二、机机交互</strong></h3><p>我们的目的是叉着腰喝着茶穿越福城，所以就需要电脑自动帮我们玩，然而手机肯定是不会自己玩的，我们需要在电脑上编写程序，进而通过程序来获取手机数据并控制手机，这是机器与机器之间的交互，简称机机交互。</p>
+<p>机机交互我选择adb大法，可是要求手机是安卓系统，这就苦逼了，家里翻来翻去都没有安卓系统的设备，这可咋办呢？</p>
+<p>没关系我们还有模拟器啊，不慌不慌，打开MUMU，开启模拟器的USB调试后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb connect 127.0.0.1:7555</span><br></pre></td></tr></table></figure>
+<p>正常连接，这可又苦逼了，使用模拟器竟然进不去这个游戏？？这只企鹅是魔鬼吧，这可咋办呢？好在我又翻来翻去，终于，还是找到了一台CentOS系统的手机，看上去颇具年代感，不过也够用了。</p>
+<p>首先进入手机设置，将开发者模式打开，并且打开USB调试功能，随后用数据线将手机与电脑连接起来，在手机上授权所连接的电脑进行调试就可以了。在控制台中可以看到我们的手机设备已经Attached，并且状态正常。</p>
+<p><img src="/2019/01/31/ADB-CrossLuckyCity/3.jpg" alt="ADB连接"></p>
+<p>如果显示设备offline，那么请检查：</p>
+<ol>
+<li>是不是线松了/…（紧一紧插口或者重连）</li>
+<li>手机端是否打开了USB调试（若没有则打开重连）</li>
+<li>手机端是否对所连接的电脑授权同意了（若没有则重连确认授权）</li>
+</ol>
+<p>如果以上两条都没问题，那么请尝试：</p>
+<ol>
+<li>重启ADB服务</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb kill-server</span><br><span class="line">adb start-server</span><br><span class="line">adb devices</span><br></pre></td></tr></table></figure>
+<ol>
+<li>断开连接，重启手机、电脑，重新连接</li>
+<li>换用更高版本的ADB</li>
+</ol>
+<p>连接成功后，我们就可以写点代码测试一下效果了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	system(&quot;adb shell input tap 100 100&quot;);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以直接在控制台进行测试，下面是一些基本操作的adb指令：</p>
+<ul>
+<li><strong>点击屏幕</strong>$(x,y)$</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell input tap x y</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>滑动屏幕</strong>$(x_1,y_1) \rightarrow (x_2,y_2)$，<strong>总时长</strong>$t$<strong>毫秒</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell input swipe x1 y1 x2 y2 t</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>长按屏幕</strong>$(x,y)$<strong>处</strong>$t$<strong>毫秒</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell input swipe x y x y t</span><br></pre></td></tr></table></figure>
+<h3 id="三、原理分析"><a href="#三、原理分析" class="headerlink" title="三、原理分析"></a><strong>三、原理分析</strong></h3><h4 id="1-基本原理"><a href="#1-基本原理" class="headerlink" title="1.基本原理"></a>1.基本原理</h4><p>游戏本身只有一个输入操作，就是长按屏幕，对应的也就只有一个输入变量，即长按时间。而玩家控制按压时间的长短则是依靠小企鹅和目标块之间的距离来判断的，距离越长所需的按压时间也越长，距离越短所需的按压时间也越短。正如$3Blue1Brown$所说，在解决问题的过程中取名字总是喜闻乐见的，我们就将长按时间取名叫做$HoldTime$，小企鹅与中心块之间的距离叫做$Distance$，按压得到的梯子长度叫做$Length$，直观上看很容易得出结论：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+HoldTime \propto Length
+\end{equation}</script><script type="math/tex; mode=display">
+\begin{equation}
+HoldTime \propto Distance
+\end{equation}</script><p>但事实真的如此吗？我记录了一些三分情况下的$Distance$与$HoldTime$数据，并做出散点图</p>
+<p><img src="/2019/01/31/ADB-CrossLuckyCity/11.jpg" alt="Title"></p>
+<p>发现两者之间并不存在明确的线性关系，甚至好像毫无关系，但无论如何，$Distance$在直观上与$HoldTime$是必然存在线性或近似线性的关系的，因此我选择<strong>认为他们是线性关系</strong>，只是还有其他量影响着我们的长按时间，将本身的线性扭曲了，因此下面关于$Distance$的内容均以线性讨论，校正的内容在$3.2$中进行探讨。</p>
+<p>其实说白了，我们需要做的就是找出$Distance$与$HoldTime$之间的函数关系$H(d)$，使得按照$Distance$计算出的按压时长$H(d)$得到的梯长$Length$与$Distance$自身的差值$\delta$尽可能小，即</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+min \delta = min\{|L(H(d))-d|\}
+\end{equation}</script><p>但是$Distance$本身并没有绝对标准的数据来源，这个指标$\delta$我们大可直接以可视的得分情况来代替，得三分说明$\delta$足够小，得两分说明$\delta$大小一般，得一分或不得分就说明$\delta$偏大了，我们进而可以引入更高一层的判别指标来对$H(d)$做出更具整体性的评价：</p>
+<p>定义计算$n$次$H(d)$，得$m$分的次数为$C_m$，则有$n$轮中心命中概率</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+P(n)=\frac{1}{n}\Sigma_{m=3}^{+\infty}C_m
+\end{equation}</script><p>此时问题转化为了：寻找一个函数$H(d)$，使得依照此函数进行游戏满足</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+lim_{n \rightarrow + \infty}\frac{1}{n}\Sigma_{m=3}^{+\infty}C_m=1
+\end{equation}</script><h4 id="2-计算原理"><a href="#2-计算原理" class="headerlink" title="2.计算原理"></a>2.计算原理</h4><p>在实际操作的过程中，你会发现需要考虑的量并不仅仅只有$Distance$而已，由于缩放特性的存在，像素世界里距离的定义永远是相对的，同样是$200px$在不同的缩放参数下所表示的距离可能相差很大，例如在本文的封面图中，我们可以测量出小企鹅底部到目标中心点的最小包围矩形宽度$300px$，高度$173px$，距离大致是$245px$，而在下图中，小企鹅到中心点的距离大致是$167px$，可是下图的距离显然比封面图的距离要远，但像素层面的距离却更短，这就是全局缩放所导致的。</p>
+<p><img src="/2019/01/31/ADB-CrossLuckyCity/4.jpg" alt="Title"></p>
+<p>为了知晓缩放程度，我们可以选择常量——企鹅自身高度作为参照依据，企鹅在屏幕上显示的高度记作$HeightPlayer$，$HeightPlayer$越小，说明全局缩放程度越大，更准确的说是全局缩小的程度越大。<br>可以选择找出$HeightPlayer$与缩放比例之间的关系，进而矫正$Distance$为$d’$并继续使用原来的函数$H(d’)$计算长按时间，也可以选择直接将$HeightPlayer$也纳为影响按压时间的客观变量，修改得到新的二元函数$H(d,h)$，这里我选择了第二种方式。</p>
+<hr>
+<blockquote>
+<p>如果你想要采用第一种方式的话，即寻找校正函数来修正被缩放的$Distance$，你可能需要记录一些数据来检视$Height$与$HoldTime$之间的数学关系以避免盲目的尝试，虽然我选的第二种方式，但依旧做了一下这方面的测试，下面的内容可供参考。</p>
+</blockquote>
+<p><img src="/2019/01/31/ADB-CrossLuckyCity/10.jpg" alt="Title"></p>
+<p>做出$Height$与$HoldTime$的散点图，可以看到两者之间呈现出二次函数的关系，通过二次函数拟合，得到了可观的$R-squre$与$SSE$，所以如果你想尝试矫正$Distance$，那么你可能需要从形如下式的函数入手</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+D'(d,h)=(h-c_1)^2d+c_2
+\end{equation}</script><p>这里不给出所求得的$c_1$与$c_2$的具体数值，因为不同的设备有不同的分辨率，参数的具体值是没有意义的，后文有给出部分计算数据，如果你尝试直接套用的话，可能不会得到理想的效果。</p>
+<hr>
+<h4 id="3-数据获取原理"><a href="#3-数据获取原理" class="headerlink" title="3.数据获取原理"></a>3.数据获取原理</h4><p>由上面的原理不难知道，为了计算长按时间，我们需要的数据无非就是企鹅高度和距中心点的距离，这两个数据通过简单的图像分析和简单的计算不难得到。<br>首先中心块的颜色集合与企鹅的颜色集合是固定的，通过</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell screencap -p /sdcard/screen.png</span><br><span class="line">adb pull /sdcard/screen.png</span><br></pre></td></tr></table></figure>
+<p>得到屏幕图像后，逐像素点扫描，检查是否满足中心块/企鹅颜色即可。</p>
+<p>这个过程可以用数学模型更清晰的表述出来，下面给出寻找中心块与企鹅，以及企鹅高度计算的数学描述。</p>
+<p>假设中心块的颜色集合为三元组</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+RGB_t=\{(r_1,g_1,b_1),(r_2,g_2,b_2),...,(r_m,g_m,b_m)\}
+\end{equation}</script><p>企鹅身体的颜色集合为三元组</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+RGB_b=\{(r_1,g_1,b_1),(r_2,g_2,b_2),...,(r_n,g_n,b_n)\}
+\end{equation}</script><p>指定扫描区域的红黄蓝三原色数据被分别存放在二维数组$R[i][j]$、$G[i][j]$、$B[i][j]$中，定义函数</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+Exist(r,g,b,A)=\left\{
+\begin{array}{rcl}
+1 & & {(r,g,b) \in A}\\
+0 & & {(r,g,b) \notin A}
+\end{array} \right.
+\end{equation}</script><ul>
+<li>当某点$(x,y)$满足</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{equation}
+Exist(R[x][y],G[x][y],B[x][y],RGB_t) = 1
+\end{equation}</script><p>认为该点落在目标中心块中，在所有满足该式的点集中取$y$最小的那对坐标$(x<em>1,y</em>{min})$即是中心块的顶点，取$y$最大的那对坐标$(x<em>2,y</em>{max})$即是中心块的底点，$(\frac{x<em>1+x_2}{2},\frac{y</em>{min}+y_{max}}{2})$即是中心点坐标；</p>
+<ul>
+<li>当某点$(x,y)$满足</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{equation}
+Exist(R[x][y],G[x][y],B[x][y],RGB_b) = 1
+\end{equation}</script><p>认为该点落在企鹅身体中，在所有满足该式的点集中取$y$最小的那对坐标$(x<em>1,y</em>{min})$即是企鹅的顶点，取$y$最大的那对坐标$(x<em>2,y</em>{max})$即是企鹅的底点，易得企鹅的高度</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+HeightPlayer=y_{max}-y_{min}
+\end{equation}</script><p><img src="/2019/01/31/ADB-CrossLuckyCity/12.jpg" alt="Title"></p>
+<p>最后提一点，全屏扫描肯定是低效的，为了提高检测效率，在实际编码时最好截取屏幕固定的矩形区域，例如上图这样的区域，再进行扫描以节省时间。</p>
+<h3 id="四、算算看吧"><a href="#四、算算看吧" class="headerlink" title="四、算算看吧"></a><strong>四、算算看吧</strong></h3><p>其实很显然$H(d,h)$应该就是简单的线性组合$k_1d+k_2h$，可以直接通过一定一动结合二分法将$k_1$与$k_2$的值手动调出个八九不离十，但我实在是懒…所以直接无脑记录$60$次命中中心情况下的$d$、$h$数据进行多元函数拟合了。但是注意，这样做是有弊端的，为了得到尽可能好的拟合效果，得到较高的均方根方与低$SSE$，往往忍不住用高次拟合，而最终损失的是算法的鲁棒性。<br>最后得到的拟合函数：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+H(d,h) = p_{00} + p_{10}d + p_{01}h + p_{20}d^2 + p_{11}dh + p_{02}h^2
+\end{equation}</script><p>下列系数均略写了$95\%$的置信区间：</p>
+<script type="math/tex; mode=display">
+\begin {array}{r|r|r|r|r|r}
+\hline
+p_{00} & p_{10} & p_{01} & p_{20} & p_{11} & p_{02} \\ \hline
+1311 & 8.71 & -63.91 & -0.0101 & -0.02503 & 0.5314 \\ \hline
+\end {array}</script><p>拟合图像你要是这样看的话没啥用：</p>
+<p><img src="/2019/01/31/ADB-CrossLuckyCity/5.jpg" alt="Title"></p>
+<p>让我们来看看侧视图：</p>
+<p><img src="/2019/01/31/ADB-CrossLuckyCity/6.jpg" alt="Title"></p>
+<p>从拟合图像的侧视图易知$HoldTime$与$height$并不是简单的线性关系，而是二次函数的关系，这也就成功推翻了自己本小节开头说的话，额…</p>
+<p><img src="/2019/01/31/ADB-CrossLuckyCity/7.jpg" alt="Title"></p>
+<p><img src="/2019/01/31/ADB-CrossLuckyCity/8.jpg" alt="Title"></p>
+<p>我，推翻我自己，2333</p>
+<h3 id="五、代码实现"><a href="#五、代码实现" class="headerlink" title="五、代码实现"></a><strong>五、代码实现</strong></h3><p>正所谓编码半小时，调参一整天，代码部分可以说是整个过程中最简单的了，简单到可略。</p>
+<h3 id="六、测试效果"><a href="#六、测试效果" class="headerlink" title="六、测试效果"></a><strong>六、测试效果</strong></h3><p>测试效果：良<br>还是会有偶尔的失误，不过准确率已经比较高了，最高连击在10次左右，毕竟只是通过少量数据拟合得到的效果，现在已知$HoldTime$与$Distance$、$Height$的级次关系，如果通过定式拟合，将得到更好的效果。<br>不管怎么说，你现在已经可以去叉腰喝茶了。</p>
+<p><img src="http://m.qpic.cn/psb?/V13O1BPC29uJSy/8FBuCeY7YhImH8ShmlrtsaigGh5KgS33mI3tN3iLxV8!/b/dFIBAAAAAAAA&amp;bo=0AAhAQAAAAACl0M!&amp;rf=viewer_4" alt="Title"></p>
+<center>--- END ---</center><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果你觉得文章内容对你有帮助，可以打赏支持一下哦！<br/></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Sunwish 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        ﻿
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ADB/" rel="tag"><i class="fa fa-tag"></i> ADB</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/05/CUMCMAdvice/" rel="next" title="对数学建模分工、初期准备、相关资源的总结与建议">
+                <i class="fa fa-chevron-left"></i> 对数学建模分工、初期准备、相关资源的总结与建议
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/02/BlogUpdate2019/" rel="prev" title="2019年猴开发博客更新计划">
+                2019年猴开发博客更新计划 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+
+    <div class="sidebar-inner">
+      
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sunwish</p>
+              <p class="site-description motion-element" itemprop="description">个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sunwish.houkaifa.com/" title="Sunwish" target="_blank">Sunwish</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alterful.com/" title="Alterful" target="_blank">Alterful</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://easecurve.houkaifa.com/" title="Easecurve" target="_blank">Easecurve</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+          
+            
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、游戏分析"><span class="nav-text">一、游戏分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-游戏玩法"><span class="nav-text">1.游戏玩法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-得分机制"><span class="nav-text">2.得分机制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、机机交互"><span class="nav-text">二、机机交互</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、原理分析"><span class="nav-text">三、原理分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-基本原理"><span class="nav-text">1.基本原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-计算原理"><span class="nav-text">2.计算原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-数据获取原理"><span class="nav-text">3.数据获取原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、算算看吧"><span class="nav-text">四、算算看吧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、代码实现"><span class="nav-text">五、代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、测试效果"><span class="nav-text">六、测试效果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+          
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sunwish</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 108.4k 字</span>
+</div>
+
+<!--
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+-->
+<span class="post-meta-divider">|</span>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count"><a href="http://beian.miit.gov.cn/" target="_blank">赣ICP备2022001064号-2</a></span>
+</div>
+
+
+<div>
+    <span id="busuanzi_container_site_uv"><i class="fa fa-user"></i> 本站访客<span id="busuanzi_value_site_uv"></span>人次</span>
+    <span class="post-meta-divider">|</span>
+    <span class="site-pv"><i class="fa fa-eye"></i> 总阅读量: <span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+    <!--
+    <span class="post-meta-divider">|</span>
+    <span class="site-uv"><i class="fa fa-user"></i> 访问人数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+    -->
+</div>
+<script src="./js/src/pvuvfix.js"></script>
+
+
+
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65941008";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <!--<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>-->
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sa3sYJwnqEBnYDpS7VFT70ya-gzGzoHsz',
+        appKey: 'TPHHBKrFtoGkcocnjqN78Fue',
+        placeholder: 'ヾﾉ≧∀≦)o 文章看完啦，别吝啬你的观点哦',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: true
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 15694#<app_id>,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
+

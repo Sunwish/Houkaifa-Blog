@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+<!--<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>-->
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "bf6ac372"
+    });
+  daovoice('update');
+  </script>
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+<!--<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>-->
+<!--<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">-->
+<script src="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/themes/black/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="所有题目来源为力扣 题解为原创，仅为个人当前阶段能想到/能接受的解法，不一定是优解 🟢简单 🟠中等 🔴困难 ⚪未完成 ⚫未更新   链表🟠 92. 反转链表 II给你单链表的头指针 head 和两个整数 left 和 right ，其中 left &amp;lt;= right 。请你反转从位置 left 到位置 right 的链表节点，返回 反转后的链表 。 示例 1：  12输入：head">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LeetCode 题解（思路归纳）">
+<meta property="og:url" content="http://Sunwish.coding.me/lcProblemSolved/index.html">
+<meta property="og:site_name" content="猴开发 | 博客">
+<meta property="og:description" content="所有题目来源为力扣 题解为原创，仅为个人当前阶段能想到/能接受的解法，不一定是优解 🟢简单 🟠中等 🔴困难 ⚪未完成 ⚫未更新   链表🟠 92. 反转链表 II给你单链表的头指针 head 和两个整数 left 和 right ，其中 left &amp;lt;= right 。请你反转从位置 left 到位置 right 的链表节点，返回 反转后的链表 。 示例 1：  12输入：head">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2021/02/19/rev2ex2.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/92/ac.png">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/86/ac.png">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/403/ac403.png">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/70/ac70.png">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/70/ac70-1.png">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/64/minpath.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/64/ac.png">
+<meta property="og:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/robot_maze.png">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2020/11/04/robot1.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/63/ac.png">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/62/ac.png">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/120/ac.png">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/931/ac.png">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/1289/ac1289.png">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/1289/ac1289-2.png">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/1289/ac1289-3.png">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/22/ac22.png">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/301/ac301.png">
+<meta property="og:image" content="https://aliyun-lc-upload.oss-cn-hangzhou.aliyuncs.com/aliyun-lc-upload/uploads/2018/07/25/question_11.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/lcProblemSolved/11/ac11.png">
+<meta property="og:updated_time" content="2022-08-02T02:07:22.281Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeetCode 题解（思路归纳）">
+<meta name="twitter:description" content="所有题目来源为力扣 题解为原创，仅为个人当前阶段能想到/能接受的解法，不一定是优解 🟢简单 🟠中等 🔴困难 ⚪未完成 ⚫未更新   链表🟠 92. 反转链表 II给你单链表的头指针 head 和两个整数 left 和 right ，其中 left &amp;lt;= right 。请你反转从位置 left 到位置 right 的链表节点，返回 反转后的链表 。 示例 1：  12输入：head">
+<meta name="twitter:image" content="https://assets.leetcode.com/uploads/2021/02/19/rev2ex2.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://Sunwish.coding.me/lcProblemSolved/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>LeetCode 题解（思路归纳） | 猴开发 | 博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">猴开发 | 博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+
+    
+      
+        <h1 class="site-subtitle" itemprop="description">积极思考  活跃创造</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-札记">
+    <a href="/series/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-每日一题">
+    <a href="/dailyProblem/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-calendar-check-o"></i> <br />每日一题</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+          <div id="music" style="width: 100%; height: 110px; margin-top: -15px; margin-bottom: 5px;">
+           <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2851637030&auto=0&height=90"></iframe>
+          </div>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/Sunwish" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h2 class="post-title" itemprop="name headline">LeetCode 题解（思路归纳）</h2>
+
+<div class="post-meta">
+  
+  
+
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <blockquote>
+<ol>
+<li>所有题目来源为力扣</li>
+<li>题解为原创，仅为个人当前阶段能想到/能接受的解法，不一定是优解</li>
+<li>🟢简单 🟠中等 🔴困难 ⚪未完成 ⚫未更新</li>
+</ol>
+</blockquote>
+<h1 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h1><h2 id="🟠-92-反转链表-II"><a href="#🟠-92-反转链表-II" class="headerlink" title="🟠 92. 反转链表 II"></a>🟠 <a href="https://leetcode-cn.com/problems/reverse-linked-list-ii/" target="_blank" rel="noopener">92. 反转链表 II</a></h2><p>给你单链表的头指针 <code>head</code> 和两个整数 <code>left</code> 和 <code>right</code> ，其中 <code>left &lt;= right</code> 。请你反转从位置 <code>left</code> 到位置 <code>right</code> 的链表节点，返回 <strong>反转后的链表</strong> 。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/02/19/rev2ex2.jpg" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [1,2,3,4,5], left = 2, right = 4</span><br><span class="line">输出：[1,4,3,2,5]</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [5], left = 1, right = 1</span><br><span class="line">输出：[5]</span><br></pre></td></tr></table></figure>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>分三步走即可。</p>
+<ol>
+<li>将用于遍历的指针 <code>p</code> 定位到要反转的 <code>section</code> 头节点处，同时跟踪到 <code>section</code> 头节点的前一个节点，记作 <code>pBeforeMiddle</code>；</li>
+<li>使用头插法将 <code>section</code> 内的 <code>right-left+1</code> 个节点插入一个新的链表中，完成反转需求。注意第一个进行头插的节点 <code>firstHeadInserted</code> 会成为反转后的最后一个节点，为了将反转 <code>section</code> 接上后续不用反转的部分，第一个进行头插的节点要用指针存一下；</li>
+<li>将 <code>pBeforeMiddle</code> 节点接上 <code>section</code> 的第一个节点，同时将 <code>firstHeadInserted</code> 接上 <code>section</code> 后面的那个节点即可。</li>
+</ol>
+<p>完整代码：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">ReverseBetween</span>(<span class="params">ListNode head, <span class="keyword">int</span> left, <span class="keyword">int</span> right</span>) </span>&#123;</span><br><span class="line">        ListNode p = head;</span><br><span class="line">        ListNode pBeforeMiddle = <span class="literal">null</span>;</span><br><span class="line">        ListNode middleList = <span class="keyword">new</span> ListNode(<span class="number">-1</span>, <span class="literal">null</span>);</span><br><span class="line">        <span class="comment">// locate the node before section need to reverse</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; left; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            pBeforeMiddle = p;</span><br><span class="line">            p = p.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// now, p point the first node of the section need to reverse</span></span><br><span class="line">        <span class="comment">// head insert to reverse the section</span></span><br><span class="line">        <span class="comment">// save firstHeadInserted for connect the rest nodes after reverse section</span></span><br><span class="line">        ListNode firstHeadInserted = <span class="keyword">new</span> ListNode(p.val, <span class="literal">null</span>);</span><br><span class="line">        middleList.next = firstHeadInserted;</span><br><span class="line">        p = p.next;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; right - left + <span class="number">1</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            middleList.next = <span class="keyword">new</span> ListNode(p.val, middleList.next);</span><br><span class="line">            p = p.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// connect the rest nodes after the reversed section</span></span><br><span class="line">        firstHeadInserted.next = p;</span><br><span class="line">        <span class="keyword">if</span>(pBeforeMiddle != <span class="literal">null</span>) </span><br><span class="line">        &#123;</span><br><span class="line">            pBeforeMiddle.next = middleList.next;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">return</span> middleList.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/lcProblemSolved/92/ac.png" alt="ac"></p>
+<h2 id="🟠-86-分隔链表"><a href="#🟠-86-分隔链表" class="headerlink" title="🟠 86. 分隔链表"></a>🟠 <a href="https://leetcode-cn.com/problems/partition-list/" target="_blank" rel="noopener">86. 分隔链表</a></h2><p>给你一个链表的头节点 <code>head</code> 和一个特定值 <code>x</code> ，请你对链表进行分隔，使得所有 <strong>小于</strong> <code>x</code> 的节点都出现在 <strong>大于或等于</strong> <code>x</code> 的节点之前。</p>
+<p>你应当 <strong>保留</strong> 两个分区中每个节点的初始相对位置。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [1,4,3,2,5,2], x = 3</span><br><span class="line">输出：[1,2,2,4,3,5]</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li>链表中节点的数目在范围 <code>[0, 200]</code> 内</li>
+<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+<li><code>-200 &lt;= x &lt;= 200</code></li>
+</ul>
+<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>应是简单题。遍历链表，按顺序将小于 <code>x</code> 和大于等于 <code>x</code> 的节点分别收集到两个链表中，最后将两个链表相接即可实现相对位置不变的链表分隔。</p>
+<p>完整代码：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">Partition</span>(<span class="params">ListNode head, <span class="keyword">int</span> x</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">null</span> == head) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode p = head;</span><br><span class="line">        ListNode smallerList = <span class="keyword">new</span> ListNode(<span class="number">-1</span>, <span class="literal">null</span>);</span><br><span class="line">        ListNode bigList = <span class="keyword">new</span> ListNode(<span class="number">-1</span>, <span class="literal">null</span>);</span><br><span class="line">        ListNode smallerP = smallerList, bigP = bigList;</span><br><span class="line">        <span class="keyword">while</span>(p != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ListNode node = <span class="keyword">new</span> ListNode(p.val, <span class="literal">null</span>);</span><br><span class="line">            <span class="keyword">if</span>(p.val &lt; x) &#123; smallerP.next = node; smallerP = smallerP.next; &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123; bigP.next = node; bigP = bigP.next; &#125;</span><br><span class="line">            p = p.next;</span><br><span class="line">        &#125;</span><br><span class="line">        smallerP.next = bigList.next;</span><br><span class="line">        <span class="keyword">return</span> smallerList.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/lcProblemSolved/86/ac.png" alt="ac"></p>
+<hr>
+<h1 id="动态规划-记忆化搜索"><a href="#动态规划-记忆化搜索" class="headerlink" title="动态规划 / 记忆化搜索"></a>动态规划 / 记忆化搜索</h1><h2 id="🔴-403-青蛙过河"><a href="#🔴-403-青蛙过河" class="headerlink" title="🔴 403. 青蛙过河"></a>🔴 <a href="https://leetcode-cn.com/problems/frog-jump/" target="_blank" rel="noopener">403. 青蛙过河</a></h2><p>一只青蛙想要过河。 假定河流被等分为若干个单元格，并且在每一个单元格内都有可能放有一块石子（也有可能没有）。 青蛙可以跳上石子，但是不可以跳入水中。</p>
+<p>给你石子的位置列表 <code>stones</code>（用单元格序号 <strong>升序</strong> 表示）， 请判定青蛙能否成功过河（即能否在最后一步跳至最后一块石子上）。</p>
+<p>开始时， 青蛙默认已站在第一块石子上，并可以假定它第一步只能跳跃一个单位（即只能从单元格 1 跳至单元格 2 ）。</p>
+<p>如果青蛙上一步跳跃了 <code>k</code> 个单位，那么它接下来的跳跃距离只能选择为 <code>k - 1</code>、<code>k</code> 或 <code>k + 1</code> 个单位。 另请注意，青蛙只能向前方（终点的方向）跳跃。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：stones = [0,1,3,5,6,8,12,17]</span><br><span class="line">输出：true</span><br><span class="line">解释：青蛙可以成功过河，按照如下方案跳跃：跳 1 个单位到第 2 块石子, 然后跳 2 个单位到第 3 块石子, 接着 跳 2 个单位到第 4 块石子, 然后跳 3 个单位到第 6 块石子, 跳 4 个单位到第 7 块石子, 最后，跳 5 个单位到第 8 个石子（即最后一块石子）。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：stones = [0,1,2,3,4,8,9,11]</span><br><span class="line">输出：false</span><br><span class="line">解释：这是因为第 5 和第 6 个石子之间的间距太大，没有可选的方案供青蛙跳跃过去。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>2 &lt;= stones.length &lt;= 2000</code></li>
+<li><code>0 &lt;= stones[i] &lt;= 231 - 1</code></li>
+<li><code>stones[0] == 0</code></li>
+</ul>
+<h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><p>通过直觉，不难想到回溯遍历的方式找到可能的到达终点的路径。对于青蛙的任意状态，都能够由当前石头下标 <code>currentI</code> 和由上一块石头经过几跳 <code>lastJump</code> 到达当前石头这么两个参数确定，由于青蛙下一跳只能跳 <code>lastJump-1</code> ~ <code>lastJump+1</code> 跳，故从 <code>stone[]</code>  中向后找能恰用这些步数到达的石头进行转移，若没有石头可以转移，说明该路径不能到达终点。</p>
+<p>完整代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">boolean</span> can;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canCross</span><span class="params">(<span class="keyword">int</span>[] stones)</span> </span>&#123;</span><br><span class="line">        can = <span class="keyword">false</span>;</span><br><span class="line">        try2Cross(stones, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> can;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">try2Cross</span><span class="params">(<span class="keyword">int</span>[] stones, <span class="keyword">int</span> currentI, <span class="keyword">int</span> lastJump)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(currentI == stones.length - <span class="number">1</span> || can) &#123; can = <span class="keyword">true</span>; <span class="keyword">return</span> <span class="keyword">true</span>; &#125;</span><br><span class="line">        <span class="keyword">boolean</span> canReach = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = currentI+<span class="number">1</span>; i &lt; stones.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> distance = stones[i] - stones[currentI];</span><br><span class="line">            <span class="keyword">if</span>(distance &gt; lastJump + <span class="number">1</span>) <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span>(distance == lastJump - <span class="number">1</span>) &#123; canReach |= try2Cross(stones, i, lastJump-<span class="number">1</span>); &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(distance == lastJump) &#123; canReach |= try2Cross(stones, i, lastJump); &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(distance == lastJump + <span class="number">1</span>) &#123; canReach |= try2Cross(stones, i, lastJump+<span class="number">1</span>); &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(canReach) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>虽然在用例计算量较小时可以通过，但对于递归较深重复很多的情况下会超时，故用记忆化搜索优化之，易得：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">boolean</span> can;</span><br><span class="line">    HashMap&lt;String, Integer&gt; mem;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canCross</span><span class="params">(<span class="keyword">int</span>[] stones)</span> </span>&#123;</span><br><span class="line">        can = <span class="keyword">false</span>;</span><br><span class="line">        mem = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        try2Cross(stones, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> can;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">try2Cross</span><span class="params">(<span class="keyword">int</span>[] stones, <span class="keyword">int</span> currentI, <span class="keyword">int</span> lastJump)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(currentI == stones.length - <span class="number">1</span> || can) &#123; can = <span class="keyword">true</span>; <span class="keyword">return</span> <span class="keyword">true</span>; &#125;</span><br><span class="line">        String key = String.valueOf(currentI) + <span class="string">" "</span> + String.valueOf(lastJump);</span><br><span class="line">        <span class="keyword">if</span>(mem.getOrDefault(key, -<span class="number">1</span>)==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">boolean</span> canReach = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = currentI+<span class="number">1</span>; i &lt; stones.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> distance = stones[i] - stones[currentI];</span><br><span class="line">            <span class="keyword">if</span>(distance &gt; lastJump + <span class="number">1</span>) <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span>(distance == lastJump - <span class="number">1</span>) &#123; canReach |= try2Cross(stones, i, lastJump-<span class="number">1</span>); &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(distance == lastJump) &#123; canReach |= try2Cross(stones, i, lastJump); &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(distance == lastJump + <span class="number">1</span>) &#123; canReach |= try2Cross(stones, i, lastJump+<span class="number">1</span>); &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(canReach) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        mem.put(key, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/lcProblemSolved/403/ac403.png" alt="ac"></p>
+<h2 id="🟢-70-爬楼梯"><a href="#🟢-70-爬楼梯" class="headerlink" title="🟢 70. 爬楼梯"></a>🟢 <a href="https://leetcode-cn.com/problems/climbing-stairs/" target="_blank" rel="noopener">70. 爬楼梯</a></h2><p>假设你正在爬楼梯。需要 <em>n</em> 阶你才能到达楼顶。</p>
+<p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
+<p><strong>注意：</strong>给定 <em>n</em> 是一个正整数。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入： 2</span><br><span class="line">输出： 2</span><br><span class="line">解释： 有两种方法可以爬到楼顶。</span><br><span class="line">1.  1 阶 + 1 阶</span><br><span class="line">2.  2 阶</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入： 3</span><br><span class="line">输出： 3</span><br><span class="line">解释： 有三种方法可以爬到楼顶。</span><br><span class="line">1.  1 阶 + 1 阶 + 1 阶</span><br><span class="line">2.  1 阶 + 2 阶</span><br><span class="line">3.  2 阶 + 1 阶</span><br></pre></td></tr></table></figure>
+<h3 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h3><p>首先很容易想到回溯遍历，每种状态都 DFS 往下找走一步和走两步的情况，直到 <code>n</code> 耗尽，就不重不漏地找到了所有路径。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        res = <span class="number">0</span>;</span><br><span class="line">        climb(n);</span><br><span class="line">        <span class="keyword">return</span> res;        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">climb</span><span class="params">(<span class="keyword">int</span> leftN)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(leftN &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            res++; <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        climb(leftN - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span>(leftN &gt; <span class="number">1</span>) climb(leftN - <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不过稍微测试一个大一点的用例，比如输入 <code>42</code>，执行结果就超时了，因此我们需要思考一下进行优化。</p>
+<p>虽然挺久没有做到记忆化搜索的题了，但是很幸运，当提交用例超时的那一瞬间，瞬间就触电般地想到了借助记忆化搜索对该 DFS 剪枝便能完美解决此题。遂改之：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    HashMap&lt;Integer, Integer&gt; waysForN;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        res = <span class="number">0</span>;</span><br><span class="line">        waysForN = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        climb(n);</span><br><span class="line">        <span class="keyword">return</span> waysForN.getOrDefault(n, -<span class="number">1</span>);        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">climb</span><span class="params">(<span class="keyword">int</span> leftN)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(leftN &lt;= <span class="number">0</span>) &#123; res++; <span class="keyword">return</span>; &#125;</span><br><span class="line">        <span class="keyword">int</span> mem = waysForN.getOrDefault(leftN, -<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span>(mem != -<span class="number">1</span>)&#123; res += mem; <span class="keyword">return</span>; &#125;</span><br><span class="line">        <span class="keyword">int</span> oriRes = res;</span><br><span class="line">        climb(leftN - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span>(leftN &gt; <span class="number">1</span>) climb(leftN - <span class="number">2</span>);</span><br><span class="line">        waysForN.put(leftN, res - oriRes);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用记忆化搜索改进后，从超时到 0ms，顺利 AC 了。</p>
+<p><img src="/lcProblemSolved/70/ac70.png" alt="ac"></p>
+<p><strong>虽然 AC 了，但是想到既然能用记忆化搜索，那不如顺带再用动态规划解一遍吧，就当复习一下动态规划了。</strong></p>
+<p>不难定义状态 <code>dp[i]</code> 表示走 <code>i</code> 阶楼梯的情况数，那么同样不难想到， <code>dp[i]</code> 可由 <code>dp[i-1]</code> 和 <code>dp[i-2]</code> 转移得来，因为第 <code>i</code> 阶楼梯可由 <code>i-1</code> 阶楼梯走一步到达，也可由 <code>i-2</code> 阶楼梯走两步到达。故有转移方程 <code>dp[i] = dp[i-1] + dp[i-2]</code>。同时初始状态显然为 <code>dp[0] = dp[1] = 1</code>。</p>
+<p>同样 AC 的动态规划解法完整代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        dp[<span class="number">0</span>] = dp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) dp[i] = dp[i-<span class="number">1</span>] + dp[i-<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/lcProblemSolved/70/ac70-1.png" alt="ac"></p>
+<h2 id="🟠-64-最小路径和"><a href="#🟠-64-最小路径和" class="headerlink" title="🟠 64. 最小路径和"></a>🟠 <a href="https://leetcode-cn.com/problems/minimum-path-sum/" target="_blank" rel="noopener">64. 最小路径和</a></h2><p>给定一个包含非负整数的 <code>*m* x *n*</code> 网格 <code>grid</code> ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。</p>
+<p><strong>说明：</strong>每次只能向下或者向右移动一步。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="/lcProblemSolved/64/minpath.jpg" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：grid = [[1,3,1],[1,5,1],[4,2,1]]</span><br><span class="line">输出：7</span><br><span class="line">解释：因为路径 1→3→1→1→1 的总和最小。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>m == grid.length</code></li>
+<li><code>n == grid[i].length</code></li>
+<li><code>1 &lt;= m, n &lt;= 200</code></li>
+<li><code>0 &lt;= grid[i][j] &lt;= 100</code></li>
+</ul>
+<h3 id="题解-4"><a href="#题解-4" class="headerlink" title="题解"></a>题解</h3><ul>
+<li>状态定义：<code>dp[i,j]</code> 表示移动到 <code>(i,j)</code> 处的最小代价。</li>
+<li>状态转移：<ul>
+<li>若 <code>i == 0</code> 且 <code>j &gt; 0</code>，则 <code>dp[i,j] = dp[i,j-1] + grid[i][j]</code>，因为只能从左侧转移来；</li>
+<li>若 <code>j == 0</code> 且 <code>i &gt; 0</code>，则 <code>dp[i,j] = dp[i-1,j] + grid[i][j]</code>，因为只能从上方转移来；</li>
+<li>若 <code>i &gt; 0</code> 且 <code>j &gt; 0</code> ，则 <code>dp[i,j] = Max(dp[i,j-1],dp[i-1,j]) + grid[i][j]</code> 以满足最小代价。</li>
+</ul>
+</li>
+</ul>
+<p>完整代码：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">MinPathSum</span>(<span class="params"><span class="keyword">int</span>[][] grid</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = grid.Length, n = grid[<span class="number">0</span>].Length;</span><br><span class="line">        <span class="keyword">int</span>[,] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m, n];</span><br><span class="line">        dp[<span class="number">0</span>, <span class="number">0</span>] = grid[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(i == <span class="number">0</span> &amp;&amp; j &gt; <span class="number">0</span>) dp[i, j] = dp[i, j<span class="number">-1</span>] + grid[i][j];</span><br><span class="line">                <span class="keyword">if</span>(j == <span class="number">0</span> &amp;&amp; i &gt; <span class="number">0</span>) dp[i, j] = dp[i<span class="number">-1</span>, j] + grid[i][j];</span><br><span class="line">                <span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; j &gt; <span class="number">0</span>) dp[i, j] = Math.Min(dp[i, j<span class="number">-1</span>], dp[i<span class="number">-1</span>, j]) + grid[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m<span class="number">-1</span>, n<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/lcProblemSolved/64/ac.png" alt="ac"></p>
+<h2 id="🟠-63-不同路径-II"><a href="#🟠-63-不同路径-II" class="headerlink" title="🟠 63. 不同路径 II"></a>🟠 <a href="https://leetcode-cn.com/problems/unique-paths-ii/" target="_blank" rel="noopener">63. 不同路径 II</a></h2><p>一个机器人位于一个 <em>m x n</em> 网格的左上角 （起始点在下图中标记为“Start” ）。</p>
+<p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。</p>
+<p>现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？</p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/robot_maze.png" alt="img"></p>
+<p>网格中的障碍物和空位置分别用 <code>1</code> 和 <code>0</code> 来表示。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/11/04/robot1.jpg" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]</span><br><span class="line">输出：2</span><br><span class="line">解释：</span><br><span class="line">3x3 网格的正中间有一个障碍物。</span><br><span class="line">从左上角到右下角一共有 2 条不同的路径：</span><br><span class="line">1. 向右 -&gt; 向右 -&gt; 向下 -&gt; 向下</span><br><span class="line">2. 向下 -&gt; 向下 -&gt; 向右 -&gt; 向右</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>m == obstacleGrid.length</code></li>
+<li><code>n == obstacleGrid[i].length</code></li>
+<li><code>1 &lt;= m, n &lt;= 100</code></li>
+<li><code>obstacleGrid[i][j]</code> 为 <code>0</code> 或 <code>1</code></li>
+</ul>
+<h3 id="题解-5"><a href="#题解-5" class="headerlink" title="题解"></a>题解</h3><ul>
+<li><p>状态定义：<code>dp[i,j]</code> 代表移动到 <code>(i,j)</code> 的路径数，且 <code>obstacleGrid[i,j] = 1</code> 的地方 <code>dp[i,j]</code> 必为 0。</p>
+</li>
+<li><p>状态转移：</p>
+<ul>
+<li>当 <code>i == 0</code> 且 <code>j &gt; 0</code> 时，<code>dp[i,j] = dp[i,j-1]</code>，即与左边来的路径数一致；</li>
+<li><p>当 <code>j == 0</code> 且 <code>i &gt; 0</code> 时，<code>dp[i,j] = dp[i-1,j]</code>，即与上边来的路径数一致；</p>
+</li>
+<li><p>当 <code>i &gt; 0</code> 且 <code>j &gt; 0</code> 时，<code>dp[i,j] = dp[i-1,j] + dp[i,j-1]</code>，即从左来的路径数与从上来的路径数之和。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>完整代码：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">UniquePathsWithObstacles</span>(<span class="params"><span class="keyword">int</span>[][] obstacleGrid</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(obstacleGrid[<span class="number">0</span>][<span class="number">0</span>] == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> m = obstacleGrid.Length;</span><br><span class="line">        <span class="keyword">int</span> n = obstacleGrid[<span class="number">0</span>].Length;</span><br><span class="line">        <span class="keyword">int</span>[,] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m, n];</span><br><span class="line">        dp[<span class="number">0</span>, <span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(i == <span class="number">0</span> &amp;&amp; j &gt; <span class="number">0</span>) dp[i, j] = obstacleGrid[i][j] == <span class="number">1</span> ? <span class="number">0</span> : dp[i,j<span class="number">-1</span>];</span><br><span class="line">                <span class="keyword">if</span>(j == <span class="number">0</span> &amp;&amp; i &gt; <span class="number">0</span>) dp[i, j] = obstacleGrid[i][j] == <span class="number">1</span> ? <span class="number">0</span> : dp[i<span class="number">-1</span>,j];</span><br><span class="line">                <span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; j &gt; <span class="number">0</span>) dp[i, j] = obstacleGrid[i][j] == <span class="number">1</span> ? <span class="number">0</span> : dp[i,j<span class="number">-1</span>] + dp[i<span class="number">-1</span>,j];;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m<span class="number">-1</span>, n<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/lcProblemSolved/63/ac.png" alt="ac"></p>
+<h2 id="🟠-62-不同路径"><a href="#🟠-62-不同路径" class="headerlink" title="🟠 62. 不同路径"></a>🟠 <a href="https://leetcode-cn.com/problems/unique-paths/" target="_blank" rel="noopener">62. 不同路径</a></h2><p>一个机器人位于一个 <code>m x n</code> 网格的左上角 （起始点在下图中标记为 “Start” ）。</p>
+<p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。</p>
+<p>问总共有多少条不同的路径？</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：m = 3, n = 7</span><br><span class="line">输出：28</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= m, n &lt;= 100</code></li>
+<li>题目数据保证答案小于等于 <code>2 * 109</code></li>
+</ul>
+<h3 id="题解-6"><a href="#题解-6" class="headerlink" title="题解"></a>题解</h3><ul>
+<li>状态定义：<code>dp[i,j]</code> 代表移动到 <code>(i,j)</code> 的路径数，且显然当 <code>i == 0</code> 或 <code>j == 0</code> 时，路径数量为一条。</li>
+<li>状态转移：当 <code>i &gt; 0</code> 且 <code>j &gt; 0</code> 时，<code>dp[i,j] = dp[i-1,j] + dp[i,j-1]</code>，即从左来的路径数与从上来的路径数之和。</li>
+</ul>
+<p>完整代码：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">UniquePaths</span>(<span class="params"><span class="keyword">int</span> m, <span class="keyword">int</span> n</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[,] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m, n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(i == <span class="number">0</span> || j == <span class="number">0</span>) dp[i, j] = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span> dp[i, j] = dp[i, j<span class="number">-1</span>] + dp[i<span class="number">-1</span>, j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m<span class="number">-1</span>, n<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/lcProblemSolved/62/ac.png" alt="ac"></p>
+<h2 id="🟠-120-三角形最小路径和"><a href="#🟠-120-三角形最小路径和" class="headerlink" title="🟠 120. 三角形最小路径和"></a>🟠 <a href="https://leetcode-cn.com/problems/triangle/" target="_blank" rel="noopener">120. 三角形最小路径和</a></h2><p>给定一个三角形 <code>triangle</code> ，找出自顶向下的最小路径和。</p>
+<p>每一步只能移动到下一行中相邻的结点上。<strong>相邻的结点</strong> 在这里指的是 <strong>下标</strong> 与 <strong>上一层结点下标</strong> 相同或者等于 <strong>上一层结点下标 + 1</strong> 的两个结点。也就是说，如果正位于当前行的下标 <code>i</code> ，那么下一步可以移动到下一行的下标 <code>i</code> 或 <code>i + 1</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入：triangle = [[2],[3,4],[6,5,7],[4,1,8,3]]</span><br><span class="line">输出：11</span><br><span class="line">解释：如下面简图所示：</span><br><span class="line">   2</span><br><span class="line">  3 4</span><br><span class="line"> 6 5 7</span><br><span class="line">4 1 8 3</span><br><span class="line">自顶向下的最小路径和为 11（即，2 + 3 + 5 + 1 = 11）。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：triangle = [[-10]]</span><br><span class="line">输出：-10</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= triangle.length &lt;= 200</code></li>
+<li><code>triangle[0].length == 1</code></li>
+<li><code>triangle[i].length == triangle[i - 1].length + 1</code></li>
+<li><code>-104 &lt;= triangle[i][j] &lt;= 104</code></li>
+</ul>
+<h3 id="题解-7"><a href="#题解-7" class="headerlink" title="题解"></a>题解</h3><ul>
+<li>状态定义：<code>dp[Two2OneDemensional(i,j)]</code> 表示移动到位置 <code>(i,j)</code> 的最小路径和，且显然初始条件为 <code>dp[0] = triangle[0][0]</code>，表示顶点到自己的最短路径和即为自己本身。</li>
+<li>状态转移：由题意“每一步只能移动到下一行中相邻的结点上”可知，<code>dp[k]</code> 可由上方节点转移来，也可能由左上方节点转移来。不过特别地，最右侧节点只可能由左上方转移来，因为其没有正上方节点；同理最左侧节点只可能由上方转移来，因为其不存在左上方的节点。</li>
+</ul>
+<p>题目要返回的是到达三角形底部的最小路径和，因此取底部节点的 <code>dp</code> 中最小的那个即可。</p>
+<p>完整代码：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">MinimumTotal</span>(<span class="params">IList&lt;IList&lt;<span class="keyword">int</span>&gt;&gt; triangle</span>) </span>&#123;</span><br><span class="line">        List&lt;IList&lt;<span class="keyword">int</span>&gt;&gt; l = <span class="keyword">new</span> List&lt;IList&lt;<span class="keyword">int</span>&gt;&gt;(triangle);</span><br><span class="line">        <span class="keyword">int</span> length = l.Count;</span><br><span class="line">        <span class="keyword">if</span>(length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[(<span class="number">1</span> + length) * length / <span class="number">2</span>];</span><br><span class="line">        dp[<span class="number">0</span>] = triangle[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; length; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= i; j++)&#123;</span><br><span class="line">                <span class="comment">// 非最右侧，最小路径就可能从头顶上来</span></span><br><span class="line">                <span class="keyword">int</span> pathSum1 = (i!=j)?dp[Two2OneDemensional(i<span class="number">-1</span>,j)]+triangle[i][j]:<span class="keyword">int</span>.MaxValue;</span><br><span class="line">                <span class="comment">// 非最左侧，最小路径就可能从左边的头顶上来</span></span><br><span class="line">                <span class="keyword">int</span> pathSum2 = (j&gt;<span class="number">0</span>)?dp[Two2OneDemensional(i<span class="number">-1</span>,j<span class="number">-1</span>)]+triangle[i][j]:<span class="keyword">int</span>.MaxValue;</span><br><span class="line">                dp[Two2OneDemensional(i,j)] = Math.Min(pathSum1,pathSum2);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> min = <span class="keyword">int</span>.MaxValue;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; length; j++)&#123;</span><br><span class="line">            <span class="keyword">int</span> val = dp[Two2OneDemensional(length<span class="number">-1</span>, j)];</span><br><span class="line">            <span class="keyword">if</span>(val &lt; min) min = val;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> min;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Two2OneDemensional</span>(<span class="params"><span class="keyword">int</span> i, <span class="keyword">int</span> j</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="number">1</span> + i) * i / <span class="number">2</span> + j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/lcProblemSolved/120/ac.png" alt="ac"></p>
+<h2 id="🟠-931-下降路径最小和"><a href="#🟠-931-下降路径最小和" class="headerlink" title="🟠 931. 下降路径最小和"></a>🟠 <a href="https://leetcode-cn.com/problems/minimum-falling-path-sum/" target="_blank" rel="noopener">931. 下降路径最小和</a></h2><p>给你一个 <code>n x n</code> 的 <strong>方形</strong> 整数数组 <code>matrix</code> ，请你找出并返回通过 <code>matrix</code> 的<strong>下降路径</strong> 的 <strong>最小和</strong> 。</p>
+<p><strong>下降路径</strong> 可以从第一行中的任何元素开始，并从每一行中选择一个元素。在下一行选择的元素和当前行所选元素最多隔一列（即位于正下方或者沿对角线向左或者向右的第一个元素）。具体来说，位置 <code>(row, col)</code> 的下一个元素应当是 <code>(row + 1, col - 1)</code>、<code>(row + 1, col)</code> 或者 <code>(row + 1, col + 1)</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[2,1,3],[6,5,4],[7,8,9]]</span><br><span class="line">输出：13</span><br><span class="line">解释：下面是两条和最小的下降路径，用加粗+斜体标注：</span><br><span class="line">[[2,1,3],      [[2,1,3],</span><br><span class="line"> [6,5,4],       [6,5,4],</span><br><span class="line"> [7,8,9]]       [7,8,9]]</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[-19,57],[-40,-5]]</span><br><span class="line">输出：-59</span><br><span class="line">解释：下面是一条和最小的下降路径，用加粗+斜体标注：</span><br><span class="line">[[-19,57],</span><br><span class="line"> [-40,-5]]</span><br></pre></td></tr></table></figure>
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[-48]]</span><br><span class="line">输出：-48</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>n == matrix.length</code></li>
+<li><code>n == matrix[i].length</code></li>
+<li><code>1 &lt;= n &lt;= 100</code></li>
+<li><code>-100 &lt;= matrix[i][j] &lt;= 100</code></li>
+</ul>
+<h3 id="题解-8"><a href="#题解-8" class="headerlink" title="题解"></a>题解</h3><ul>
+<li>状态定义：<code>dp[i][j]</code> 表示移动到位置 <code>(i,j)</code> 的最小路径和，且显然初始条件为 <code>dp[0][:] = matrix[0][:]</code>，表示第一行各节点到自己的最短路径和即为自己本身。</li>
+<li>状态转移：由题意可知，<code>dp[k]</code> 可由上方、左上方或右上方节点转移来。不过特别地，最右侧节点只可能由上方或左上方转移来，因为其没有右上方节点；同理最左侧节点只可能由上方或右上方转移来，因为其不存在左上方的节点。</li>
+</ul>
+<p>题目要返回的是到达方形底部的最小路径和，因此取底部节点的 <code>dp</code> 中最小的那个即可。</p>
+<blockquote>
+<p><em>备注：这题和 <a href="https://leetcode-cn.com/problems/triangle/" target="_blank" rel="noopener">120. 三角形最小路径和</a> 几乎一样，但在编码本题的时候使用使用了一个空间优化技巧。</em></p>
+<p><em>考虑到填充到达每层的最短路径时，仅与到达上一层的最短路径相关，与更上方的层无关，因此只需要存储当前层的 dp 值，给下层提供依赖即可，使用 <code>层数&amp;1</code> 的方式来实现只存储到达上一层和当前层的最短路径值，当遍历到下一层时，就自动覆盖之前使用完毕的上层 dp 值，实现滚动数组，复用空间，将 <code>dp[length][length]</code> $O(n^2)$ 的空间复杂度降到了<code>dp[2][length]</code> 的 $O(n)$。</em></p>
+</blockquote>
+<p>完整代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minFallingPathSum</span><span class="params">(<span class="keyword">int</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length = matrix.length;</span><br><span class="line">        <span class="comment">// dp[i][j]: The min path sum of accessing (i,j),</span></span><br><span class="line">        <span class="comment">// but only adjacent layers are meaningful, so use &amp;1</span></span><br><span class="line">        <span class="comment">// to save only 2 adjacent layers' dp data</span></span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>][length];</span><br><span class="line">        <span class="comment">// Initialize dp[][]</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++)&#123; dp[<span class="number">0</span>][i] = matrix[<span class="number">0</span>][i]; &#125;</span><br><span class="line">        <span class="comment">// Fill dp[][]</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; length; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; length; j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> pathSum1 = (j &gt; <span class="number">0</span>) ? dp[(i-<span class="number">1</span>)&amp;<span class="number">1</span>][j-<span class="number">1</span>] : Integer.MAX_VALUE;</span><br><span class="line">                <span class="keyword">int</span> pathSum2 = dp[(i-<span class="number">1</span>)&amp;<span class="number">1</span>][j];</span><br><span class="line">                <span class="keyword">int</span> pathSum3 = (j &lt; length-<span class="number">1</span>) ? dp[(i-<span class="number">1</span>)&amp;<span class="number">1</span>][j+<span class="number">1</span>] : Integer.MAX_VALUE;</span><br><span class="line">                dp[i&amp;<span class="number">1</span>][j] = Math.min(Math.min(pathSum1, pathSum2), pathSum3) + matrix[i][j];</span><br><span class="line">            &#125;    </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Find result</span></span><br><span class="line">        <span class="keyword">int</span> res = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(dp[(length-<span class="number">1</span>)&amp;<span class="number">1</span>][i] &lt; res) res = dp[(length-<span class="number">1</span>)&amp;<span class="number">1</span>][i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/lcProblemSolved/931/ac.png" alt="ac"></p>
+<h2 id="🔴-1289-下降路径最小和-II"><a href="#🔴-1289-下降路径最小和-II" class="headerlink" title="🔴 1289. 下降路径最小和 II"></a>🔴 <a href="https://leetcode-cn.com/problems/minimum-falling-path-sum-ii/" target="_blank" rel="noopener">1289. 下降路径最小和 II</a></h2><p>给你一个整数方阵 <code>arr</code> ，定义「非零偏移下降路径」为：从 <code>arr</code> 数组中的每一行选择一个数字，且按顺序选出来的数字中，相邻数字不在原数组的同一列。</p>
+<p>请你返回非零偏移下降路径数字和的最小值。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [[1,2,3],[4,5,6],[7,8,9]]</span><br><span class="line">输出：13</span><br><span class="line">解释：</span><br><span class="line">所有非零偏移下降路径包括：</span><br><span class="line">[1,5,9], [1,5,7], [1,6,7], [1,6,8],</span><br><span class="line">[2,4,8], [2,4,9], [2,6,7], [2,6,8],</span><br><span class="line">[3,4,8], [3,4,9], [3,5,7], [3,5,9]</span><br><span class="line">下降路径中数字和最小的是 [1,5,7] ，所以答案是 13 。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= arr.length == arr[i].length &lt;= 200</code></li>
+<li><code>-99 &lt;= arr[i][j] &lt;= 99</code></li>
+</ul>
+<h3 id="题解-9"><a href="#题解-9" class="headerlink" title="题解"></a>题解</h3><p>这题非常适合 DP 练习。首先可以依照正常 DP 思路解之：</p>
+<ul>
+<li>状态定义：<code>dp[i][j]</code> 表示移动到位置 <code>(i,j)</code> 的最小路径和，且显然初始条件为 <code>dp[0][:] = matrix[0][:]</code>，表示第一行各节点到自己的最短路径和即为自己本身。</li>
+<li>状态转移：由题意可知，<code>dp[k]</code> 可由上行除了正上方之的任意节点转移来，因此选择上层除正上方外的最小的那个 DP 节点进行转移即可。</li>
+</ul>
+<p>完整代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> MAX = Integer.MAX_VALUE;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minFallingPathSum</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length = grid.length;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>][length];</span><br><span class="line">        <span class="comment">// Initialize dp</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) dp[<span class="number">0</span>][i] = grid[<span class="number">0</span>][i];</span><br><span class="line">        <span class="comment">// Fill dp</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; length; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; length; j++)&#123;</span><br><span class="line">                <span class="comment">// Find minimal dp in last layer except the dp directly above</span></span><br><span class="line">                <span class="keyword">int</span> minLastDp = MAX;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; length; k++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(k == j) <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">if</span>(dp[(i-<span class="number">1</span>)&amp;<span class="number">1</span>][k] &lt; minLastDp) minLastDp = dp[(i-<span class="number">1</span>)&amp;<span class="number">1</span>][k];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// Update current dp</span></span><br><span class="line">                dp[i&amp;<span class="number">1</span>][j] = minLastDp + grid[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Find result</span></span><br><span class="line">        <span class="keyword">int</span> res = MAX;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; length; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(dp[(length-<span class="number">1</span>)&amp;<span class="number">1</span>][i] &lt; res) res = dp[(length-<span class="number">1</span>)&amp;<span class="number">1</span>][i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/lcProblemSolved/1289/ac1289.png" alt="ac"></p>
+<p>不过由于转移来源范围太广了，导致算法的时间复杂度直接飙到了 $O(n^3)$，虽然能 AC，但实在不够优雅。为了降低时间复杂度，还是少偷点懒吧。</p>
+<p>其实很容易发现，下一层将使用到的 dp 在遍历当前层的时候就可以被基本确定下来，因为下层 dp 期待的是由上层最小的 dp 转移来，那么只需要记录当前层最小的两个 dp 值供下层用就行了。</p>
+<p>为什么是两个呢？Obviously，最小的那一个可能恰好处于下层遍历节点的正上方，这样的话最小的上层 dp 就不能用了，而如果最小的在正上方，那么第二小的就一定不在正上方，因此转移到下层的 dp 必然是当前层最小的那两个 dp 值当中的一个。</p>
+<p>由于下层找转移来源的时候不需要再遍历整个上一层了，时间复杂度也就降到了 $O(n^2)$，执行用时从 45ms 优化到了 4ms，效果还算不错。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> MAX = Integer.MAX_VALUE;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minFallingPathSum</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length = grid.length;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>][length];</span><br><span class="line">        <span class="keyword">int</span> smallestIndex = -<span class="number">1</span>, secondSmallestIndex = -<span class="number">1</span>;</span><br><span class="line">        <span class="comment">// Initialize dp and 1st, 2nd smallest index</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            dp[<span class="number">0</span>][i] = grid[<span class="number">0</span>][i];</span><br><span class="line">            <span class="comment">// Update 1st, 2nd smallest index</span></span><br><span class="line">            <span class="keyword">if</span>(smallestIndex == -<span class="number">1</span> || grid[<span class="number">0</span>][i] &lt;= grid[<span class="number">0</span>][smallestIndex])&#123;</span><br><span class="line">                secondSmallestIndex = smallestIndex;</span><br><span class="line">                smallestIndex = i;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(secondSmallestIndex == -<span class="number">1</span> || grid[<span class="number">0</span>][i] &lt;= grid[<span class="number">0</span>][secondSmallestIndex])</span><br><span class="line">                secondSmallestIndex = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Fill dp</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; length; i++)&#123;</span><br><span class="line">            <span class="comment">// save 1st, 2nd smallest index of current layer</span></span><br><span class="line">            <span class="keyword">int</span> curSmallest = <span class="number">0</span>, curSecSmallest = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; length; j++)&#123;</span><br><span class="line">                <span class="comment">// If the smallest dp directly above the node, then use the second smallest dp of above layer</span></span><br><span class="line">                dp[i&amp;<span class="number">1</span>][j] = ((smallestIndex!=j)?dp[(i-<span class="number">1</span>)&amp;<span class="number">1</span>][smallestIndex]:dp[(i-<span class="number">1</span>)&amp;<span class="number">1</span>][secondSmallestIndex]) + grid[i][j];</span><br><span class="line">                <span class="comment">// Update 1st, 2nd smallest index of current layer</span></span><br><span class="line">                <span class="keyword">if</span>(dp[i&amp;<span class="number">1</span>][j] &lt;= dp[i&amp;<span class="number">1</span>][curSmallest])&#123;</span><br><span class="line">                    curSecSmallest = curSmallest;</span><br><span class="line">                    curSmallest = j;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(dp[i&amp;<span class="number">1</span>][j] &lt;= dp[i&amp;<span class="number">1</span>][curSecSmallest])</span><br><span class="line">                    curSecSmallest = j;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// Switch 1st, 2nd smallest index from above layer to current layer</span></span><br><span class="line">            smallestIndex = curSmallest;</span><br><span class="line">            secondSmallestIndex = curSecSmallest;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// The result is the smallest dp in current layer after the last dp layer filled</span></span><br><span class="line">        <span class="keyword">return</span> dp[(length-<span class="number">1</span>)&amp;<span class="number">1</span>][smallestIndex];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/lcProblemSolved/1289/ac1289-2.png" alt="ac"></p>
+<p>且慢！</p>
+<p>仅仅这样就可以了吗？</p>
+<p>可以看到，<strong>经过上面的优化后，我们实际只用到了每层最小的那两个 dp 而已</strong>，其它的数据都并没有用到，那么为什么还要白画 $O(n)$ 的空间复杂度去存储这些用不到的 dp 值呢？因此我们可以将优化后的“残垣断壁”清理一下了，至只存储当前层最小的两个 dp，其它数据一概不要，这样直接将空间复杂度压到了 $O(1)$。</p>
+<p>同时，尽管此举的目的是优化空间，但由于之前离散地访问二维数组，空间局部性很差，经过空间优化取消了数组直接用整型变量存储需要的最小和次小 dp 后，执行用时受益，进一步大大降低到了 2ms。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> MAX = Integer.MAX_VALUE;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minFallingPathSum</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> smallest = MAX, secondSmallest = MAX;</span><br><span class="line">        <span class="keyword">int</span> smallestIndex = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// Initialize dp and 1st smallest index</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; grid.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(grid[<span class="number">0</span>][i] &lt;= smallest)&#123;</span><br><span class="line">                smallestIndex = i;</span><br><span class="line">                secondSmallest = smallest;</span><br><span class="line">                smallest = grid[<span class="number">0</span>][i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(grid[<span class="number">0</span>][i] &lt;= secondSmallest) secondSmallest = grid[<span class="number">0</span>][i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Fill dp</span></span><br><span class="line">        <span class="keyword">int</span> curSmallest, curSecSmallest;</span><br><span class="line">        <span class="keyword">int</span> curSmallestIndex;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; grid.length; i++)&#123;</span><br><span class="line">            curSmallest = curSecSmallest = MAX;</span><br><span class="line">            curSmallestIndex = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; grid.length; j++)&#123;</span><br><span class="line">                <span class="comment">// If the smallest dp directly above the node, then use the second smallest dp of above layer</span></span><br><span class="line">                <span class="keyword">int</span> dp = ((smallestIndex!=j)?smallest:secondSmallest)+grid[i][j];</span><br><span class="line">                <span class="comment">// Update 1st, 2nd smallest dp of current layer</span></span><br><span class="line">                <span class="keyword">if</span>(dp &lt;= curSmallest)&#123;</span><br><span class="line">                    curSmallestIndex = j;</span><br><span class="line">                    curSecSmallest = curSmallest;</span><br><span class="line">                    curSmallest = dp;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(dp &lt;= curSecSmallest) curSecSmallest = dp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// Switch 1st, 2nd smallest dp from above layer to current layer</span></span><br><span class="line">            smallestIndex = curSmallestIndex;</span><br><span class="line">            smallest = curSmallest;</span><br><span class="line">            secondSmallest = curSecSmallest;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> smallest;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/lcProblemSolved/1289/ac1289-3.png" alt="ac"></p>
+<hr>
+<h1 id="回溯遍历"><a href="#回溯遍历" class="headerlink" title="回溯遍历"></a>回溯遍历</h1><h2 id="🟠-22-括号生成"><a href="#🟠-22-括号生成" class="headerlink" title="🟠 22. 括号生成"></a>🟠 <a href="https://leetcode-cn.com/problems/generate-parentheses/" target="_blank" rel="noopener">22. 括号生成</a></h2><p>数字 <code>n</code> 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 <strong>有效的</strong> 括号组合。</p>
+<p>有效括号组合需满足：左括号必须以正确的顺序闭合。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 3</span><br><span class="line">输出：[&quot;((()))&quot;,&quot;(()())&quot;,&quot;(())()&quot;,&quot;()(())&quot;,&quot;()()()&quot;]</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 1</span><br><span class="line">输出：[&quot;()&quot;]</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= n &lt;= 8</code></li>
+</ul>
+<h3 id="题解-10"><a href="#题解-10" class="headerlink" title="题解"></a>题解</h3><p>使用回溯遍历的方式，不断对当前状态追加可能的括号。</p>
+<ul>
+<li>初始时左右括号余量均为 <code>n</code>；</li>
+<li>当左括号有余量时，可以加入左括号；</li>
+<li>当右括号有余量且余量大于左括号的余量时，可以加入右括号；</li>
+<li>当左右括号都无余量时，一个合法的括号组合构造完毕，递归结束。</li>
+</ul>
+<p>完整代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; res;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        res = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        addParenthesis(<span class="keyword">new</span> StringBuilder(), n, n);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addParenthesis</span><span class="params">(StringBuilder builder, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(left == <span class="number">0</span> &amp;&amp; right == <span class="number">0</span>)  res.add(builder.toString());</span><br><span class="line">        <span class="keyword">if</span>(left &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            builder.append(<span class="string">'('</span>);</span><br><span class="line">            addParenthesis(builder, left-<span class="number">1</span>, right);</span><br><span class="line">            builder.deleteCharAt(builder.length()-<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(right &gt; <span class="number">0</span> &amp;&amp; right &gt; left)&#123;</span><br><span class="line">            builder.append(<span class="string">')'</span>);</span><br><span class="line">            addParenthesis(builder, left, right-<span class="number">1</span>);</span><br><span class="line">            builder.deleteCharAt(builder.length()-<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/lcProblemSolved/22/ac22.png" alt="ac"></p>
+<hr>
+<h1 id="DFS-剪枝"><a href="#DFS-剪枝" class="headerlink" title="DFS + 剪枝"></a>DFS + 剪枝</h1><h2 id="🔴-301-删除无效的括号"><a href="#🔴-301-删除无效的括号" class="headerlink" title="🔴 301. 删除无效的括号"></a>🔴 <a href="https://leetcode-cn.com/problems/remove-invalid-parentheses/" target="_blank" rel="noopener">301. 删除无效的括号</a></h2><p>给你一个由若干括号和字母组成的字符串 <code>s</code> ，删除最小数量的无效括号，使得输入的字符串有效。</p>
+<p>返回所有可能的结果。答案可以按 <strong>任意顺序</strong> 返回。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;()())()&quot;</span><br><span class="line">输出：[&quot;(())()&quot;,&quot;()()()&quot;]</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;(a)())()&quot;</span><br><span class="line">输出：[&quot;(a())()&quot;,&quot;(a)()()&quot;]</span><br></pre></td></tr></table></figure>
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;)(&quot;</span><br><span class="line">输出：[&quot;&quot;]</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 25</code></li>
+<li><code>s</code> 由小写英文字母以及括号 <code>&#39;(&#39;</code> 和 <code>&#39;)&#39;</code> 组成</li>
+<li><code>s</code> 中至多含 <code>20</code> 个括号</li>
+</ul>
+<h3 id="题解-11"><a href="#题解-11" class="headerlink" title="题解"></a>题解</h3><p>因为每一个半括号都有可能被删除，因此首先考虑用回溯遍历解决本题。在每一个下标处，如果对应字符是括号，那么就可以选择保留，也可以选择不保留，直到字符串的最后一个字符扫描完毕，检查其是否构成一个有效的串，</p>
+<p>如何检查其括号是否有效呢？非常简单，只需设置一个偏移变量 <code>bias</code> 记录左括号的盈余状态</p>
+<ul>
+<li>若扫描并加入了一个左括号，则 <code>bias++</code></li>
+<li>若扫描并加入了一个右括号，则 <code>bias--</code></li>
+</ul>
+<p>那么显然在扫描的途中，一旦出现 <code>bias &lt; 0</code> 则说明串已经出现非法状态，必然无效，不需要再往后扫描了，此时可以剪枝。而在整个串扫描完毕后，检查 <code>bias</code> 的值即可，若为 <code>0</code> 则说明没有左括号盈余，也就是有效，否则无效。</p>
+<p>不过这样的遍历耗时还算非常严重的，经过分析思考不难发现仍有可剪枝的地方。由于题目要求删除最小数量的括号，这就给优化提供了一条思路，即在 DFS 的过程中记录前面已经删除的括号数量，若在递归过程中删除的括号数量已经大于了之前产生过的有效串所删除的括号数，那么就不必再往深处遍历了，就算再找到有效串，也必然不是删除最小数量括号的串，不能作为结果之一。</p>
+<p>完整代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; res;</span><br><span class="line">    <span class="keyword">int</span> minRemoved = Integer.MAX_VALUE;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">removeInvalidParentheses</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        minRemoved = Integer.MAX_VALUE;</span><br><span class="line">        buildRes(s, <span class="number">0</span>, <span class="keyword">new</span> StringBuilder(), <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> maxLength = -<span class="number">1</span>;</span><br><span class="line">        <span class="comment">// 找到删除括号最小的串的长度</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; res.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(res.get(i).length() &gt; maxLength) maxLength = res.get(i).length();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 只保留与删除括号最小串长度相同的串作为答案</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; res.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(res.get(i).length() != maxLength) res.remove(res.get(i--));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildRes</span><span class="params">(String s, <span class="keyword">int</span> index, StringBuilder sb, <span class="keyword">int</span> bias, <span class="keyword">int</span> removed)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 当前删除的括号数若已经超过了已有的有效串所删除的括号数，则剪枝</span></span><br><span class="line">        <span class="keyword">if</span>(removed &gt; minRemoved) <span class="keyword">return</span>; </span><br><span class="line">        <span class="comment">// 遍历到末尾，检查串是否有效、串是否已存在结果集中</span></span><br><span class="line">        <span class="keyword">if</span>(index == s.length())&#123;</span><br><span class="line">            <span class="keyword">if</span>(bias == <span class="number">0</span> &amp;&amp; !res.contains(sb.toString()))&#123; </span><br><span class="line">                res.add(<span class="number">0</span>, sb.toString());</span><br><span class="line">                <span class="comment">// 更新构成有效串可删除的最小括号数</span></span><br><span class="line">                <span class="keyword">if</span>(removed &lt; minRemoved) minRemoved = removed;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">char</span> current = s.charAt(index);</span><br><span class="line">        <span class="comment">// 非括号元素不能删除，直接添加</span></span><br><span class="line">        <span class="keyword">if</span>(current != <span class="string">'('</span> &amp;&amp; current != <span class="string">')'</span>)&#123;</span><br><span class="line">            sb.append(current);</span><br><span class="line">            buildRes(s, index + <span class="number">1</span>, sb, bias, removed);</span><br><span class="line">            sb.deleteCharAt(sb.length() - <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 若中途 bias&lt;0 则说明必构成无效串，剪枝</span></span><br><span class="line">        <span class="keyword">if</span>(bias + (current == <span class="string">'('</span> ? <span class="number">1</span> : -<span class="number">1</span>) &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="comment">// bias 合法，录用该括号字符</span></span><br><span class="line">            sb.append(current);</span><br><span class="line">            buildRes(s, index + <span class="number">1</span>, sb, bias + (current == <span class="string">'('</span> ? <span class="number">1</span> : -<span class="number">1</span>), removed);</span><br><span class="line">            sb.deleteCharAt(sb.length() - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 不录用(删除)该字符</span></span><br><span class="line">        buildRes(s, index + <span class="number">1</span>, sb, bias, removed + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/lcProblemSolved/301/ac301.png" alt="ac"></p>
+<hr>
+<h1 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h1><h2 id="🟠-11-盛最多水的容器"><a href="#🟠-11-盛最多水的容器" class="headerlink" title="🟠 11. 盛最多水的容器"></a>🟠 <a href="https://leetcode-cn.com/problems/container-with-most-water/" target="_blank" rel="noopener">11. 盛最多水的容器</a></h2><p>给你 <code>n</code> 个非负整数 <code>a1，a2，...，a``n</code>，每个数代表坐标中的一个点 <code>(i, ai)</code> 。在坐标内画 <code>n</code> 条垂直线，垂直线 <code>i</code> 的两个端点分别为 <code>(i, ai)</code> 和 <code>(i, 0)</code> 。找出其中的两条线，使得它们与 <code>x</code> 轴共同构成的容器可以容纳最多的水。</p>
+<p><strong>说明：</strong>你不能倾斜容器。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://aliyun-lc-upload.oss-cn-hangzhou.aliyuncs.com/aliyun-lc-upload/uploads/2018/07/25/question_11.jpg" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：[1,8,6,2,5,4,8,3,7]</span><br><span class="line">输出：49 </span><br><span class="line">解释：图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：height = [1,1]</span><br><span class="line">输出：1</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>n == height.length</code></li>
+<li><code>2 &lt;= n &lt;= 10^5</code></li>
+<li><code>0 &lt;= height[i] &lt;= 10^4</code></li>
+</ul>
+<h3 id="题解-12"><a href="#题解-12" class="headerlink" title="题解"></a>题解</h3><p>最容易想到的当然是遍历所有可能垂线组合的暴力法了，不过注意到 <code>n &lt;= 10^5</code> 的数据范围，显然 $O(n^2)$ 的搜索办法是会超时的。本题可以使用双指针的思想来解决。首先将两个指针分别置于两侧的垂线处，考虑到若将较长的垂线向内侧移动的话，面积必然变小，因此<strong>较短一侧能够产生的最大面积必然就是当前时刻的面积，其不可能再提供更大的面积了</strong>，因此可以直接舍弃较短侧的垂线，将短侧向内移动，按此规则不断移动，则能够记录下所有的垂线能产生的最大面积，那么答案就必然在这个“所有垂线能产生的最大面积”的集合中，因此，只需利用双指针移动遍历依次，记录过程中产生的最大面积值即是本题的答案。</p>
+<p>完整代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = height.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; j)&#123;</span><br><span class="line">            <span class="keyword">int</span> area = (j - i) * Math.min(height[i], height[j]);</span><br><span class="line">            <span class="keyword">if</span>(area &gt; max) max = area;</span><br><span class="line">            <span class="keyword">if</span>(height[i] &lt;= height[j]) i++; <span class="keyword">else</span> j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/lcProblemSolved/11/ac11.png" alt="ac"></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+
+    <div class="sidebar-inner">
+      
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sunwish</p>
+              <p class="site-description motion-element" itemprop="description">个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sunwish.houkaifa.com/" title="Sunwish" target="_blank">Sunwish</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alterful.com/" title="Alterful" target="_blank">Alterful</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://easecurve.houkaifa.com/" title="Easecurve" target="_blank">Easecurve</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+          
+            
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#链表"><span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-92-反转链表-II"><span class="nav-text">🟠 92. 反转链表 II</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-86-分隔链表"><span class="nav-text">🟠 86. 分隔链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-1"><span class="nav-text">题解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划-记忆化搜索"><span class="nav-text">动态规划 / 记忆化搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#🔴-403-青蛙过河"><span class="nav-text">🔴 403. 青蛙过河</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-2"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🟢-70-爬楼梯"><span class="nav-text">🟢 70. 爬楼梯</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-3"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-64-最小路径和"><span class="nav-text">🟠 64. 最小路径和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-4"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-63-不同路径-II"><span class="nav-text">🟠 63. 不同路径 II</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-5"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-62-不同路径"><span class="nav-text">🟠 62. 不同路径</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-6"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-120-三角形最小路径和"><span class="nav-text">🟠 120. 三角形最小路径和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-7"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-931-下降路径最小和"><span class="nav-text">🟠 931. 下降路径最小和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-8"><span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔴-1289-下降路径最小和-II"><span class="nav-text">🔴 1289. 下降路径最小和 II</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-9"><span class="nav-text">题解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回溯遍历"><span class="nav-text">回溯遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-22-括号生成"><span class="nav-text">🟠 22. 括号生成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-10"><span class="nav-text">题解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DFS-剪枝"><span class="nav-text">DFS + 剪枝</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#🔴-301-删除无效的括号"><span class="nav-text">🔴 301. 删除无效的括号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-11"><span class="nav-text">题解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#双指针"><span class="nav-text">双指针</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#🟠-11-盛最多水的容器"><span class="nav-text">🟠 11. 盛最多水的容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-12"><span class="nav-text">题解</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+          
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sunwish</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 108.4k 字</span>
+</div>
+
+<!--
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+-->
+<span class="post-meta-divider">|</span>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count"><a href="http://beian.miit.gov.cn/" target="_blank">赣ICP备2022001064号-2</a></span>
+</div>
+
+
+<div>
+    <span id="busuanzi_container_site_uv"><i class="fa fa-user"></i> 本站访客<span id="busuanzi_value_site_uv"></span>人次</span>
+    <span class="post-meta-divider">|</span>
+    <span class="site-pv"><i class="fa fa-eye"></i> 总阅读量: <span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+    <!--
+    <span class="post-meta-divider">|</span>
+    <span class="site-uv"><i class="fa fa-user"></i> 访问人数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+    -->
+</div>
+<script src="./js/src/pvuvfix.js"></script>
+
+
+
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65941008";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <!--<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>-->
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sa3sYJwnqEBnYDpS7VFT70ya-gzGzoHsz',
+        appKey: 'TPHHBKrFtoGkcocnjqN78Fue',
+        placeholder: 'ヾﾉ≧∀≦)o 文章看完啦，别吝啬你的观点哦',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: true
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
+

@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+<!--<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>-->
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "bf6ac372"
+    });
+  daovoice('update');
+  </script>
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+<!--<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>-->
+<!--<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">-->
+<script src="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcdn.net/ajax/libs/pace/1.0.2/themes/black/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="&amp;emsp;前言 首先声明一下本文讨论的终极目标——通过贝塞尔曲线实现可调控的数值缓动，也就是贝塞尔插值。之所以以数值为目的是因为它相较于实现某一个具体的案例而言，意义更为广泛，例如可以实现可控性很强的缓动动效，在本文的末尾会附上具体的贝塞尔运动案例分析与一些应用层面的介绍。文章的前一部分即推导部分会以较多的数学形式来加以表述，而中间关于贝塞尔运动的匀速化会则尽量用通俗易懂的语言来说明，最后附上一">
+<meta name="keywords" content="Algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="贝塞尔曲线运动n阶追踪方程的数学原理及其匀速化方法和应用">
+<meta property="og:url" content="http://Sunwish.coding.me/2018/07/30/BezierCurve/index.html">
+<meta property="og:site_name" content="猴开发 | 博客">
+<meta property="og:description" content="&amp;emsp;前言 首先声明一下本文讨论的终极目标——通过贝塞尔曲线实现可调控的数值缓动，也就是贝塞尔插值。之所以以数值为目的是因为它相较于实现某一个具体的案例而言，意义更为广泛，例如可以实现可控性很强的缓动动效，在本文的末尾会附上具体的贝塞尔运动案例分析与一些应用层面的介绍。文章的前一部分即推导部分会以较多的数学形式来加以表述，而中间关于贝塞尔运动的匀速化会则尽量用通俗易懂的语言来说明，最后附上一">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/1.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/2.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/3.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/4.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/5.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/6.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/7.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/8.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/9.jpg">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/10.gif">
+<meta property="og:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/11.gif">
+<meta property="og:updated_time" content="2022-08-02T02:07:22.006Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="贝塞尔曲线运动n阶追踪方程的数学原理及其匀速化方法和应用">
+<meta name="twitter:description" content="&amp;emsp;前言 首先声明一下本文讨论的终极目标——通过贝塞尔曲线实现可调控的数值缓动，也就是贝塞尔插值。之所以以数值为目的是因为它相较于实现某一个具体的案例而言，意义更为广泛，例如可以实现可控性很强的缓动动效，在本文的末尾会附上具体的贝塞尔运动案例分析与一些应用层面的介绍。文章的前一部分即推导部分会以较多的数学形式来加以表述，而中间关于贝塞尔运动的匀速化会则尽量用通俗易懂的语言来说明，最后附上一">
+<meta name="twitter:image" content="http://sunwish.coding.me/2018/07/30/BezierCurve/1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://Sunwish.coding.me/2018/07/30/BezierCurve/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>贝塞尔曲线运动n阶追踪方程的数学原理及其匀速化方法和应用 | 猴开发 | 博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">猴开发 | 博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+
+    
+      
+        <h1 class="site-subtitle" itemprop="description">积极思考  活跃创造</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-札记">
+    <a href="/series/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />札记</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-每日一题">
+    <a href="/dailyProblem/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-calendar-check-o"></i> <br />每日一题</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+          <div id="music" style="width: 100%; height: 110px; margin-top: -15px; margin-bottom: 5px;">
+           <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2851637030&auto=0&height=90"></iframe>
+          </div>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/Sunwish" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/07/30/BezierCurve/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴开发 | 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">贝塞尔曲线运动n阶追踪方程的数学原理及其匀速化方法和应用
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+          
+          <span class="post-meta-author-icon">
+            <i class="fa fa-user-o"></i>
+          </span>
+	  
+	  
+          
+	  <span class="post-meta-author-text">作者 Sunwish</span>
+	  <span class="post-meta-divider">|</span>
+          
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-30 20:54:51" itemprop="dateCreated datePublished" datetime="2018-07-30T20:54:51+08:00">2018-07-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-08-02 10:07:22" itemprop="dateModified" datetime="2022-08-02T10:07:22+08:00">2022-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/沿途简记/" itemprop="url" rel="index"><span itemprop="name">沿途简记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/30/BezierCurve/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/07/30/BezierCurve/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/07/30/BezierCurve/" class="leancloud_visitors" data-flag-title="贝塞尔曲线运动n阶追踪方程的数学原理及其匀速化方法和应用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="emsp-前言"><a href="#emsp-前言" class="headerlink" title="&emsp;前言"></a>&emsp;<strong>前言</strong></h3><blockquote>
+<p>首先声明一下本文讨论的终极目标——通过贝塞尔曲线实现可调控的数值缓动，也就是贝塞尔插值。之所以以数值为目的是因为它相较于实现某一个具体的案例而言，意义更为广泛，例如可以实现可控性很强的缓动动效，在本文的末尾会附上具体的贝塞尔运动案例分析与一些应用层面的介绍。文章的前一部分即推导部分会以较多的数学形式来加以表述，而中间关于贝塞尔运动的匀速化会则尽量用通俗易懂的语言来说明，最后附上一些相关代码以及应用和总结。</p>
+</blockquote>
+<p>&emsp;&emsp;其实这方面已经有几个月没有再接触了，之所以写这篇文章，是为了回顾与加深之前在这方面学习研究的印象，文章内容仅是个人的理解与一些思考和感悟，并不一定是绝对正确的，因此要是文章内容有什么错误或歧义，还得请各位点醒指出，必当虚心学习，不胜感激。<br><img src="/2018/07/30/BezierCurve/1.jpg" alt="Bezier"></p>
+<script type="math/tex; mode=display">法国数学家Pierre Bézier</script><h3 id="emsp-一、关于贝塞尔曲线-amp-贝塞尔运动"><a href="#emsp-一、关于贝塞尔曲线-amp-贝塞尔运动" class="headerlink" title="&emsp;一、关于贝塞尔曲线 &amp; 贝塞尔运动"></a>&emsp;<strong>一、关于贝塞尔曲线 &amp; 贝塞尔运动</strong></h3><h4 id="emsp-emsp-1-简介"><a href="#emsp-emsp-1-简介" class="headerlink" title="&emsp;&emsp;1.简介"></a>&emsp;&emsp;<strong>1.简介</strong></h4><p>&emsp;&emsp;贝塞尔曲线的介绍在网上到处都能找到，这里就不长篇大论地引入了。简而言之，贝塞尔曲线就是这样的一条曲线，<strong>它是依据四个位置任意的点坐标绘制出的一条光滑曲线。</strong>而贝塞尔追踪方程则是以点运动的形式描述了贝塞尔曲线的形成过程，将曲线描述为了一条随连续时间而形成的<strong>点迹</strong>。<br><a id="more"></a></p>
+<h4 id="emsp-emsp-2-作用"><a href="#emsp-emsp-2-作用" class="headerlink" title="&emsp;&emsp;2.作用"></a>&emsp;&emsp;<strong>2.作用</strong></h4><p>由于用计算机画图大部分时间是操作鼠标来掌握线条的路径，与手绘的感觉和效果有很大的差别。即使是一位精明的画师能轻松绘出各种图形，拿到鼠标想随心所欲的画图也不是一件容易的事。这一点是计算机万万不能代替手工的工作，所以到目前为止人们只能颇感无奈。使用贝塞尔工具画图很大程度上弥补了这一缺憾。贝塞尔曲线是计算机图形图像造型的基本工具，是图形造型运用得最多的基本线条之一。<br><img src="/2018/07/30/BezierCurve/2.jpg" alt=""><br>&emsp;&emsp;它通过控制曲线上的四个点（起始点、终止点以及两个相互分离的中间点）来创造、编辑图形。其中起重要作用的是位于曲线中央的控制线。这条线是虚拟的，中间与贝塞尔曲线交叉，两端是控制端点。移动两端的端点时贝塞尔曲线改变曲线的曲率（弯曲的程度）；移动中间点（也就是移动虚拟的控制线）时，贝塞尔曲线在起始点和终止点锁定的情况下做均匀移动。注意，贝塞尔曲线上的所有控制点、节点均可编辑。这种“智能化”的矢量线条为艺术家提供了一种理想的图形编辑与创造的工具。</p>
+<h4 id="emsp-emsp-2-贝塞尔运动"><a href="#emsp-emsp-2-贝塞尔运动" class="headerlink" title="&emsp;&emsp;2.贝塞尔运动"></a>&emsp;&emsp;<strong>2.贝塞尔运动</strong></h4><p>&emsp;&emsp;简单地说，贝塞尔运动就是按照贝塞尔曲线所描述的规律来完成一段运动。后文有详细案例，此处就先提上这么一句。</p>
+<h3 id="emsp-二、贝塞尔追踪方程的数学推导"><a href="#emsp-二、贝塞尔追踪方程的数学推导" class="headerlink" title="&emsp;二、贝塞尔追踪方程的数学推导"></a>&emsp;<strong>二、贝塞尔追踪方程的数学推导</strong></h3><h4 id="emsp-emsp-1-一阶推导"><a href="#emsp-emsp-1-一阶推导" class="headerlink" title="&emsp;&emsp;1.一阶推导"></a>&emsp;&emsp;<strong>1.一阶推导</strong></h4><p>&emsp;&emsp;虽然说是依据四个点而绘制出的曲线，但实际上最少2个点就可以构成一条贝塞尔曲线，这样的贝塞尔曲线又叫一阶的贝塞尔曲线，也是无控制点的贝塞尔曲线。<br>&emsp;&emsp;前面说到追踪方程描述了点迹，一般地我们将迹点运动的总时间记为1，并把这两个端点分别记作 P<sub>0</sub> 和 P<sub>1</sub> ，运动的迹点记作 M<sub>0</sub> ，就有 t 时刻对应 M<sub>0</sub> 的位置为 P<sub>0</sub> + (P<sub>1</sub> - P<sub>0</sub>)t，将其写成方程形式：</p>
+<script type="math/tex; mode=display">
+\begin {aligned}
+B_{1}(t)&=P_0+(P_1-P_0)t \\
+&=(1-t)P_0+tP_1
+\end {aligned}</script><p><img src="/2018/07/30/BezierCurve/3.gif" alt="一阶贝塞尔曲线"></p>
+<h4 id="emsp-emsp-2-二阶推导"><a href="#emsp-emsp-2-二阶推导" class="headerlink" title="&emsp;&emsp;2.二阶推导"></a>&emsp;&emsp;<strong>2.二阶推导</strong></h4><p>&emsp;&emsp;二阶在一阶的基础上增加一个点 P<sub>2</sub> ，此时不能够直接得出迹点的位置。 P<sub>0</sub> 和 P<sub>1</sub> 做一次一阶得到 M<sub>0</sub> 的位置，P<sub>1</sub> 和 P<sub>2</sub> 做一次一阶得到了 M<sub>1</sub> 的位置，此时出现了两个临时迹点 M<sub>0</sub> 和 M<sub>1</sub> ，需要再对 M<sub>0</sub> 和 M<sub>1</sub> 求一次一阶来得到真实迹点 M<sup>/</sup><sub>0</sub> 。即：</p>
+<script type="math/tex; mode=display">
+\begin {aligned}
+B_{2}(t)&=M_{0}+(M_{1}-M_{0})t \\
+&=P_0+(P_1-P_0)+[P_1+(P_2-P_1)t-P_0-(P_1-P_0)t]t \\
+&=P_0+2(P_1-P_0)t+(P_0-2P_1+P_2)t^2 \\
+&=(1-t)^2P_0+2t(1-t)P_1+t^2P_2
+\end {aligned}</script><p><img src="/2018/07/30/BezierCurve/4.gif" alt="二阶贝塞尔曲线"></p>
+<h4 id="emsp-emsp-3-三阶推导"><a href="#emsp-emsp-3-三阶推导" class="headerlink" title="&emsp;&emsp;3.三阶推导"></a>&emsp;&emsp;<strong>3.三阶推导</strong></h4><p>&emsp;&emsp;仿照一阶到二阶的升阶过程，不难得到三阶推导过程：</p>
+<script type="math/tex; mode=display">
+\begin {aligned}
+B_{2}(t)&=M^\prime_0+(M^\prime_{1}-M^\prime_{0})t \\
+&=M_0+(M_1-M_0)+[M_1+(M_2-M_1)t-M_0-(M_1-M_0)t]t \\
+&=M_0+2(M_1-M_0)t+(M_0-2M_1+M_2)t^2 \\
+&=P_0+(P_1-P_0)t+2[P_1+(P_2-P_1)t-P_0-(P_1-P_0)t]t+\{P_0+(P_1-P_0)t-2[P_1+(P_2-P_1)t]+P_2+(P_3-P_2)t\}t^2 \\
+&=(1-t)^3P_0+3t(1-t)^2P_1+3t^2(1-t)P_2+t^3P_3 \\
+\end {aligned}</script><p><img src="/2018/07/30/BezierCurve/5.gif" alt="二阶贝塞尔曲线"></p>
+<h4 id="emsp-emsp-4-n阶"><a href="#emsp-emsp-4-n阶" class="headerlink" title="&emsp;&emsp;4.n阶"></a>&emsp;&emsp;<strong>4.n阶</strong></h4><p>&emsp;&emsp;综合上式列表，不难总结出一般性的规律。</p>
+<script type="math/tex; mode=display">
+\begin {array}{r|r}
+(n) & B_n(t) \\ \hline
+1 &  B_1(t) = (1-t)P_0+tP_1 \\
+2 &  B_2(t) = (1-t)^2P_0+2t(1-t)P_1+t^2P_2 \\
+3 &  B_3(t) = (1-t)^3P_0+3t(1-t)^2P_1+3^2(1-t)P_2+t^3P_3
+...&  ...
+\end {array}</script><script type="math/tex; mode=display">
+\begin {aligned}
+B_{n}(t)&=(1-t)^nP_0+ \sum\limits_{i=1}^{n-1}C_n^it^i(1-t)^{n-i}P_i+t^nP_n(n\geq2,n\in Z) 
+\end {aligned}</script><p><img src="/2018/07/30/BezierCurve/6.gif" alt="n阶贝塞尔曲线"></p>
+<h3 id="emsp-三、匀速化处理"><a href="#emsp-三、匀速化处理" class="headerlink" title="&emsp;三、匀速化处理"></a>&emsp;<strong>三、匀速化处理</strong></h3><p>&emsp;&emsp;前面介绍了贝塞尔曲线的数学表述形式，利用之我们可以根据任意个点的坐标画出曲线的直观路径，也可以用一组点来很好地拟合某一给定的曲线。现在，除了画来看之外，我们要用它来做点别的事情。什么事情？请看下图。<br><img src="/2018/07/30/BezierCurve/7.gif" alt="线性运动"><br>&emsp;&emsp;可以看到，上图小球的运动是非常死板的，其位置的变动与时间成线性关系。如果我们用图像描述上述运动，考虑到时间是均匀变化的，小球的位置也是均匀变化的，因此图像对应的是一条线段。而每一时刻 t 对应线段上的点处的导数值就是此时刻的瞬时速率，因为直线的斜率是固定的，所以小球起始和末了都是同一个速度，导致运动开始的很突兀，结束的也很突兀。<br><img src="/2018/07/30/BezierCurve/8.jpg" alt="这里写图片描述"><br>&emsp;&emsp;由此不难想到，如果我们想要使小球具有更加平滑的运动效果的话，只要对曲线稍加变形，让其更加符合让我们的动态审美。例如将上图的直线变形为下图。<br><img src="/2018/07/30/BezierCurve/9.jpg" alt="这里写图片描述"><br>&emsp;&emsp;这样小球的速度就能够平缓地增大到一定数值进行运动，最后也是平滑地停止下来了。<br><img src="/2018/07/30/BezierCurve/10.gif" alt="这里写图片描述"><br>&emsp;&emsp;<strong>但是请注意，上图平滑的运动效果仅仅是我们想象出来的</strong>，因为最开始 position-t 图像是根据运动而画出来的，之后我们人为地修改了曲线，但并没有让原来的小球按照我们改过的曲线来运动。<br>&emsp;&emsp;<strong>那么问题来了，如何让我们的小球按照我们绘制的曲线来运动呢？</strong>请继续往下看。</p>
+<h4 id="emsp-emsp-1-什么是匀速化-amp-为什么要匀速化"><a href="#emsp-emsp-1-什么是匀速化-amp-为什么要匀速化" class="headerlink" title="&emsp;&emsp;1.什么是匀速化 &amp; 为什么要匀速化"></a>&emsp;&emsp;<strong>1.什么是匀速化 &amp; 为什么要匀速化</strong></h4><p>&emsp;&emsp;有些朋友看到这里可能按捺不住了，这难道还不简单吗？你刚才不是推导出了 n 阶的迹点追踪方程吗？均匀地传入 t 参数然后算出对应地position值赋给小球的位置不就完事了吗？<br>&emsp;&emsp;然而实时并没有想象的那么轻松，回过头来看看我们之前推导出来的方程：</p>
+<script type="math/tex; mode=display">
+\begin {aligned}
+B_{n}(t)&=(1-t)^nP_0+ \sum\limits_{i=1}^{n-1}C_n^it^i(1-t)^{n-i}P_i+t^nP_n(n\geq2,n\in Z)
+\end {aligned}</script><p>&emsp;&emsp;我们注意到，追踪方程的右侧并不是单纯的横坐标或是纵坐标，而是直接代以点的形式来表述。这表明了在实际计算的时候，需要按照需要的轴来代入点的坐标进行计算，例如需要计算以 P<sub>0</sub>、P<sub>1</sub>、P<sub>2</sub> 三个点确立的二阶贝塞尔曲线在 t=0.5 时的迹点的横坐标时，使用 P<sub>0</sub>.x、P<sub>1</sub>.x、P<sub>2</sub>.x 代入B<sub>2</sub>(t)的表达式即可计算输出对应的横坐标，纵坐标同理计算。<br>&emsp;&emsp;也就是说代入均匀的时间 t ，输出的并不是我们想要的纵坐标，因为贝塞尔曲线描述的图像是在 y-x 图像下的，而我们的之前修改的运动图是 position-t 图，也就是 y-t 图，两者虽然看上去长的一一样，但不在同一个坐标系下，所具有的意义也就相去甚远。而按照这种不完全的映射关得到的所谓的 y-t 运动图像，我们称之为非匀速贝塞尔运动。<br>&emsp;&emsp;那么究竟是什么原因导致了非匀速，或者说哪一步我们理解上容易出问题进而导致了错误的效果？究其因还是轴的偷换。下面我们不说具体的轴的名称了，就说横轴和纵轴。我们想要的结果是，横轴上的数匀速前进，向上投射到曲线上的某点，再映射到纵轴得到 position 坐标。<br><img src="/2018/07/30/BezierCurve/11.gif" alt="这里写图片描述"><br>&emsp;&emsp;可是贝塞尔曲线所在坐标系的横坐标是 x，并非 t！因此将匀速的 t 代入 B<sub>n</sub>(t) 是不能实现我们要的效果的，我们需要代入匀速的 x。由于当 t 匀速时， x 本身是由 B<sub>n</sub>(t) 算得的非匀速值，而通过匀速 t 对应非匀速的 x 求出其在匀速状态下应当对应的 t，就是匀速化的过程。</p>
+<h4 id="emsp-emsp-2-两种匀速化的办法"><a href="#emsp-emsp-2-两种匀速化的办法" class="headerlink" title="&emsp;&emsp;2.两种匀速化的办法"></a>&emsp;&emsp;<strong>2.两种匀速化的办法</strong></h4><p>&emsp;&emsp;实际操作的时候，我们将匀速变化的时间也就是正常流动的时间记为 t，虽说是匀速的时间但我们心里明白这个 t 对我们的需求来说是“非匀速”的，将 t 当作 y-x 系下的 x 坐标代入 B<sub>n</sub>(t)，反解出其对应的真实的 r_t (即 real-t) 是多少，进而把 r_t 代回 B<sub>n</sub>(t) 最终得到了我们要的 y 值，即 position 值。但想要反解 t 也不是那么轻松，毕竟 B<sub>n</sub>(t) 的表达式有那么复杂。因此在这里匀速化的核心问题就是如何根据 P.x 反解 t。</p>
+<h4 id="emsp-emsp-3-方法一：利用辛普森积分法匀速化"><a href="#emsp-emsp-3-方法一：利用辛普森积分法匀速化" class="headerlink" title="&emsp;&emsp;3.方法一：利用辛普森积分法匀速化"></a>&emsp;&emsp;<strong>3.方法一：利用辛普森积分法匀速化</strong></h4><p>&emsp;&emsp;此方法以画曲为直为思路，算出贝塞尔曲线的近似长度，将其放倒为一条线段。水平轴的数值匀速变大，即可看作是迹点在线上匀速运动，又时间取做单位1，自然不难求出点运动的速度v，而后与正常传入的 t 相乘得到匀速运动的距离L。最后用二分法或黄金分割法求出一个 t’ 时刻使得与 t’ 对应的 0~x 范围内的曲线长度L’与 L 近似相等，此时所求得的 t 即是我们要找的realTime。<br>&emsp;&emsp;此处给出了思路，下面附上求三阶贝塞尔曲线近似长度的算法，剩下的算法请感兴趣的读者自行完成。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">// 求 0~t 段的贝塞尔曲线长度</span><br><span class="line">double beze_length(Coordinate p[], double t)</span><br><span class="line">&#123;</span><br><span class="line">	int TOTAL_SIMPSON_STEP;</span><br><span class="line">	int stepCounts;</span><br><span class="line">	int halfCounts;</span><br><span class="line">	int i;</span><br><span class="line">	double sum1, sum2, dStep;</span><br><span class="line">	</span><br><span class="line">	TOTAL_SIMPSON_STEP = 100000;</span><br><span class="line">	stepCounts = TOTAL_SIMPSON_STEP*t;</span><br><span class="line"></span><br><span class="line">	if(stepCounts == 0)</span><br><span class="line">	&#123;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	if(stepCounts%2 == 0)</span><br><span class="line">	&#123;</span><br><span class="line">		stepCounts++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	halfCounts = stepCounts/2;</span><br><span class="line">	dStep = t / stepCounts;</span><br><span class="line"></span><br><span class="line">	while(i&lt;halfCounts)</span><br><span class="line">	&#123;</span><br><span class="line">		sum1 += beze_speed (p, (2 * i + 1) * dStep);</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	i=1;</span><br><span class="line">	while(i&lt;halfCounts)</span><br><span class="line">	&#123;</span><br><span class="line">		sum2 += beze_speed (p, 2 * i * dStep);</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	return ((beze_speed (p, 0) + beze_speed (p, 1) + 2 * sum2 + 4 * sum1) * dStep / 3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">double beze_speed_x (Coordinate p[], double t)</span><br><span class="line">&#123;</span><br><span class="line">	// 三阶</span><br><span class="line">	return -3 * p [0].x * pow (1 - t, 2) + 3 * p [1].x * pow (1 - t, 2) - 6 * p [1].x * (1 － t) * t ＋ 6 * p [2].x * (1 - t) * t - 3 * p [2].x * pow (t, 2) + 3 * p [3].x * pow (t, 2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">double beze_speed_y (Coordinate p[], double t)</span><br><span class="line">&#123;</span><br><span class="line">	// 三阶</span><br><span class="line">	return -3 * p [0].y * pow (1 - t, 2) + 3 * p [1].y * pow (1 - t, 2) - 6 * p [1].y * (1 － t) * t ＋ 6 * p [2].y * (1 - t) * t - 3 * p [2].y * pow (t, 2) + 3 * p [3].y * pow (t, 2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//	求合速度</span><br><span class="line">double beze_speed (Coordinate p[], double t)</span><br><span class="line">&#123;</span><br><span class="line">	double vx = beze_speed_x (p, t);</span><br><span class="line">	double vy = beze_speed_y (p, t);</span><br><span class="line">	return sqrt(pow (vx, 2) + pow (vy, 2));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="emsp-emsp-4-方法二：编程逼值实现匀速化"><a href="#emsp-emsp-4-方法二：编程逼值实现匀速化" class="headerlink" title="&emsp;&emsp;4.方法二：编程逼值实现匀速化"></a>&emsp;&emsp;<strong>4.方法二：编程逼值实现匀速化</strong></h4><p>&emsp;&emsp;此方法就是简单地不断二分来求 B<sub>3</sub>(t) 的反函数值，与方法一相比较而言更为简单也更易于理解，下面附上完整代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line">struct Coordinate</span><br><span class="line">&#123;</span><br><span class="line">	int x;</span><br><span class="line">	int y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 声明函数</span><br><span class="line">int b3(Coordinate p[], double t);</span><br><span class="line">double t2rt(Coordinate p[], double t);</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	// 定义四个贝塞尔点</span><br><span class="line">	Coordinate p[4]=&#123;&#123;100, 611&#125;, &#123;300, 411&#125; ,&#123;400, 311&#125; ,&#123;500, 411&#125;&#125;;</span><br><span class="line">	</span><br><span class="line">	// 输出 t=0.5 对应的匀速 rt</span><br><span class="line">	printf(&quot;%lf\n&quot;, t2rt(p, 0.5));</span><br><span class="line">	</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int b3(Coordinate p[], double t)</span><br><span class="line">&#123;</span><br><span class="line">	// 三阶贝塞尔运算</span><br><span class="line">	int retn;</span><br><span class="line">	retn = pow(1-t, 3) * p[0].x + 3*t*pow(1-t, 2) * p[1].x + 3*pow(t, 2) * (1-t)*p[2].x + pow(t, 3)*p[3].x;</span><br><span class="line">	return retn;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">double t2rt(Coordinate p[], double t)</span><br><span class="line">&#123;</span><br><span class="line">	// 定义真实时间与差时变量</span><br><span class="line">	double realTime, deltaTime;</span><br><span class="line">	</span><br><span class="line">	// 曲线上的 x 坐标</span><br><span class="line">	int bezierX;</span><br><span class="line">	</span><br><span class="line">	// 计算 t 对应曲线上匀速的 x 坐标</span><br><span class="line">	int x = 100 + (p[3].x - p[0].x)*t;</span><br><span class="line">	</span><br><span class="line">	realTime = 1;</span><br><span class="line">	do</span><br><span class="line">	&#123;</span><br><span class="line">		// 半分</span><br><span class="line">		if(deltaTime&gt;0)</span><br><span class="line">		&#123;</span><br><span class="line">			realTime -= (double)realTime/2;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			realTime += (double)realTime/2;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		// 计算本此 &quot;rt&quot; 对应的曲线上的 x 坐标</span><br><span class="line">		bezierX = b3(p, realTime);</span><br><span class="line">		</span><br><span class="line">		// 计算差时</span><br><span class="line">		deltaTime = bezierX - x;</span><br><span class="line">	&#125;</span><br><span class="line">	// 差时逼近为0时跳出循环</span><br><span class="line">	while(deltaTime != 0);</span><br><span class="line"></span><br><span class="line">	return realTime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;以上就是两种将贝塞尔曲线运动匀速化的方法，下面我们来看两个简单的应用。</p>
+<h3 id="emsp-四、匀速化后的应用"><a href="#emsp-四、匀速化后的应用" class="headerlink" title="&emsp;四、匀速化后的应用"></a>&emsp;<strong>四、匀速化后的应用</strong></h3><p>&emsp;&emsp;<strong>1.高自由度的缓动动效</strong><br>&emsp;&emsp;在将贝塞尔曲线应用于运动之前，一些动画的过度效果往往比较生硬和死板（如上面提到的线性运动）。而贝塞尔曲线运动则可以得到很好的视觉效果。一些网站提供了<a href="http://easings.net/zh-cn" target="_blank" rel="noopener">缓动函数表</a>，使用这些已经封装好公开使用的缓动函数可以方便快捷地将一些流畅的动画效果引入到自己的项目当中实现一些简单的缓动动效。<br>&emsp;&emsp;但是其所提供的缓动函数毕竟有限，在此之外的效果想要实现可能就麻烦了，例如博主曾经在其他地方推导介绍过利用</p>
+<script type="math/tex; mode=display">
+\begin {aligned}
+k(t)&=\frac{1}{2}[sin(\pi t- \frac{\pi}{2})+1] \\\
+\end {aligned}</script><p>来简单地正弦软化线性数据，而应用本文所讲述的贝塞尔曲线运动则可以实现高自由度的可调整缓动效果，借此可实现动画效果与程序本体的逻辑分离，提高交互动效的开发自由度，也更加便于后期更新和维护。<br>（具体实例待更新）<br>&emsp;&emsp;<strong>2.物理效果的模拟</strong><br>&emsp;&emsp;考虑到某一物体(图形)在任意轴方向上的运动都可以通过贝塞尔曲线来方便地调节与控制，自然可以将其应用与物理效果的模拟上。例如令一小圆在水平方向上随时间匀速运动，而竖直方向上其y坐标的值按照二次形状的匀速化贝塞尔曲线来增大，这样就模拟了平抛运动，而通过自由地调节贝塞尔曲线的形状，可以非常轻松地模拟其他更加复杂的物理效果。<br>（具体实例待更新）</p>
+<h3 id="emsp-五、总结"><a href="#emsp-五、总结" class="headerlink" title="&emsp;五、总结"></a>&emsp;<strong>五、总结</strong></h3><p>待更新</p>
+<script type="math/tex; mode=display">--- END ---</script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果你觉得文章内容对你有帮助，可以打赏支持一下哦！<br/></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Sunwish 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        ﻿
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Algorithm/" rel="tag"><i class="fa fa-tag"></i> Algorithm</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/30/C-DLL-E/" rel="next" title="C++DLL在E中的调用（C+E模式）">
+                <i class="fa fa-chevron-left"></i> C++DLL在E中的调用（C+E模式）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/30/HashTable/" rel="prev" title="海量数据下的快速定位，HashTable 算法详解及其应用">
+                海量数据下的快速定位，HashTable 算法详解及其应用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+
+    <div class="sidebar-inner">
+      
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sunwish</p>
+              <p class="site-description motion-element" itemprop="description">个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sunwish.houkaifa.com/" title="Sunwish" target="_blank">Sunwish</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alterful.com/" title="Alterful" target="_blank">Alterful</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://easecurve.houkaifa.com/" title="Easecurve" target="_blank">Easecurve</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+          
+            
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-前言"><span class="nav-text"> 前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-一、关于贝塞尔曲线-amp-贝塞尔运动"><span class="nav-text"> 一、关于贝塞尔曲线 &amp; 贝塞尔运动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-1-简介"><span class="nav-text">  1.简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-2-作用"><span class="nav-text">  2.作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-2-贝塞尔运动"><span class="nav-text">  2.贝塞尔运动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-二、贝塞尔追踪方程的数学推导"><span class="nav-text"> 二、贝塞尔追踪方程的数学推导</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-1-一阶推导"><span class="nav-text">  1.一阶推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-2-二阶推导"><span class="nav-text">  2.二阶推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-3-三阶推导"><span class="nav-text">  3.三阶推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-4-n阶"><span class="nav-text">  4.n阶</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-三、匀速化处理"><span class="nav-text"> 三、匀速化处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-1-什么是匀速化-amp-为什么要匀速化"><span class="nav-text">  1.什么是匀速化 &amp; 为什么要匀速化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-2-两种匀速化的办法"><span class="nav-text">  2.两种匀速化的办法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-3-方法一：利用辛普森积分法匀速化"><span class="nav-text">  3.方法一：利用辛普森积分法匀速化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emsp-emsp-4-方法二：编程逼值实现匀速化"><span class="nav-text">  4.方法二：编程逼值实现匀速化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-四、匀速化后的应用"><span class="nav-text"> 四、匀速化后的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-五、总结"><span class="nav-text"> 五、总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+          
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sunwish</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 108.4k 字</span>
+</div>
+
+<!--
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+-->
+<span class="post-meta-divider">|</span>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count"><a href="http://beian.miit.gov.cn/" target="_blank">赣ICP备2022001064号-2</a></span>
+</div>
+
+
+<div>
+    <span id="busuanzi_container_site_uv"><i class="fa fa-user"></i> 本站访客<span id="busuanzi_value_site_uv"></span>人次</span>
+    <span class="post-meta-divider">|</span>
+    <span class="site-pv"><i class="fa fa-eye"></i> 总阅读量: <span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+    <!--
+    <span class="post-meta-divider">|</span>
+    <span class="site-uv"><i class="fa fa-user"></i> 访问人数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+    -->
+</div>
+<script src="./js/src/pvuvfix.js"></script>
+
+
+
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65941008";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <!--<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>-->
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sa3sYJwnqEBnYDpS7VFT70ya-gzGzoHsz',
+        appKey: 'TPHHBKrFtoGkcocnjqN78Fue',
+        placeholder: 'ヾﾉ≧∀≦)o 文章看完啦，别吝啬你的观点哦',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: true
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 15694#<app_id>,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
+
