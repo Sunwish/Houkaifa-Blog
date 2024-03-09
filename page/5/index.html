@@ -399,6 +399,242 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/11/04/Robot-Nao-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sunwish">
+      <meta itemprop="description" content="个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴开发 | 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/04/Robot-Nao-02/" itemprop="url">
+                  【Nao-02】 Choregraphe 环境介绍 & 让 Virtual Robot 运行一个盒子
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+          
+          <span class="post-meta-author-icon">
+            <i class="fa fa-user-o"></i>
+          </span>
+	  
+	  
+          
+	  <span class="post-meta-author-text">作者 Sunwish</span>
+	  <span class="post-meta-divider">|</span>
+          
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-04 19:47:19" itemprop="dateCreated datePublished" datetime="2018-11-04T19:47:19+08:00">2018-11-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-08-02 10:07:22" itemprop="dateModified" datetime="2022-08-02T10:07:22+08:00">2022-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/NAO/" itemprop="url" rel="index"><span itemprop="name">NAO</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/04/Robot-Nao-02/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/11/04/Robot-Nao-02/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/11/04/Robot-Nao-02/" class="leancloud_visitors" data-flag-title="【Nao-02】 Choregraphe 环境介绍 & 让 Virtual Robot 运行一个盒子">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
+<p>本篇初步介绍了 Choregraphe 开发环境，并演示如何让 Vitual Robot 安装并运行一个已有的指令盒。</p>
+</blockquote>
+<p><img src="/2018/11/04/Robot-Nao-02/1.jpg" alt="Title"></p>
+<hr>
+<h3 id="一、Choregraphe-环境概览"><a href="#一、Choregraphe-环境概览" class="headerlink" title="一、Choregraphe 环境概览"></a><strong>一、Choregraphe 环境概览</strong></h3><p>&emsp;&emsp;在 Windows 系统下正确安装 Choregraphe 后，其启动界面如图 2-1 所示。（<a href="https://houkaifa.com/2018/11/01/Robot-Nao-01/" target="_blank" rel="noopener">Choregraphe 下载、安装过程</a>）</p>
+<p>&emsp;&emsp;在此将界面按除工具栏外，从顶部开始逆时针旋转分割为八个部分，分别是：<br><img src="/2018/11/04/Robot-Nao-02/2.jpg" alt="Title">图 2-1 Choregraphe 界面</p>
+<p>&emsp;&emsp;<strong>1. Quick Bar</strong></p>
+<blockquote>
+<p>快速工具栏，可以快捷执行新建项目、打开项目、保存项目、撤销与重做、连接与断开连接、上传安装并运行、中止运行与调试操作，并显示当前的 Robot 运行状态。</p>
+</blockquote>
+<p>&emsp;&emsp;<strong>2. Project Files</strong></p>
+<blockquote>
+<p>项目文件区，可以选择 behavior，并在 ⑥ 中的 Inspector 中查看相关属性，单击 Properties 按钮可以修改 behavior 的一些特性。</p>
+</blockquote>
+<p>&emsp;&emsp;<strong>3. Project Objects</strong></p>
+<blockquote>
+<p>项目目标，显示当前项目中所有的 behavior，即 ⑤ 区域中所显示的内容。 </p>
+</blockquote>
+<p>&emsp;&emsp;<strong>4. Box Libraries</strong></p>
+<blockquote>
+<p>盒子库，显示被包含的所有指令盒，默认加载 Choregraphe 自带的所有指令盒，可以通过 ④ 区的工具栏自己新建盒子库、打开盒子库、保存盒子库和显示指令盒过滤器。</p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/04/Robot-Nao-02/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2018/11/01/Robot-Nao-01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2288,221 +2524,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Sunwish.coding.me/2016/12/24/Easecurve/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sunwish">
-      <meta itemprop="description" content="个人项目：<br>1. Alterful · 键盘增强：<br>https://alterful.com/<br>2. Easecurve · 缓动引擎：<br>https://easecurve.com/<br>3. AQTS · 自动量化交易系统">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="猴开发 | 博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/12/24/Easecurve/" itemprop="url">
-                  【个人项目】 Easecurve 2.0 · 缓动引擎
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-time">
-
-            
-            
-            
-
-          
-          <span class="post-meta-author-icon">
-            <i class="fa fa-user-o"></i>
-          </span>
-	  
-	  
-          
-	  <span class="post-meta-author-text">作者 Sunwish</span>
-	  <span class="post-meta-divider">|</span>
-          
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2016-12-24 22:14:08" itemprop="dateCreated datePublished" datetime="2016-12-24T22:14:08+08:00">2016-12-24</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2022-08-02 10:07:22" itemprop="dateModified" datetime="2022-08-02T10:07:22+08:00">2022-08-02</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/个人项目/" itemprop="url" rel="index"><span itemprop="name">个人项目</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/12/24/Easecurve/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/12/24/Easecurve/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2016/12/24/Easecurve/" class="leancloud_visitors" data-flag-title="【个人项目】 Easecurve 2.0 · 缓动引擎">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
-<p>Easecurve 缓动引擎是一款采用多区段拟合技术，基于.ecr缓动结构文件来完成数据回调并执行高度自定义化缓动效果的多元化程序缓动动效开发引擎。Easecurve 相较于其他的缓动支持，具有高效多态、拓展性强、可维护性强、精度可调、可跨语言等特点。</p>
-</blockquote>
-<p><img src="/2016/12/24/Easecurve/UI-EasecurveBuilder_InitPage.png" alt="启动界面"> Easecurve 2.0 启动界面</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/24/Easecurve/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2544,7 +2570,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-count">51</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2579,7 +2605,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2658,7 +2686,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">33</span>
+                      
+                    
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2726,7 +2756,7 @@
         
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -2751,7 +2781,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 108.4k 字</span>
+  <span class="post-count">博客全站共 108.6k 字</span>
 </div>
 
 <!--
@@ -3289,9 +3319,9 @@
       
     
       
-        
-      
     
+      
+        
       
     
       
